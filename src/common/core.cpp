@@ -378,11 +378,7 @@ int main (int argc, char **argv)
 	// Main runtime cycle
 	while (runflag != CORE_ST_STOP) { 
 		t_tick next = do_timer(gettick_nocache());
-
-		if (SERVER_TYPE != ATHENA_SERVER_WEB)
-			do_sockets(next);
-		else
-			do_wait(next);
+		do_sockets(next);
 	}
 
 	do_final();
