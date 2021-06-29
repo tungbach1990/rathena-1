@@ -61,6 +61,7 @@
 #include "unit.hpp"
 #include "vending.hpp"
 
+
 using namespace rathena;
 
 static inline uint32 client_tick( t_tick tick ){
@@ -16663,6 +16664,8 @@ void clif_parse_Auction_bid(int fd, struct map_session_data *sd){
 	}
 }
 
+// Bachnt Barter include
+#include "../custom/barter_clif_cpp.inc"
 
 /// Auction Search (CZ_AUCTION_ITEM_SEARCH).
 /// 0251 <search type>.W <auction id>.L <search text>.24B <page number>.W

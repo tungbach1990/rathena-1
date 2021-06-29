@@ -2446,5 +2446,7 @@
 #if PACKETVER >= 20191224
 	parseable_packet( HEADER_CZ_SE_CASHSHOP_OPEN2, sizeof( struct PACKET_CZ_SE_CASHSHOP_OPEN2 ), clif_parse_cashshop_open_request, 0 );
 #endif
+// Bachnt Barter include
+#include "../custom/barter_clif_packetdb_hpp.inc"
 
 #endif /* CLIF_PACKETDB_HPP */

@@ -272,6 +272,8 @@ enum npc_subtype : uint8{
 	NPCTYPE_POINTSHOP, /// Pointshop
 	NPCTYPE_TOMB, /// Monster tomb
 	NPCTYPE_MARKETSHOP, /// Marketshop
+	// Bachnt Barter include
+#include "../custom/barter_map_hpp.inc"
 };
 
 enum e_race : int8{

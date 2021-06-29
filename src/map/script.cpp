@@ -17174,6 +17174,8 @@ BUILDIN_FUNC(getd)
 	return SCRIPT_CMD_SUCCESS;
 }
 
+// Bachnt Barter include
+#include "../custom/barter_script_cpp_1_start.inc"
 BUILDIN_FUNC(callshop)
 {
 	TBL_PC *sd = NULL;
@@ -17353,6 +17355,7 @@ BUILDIN_FUNC(npcshopadditem)
 	return SCRIPT_CMD_SUCCESS;
 }
 
+
 BUILDIN_FUNC(npcshopdelitem)
 {
 	const char* npcname = script_getstr(st,2);
@@ -17417,6 +17420,10 @@ BUILDIN_FUNC(npcshopattach)
 	script_pushint(st,1);
 	return SCRIPT_CMD_SUCCESS;
 }
+
+
+// Bachnt Barter include
+#include "../custom/barter_script_cpp_1_end.inc"
 
 /*==========================================
  * Returns some values of an item [Lupus]
