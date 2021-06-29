@@ -12,4 +12,3 @@ parseable_packet(0x0b0f,-1,clif_parse_NPCBarterPurchase,2,6);
 /*
 
 #endif /* CLIF_PACKETDB_HPP */
-*/
