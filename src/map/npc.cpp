@@ -2876,6 +2876,7 @@ static const char* npc_parse_warp(char* w1, char* w2, char* w3, char* w4, const 
 
 	// Bachnt Barter include
 #include "../custom/barter_npc_cpp_5_start.inc"
+/*
 
 /**
  * Parses a shop/cashshop npc.
@@ -2894,6 +2895,7 @@ static const char* npc_parse_warp(char* w1, char* w2, char* w3, char* w4, const 
  * @param filepath : filename with path wich we are parsing
  * @return new index for next parsing
  */
+ /*
 static const char* npc_parse_shop(char* w1, char* w2, char* w3, char* w4, const char* start, const char* buffer, const char* filepath)
 {
 	char *p, point_str[32];
@@ -3135,7 +3137,7 @@ static const char* npc_parse_shop(char* w1, char* w2, char* w3, char* w4, const 
 	strdb_put(npcname_db, nd->exname, nd);
 	return strchr(start,'\n');// continue
 }
-
+*/
 	// Bachnt Barter include
 #include "../custom/barter_npc_cpp_5_end.inc"
 

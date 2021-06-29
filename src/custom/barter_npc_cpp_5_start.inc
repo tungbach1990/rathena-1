@@ -367,7 +367,7 @@ static const char* npc_parse_shop(char* w1, char* w2, char* w3, char* w4, const 
 
 // beforce
 
-/**
+/*
  * Parses a shop/cashshop npc.
  * Line definition :
  * <map name>,<x>,<y>,<facing>%TAB%shop%TAB%<NPC Name>%TAB%<sprite id>,<itemid>:<price>{,<itemid>:<price>...}
@@ -384,4 +384,3 @@ static const char* npc_parse_shop(char* w1, char* w2, char* w3, char* w4, const 
  * @param filepath : filename with path wich we are parsing
  * @return new index for next parsing
  */
-/*
