@@ -71,7 +71,7 @@ struct s_questinfo {
 #include "../custom/barter_npc_hpp_3_start.inc"
 /*
 struct npc_data {
-*/
+
 	struct block_list bl;
 	struct unit_data ud; //Because they need to be able to move....
 	struct view_data vd;
@@ -94,6 +94,7 @@ struct npc_data {
 
 	void* chatdb; // pointer to a npc_parse struct (see npc_chat.cpp)
 	char* path;/* path dir */
+/*
 	enum npc_subtype subtype;
 	bool trigger_on_hidden;
 	int src_id;
@@ -139,6 +140,7 @@ struct npc_data {
 		unsigned long color;
 	} progressbar;
 };
+*/
 // Bachnt Barter include
 #include "../custom/barter_npc_hpp_3_end.inc"
 struct eri;
