@@ -17176,6 +17176,7 @@ BUILDIN_FUNC(getd)
 
 // Bachnt Barter include
 #include "../custom/barter_script_cpp_1_start.inc"
+/*
 BUILDIN_FUNC(callshop)
 {
 	TBL_PC *sd = NULL;
@@ -17398,6 +17399,8 @@ BUILDIN_FUNC(npcshopdelitem)
  * Sets a script to attach to a shop npc.
  * npcshopattach "<npc_name>";
  **/
+ 
+ /*
 BUILDIN_FUNC(npcshopattach)
 {
 	const char* npcname = script_getstr(st,2);
@@ -17420,7 +17423,7 @@ BUILDIN_FUNC(npcshopattach)
 	script_pushint(st,1);
 	return SCRIPT_CMD_SUCCESS;
 }
-
+*/
 
 // Bachnt Barter include
 #include "../custom/barter_script_cpp_1_end.inc"

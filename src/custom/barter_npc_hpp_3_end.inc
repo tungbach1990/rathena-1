@@ -1,10 +1,3 @@
-	struct {
-		t_tick timeout;
-		unsigned long color;
-	} progressbar;
-};
-//after
-*/ 
 
 struct npc_data {
 	struct block_list bl;

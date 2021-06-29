@@ -69,7 +69,9 @@ struct s_questinfo {
 };
 // Bachnt Barter include
 #include "../custom/barter_npc_hpp_3_start.inc"
+/*
 struct npc_data {
+*/
 	struct block_list bl;
 	struct unit_data ud; //Because they need to be able to move....
 	struct view_data vd;

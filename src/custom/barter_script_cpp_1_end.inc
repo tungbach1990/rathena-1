@@ -1,16 +1,3 @@
-/*
-		if (flag)
-		nd->master_nd = ((struct npc_data *)map_id2bl(st->oid));
-	else
-		nd->master_nd = NULL;
-
-	script_pushint(st,1);
-	return SCRIPT_CMD_SUCCESS;
-}
-}
-*/
-*/ after
-
 
 BUILDIN_FUNC(callshop)
 {
