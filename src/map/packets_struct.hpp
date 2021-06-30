@@ -3907,12 +3907,16 @@ struct PACKET_ZC_NPC_EXPANDED_BARTER_OPEN_sub {
 	uint32 index;
 	uint32 zeny;
 	uint32 currency_count;
+// Bachnt Barter include
+#include "../custom/barter_packets_struct_hpp.inc"	
+/*	
 #if defined(_MSC_VER)
 	// Workaround for fix Visual Studio bug (error C2233). Here should be currencies[]
 	struct PACKET_ZC_NPC_EXPANDED_BARTER_OPEN_sub2 currencies[1];
 #else
 	struct PACKET_ZC_NPC_EXPANDED_BARTER_OPEN_sub2 currencies[];
 #endif
+*/
 } __attribute__((packed));
 
 struct PACKET_ZC_NPC_EXPANDED_BARTER_OPEN {

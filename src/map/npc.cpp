@@ -1443,6 +1443,8 @@ int npc_click(struct map_session_data* sd, struct npc_data* nd)
 	}
 
 	switch(nd->subtype) {
+			// Bachnt Barter include
+#include "../custom/barter_npc_cpp_1.inc"
 		case NPCTYPE_SHOP:
 			clif_npcbuysell(sd,nd->bl.id);
 			break;
@@ -1615,6 +1617,8 @@ static enum e_CASHSHOP_ACK npc_cashshop_process_payment(struct npc_data *nd, int
 	npc_shop_currency_type(sd, nd, cost, false);
 
 	switch(nd->subtype) {
+		// Bachnt Barter include
+		#include "../custom/barter_npc_cpp_1.inc"
 		case NPCTYPE_CASHSHOP:
 			if (cost[1] < points || cost[0] < (price - points))
 				return ERROR_TYPE_MONEY;
@@ -1686,6 +1690,8 @@ static enum e_CASHSHOP_ACK npc_cashshop_process_payment(struct npc_data *nd, int
 	return ERROR_TYPE_NONE;
 }
 
+// Bachnt Barter include
+#include "../custom/barter_npc_cpp_3.inc"
 /**
  * Cash Shop Buy List for clients 2010-11-16 and newer
  * @param sd: Player data
@@ -1966,6 +1972,9 @@ static int npc_buylist_sub(struct map_session_data* sd, uint16 n, struct s_npc_b
 
 	return 0;
 }
+
+// Bachnt Barter include
+#include "../custom/barter_npc_cpp_4.inc"
 
 /**
  * Shop buylist that the player is attempting to purchase
@@ -2865,6 +2874,10 @@ static const char* npc_parse_warp(char* w1, char* w2, char* w3, char* w4, const 
 	return strchr(start,'\n');// continue
 }
 
+	// Bachnt Barter include
+#include "../custom/barter_npc_cpp_5_start.inc"
+/*
+
 /**
  * Parses a shop/cashshop npc.
  * Line definition :
@@ -2882,6 +2895,7 @@ static const char* npc_parse_warp(char* w1, char* w2, char* w3, char* w4, const 
  * @param filepath : filename with path wich we are parsing
  * @return new index for next parsing
  */
+ /*
 static const char* npc_parse_shop(char* w1, char* w2, char* w3, char* w4, const char* start, const char* buffer, const char* filepath)
 {
 	char *p, point_str[32];
@@ -3123,6 +3137,9 @@ static const char* npc_parse_shop(char* w1, char* w2, char* w3, char* w4, const 
 	strdb_put(npcname_db, nd->exname, nd);
 	return strchr(start,'\n');// continue
 }
+*/
+	// Bachnt Barter include
+#include "../custom/barter_npc_cpp_5_end.inc"
 
 /** [Cydh]
 * Check if the shop is affected by discount or not
@@ -4586,6 +4603,8 @@ int npc_parsesrcfile(const char* filepath)
 			p = npc_parse_warp(w1,w2,w3,w4, p, buffer, filepath);
 		else if( (!strcasecmp(w2,"shop") || !strcasecmp(w2,"cashshop") || !strcasecmp(w2,"itemshop") || !strcasecmp(w2,"pointshop") || !strcasecmp(w2,"marketshop") ) && count > 3 )
 			p = npc_parse_shop(w1,w2,w3,w4, p, buffer, filepath);
+			// Bachnt Barter include
+		#include "../custom/barter_npc_cpp_6.inc"
 		else if( strcasecmp(w2,"script") == 0 && count > 3 ) {
 			if( strcasecmp(w1,"function") == 0 )
 				p = npc_parse_function(w1, w2, w3, w4, p, buffer, filepath);

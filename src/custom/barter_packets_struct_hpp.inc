@@ -1,0 +1,1 @@
+struct PACKET_ZC_NPC_EXPANDED_BARTER_OPEN_sub2 currencies[1];

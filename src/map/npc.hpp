@@ -23,10 +23,15 @@ struct npc_label_list {
 	int pos;
 };
 
+// Bachnt Barter include
+		#include "../custom/barter_npc_hpp_1.inc"
+		
 /// Item list for NPC sell/buy list
 struct npc_item_list {
 	t_itemid nameid;
 	unsigned int value;
+	// Bachnt Barter include
+		#include "../custom/barter_npc_hpp_2.inc"
 #if PACKETVER >= 20131223
 	unsigned short qty; ///< Stock counter (Market shop)
 	uint8 flag; ///< 1: Item added by npcshopitem/npcshopadditem, force load! (Market shop)
@@ -62,8 +67,11 @@ struct s_questinfo {
 		}
 	}
 };
-
+// Bachnt Barter include
+#include "../custom/barter_npc_hpp_3_start.inc"
+/*
 struct npc_data {
+
 	struct block_list bl;
 	struct unit_data ud; //Because they need to be able to move....
 	struct view_data vd;
@@ -86,6 +94,7 @@ struct npc_data {
 
 	void* chatdb; // pointer to a npc_parse struct (see npc_chat.cpp)
 	char* path;/* path dir */
+/*
 	enum npc_subtype subtype;
 	bool trigger_on_hidden;
 	int src_id;
@@ -131,7 +140,9 @@ struct npc_data {
 		unsigned long color;
 	} progressbar;
 };
-
+*/
+// Bachnt Barter include
+#include "../custom/barter_npc_hpp_3_end.inc"
 struct eri;
 extern struct eri *npc_sc_display_ers;
 
