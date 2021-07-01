@@ -1,0 +1,126 @@
+-	exbartershop	MSHOP1	-1,7619:9999:1000000-25723:0:500,23776:9999:100000-25723:0:10,23777:9999:100000-25723:0:20,23778:9999:100000-25723:0:50,23779:9999:100000-25723:0:10,23780:9999:100000-25723:0:20,23781:9999:100000-25723:0:50,15376:9999:100000-25723:0:50,15377:9999:100000-25723:0:50,20933:9999:100000-25723:0:50,20934:9999:100000-25723:0:50,22196:9999:100000-25723:0:50,22197:9999:100000-25723:0:50,32207:9999:100000-25723:0:50,32208:9999:100000-25723:0:50,32209:9999:100000-25723:0:50,32210:9999:100000-25723:0:50
+
+
+prontera,164,174,4	script	Illusion OS	4_M_GUNSLINGER,{
+	mes " [ Illusion OS ]";
+	//dispbottom .array_blueprint[0];
+        //dispbottom .array_blueprint[2];
+	mes "I will make Illusion Equipment or Illusion Module for you !Are you ready ?";
+	switch(select(.main_menu$)) {
+		Case 1:
+			callshop "MSHOP1";
+			break;
+		Case 2:
+			next;
+			mes " [ Illusion OS ]";
+			mes "";
+			mes "All i need : ";
+			mes "30 <ITEM>"+getitemname(25669)+"<INFO>"+25669+"</INFO></ITEM>"; 
+			mes "and ";
+			mes "5 <ITEM>"+getitemname(25723)+"<INFO>"+25723+"</INFO></ITEM>";
+			mes "";
+			mes "And 1,000,000 fee for service";
+			next;
+			
+			.call = callfunc("CheckAndDelItem",.price_ex_module);
+			
+			if (.call > 0){
+				.select_menu_blueprint = select(.blueprint_menu$);
+				.rand = rand(1,100);
+				.rand = rand(1,100/.chance_ex_module[.select_menu_blueprint - 1]);
+				//dispbottom .rand%.chance_ex_module[.select_menu_blueprint - 1];
+				//dispbottom .rand + " " + .select_menu_blueprint + "  " + .chance_ex_module[.select_menu_blueprint - 1];
+				if (.rand <= 1 ) {
+					.arraysize = getarraysize(getd( ".array_blueprint" + .select_menu_blueprint ));
+					setarray .temp_array[0],0;
+					copyarray 	.temp_array[0],
+							getd( ".array_blueprint" + .select_menu_blueprint + "[0]"),.arraysize;
+							
+					//.arraysize = getarraysize(getd( ".array_blueprint" + .select_menu_blueprint ));
+					.rand_module = rand(0,getarraysize(.temp_array)-1);
+					//dispbottom .rand_module + " " + .temp_array[.rand_module];
+					getitem .temp_array[rand(0,getarraysize(.temp_array)-1)],1;
+					end;
+				}
+			}
+			break;
+		Case 3:
+			next;
+			mes " [ Illusion OS ]";
+			mes "All i need : ";
+			mes "50 <ITEM>"+getitemname(25669)+"<INFO>"+25669+"</INFO></ITEM>"; 
+			mes "and ";
+			mes "1 <ITEM>"+getitemname(25668)+"<INFO>"+25668+"</INFO></ITEM>";
+			next;
+			.call = callfunc("CheckAndDelItem",.price_ex_osweap);
+			
+			if (.call > 0){
+				getitem .os_weapon[rand(getarraysize(.os_weapon))],1;
+			}
+			break;
+	}
+	
+	end;
+
+	OnInit:
+		setarray .chance_ex_module[0],50,40,30,50;
+		setarray .Aarray_blueprint[0],1,2,3,4;
+		//dispbottom .@array_blueprint[0];
+		//dispbottom .@array_blueprint[1];
+		setarray 	getd( ".array_blueprint"+ .Aarray_blueprint[0] ),
+					25670, 25671, 25672,25673,25674,25675,25676,25677;
+		setarray 	getd( ".array_blueprint"+ .Aarray_blueprint[1] ), 
+					25678, 25679, 25680,25681,25682,25683,25684,25685,
+					25686,25687,25688,25689,25690,25691,25692;
+		setarray 	getd( ".array_blueprint"+ .Aarray_blueprint[2] ), 
+					25693, 25694, 25695,25696,25697,25698,25699;
+		setarray 	getd( ".array_blueprint"+ .Aarray_blueprint[3] ), 
+					25700, 25701, 25702,25703,25704,25705;
+		.main_menu$ = "Buy Equipment:Craft Blueprint Module:Make OS-WEAPON";
+		.blueprint_menu$ = 	"Common " + 		.chance_ex_module[0] +
+							"%:Rare " + 		.chance_ex_module[1] +
+							"%:Unique" + 		.chance_ex_module[2] +
+							"%:Legendary " + 	.chance_ex_module[3] +"%";
+							
+		setarray	.os_weapon[0],1862,13493,16088,16089,18178,18179,18180,
+						21047,26151,26164,28038,28136,28253,28755,28629,32019;
+		.cor_id = 25723;
+		.unknown_id = 25669;
+		.cor_ex_equip = 50;
+		.unknown_ex_equip = 0;
+		.cor_ex_module = 5;
+		.unknown_ex_module = 30;
+		
+		setarray .price_ex_equip[0],25723,50,25669,0;
+		setarray .price_ex_module[0],25723,5,25669,30;
+		setarray .price_ex_osweap[0],25669,50,25668,1;
+
+	end;
+
+}
+
+
+function	script	CheckAndDelItem	{
+	.@size = getarraysize(getarg(0));
+	copyarray .array,getarg(0),.@size;
+	.temp = 0;
+	for (.@i = 0; .@i < .@size; .@i += 2) {
+		if (countitem(.array[.@i]) < .array[.@i+1]){
+		.temp++;
+		break;
+		}
+	}
+	if (Zeny < 1000000) .temp++;
+	if (.temp > 0){
+		mes "You dont enough materials !";
+		close;
+		return 0;
+	} else {
+		for (.@i = 0; .@i < .@size; .@i += 2) {
+			delitem .array[.@i],.array[.@i+1];
+		}
+		Zeny = Zeny - 1000000;
+		return 1;
+	}
+	
+}
