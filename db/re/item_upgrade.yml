@@ -2803,7 +2803,7 @@ Body:
       callfunc("F_Lapine_Imperial_Convert4", .@opts[0], .@vals[0]);
       .@params[0] = 0;
       getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
-  - Item: Grace_Convert1
+  - Item: Grace_P_Mo_Garment
     TargetItem:
       - Item: Grace_Attack_Manteau
       - Item: Grace_Magic_Manteau
@@ -2811,7 +2811,7 @@ Body:
       callfunc("F_Lapine_Grace_Convert1", .@opts[0], .@vals[0]);
       .@params[0] = 0;
       getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
-  - Item: Grace_Convert2
+  - Item: Grace_M_Mo_Garment
     TargetItem:
       - Item: Grace_Attack_Manteau
       - Item: Grace_Magic_Manteau
@@ -2819,7 +2819,7 @@ Body:
       callfunc("F_Lapine_Grace_Convert2", .@opts[0], .@vals[0]);
       .@params[0] = 0;
       getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
-  - Item: Grace_Convert3
+  - Item: Grace_P_Mo_Armor
     TargetItem:
       - Item: Grace_Breath_Armor
       - Item: Grace_Knight_Armor
@@ -2861,7 +2861,7 @@ Body:
       callfunc("F_Lapine_Grace_Convert3", .@opts[0], .@vals[0]);
       .@params[0] = 0;
       getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
-  - Item: Grace_Convert4
+  - Item: Grace_M_Mo_Armor
     TargetItem:
       - Item: Grace_Breath_Armor
       - Item: Grace_Knight_Armor
@@ -2903,95 +2903,95 @@ Body:
       callfunc("F_Lapine_Grace_Convert4", .@opts[0], .@vals[0]);
       .@params[0] = 0;
       getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
-  # - Item: Ein_Ddbox
-    # TargetItem:
-      # - Item: Ein_BHSWORD
-      # - Item: Ein_BHSTAFF
-      # - Item: Ein_BHHuuma
-      # - Item: Ein_BHKATAR
-      # - Item: Ein_BHAXE
-      # - Item: Ein_BHBOW
-      # - Item: Ein_1HKNUCK
-      # - Item: Ein_1HHAMMER
-      # - Item: Ein_1HWAND
-      # - Item: Ein_1HWHIP
-      # - Item: Ein_1HBOOK
-      # - Item: Ein_1HDAGGER
-      # - Item: Ein_1HMAGGER
-      # - Item: Ein_1HSPEAR
-      # - Item: Ein_1HLUTE
-      # - Item: Ein_1HSWORD
-      # - Item: Ein_1HGUN
-      # - Item: Ein_1H_Foxtail
-    # TODO
-    # Result: |
-      # callfunc("F_Lapine_Ein_Ddbox", .@opts[0], .@vals[0]);
-      # .@params[0] = 0;
-      # getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
-  # - Item: Ein_Ddbox2
-    # TargetItem:
-      # - Item: Ein_BHSWORD
-      # - Item: Ein_BHSTAFF
-      # - Item: Ein_BHHuuma
-      # - Item: Ein_BHKATAR
-      # - Item: Ein_BHAXE
-      # - Item: Ein_BHBOW
-      # - Item: Ein_1HKNUCK
-      # - Item: Ein_1HHAMMER
-      # - Item: Ein_1HWAND
-      # - Item: Ein_1HWHIP
-      # - Item: Ein_1HBOOK
-      # - Item: Ein_1HDAGGER
-      # - Item: Ein_1HMAGGER
-      # - Item: Ein_1HSPEAR
-      # - Item: Ein_1HLUTE
-      # - Item: Ein_1HSWORD
-      # - Item: Ein_1HGUN
-      # - Item: Ein_1H_Foxtail
-    # TODO
-    # Result: |
-      # callfunc("F_Lapine_Ein_Ddbox2", .@opts[0], .@vals[0]);
-      # .@params[0] = 0;
-      # getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
-  # - Item: Abyss_Ddbox
-    # TargetItem:
-      # - Item: DragonA_Red
-      # - Item: DragonA_Green
-      # - Item: DragonA_Gold
-      # - Item: DragonA_Purple
-      # - Item: DragonA_Blue
-      # - Item: DragonA_Silver
-    # TODO
-    # Result: |
-      # callfunc("F_Lapine_Abyss_Ddbox", .@opts[0], .@vals[0]);
-      # .@params[0] = 0;
-      # getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
-  # - Item: Abyss_Ddbox2
-    # TargetItem:
-      # - Item: DragonA_Red
-      # - Item: DragonA_Green
-      # - Item: DragonA_Gold
-      # - Item: DragonA_Purple
-      # - Item: DragonA_Blue
-      # - Item: DragonA_Silver
-    # TODO
-    # Result: |
-      # callfunc("F_Lapine_Abyss_Ddbox2", .@opts[0], .@vals[0]);
-      # .@params[0] = 0;
-      # getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
-  # - Item: Abyss_Ddbox3
-    # TargetItem:
-      # - Item: Drag_Manteau
-    # TODO
-    # Result: |
-      # callfunc("F_Lapine_Abyss_Ddbox3", .@opts[0], .@vals[0]);
-      # .@params[0] = 0;
-      # getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
-  # - Item: Abyss_Ddbox4
-    # TargetItem:
-      # - Item: Dragon_Boots
-    # TODO
-    # Result: |
-      # callfunc("F_Lapine_Abyss_Ddbox4", .@opts[0], .@vals[0]);
-      # .@params[0] = 0;
-      # getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Ein_Ddbox
+    TargetItem:
+      - Item: Ein_BHSWORD
+      - Item: Ein_BHSTAFF
+      - Item: Ein_BHHuuma
+      - Item: Ein_BHKATAR
+      - Item: Ein_BHAXE
+      - Item: Ein_BHBOW
+      - Item: Ein_1HKNUCK
+      - Item: Ein_1HHAMMER
+      - Item: Ein_1HWAND
+      - Item: Ein_1HWHIP
+      - Item: Ein_1HBOOK
+      - Item: Ein_1HDAGGER
+      - Item: Ein_1HMAGGER
+      - Item: Ein_1HSPEAR
+      - Item: Ein_1HLUTE
+      - Item: Ein_1HSWORD
+      - Item: Ein_1HGUN
+      - Item: Ein_1H_Foxtail
+   # TODO
+    Result: |
+      callfunc("F_Lapine_Ein_Ddbox", .@opts[0], .@vals[0]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Ein_Ddbox2
+    TargetItem:
+      - Item: Ein_BHSWORD
+      - Item: Ein_BHSTAFF
+      - Item: Ein_BHHuuma
+      - Item: Ein_BHKATAR
+      - Item: Ein_BHAXE
+      - Item: Ein_BHBOW
+      - Item: Ein_1HKNUCK
+      - Item: Ein_1HHAMMER
+      - Item: Ein_1HWAND
+      - Item: Ein_1HWHIP
+      - Item: Ein_1HBOOK
+      - Item: Ein_1HDAGGER
+      - Item: Ein_1HMAGGER
+      - Item: Ein_1HSPEAR
+      - Item: Ein_1HLUTE
+      - Item: Ein_1HSWORD
+      - Item: Ein_1HGUN
+      - Item: Ein_1H_Foxtail
+   # TODO
+    Result: |
+      callfunc("F_Lapine_Ein_Ddbox2", .@opts[0], .@vals[0]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Abyss_Ddbox
+    TargetItem:
+      - Item: DragonA_Red
+      - Item: DragonA_Green
+      - Item: DragonA_Gold
+      - Item: DragonA_Purple
+      - Item: DragonA_Blue
+      - Item: DragonA_Silver
+   # TODO
+    Result: |
+      callfunc("F_Lapine_Abyss_Ddbox", .@opts[0], .@vals[0]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Abyss_Ddbox2
+    TargetItem:
+      - Item: DragonA_Red
+      - Item: DragonA_Green
+      - Item: DragonA_Gold
+      - Item: DragonA_Purple
+      - Item: DragonA_Blue
+      - Item: DragonA_Silver
+   # TODO
+    Result: |
+      callfunc("F_Lapine_Abyss_Ddbox2", .@opts[0], .@vals[0]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Abyss_Ddbox3
+    TargetItem:
+      - Item: Drag_Manteau
+   # TODO
+    Result: |
+      callfunc("F_Lapine_Abyss_Ddbox3", .@opts[0], .@vals[0]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Abyss_Ddbox4
+    TargetItem:
+      - Item: Dragon_Boots
+   # TODO
+    Result: |
+      callfunc("F_Lapine_Abyss_Ddbox4", .@opts[0], .@vals[0]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
