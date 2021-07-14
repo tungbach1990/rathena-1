@@ -337,6 +337,32 @@ int do_init( int argc, char** argv ){
 		return 0;
 	}
 
+<<<<<<< HEAD
+=======
+	if (!process("CREATE_ARROW_DB", 1, root_paths, "create_arrow_db", [](const std::string& path, const std::string& name_ext) -> bool {
+		return sv_readdb(path.c_str(), name_ext.c_str(), ',', 1+2, 1+2*MAX_ARROW_RESULT, MAX_SKILL_ARROW_DB, &skill_parse_row_createarrowdb, false);
+	})) {
+		return 0;
+	}
+
+	if (!process("STATPOINT_DB", 1, { path_db_mode }, "statpoint", [](const std::string &path, const std::string &name_ext) -> bool {
+		return pc_read_statsdb((path + name_ext).c_str());
+	})) {
+		return 0;
+	}
+
+	if (!process("STATPOINT_DB", 1, { path_db_import }, "statpoint", [](const std::string &path, const std::string &name_ext) -> bool {
+		return pc_read_statsdb((path + name_ext).c_str());
+	})) {
+		return 0;
+	}
+	if (!process("CASTLE_DB", 1, root_paths, "castle_db", [](const std::string &path, const std::string &name_ext) -> bool {
+		return sv_readdb(path.c_str(), name_ext.c_str(), ',', 4, 4, -1, &guild_read_castledb, false);
+	})) {
+		return 0;
+	}
+
+>>>>>>> 2f311bd1ef6abf0de642f93690eb37bebbb34d14
 	// TODO: add implementations ;-)
 
 	return 0;
@@ -3607,3 +3633,102 @@ static bool mob_readdb_group_yaml(void) {
 	}
 	return true;
 }
+<<<<<<< HEAD
+=======
+
+// Copied and adjusted from skill.cpp
+static bool skill_parse_row_createarrowdb(char* split[], int columns, int current)
+{
+	t_itemid nameid = static_cast<t_itemid>(strtoul(split[0], nullptr, 10));
+
+	if (nameid == 0)
+		return true;
+
+	std::string *material_name = util::umap_find(aegis_itemnames, nameid);
+
+	if (!material_name) {
+		ShowError("skill_parse_row_createarrowdb: Invalid item %u.\n", nameid);
+		return false;
+	}
+
+	// Import just for clearing/disabling from original data
+	if (strtoul(split[1], nullptr, 10) == 0) {
+		body << YAML::BeginMap;
+		body << YAML::Key << "Remove" << YAML::Value << *material_name;
+		body << YAML::EndMap;
+		return true;
+	}
+
+	std::map<std::string, uint32> item_created;
+	
+	for (uint16 x = 1; x+1 < columns && split[x] && split[x+1]; x += 2) {
+		nameid = static_cast<t_itemid>(strtoul(split[x], nullptr, 10));
+		std::string* item_name = util::umap_find(aegis_itemnames, nameid);
+
+		if (!item_name) {
+			ShowError("skill_parse_row_createarrowdb: Invalid item %u.\n", nameid);
+			return false;
+		}
+
+		item_created.insert({ *item_name, strtoul(split[x+1], nullptr, 10) });
+	}
+
+	body << YAML::BeginMap;
+	body << YAML::Key << "Source" << YAML::Value << *material_name;
+	body << YAML::Key << "Make";
+	body << YAML::BeginSeq;
+	for (const auto &it : item_created) {
+		body << YAML::BeginMap;
+		body << YAML::Key << "Item" << YAML::Value << it.first;
+		body << YAML::Key << "Amount" << YAML::Value << it.second;
+		body << YAML::EndMap;
+	}
+	body << YAML::EndSeq;
+	body << YAML::EndMap;
+
+	return true;
+}
+
+// Copied and adjusted from pc.cpp
+static bool pc_read_statsdb(const char* file) {
+	FILE* fp = fopen( file, "r" );
+
+	if( fp == nullptr ){
+		ShowError( "Can't read %s\n", file );
+		return false;
+	}
+
+	uint32 lines = 0, count = 0;
+	char line[1024];
+	
+	while (fgets(line, sizeof(line), fp)) {
+		lines++;
+
+		trim(line);
+		if (line[0] == '/' && line[1] == '/') // Ignore comments
+			continue;
+
+		body << YAML::BeginMap;
+		body << YAML::Key << "Level" << YAML::Value << (count+1);
+		body << YAML::Key << "Points" << YAML::Value << static_cast<uint32>(strtoul(line, nullptr, 10));
+		body << YAML::EndMap;
+
+		count++;
+	}
+
+	fclose(fp);
+	ShowStatus("Done reading '" CL_WHITE "%d" CL_RESET "' entries in '" CL_WHITE "%s" CL_RESET "'.\n", count, file);
+	return true;
+}
+
+// Copied and adjusted from guild.cpp
+static bool guild_read_castledb(char* str[], int columns, int current) {
+	body << YAML::BeginMap;
+	body << YAML::Key << "Id" << YAML::Value << str[0];
+	body << YAML::Key << "Map" << YAML::Value << str[1];
+	body << YAML::Key << "Name" << YAML::Value << trim(str[2]);
+	body << YAML::Key << "Npc" << YAML::Value << trim(str[3]);
+	body << YAML::EndMap;
+	return true;
+}
+>>>>>>> 2f311bd1ef6abf0de642f93690eb37bebbb34d14

@@ -420,5 +420,11 @@ static bool mob_parse_row_chatdb(char* fields[], int columns, int current);
 static bool read_homunculus_expdb(const char* file);
 static bool mob_readdb_group(char* str[], int columns, int current);
 static bool mob_readdb_group_yaml(void);
+<<<<<<< HEAD
+=======
+static bool skill_parse_row_createarrowdb(char* fields[], int columns, int current);
+static bool pc_read_statsdb(const char* file);
+static bool guild_read_castledb(char* str[], int columns, int current);
+>>>>>>> 2f311bd1ef6abf0de642f93690eb37bebbb34d14
 
 #endif /* CSV2YAML_HPP */
