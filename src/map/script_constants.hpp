@@ -478,6 +478,22 @@
 	export_constant(MF_PRIVATEAIRSHIP_SOURCE);
 	export_constant(MF_PRIVATEAIRSHIP_DESTINATION);
 	export_constant(MF_SKILL_DURATION);
+	export_constant(MF_DROPRATE5);
+	export_constant(MF_DROPRATE10);
+	export_constant(MF_DROPRATE15);
+	export_constant(MF_DROPRATE20);
+	export_constant(MF_DROPRATE25);
+	export_constant(MF_DROPRATE30);
+	export_constant(MF_DROPRATE35);
+	export_constant(MF_DROPRATE40);
+	export_constant(MF_DROPRATE45);
+	export_constant(MF_DROPRATE50);
+	export_constant(MF_DROPRATE75);
+	export_constant(MF_DROPRATE100);
+	export_constant(MF_DROPRATE125);
+	export_constant(MF_DROPRATE150);
+	export_constant(MF_DROPRATE175);
+	export_constant(MF_DROPRATE200);
 
 	/* setcell types */
 	export_constant(CELL_WALKABLE);
