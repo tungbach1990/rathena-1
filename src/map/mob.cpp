@@ -2774,27 +2774,30 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		(md->special_state.ai==AI_SPHERE && battle_config.alchemist_summon_reward == 1) //Marine Sphere Drops items.
 		) )
 	{ // Item Drop start
-		struct party_data *ptt;
-		ptt = party_search(sd->status.party_id);
-		int i;
-		unsigned int lv;
-		unsigned int max_lv = 0;
-		unsigned int min_lv = UINT_MAX;
-		if (ptt) {
-			for(i=0;i<MAX_PARTY;i++){
-				/**
-				* - If not online (doesn't affect exp range)
-				**/
-				if (!ptt->party.member[i].online)
-				continue;
-
-				lv=ptt->party.member[i].lv;
-				if (lv < min_lv) min_lv = lv;
-				if (lv > max_lv) max_lv = lv;
+		int ptmemcount = 0;
+		if (sd) {
+			struct party_data *ptt;
+			ptt = party_search(sd->status.party_id);
+			int i;
+			unsigned int lv;
+			unsigned int max_lv = 0;
+			unsigned int min_lv = UINT_MAX;
+			if (ptt) {
+				for(i=0;i<MAX_PARTY;i++){
+					/**
+					* - If not online (doesn't affect exp range)
+					**/
+					if (!ptt->party.member[i].online)
+					continue;
+					ptmemcount ++;
+					lv=ptt->party.member[i].lv;
+					if (lv < min_lv) min_lv = lv;
+					if (lv > max_lv) max_lv = lv;
+				}
 			}
 		}
 		//ShowDebug(" Im out of IF 2 \n");
-		if (ptt)
+		if (ptmemcount > 1)
 		{
 			if (sd && // check BL_PC
 					//ptt &&					// is party ?
