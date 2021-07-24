@@ -2824,7 +2824,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 						
 						struct item_drop_list *dlist = ers_alloc(item_drop_list_ers, struct item_drop_list);
 #ifdef RENEWAL_DROP
-						drop_modifier = pc_level_penalty_mod( mvp_sd != nullptr ? mvp_sd : second_sd != nullptr ? second_sd : third_sd, PENALTY_DROP, nullptr, md );
+						int drop_modifier = pc_level_penalty_mod( mvp_sd != nullptr ? mvp_sd : second_sd != nullptr ? second_sd : third_sd, PENALTY_DROP, nullptr, md );
 #endif
 						dlist->m = md->bl.m;
 						dlist->x = md->bl.x;
@@ -2991,7 +2991,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 			struct item_data* it = NULL;
 			int drop_rate;
 #ifdef RENEWAL_DROP
-			drop_modifier = pc_level_penalty_mod( mvp_sd != nullptr ? mvp_sd : second_sd != nullptr ? second_sd : third_sd, PENALTY_DROP, nullptr, md );
+			int drop_modifier = pc_level_penalty_mod( mvp_sd != nullptr ? mvp_sd : second_sd != nullptr ? second_sd : third_sd, PENALTY_DROP, nullptr, md );
 #endif
 			dlist->m = md->bl.m;
 			dlist->x = md->bl.x;
@@ -3653,7 +3653,7 @@ int mob_dead2(struct mob_data *md, struct block_list *src, int type)
 		struct item_data* it = NULL;
 		int drop_rate;
 #ifdef RENEWAL_DROP
-		drop_modifier = pc_level_penalty_mod( mvp_sd != nullptr ? mvp_sd : second_sd != nullptr ? second_sd : third_sd, PENALTY_DROP, nullptr, md );
+		int drop_modifier = pc_level_penalty_mod( mvp_sd != nullptr ? mvp_sd : second_sd != nullptr ? second_sd : third_sd, PENALTY_DROP, nullptr, md );
 #endif
 		dlist->m = md->bl.m;
 		dlist->x = md->bl.x;

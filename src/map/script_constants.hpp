@@ -478,6 +478,7 @@
 	export_constant(MF_PRIVATEAIRSHIP_SOURCE);
 	export_constant(MF_PRIVATEAIRSHIP_DESTINATION);
 	export_constant(MF_SKILL_DURATION);
+	export_constant(MF_LOOTEVENT);
 	export_constant(MF_DROPRATE5);
 	export_constant(MF_DROPRATE10);
 	export_constant(MF_DROPRATE15);
