@@ -7030,7 +7030,7 @@ Body:
             Rate: 16
           - Item: MechanicStone_Robe
             Rate: 16
-          - Item: WanderMinstrelStone_Robe
+          - Item: WanderMinstreStone_Robe
             Rate: 16
           - Item: EXPStone_Bottom
             Rate: 24
@@ -7078,9 +7078,9 @@ Body:
             Rate: 37
           - Item: WanderMinstrelStone_Top
             Rate: 37
-          - Item: WanderMinstrelStone_Middle
+          - Item: WanderMinstStone_Middle
             Rate: 37
-          - Item: WanderMinstrelStone_Bottom
+          - Item: WanderMinstStone_Bottom
             Rate: 37
   - Group: ENCHANT_STONE_BOX16
     SubGroups:
@@ -7270,13 +7270,13 @@ Body:
             Rate: 8
           - Item: SoulReaperStone_Robe
             Rate: 16
-          - Item: StarEmperorStone_Garment
+          - Item: StaremperorStone_Robe
             Rate: 16
           - Item: KagerouStone_Robe
             Rate: 16
           - Item: OboroStone_Robe
             Rate: 16
-          - Item: GunslingerStone_Robe
+          - Item: RebellionStone_Robe
             Rate: 16
           - Item: DoramStone_Robe
             Rate: 16
@@ -7318,11 +7318,11 @@ Body:
             Rate: 26
           - Item: SoulLinkerStone_Bottom
             Rate: 26
-          - Item: StarGladiatorStone_Top
+          - Item: GladiatorStone_Top
             Rate: 26
-          - Item: StarGladiatorStone_Middle
+          - Item: GladiatorStone_Middle
             Rate: 26
-          - Item: StarGladiatorStone_Bottom
+          - Item: GladiatorStone_Bottom
             Rate: 26
           - Item: NinjaStone_Top
             Rate: 26
@@ -7382,11 +7382,11 @@ Body:
             Rate: 16
           - Item: MinorCastingStone_Robe
             Rate: 16
-          - Item: RangerStone_II_Garment
+          - Item: RangerStone_Robe2
             Rate: 16
-          - Item: MechanicStone_II_Garment
+          - Item: MechanicStone_Robe2
             Rate: 16
-          - Item: ArchbishopStone_II_Garment
+          - Item: ArchbishopStone_Robe2
             Rate: 16
           - Item: EXPStone_Bottom
             Rate: 24
@@ -7420,23 +7420,23 @@ Body:
             Rate: 37
           - Item: Critical_Stone_Bottom
             Rate: 37
-          - Item: RangerStone_II_Top
+          - Item: RangerStone_Top2
             Rate: 37
-          - Item: RangerStone_II_Middle
+          - Item: RangerStone_Middle2
             Rate: 37
-          - Item: RangerStone_II_Bottom
+          - Item: RangerStone_Bottom2
             Rate: 37
-          - Item: MechanicStone_II_Top
+          - Item: MechanicStone_Top2
             Rate: 37
-          - Item: MechanicStone_II_Middle
+          - Item: MechanicStone_Middle2
             Rate: 37
-          - Item: MechanicStone_II_Bottom
+          - Item: MechanicStone_Bottom2
             Rate: 37
-          - Item: HighpriestStone_II_Top
+          - Item: HighpriestStone_Top2
             Rate: 37
-          - Item: HighpriestStone_II_Middle
+          - Item: HighpriestStone_Middle2
             Rate: 37
-          - Item: HighpriestStone_II_Bottom
+          - Item: HighpriestStone_Bottom2
             Rate: 37
   - Group: ENCHANT_STONE_BOX2
     SubGroups:
@@ -7506,7 +7506,7 @@ Body:
             Rate: 16
           - Item: RoyalGuardStone_Robe2
             Rate: 16
-          - Item: GuillotineCrossStone_Robe2
+          - Item: GuillcrossStone_Robe2
             Rate: 16
           - Item: EXPStone_Bottom
             Rate: 24
@@ -7546,17 +7546,17 @@ Body:
             Rate: 37
           - Item: WarlockStone_Bottom2
             Rate: 37
-          - Item: RoyalGuardStone_Top2
+          - Item: PaladinStone_Top2
             Rate: 37
-          - Item: RoyalGuardStone_Middle2
+          - Item: PaladinStone_Middle2
             Rate: 37
-          - Item: RoyalGuardStone_Bottom2
+          - Item: PaladinStone_Bottom2
             Rate: 37
-          - Item: GuillotineCrossStone_Top2
+          - Item: AssacrossStone_Top2
             Rate: 37
-          - Item: GuillotineCrossStone_Middle2
+          - Item: AssacrossStone_Middle2
             Rate: 37
-          - Item: GuillotineCrossStone_Bottom2
+          - Item: AssacrossStone_Bottom2
             Rate: 37
   - Group: ENCHANT_STONE_BOX21
     SubGroups:
