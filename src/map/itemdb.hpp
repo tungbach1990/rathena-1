@@ -26,8 +26,6 @@ const t_itemid UNKNOWN_ITEM_ID = 512;
 ///Maximum amount of items a combo may require
 #define MAX_ITEMS_PER_COMBO 6
 
-#define MAX_ITEMGROUP_RANDGROUP 4	///Max group for random item (increase this when needed). TODO: Remove this limit and use dynamic size if needed
-
 #define MAX_ROULETTE_LEVEL 7 /** client-defined value **/
 #define MAX_ROULETTE_COLUMNS 9 /** client-defined value **/
 
@@ -758,55 +756,7 @@ enum e_random_item_group {
 	IG_ENCHANT_STONE_BOX19,
 	IG_ENCHANT_STONE_BOX20,
 	IG_ENCHANT_STONE_BOX21,
-	IG_BS_SHA_M_S_1,
-	IG_BS_SHA_M_S_17,
-	IG_BS_SHA_M_S_18,
-	IG_BS_SHA_M_S_19,
-	IG_BS_SHA_M_S_20,
-	IG_BS_ITEM_M_S_12,
-	IG_BS_ITEM_M_S_15,
-	IG_BS_SHA_M_S_5,
-	IG_BS_SHA_M_S_6,
-	IG_BS_SHA_M_S_7,
-	IG_BS_SHA_M_S_8,
-	IG_BS_SHA_M_S_13,
-	IG_BS_SHA_M_S_15,
-	IG_BS_SHA_M_S_16,
-	IG_BS_SHA_M_S_23,
-	IG_BS_ITEM_M_S_5,
-	IG_BS_SHA_M_S_9,
-	IG_BS_SHA_M_S_10,
-	IG_BS_SHA_M_S_11,
-	IG_BS_SHA_M_S_21,
-	IG_BS_SHA_M_S_22,
-	IG_BS_SHA_M_S_3,
-	IG_BS_SHA_M_S_4,
-	IG_BS_SHA_M_S_12,
-	IG_BS_SHA_M_S_14,
-	IG_BS_SHA_M_S_24,
-	IG_BS_SHA_M_S_25,
-	IG_PHYSICALMAGICAL_MIX,
-	IG_SILVER_STATUE,
-	IG_STABILITY_SHADOW_BOX,
-	IG_RACE_SHADOW_BOX,
-	IG_BEARERS_S_CONVERSION_BOX,
-	IG_GEMSTONE_S_CONVERSION_BOX,
-	IG_STATUS_S_CONVERSION_BOX,
-	IG_SHADOW_EXCHANGE_BOX,
-	IG_COSTUME_ENCHANT_STONE_BOX,
-	IG_PIERCING_SHADOW_BOX,
-	IG_ENCHANTSTONE_RECIPE_4M,
-	IG_ENCHANTSTONE_RECIPE_9M,
-	IG_CLASS_SHADOW_PENDANT,
-	IG_CLASS_SHADOW_EARRING,
-	IG_CLASS_SHADOW_SHIELD,
-	IG_CLASS_SHADOW_SHOES,
-	IG_CLASS_SHADOW_ARMOR,
-	IG_CLASS_SHADOW_WEAPON,
-	IG_COSTUME_EXCHANGE_BOX,
-	IG_COLLECTIBLES_EXCHANGE_BOX,
-	IG_PERFECTSIZE_MIX,
-	IG_MAGICPIERCING_MIX,
+	IG_MAX,
 };
 
 /// Enum for bound/sell restricted selling
@@ -876,28 +826,29 @@ struct s_item_combo {
 struct s_item_group_entry
 {
 	t_itemid nameid; /// Item ID
-	unsigned short duration, /// Duration if item as rental item (in minutes)
+	uint16 rate;
+	uint16 duration, /// Duration if item as rental item (in minutes)
 		amount; /// Amount of item will be obtained
 	bool isAnnounced, /// Broadcast if player get this item
 		GUID, /// Gives Unique ID for items in each box opened
 		isNamed; /// Named the item (if possible)
-	char bound; /// Makes the item as bound item (according to bound type)
+	uint8 bound; /// Makes the item as bound item (according to bound type)
 };
 
 /// Struct of random group
 struct s_item_group_random
 {
-	struct s_item_group_entry *data; /// Random group entry
-	unsigned short data_qty; /// Number of item in random group
+	uint32 total_rate;
+	std::unordered_map<t_itemid, std::shared_ptr<s_item_group_entry>> data; /// item ID, s_item_group_entry
+
+	std::shared_ptr<s_item_group_entry> get_random_itemsubgroup();
 };
 
 /// Struct of item group that will be used for db
 struct s_item_group_db
 {
-	unsigned short id, /// Item Group ID
-		must_qty; /// Number of must item at this group
-	struct s_item_group_entry *must; /// Must item entry
-	struct s_item_group_random random[MAX_ITEMGROUP_RANDGROUP]; //! TODO: Move this fixed array to dynamic size if needed.
+	uint16 id; /// Item Group ID
+	std::unordered_map<uint16, std::shared_ptr<s_item_group_random>> random;	/// group ID, s_item_group_random
 };
 
 /// Struct of Roulette db
@@ -1082,6 +1033,26 @@ public:
 
 extern ItemDatabase item_db;
 
+class ItemGroupDatabase : public TypesafeCachedYamlDatabase<uint16, s_item_group_db> {
+public:
+	ItemGroupDatabase() : TypesafeCachedYamlDatabase("ITEM_GROUP_DB", 1) {
+
+	}
+
+	const std::string getDefaultLocation();
+	uint64 parseBodyNode(const YAML::Node& node);
+	void loadingFinished();
+
+	// Additional
+	bool item_exists(uint16 group_id, t_itemid nameid);
+	int16 item_exists_pc(map_session_data *sd, uint16 group_id);
+	t_itemid get_random_item_id(uint16 group_id, uint8 sub_group);
+	std::shared_ptr<s_item_group_entry> get_random_entry(uint16 group_id, uint8 sub_group);
+	uint8 pc_get_itemgroup(uint16 group_id, bool identify, map_session_data *sd);
+};
+
+extern ItemGroupDatabase itemdb_group;
+
 struct item_data* itemdb_searchname(const char *name);
 struct item_data* itemdb_search_aegisname( const char *str );
 int itemdb_searchname_array(struct item_data** data, int size, const char *str);
@@ -1108,9 +1079,6 @@ struct item_data* itemdb_exists(t_itemid nameid);
 #define itemdb_dropeffect(n) (itemdb_search(n)->flag.dropEffect)
 const char* itemdb_typename(enum item_types type);
 const char *itemdb_typename_ammo (e_ammo_type ammo);
-
-struct s_item_group_entry *itemdb_get_randgroupitem(uint16 group_id, uint8 sub_group);
-t_itemid itemdb_searchrandomid(uint16 group_id, uint8 sub_group);
 
 #define itemdb_value_buy(n) itemdb_search(n)->value_buy
 #define itemdb_value_sell(n) itemdb_search(n)->value_sell
@@ -1145,11 +1113,6 @@ bool itemdb_isstackable2(struct item_data *id);
 bool itemdb_isNoEquip(struct item_data *id, uint16 m);
 
 s_item_combo *itemdb_combo_exists(uint32 combo_id);
-
-struct s_item_group_db *itemdb_group_exists(unsigned short group_id);
-bool itemdb_group_item_exists(unsigned short group_id, t_itemid nameid);
-int16 itemdb_group_item_exists_pc(struct map_session_data *sd, unsigned short group_id);
-char itemdb_pc_get_itemgroup(uint16 group_id, bool identify, struct map_session_data *sd);
 
 bool itemdb_parse_roulette_db(void);
 
