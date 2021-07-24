@@ -2775,13 +2775,13 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		) )
 	{ // Item Drop start
 		int ptmemcount = 0;
+		struct party_data *ptt;
+		int i;
+		unsigned int lv;
+		unsigned int max_lv = 0;
+		unsigned int min_lv = UINT_MAX;
 		if (sd) {
-			struct party_data *ptt;
 			ptt = party_search(sd->status.party_id);
-			int i;
-			unsigned int lv;
-			unsigned int max_lv = 0;
-			unsigned int min_lv = UINT_MAX;
 			if (ptt) {
 				for(i=0;i<MAX_PARTY;i++){
 					/**
