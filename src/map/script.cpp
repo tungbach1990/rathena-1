@@ -25845,7 +25845,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF2(rentalcountitem, "rentalcountitem3", "viiiiiiirrr?"),
 
 	BUILDIN_DEF(getenchantgrade, ""),
-
+#include "../custom/barter_script_cpp_2.inc"
 #include "../custom/script_def.inc"
 
 	{NULL,NULL,NULL},
