@@ -3781,7 +3781,7 @@ int mob_dead2(struct mob_data *md, struct block_list *src, int type)
 					else
 						//it's positive, then it goes as it is
 						drop_rate = it.rate;
-					drop_rate = drop_rate * drop_rate_mapflag / 100 ;
+					
 					if (rnd()%10000 >= drop_rate)
 						continue;
 					dropid = (it.nameid > 0) ? it.nameid : itemdb_group.get_random_item_id(it.group,1);
