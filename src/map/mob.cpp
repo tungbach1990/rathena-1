@@ -2917,7 +2917,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 							}
 							// Announce first, or else ditem will be freed. [Lance]
 							// By popular demand, use base drop rate for autoloot code. [Skotlex]
-							drop_rate = drop_rate * drop_rate_mapflag / 100 ;
+							
 							mob_item_drop(md, dlist, ditem, 0, battle_config.autoloot_adjust ? drop_rate : md->db->dropitem[i].rate, homkillonly || merckillonly);
 						}
 
@@ -2952,13 +2952,14 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 									else
 										//it's positive, then it goes as it is
 										drop_rate = it.rate;
-
+									drop_rate = drop_rate * drop_rate_mapflag / 100 ;
+									if (drop_rate >= 10000) drop_rate = 10000;
 									if (rnd()%10000 >= drop_rate)
 										continue;
 									dropid = (it.nameid > 0) ? it.nameid : itemdb_group.get_random_item_id(it.group,1);
 									memset(&mobdrop, 0, sizeof(struct s_mob_drop));
 									mobdrop.nameid = dropid;
-									drop_rate = drop_rate * drop_rate_mapflag / 100 ;
+									
 									mob_item_drop(md, dlist, mob_setdropitem(&mobdrop,1,md->mob_id), 0, drop_rate, homkillonly || merckillonly);
 								}
 							}
@@ -3083,7 +3084,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				}
 				// Announce first, or else ditem will be freed. [Lance]
 				// By popular demand, use base drop rate for autoloot code. [Skotlex]
-				drop_rate = drop_rate * drop_rate_mapflag / 100 ;
+
 				mob_item_drop(md, dlist, ditem, 0, battle_config.autoloot_adjust ? drop_rate : md->db->dropitem[i].rate, homkillonly || merckillonly);
 			}
 
@@ -3118,13 +3119,14 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 						else
 							//it's positive, then it goes as it is
 							drop_rate = it.rate;
-
+						drop_rate = drop_rate * drop_rate_mapflag / 100 ;
+						if (drop_rate >= 10000) drop_rate = 10000;
 						if (rnd()%10000 >= drop_rate)
 							continue;
 						dropid = (it.nameid > 0) ? it.nameid : itemdb_group.get_random_item_id(it.group,1);
 						memset(&mobdrop, 0, sizeof(struct s_mob_drop));
 						mobdrop.nameid = dropid;
-						drop_rate = drop_rate * drop_rate_mapflag / 100 ;
+						
 						mob_item_drop(md, dlist, mob_setdropitem(&mobdrop,1,md->mob_id), 0, drop_rate, homkillonly || merckillonly);
 					}
 				}
@@ -3779,7 +3781,7 @@ int mob_dead2(struct mob_data *md, struct block_list *src, int type)
 					else
 						//it's positive, then it goes as it is
 						drop_rate = it.rate;
-
+					drop_rate = drop_rate * drop_rate_mapflag / 100 ;
 					if (rnd()%10000 >= drop_rate)
 						continue;
 					dropid = (it.nameid > 0) ? it.nameid : itemdb_group.get_random_item_id(it.group,1);
