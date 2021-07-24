@@ -1,0 +1,97 @@
+prontera,144,171,5	script	Bao Công	4_M_GREATPO,{
+
+	mes "[^995050 Bao Công ^000000]";
+	mes "Ta laÌ Bao Công"; 
+	mes "Haha coì nhâòn ra ta không";
+	next;
+	mes "PhâÌn thıõÒng coì thêÒ nhâòn ğıõòc tıÌ ta:";
+	.@size = getarraysize(.exchange_item);
+	for (.@i = 0; .@i < .@size; .@i += 1) {
+		mes "<ITEM>"+getitemname(.exchange_item[.@i])+"<INFO>"+.exchange_item[.@i]+"</INFO></ITEM>";
+	}
+	next;
+	mes "[^995050 Bao Công ^000000]";
+	mes "Ta sang ğây coì mang môòt chuìt quaÌ quê, chuìng ta trao ğôÒi môòt chuìt nhiÒ";
+	
+	next;
+	mes "[^995050 Bao Công ^000000]";
+	mes "HaŞy ğıa ta 1.000.000 zeny ";
+	mes "Ta seŞ cho ngıõi ğôÌ ngıõi muôìn nhıng ngıõi câÌn may mãìn nıŞa";
+	next;
+	switch(select("ĞôÒi cho ta ği:Ta không thiìch")) {
+		Case 1:
+			.call = callfunc("Ancient_CheckAndDelItem",.exchange_require);
+			if (.call > 0){
+				if (rand(1,3) > 1){
+					mes "Râìt tiêìc nhıng ğôÌ cuÒa ngıõi ta laÌm mâìt rôÌi";
+					close;
+					end;
+				}
+				.rand = rand(1,10000);
+				if (.rand >= 5000) {
+					mes "Ôi thôi ğôÌ kia ta laÌm mâìt rôÌi, ğêÌn buÌ cho ngıõi nheì";
+					getitem 7929,1;
+					end;
+				}
+				if (.rand >= 300) {
+					mes "Ôi thôi ğôÌ kia ta laÌm mâìt rôÌi, ğêÌn buÌ cho ngıõi nheì";
+					getitem 7227,1;
+					end;
+				}
+				.rand = rand(1,5);
+				if (.rand > 1) {
+					.itemx = .exchange_item2[rand(0,getarraysize(.exchange_item2)-1)];
+					getitem .itemx,1;
+					announce "Bao Công chuìc mıÌng " + strcharinfo(0) + " ğaŞ ğôÒi ğıõòc " +  getitemname(.itemx),0;
+					
+					end;
+					
+				}
+				.itemx = .exchange_item[rand(0,getarraysize(.exchange_item)-1)];
+				getitem .itemx,1;
+				announce "Bao Công chuìc mıÌng " + strcharinfo(0) + " ğaŞ ğôÒi ğıõòc " +  getitemname(.itemx),0;
+				end;
+					
+				
+			}
+			break;
+		Case 2:
+			break;
+	}
+	end;
+OnInit:
+	setarray .chance_ex[0],50,40,30,50;
+	setarray .exchange_require[0],7929;
+	setarray .exchange_item2[0],100023,100025;
+	setarray .exchange_item[0],
+				100205,100206, // shadow class enchant
+				22171,18170,18164,28130,13485,28744,1847,26118,2048,21038,28764,28763,28039,32018,28630,28631,
+				26154,26155,32302,28257,28255,28256,28258,13345,500003,500004,570002,580002,590002,600004,560002,590003,610003,700003,550007,640004;
+	end;
+}
+
+
+function	script	Ancient_CheckAndDelItem	{
+	.@size = getarraysize(getarg(0));
+	copyarray .array,getarg(0),.@size;
+	.temp = 0;
+	for (.@i = 0; .@i < .@size; .@i += 2) {
+		if (countitem(.array[.@i]) < .array[.@i+1]){
+		.temp++;
+		break;
+		}
+	}
+	if (Zeny < 1000000) .temp++;
+	if (.temp > 0){
+		mes "You dont enough materials !";
+		close;
+		return 0;
+	} else {
+		for (.@i = 0; .@i < .@size; .@i += 2) {
+			delitem .array[.@i],.array[.@i+1];
+		}
+		Zeny = Zeny - 1000000;
+		return 1;
+	}
+	
+}

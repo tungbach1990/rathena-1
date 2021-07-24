@@ -1,0 +1,114 @@
+
+-	exbartershop	IllusionDeepSea	-1,25814:999:10000-25809:0:1
+-	exbartershop	IllusionMoonlight	-1,25814:999:10000-25809:0:1
+-	exbartershop	IllusionVampire	-1,25814:999:10000-25809:0:1
+-	exbartershop	IllusionFrozen	-1,25814:999:10000-25809:0:1
+-	exbartershop	IllusionAbyss	-1,25814:999:10000-25809:0:1
+-	exbartershop	IllusionLuanda	-1,25814:999:10000-25809:0:1
+-	exbartershop	IllusionTeddy	-1,25814:999:10000-25809:0:1
+-	exbartershop	IllusionLaby	-1,25814:999:10000-25809:0:1
+
+
+prontera,164,165,4	script	Illusion Manager	4_BARYO_CHIEF,{
+	switch(select(.main_menu$)) {
+		Case 1:
+			callshop "IllusionDeepSea";
+			break;
+		Case 2:
+			callshop "IllusionMoonlight";
+			break;
+		Case 3:
+			callshop "IllusionVampire";
+			break;
+		Case 4:
+			callshop "IllusionFrozen";
+			break;
+		Case 5:
+			callshop "IllusionAbyss";
+			break;
+		Case 6:
+			callshop "IllusionLuanda";
+			break;
+		Case 7:
+			callshop "IllusionTeddy";
+			break;
+		Case 8:
+			callshop "IllusionLaby";
+			break;	
+		
+	}
+	//callshop "IllusionDeepSea";
+	
+	end;
+OnInit:
+	.main_menu$ = "Illusion Deep Sea:Illusion Moonlight:Illusion Vampire:Illusion Frozen:Illusion Abyss:Illusion Luanda:Illusion Teddy:Illusion Labyrith";
+	npcshopitem "IllusionMoonlight","15195:1:1000000","15012:0:1","25271:0:10","23228:0:100";
+	bartershopadditem "IllusionMoonlight","19209:1:1000000","2277:9:1","25271:0:10","25257:0:100";
+	bartershopadditem "IllusionMoonlight","19210:1:1000000","2285:9:1","25271:0:10","25258:0:100";
+	bartershopadditem "IllusionMoonlight","20838:1:1000000","2504:9:1","25271:0:10","23228:0:100";
+	bartershopadditem "IllusionMoonlight","22133:1:1000000","2404:9:1","25271:0:10","23228:0:100";
+	bartershopadditem "IllusionMoonlight","16063:1:1000000","1525:9:1","25271:0:10","25256:0:20";
+	bartershopadditem "IllusionMoonlight","26007:1:1000000","1477:9:1","25271:0:30","25256:0:100";
+	bartershopadditem "IllusionMoonlight","26109:1:1000000","1648:9:1","25271:0:30","25256:0:100";
+	bartershopadditem "IllusionMoonlight","28725:1:1000000","1234:9:1","25271:0:60","25256:0:100";
+	
+	npcshopitem "IllusionVampire","20840:1:1000000","2525:9:1","25271:0:50","25263:0:200";
+	bartershopadditem "IllusionVampire","28508:1:1000000","2715:0:1","25271:0:50","25266:0:400";
+	bartershopadditem "IllusionVampire","28509:1:1000000","2621:0:1","25271:0:50","25267:0:400";	
+	bartershopadditem "IllusionVampire","2039:1:1000000","1473:9:1","25271:0:40","25267:0:100";
+	bartershopadditem "IllusionVampire","18149:1:1000000","1722:9:1","25271:0:50","25265:0:100";
+	bartershopadditem "IllusionVampire","28022:1:1000000","1266:9:1","25271:0:80","25261:0:20";
+	bartershopadditem "IllusionVampire","28023:1:1000000","1260:9:1","25271:0:81","25264:0:100";
+	bartershopadditem "IllusionVampire","28612:1:1000000","1557:9:1","25271:0:50","25262:0:10";
+
+	npcshopitem "IllusionFrozen","19223:1:1000000","2227:9:1","25271:0:50","25297:0:100";
+	bartershopadditem "IllusionFrozen","20847:1:1000000","2509:9:1","25271:0:100","25297:0:200";
+	bartershopadditem "IllusionFrozen","28922:1:1000000","2128:9:1","25271:0:100","25298:0:300";	
+	bartershopadditem "IllusionFrozen","1846:1:1000000","1822:9:1","25271:0:100","25299:0:100";
+	bartershopadditem "IllusionFrozen","13337:1:1000000","13314:9:1","25271:0:100","25300:0:200";
+	
+	npcshopitem "IllusionAbyss","19247:1:1000000","2207:0:1","25271:0:50","25312:0:50";
+	bartershopadditem "IllusionAbyss","1326:1:1000000","1306:9:1","25271:0:100","25311:0:200";
+	bartershopadditem "IllusionAbyss","13338:1:1000000","13300:9:1","25271:0:100","25313:0:200";	
+	bartershopadditem "IllusionAbyss","13469:1:1000000","1141:9:1","25271:0:100","25314:0:50";
+	bartershopadditem "IllusionAbyss","16065:1:1000000","1529:9:1","25271:0:100","25313:0:200";
+	bartershopadditem "IllusionAbyss","32005:1:1000000","1417:9:1","25271:0:100","25311:0:200";
+	
+	npcshopitem "IllusionLuanda","15348:1:1000000","2354:9:1","25271:0:80","25641:0:100","25638:0:150";
+	bartershopadditem "IllusionLuanda","20923:1:1000000","2520:9:1","25271:0:120","25639:0:30","25638:0:150";
+	bartershopadditem "IllusionLuanda","22192:1:1000000","2419:9:1","25271:0:80","25635:0:50","25633:0:150";
+	bartershopadditem "IllusionLuanda","19366:1:1000000","5128:9:1","25271:0:120","25634:0:30","25633:0:150";
+	bartershopadditem "IllusionLuanda","18174:1:1000000","1726:9:1","25271:0:80","25636:0:50","25640:0:50","25637:0:50";
+	bartershopadditem "IllusionLuanda","28626:1:1000000","13300:9:1","25271:0:80","25642:0:100";	
+	
+	npcshopitem "IllusionTeddy","19344:1:1000000","5070:9:1","25271:0:115","25619:0:5","25617:0:50","25615:0:100";
+	bartershopadditem "IllusionTeddy","22190:1:1000000","2406:9:1","25271:0:85","25616:0:50","25618:0:50";
+
+	npcshopitem "IllusionLaby","19428:1:1000000","5126:9:1","25271:0:100","25775:0:100","25783:0:50";
+	bartershopadditem "IllusionLaby","20948:1:1000000","2518:9:1","25271:0:100","25778:0:100","25782:0:50";	
+	bartershopadditem "IllusionLaby","32238:1:1000000","2648:0:1","25271:0:100","25776:0:100","25781:0:50","25780:0:15";
+	bartershopadditem "IllusionLaby","32239:1:1000000","2648:0:1","25271:0:100","25777:0:100","25784:0:50","25780:0:15";	
+	bartershopadditem "IllusionLaby","28762:1:1000000","1231:9:1","25271:0:120","25774:0:150";
+	bartershopadditem "IllusionLaby","21050:1:1000000","1181:9:1","25271:0:120","25779:0:150";	
+	bartershopadditem "IllusionLaby","32301:1:1000000","13106:9:1","25271:0:120","25773:0:150";
+	bartershopadditem "IllusionLaby","28254:1:1000000","13159:9:1","25271:0:120","25772:0:150";	
+	
+
+
+
+	npcshopitem "IllusionDeepSea","400053:1:1000000","5127:9:1","25271:0:100","25896:0:100","25899:0:50";
+	bartershopadditem "IllusionDeepSea","480054:1:1000000","2519:9:1","25271:0:100","25894:0:100","25899:0:50";
+	bartershopadditem "IllusionDeepSea","490069:1:1000000","2650:0:1","25271:0:150","25893:0:100","25899:0:50";
+	bartershopadditem "IllusionDeepSea","490070:1:1000000","2651:0:1","25271:0:150","25892:0:100","25899:0:50";
+	bartershopadditem "IllusionDeepSea","570008:1:1000000","1913:9:1","25271:0:120","25895:0:150";
+	bartershopadditem "IllusionDeepSea","580008:1:1000000","1972:9:1","25271:0:120","25895:0:150";
+	bartershopadditem "IllusionDeepSea","600011:1:1000000","1186:9:1","25271:0:120","25894:0:150";
+	bartershopadditem "IllusionDeepSea","610012:1:1000000","1275:9:1","25271:0:120","25896:0:150";
+	bartershopadditem "IllusionDeepSea","630006:1:1000000","1470:9:1","25271:0:120","25893:0:150";
+	bartershopadditem "IllusionDeepSea","630007:1:1000000","1481:9:1","25271:0:120","25892:0:150";
+	bartershopadditem "IllusionDeepSea","450144:1:1000000","2326:9:1","25271:0:90","25893:0:100","25899:0:20";
+	bartershopadditem "IllusionDeepSea","450145:1:1000000","2315:9:1","25271:0:90","25895:0:100","25899:0:20";
+	bartershopadditem "IllusionDeepSea","450146:1:1000000","2347:9:1","25271:0:90","25896:0:100","25899:0:20";
+
+	end;
+}

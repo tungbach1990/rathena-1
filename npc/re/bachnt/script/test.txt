@@ -1,0 +1,155 @@
+//===== rAthena Script =======================================
+//= Eddabioblab
+//===== By: ==================================================
+//= BACHNT
+//= Eddabioblab
+//===== Current Version: =====================================
+//= 1.0 
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Eddabioblab
+//============================================================
+
+//glast_01,241,290,4	script	Sierra S	4_F_SCIENCE,{
+prontera,155,169,4	script	Oscar	4_ED_OSCAR,{
+	.@instance$ = "Fallen of GlastHeim";
+
+	.@party_id = getcharid(1);
+	.@p_name$ = getpartyname(.@party_id);
+	.@md_name$ = "Fallen of GlastHeim";
+	if (!instance_check_party(.@party_id)) {
+		mes "[Sierra]";
+		mes "Why don't you make a party with more than 1 person and talk to me again?";
+		close;
+	}
+	
+	if (is_party_leader() == true) {
+		.@menu$ = "Generate Time Gap";
+		mes "[Sierra]";
+		mes "Do you interesting with Fallen of GlastHeim ?";
+	} else {
+		mes "[Sierra]";
+		mes "Have we met before? No way. It's my first time seeing you. What do you want?";
+	}
+	
+	.text1$ = "[^63f542 Easy^000000] - You +25% # Drop -25%";
+	.text2$ = "[^42f5aa Normal^000000] - You -0% # Drop -0%";
+	.text3$ = "[^4266f5 Hard^000000] - You -25% # Drop +25%";
+	.text4$ = "[^f542ef Nightmare^000000] - You -50% # Drop +50%";
+	.text5$ = "[^f5425d Challenge^000000] - You -90% # Drop +100%";
+	.instances_name1$ = "Fallen of GlastHeim (Normal) - Easy";
+	.instances_name2$ = "Fallen of GlastHeim (Normal) - Normal";
+	.instances_name3$ = "Fallen of GlastHeim (Normal) - Hard";
+	.instances_name4$ = "Fallen of GlastHeim (Normal) - Nightmare";
+	.instances_name5$ = "Fallen of GlastHeim (Normal) - Challenge";
+	.instances_name6$ = "Fallen of GlastHeim (Hard) - Easy";
+	.instances_name7$ = "Fallen of GlastHeim (Hard) - Normal";
+	.instances_name8$ = "Fallen of GlastHeim (Hard) - Hard";
+	.instances_name9$ = "Fallen of GlastHeim (Hard) - Nightmare";
+	.instances_name10$ = "Fallen of GlastHeim (Hard) - Challenge";
+	
+	.@choose_instances = 0;
+	.instances_nomal$ = "Fallen of GlastHeim (Normal)";
+	.instances_hard$ = "Fallen of GlastHeim (Hard)";
+	switch(select(.instances_nomal$,.instances_hard$)){
+		Case 1:
+			.@choose_instances = 1;
+		break;
+		Case 2:
+			.@choose_instances = 2;
+		break;
+	}
+	if (.@choose_instances == 1) {
+		switch(select(.text1$,.text2$,.text3$,.text4$,.text5$)){
+			Case 1:
+				.@md_name$ = .instances_name1$;
+			break;
+			Case 2:
+				.@md_name$ = .instances_name2$;
+			break;
+			Case 3:
+				.@md_name$ = .instances_name3$;
+			break;
+			Case 4:
+				.@md_name$ = .instances_name4$;
+			break;
+			Case 5:
+				.@md_name$ = .instances_name5$;
+			break;
+		}
+	} else {
+		switch(select(.text1$,.text2$,.text3$,.text4$,.text5$)){
+			Case 1:
+				.@md_name$ = .instances_name6$;
+			break;
+			Case 2:
+				.@md_name$ = .instances_name7$;
+			break;
+			Case 3:
+				.@md_name$ = .instances_name8$;
+			break;
+			Case 4:
+				.@md_name$ = .instances_name9$;
+			break;
+			Case 5:
+				.@md_name$ = .instances_name10$;
+			break;
+		}
+	}
+	
+	switch( select( .@menu$, "Enter Fall of GlastHeim", "Cancel" ) ) {
+	case 1:
+		switch( instance_create(.@md_name$) ) {
+		case -3:
+			dispbottom "Memorial Dungeon, 'Fallen of GlastHeim' is already in progress.",0xFFFFFF;
+			close;
+		case -4:
+		case -2:
+		case -1:
+			mes "Party Name: " + getpartyname( getcharid(1) );
+			mes "Party Leader: " + strcharinfo(0);
+			mes "^0000ff" + .@md_name$ + "^000000 - time gap generation failed.";
+			close;
+		end;
+			
+		}
+		mes "[Sierra]";
+		mes "After the time gap opens, please tell me again.";
+		close;
+	case 2:
+		if (checkquest(40000,PLAYTIME) == 0 || checkquest(40000,PLAYTIME) == 1) {
+			mes "[Siera S]";
+			mes "Is it tomorrow already? I don't think so! Can't you read the time?";
+			close;
+		} else if (checkquest(40000,PLAYTIME) == 2)
+			erasequest 40000;
+		switch( instance_enter(.@md_name$) ) {
+		case IE_OTHER:
+			mes "[Sierra]";
+			mes "An unknown error has occurred.";
+			close;
+		case IE_NOINSTANCE:
+			mes "[Sierra]";
+			mes "The time gap is not yet open.";
+			close;
+		case IE_NOMEMBER:
+			mes "[Sierra]";
+			mes "Your body is not fit to enter the time gap. You won't be able to get in if you're not in a party.";
+			close;
+		case IE_OK:
+			mapannounce "1@gol1", "" + getpartyname( getcharid(1) ) + " party member " + strcharinfo(0) + " enters the " + .@md_name$ + ".", bc_map,0x00FF99;
+			if (compare(instance_live_info(ILI_NAME),"(Hard)"))
+			{ 
+				set 'FOG_Mode,2; 
+			} else { 
+				set 'FOG_Mode,1;
+			}
+			setquest 40000;
+			end;
+		}
+	case 3:
+		close;
+	}
+	end;
+}

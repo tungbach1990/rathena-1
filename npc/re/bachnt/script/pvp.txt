@@ -1,0 +1,21 @@
+prontera,147,195,5	script	PvP Warper	474,{
+	if (BaseLevel >= 200) {
+        announce "Hey, " + strcharinfo(0) + " ðaÞ vaÌo pvp",bc_blue|bc_all;
+        warp "guild_vs3",0,0;
+	}
+        OnPCDieEvent:
+                @kill = 0;
+        end;
+        OnPCKillEvent:
+                @kill = @kill++;
+                if (@kill >= 10) {
+                        announce "Hey, " + strcharinfo(0) + " ðaÞ taÌn saìt trong pvp",bc_blue|bc_all;
+                }
+        end;
+	OnInit:
+		setbattleflag("pvp_mode", 1); 
+	end;
+}
+
+
+moscovia,221,212,5	duplicate(PvP Warper)	Pvp Warper:mos	474,0,0

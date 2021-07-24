@@ -1,0 +1,6 @@
+function	script	OpenRefineUI	{
+	if( getbattleflag( "feature.refineui" ) == 3 ){
+		refineui();
+		end;
+	}
+}

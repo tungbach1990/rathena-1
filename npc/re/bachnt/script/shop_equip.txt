@@ -1,0 +1,150 @@
+//===== eAthena Script =======================================
+//= Custom-Currency Multi-Shop
+//===== By: ==================================================
+//= Euphy
+//===== Current Version: =====================================
+//= 1.2
+//===== Description: =========================================
+//= Allows for better organization in a single shop call.
+//= Note that there are two configuration areas.
+//============================================================
+
+// -------------------- Config 1 --------------------
+// For each shop added, copy this MSHOPX dummy data.
+// Write your shop names in the select() function.
+
+-	shop	NEWBIESHOP1	-1,512:-1
+-	shop	NEWBIESHOP2	-1,512:-1
+-	shop	NEWBIESHOP3	-1,512:-1
+//-	shop	MSHOP4	-1,512:-1
+//-	shop	MSHOP5	-1,512:-1
+//-	shop	MSHOP6	-1,512:-1
+//-	shop	MSHOP7	-1,512:-1
+//-	shop	MSHOP8	-1,512:-1
+
+prontera,147,174,5	script	Newbie Equip	984,{
+
+	set @s, select(.main_menu$);//:Headgears:Armors:Garments:Shoes:Shields:Cards:Misc");
+
+// --------------------------------------------------
+	if (.Currency[@s] == .zeny_id)
+	{
+		message strcharinfo(0),"This shop only accepts Zeny.";
+		dispbottom "You have "+Zeny+" Zeny.";
+	} else {
+		message strcharinfo(0),"This shop only accepts "+getitemname(.Currency[@s])+".";
+		dispbottom "You have "+countitem(.Currency[@s])+" "+getitemname(.Currency[@s])+".";
+	}
+	callshop "NEWBIESHOP"+@s,1;
+	npcshopattach "NEWBIESHOP"+@s;
+	end;
+
+OnBuyItem:
+	set .@i,0;
+	while (.@i < getarraysize(@bought_nameid)) {
+		set .@j, 0;
+		while (.@j < getarraysize(getd(".Shop"+@s))) {
+			if(getd(".Shop"+@s+"["+.@j+"]") == @bought_nameid[.@i]) {
+				set @itemcost, (getd(".Shop"+@s+"["+(.@j+1)+"]") * @bought_quantity[.@i]);
+				set @totalcost, @totalcost + @itemcost;
+				break; }
+			set .@j, .@j+2; }
+		set .@i, .@i+1;
+	}
+	if (.Currency[@s] == .zeny_id)
+	{		
+		if (@totalcost > Zeny) dispbottom "You don't have enough Zeny.";
+		else {
+		set .@i,0;
+		while (.@i < getarraysize(@bought_nameid)) {
+			getitem @bought_nameid[.@i], @bought_quantity[.@i];
+			dispbottom "Purchased "+@bought_quantity[.@i]+"x "+getitemname(@bought_nameid[.@i])+".";
+			set .@i, .@i+1; 
+		}	
+			Zeny = Zeny - @totalcost; 
+
+		}
+	} else {
+		if (@totalcost > countitem(.Currency[@s])) dispbottom "You don't have enough "+getitemname(.Currency[@s])+".";
+		else {
+		set .@i,0;
+		while (.@i < getarraysize(@bought_nameid)) {
+			getitem @bought_nameid[.@i], @bought_quantity[.@i];
+			dispbottom "Purchased "+@bought_quantity[.@i]+"x "+getitemname(@bought_nameid[.@i])+".";
+			set .@i, .@i+1; 
+		}
+			delitem .Currency[@s], @totalcost; 
+		}
+	}
+	
+	set @totalcost, 0;
+	deletearray @bought_nameid[0], 128;
+	deletearray @bought_quantity[0], 128;
+	end;
+
+OnInit:
+
+// -------------------- Config 2 --------------------
+// Currency:  The ID of each shop currency,
+//    in the same order as the shops.
+// Shop order follows that of the select() call,
+//   and is formatted "ID1,Count1,ID2,Count2,..."
+	.main_menu$ = "Noblesse - 100:Imperial - 125:Grace - 150";
+	.zeny_id = 123;
+	
+// Set Price for all
+	.price1 = 1000000;
+	.price2 = 2000000;
+	.price3 = 2000000;
+	.price4 = 5000000;
+	.price5 = 10000000;
+	.price6 = 20000000;
+// End Set Price	
+	setarray .Currency[1],.zeny_id,.zeny_id,.zeny_id; //7929
+	setarray .Shop1[0], 100128,.price2, // refine ticket
+						450018,.price1,450019,.price1,450020,.price1,450021,.price1,450022,.price1,450023,.price1,
+						450024,.price1,450025,.price1,450026,.price1,450027,.price1,450028,.price1,450029,.price1,
+						450030,.price1,450031,.price1,450032,.price1,450033,.price1,450034,.price1,450035,.price1,
+						450036,.price1,450037,.price1,450038,.price1,450039,.price1,450040,.price1,450041,.price1,
+						450042,.price1,450043,.price1,450044,.price1,450045,.price1,450046,.price1,450047,.price1,
+						450048,.price1,450049,.price1,450050,.price1,450051,.price1,450121,.price1,450122,.price1,
+						470016,.price2,470017,.price2,480012,.price2,480014,.price2,490014,.price2,490015,.price2; //not armor
+
+						
+	setarray .Shop2[0], 100129,.price4,100131,.price4,100132,.price4,100135,.price4,100136,.price4,
+						450052,.price4,450053,.price4,450054,.price4,450055,.price4,450056,.price4,450057,.price4,
+						450058,.price4,450059,.price4,450060,.price4,450061,.price4,450062,.price4,450063,.price4,
+						450064,.price4,450065,.price4,450066,.price4,450067,.price4,450068,.price4,450069,.price4,
+						450070,.price4,450071,.price4,450072,.price4,450073,.price4,450074,.price4,450075,.price4,
+						450076,.price4,450077,.price4,450078,.price4,450079,.price4,450080,.price4,450081,.price4,
+						450082,.price4,450083,.price4,450084,.price4,450085,.price4,450123,.price4,450124,.price4,
+						470018,.price3,470019,.price3,480016,.price3,480017,.price3,490017,.price3,490018,.price3;
+
+	setarray .Shop3[0], 100130,.price6,100133,.price6,100134,.price6,100137,.price6,100138,.price6,
+						450086,.price5,450087,.price5,450088,.price5,450089,.price5,450090,.price5,450091,.price5,
+						450092,.price5,450093,.price5,450094,.price5,450095,.price5,450096,.price5,450097,.price5,
+						450098,.price5,450099,.price5,450100,.price5,450101,.price5,450102,.price5,450103,.price5,
+						450104,.price5,450105,.price5,450106,.price5,450107,.price5,450108,.price5,450109,.price5,
+						450110,.price5,450111,.price5,450112,.price5,450113,.price5,450114,.price5,450115,.price5,
+						450116,.price5,450117,.price5,450118,.price5,450119,.price5,450125,.price5,450126,.price5,
+						470020,.price6,470021,.price6,480018,.price6,480019,.price6,490019,.price6,490020,.price6;
+						
+
+	//setarray .Shop4[0],2502,2,2513,15,2523,15;
+	//setarray .Shop5[0],2441,15;
+	//setarray .Shop6[0],2199,32768;
+	//setarray .Shop7[0],4051,3,4285,6;
+	//setarray .Shop8[0],513,1,532,2,634,4;
+
+// --------------------------------------------------
+
+	set .@i,1;
+	while (.@i <= getarraysize(.Currency)) {
+		set .@j,0;
+		while (.@j < getarraysize(getd(".Shop"+.@i))) {
+			npcshopdelitem "NEWBIESHOP"+.@i,512;
+			npcshopadditem "NEWBIESHOP"+.@i, getd(".Shop"+.@i+"["+.@j+"]"), getd(".Shop"+.@i+"["+(.@j+1)+"]");
+			set .@j, .@j+2; }
+		set .@i, .@i+1; }
+	end;
+}

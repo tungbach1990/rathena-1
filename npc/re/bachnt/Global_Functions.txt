@@ -1,0 +1,81 @@
+function	script	i100536	{
+                setarray .reward1[0],   400078,1, // Goral Crown
+                                400079,1, // Trial diadem
+                                400094,1, // Jade_Crown
+                                400095,1, // Spinel_Diadem
+                                400098,1, // Bull_Crown
+                                400099,1, // Taurus Diadem
+                                400116,1, // Celestial_Jewel_Crown
+                                400117,1, // Libra_Crown
+                                400118,1, // Saint_Crown
+                                400119,1, // Lion_Crown
+                                400120,1, // Goat_Crown
+                                400121,1, // Twin_Crown
+                                410005,1, // C_Magic_Heir_TW
+                                400057,1, // VIP_Hair_Male
+				400056,1, // VIP_Hair_Female
+				420010,1, // Cons_Of_Darkness
+				31907,1,  // C_PGstone_Knit_Hat_BW
+				31906,1,  // C_PGstone_Knit_Hat_PK
+				31905,1,  // C_Blanc_Neige_Prince
+				31846,1,  // C_Lovely_Ribbon_Hair
+                                6635,20,  // Bsb
+                                12103,20, // BB
+                                6225,20,  // HD Car
+                                6226,20,  // HD Bra
+                                7227,500, // TCG
+                                7929,500, // GC
+				25740,5,  // Cursed Gemstone
+				25739,5;  // Cursed crystal
+                setarray .reward2[0], 6635,2,7620,2,7619,2,6225,2,6226,2,7227,3,7929,10,17449,5,12710,5;
+                setarray .reward3[0], 7227,1,7929,1;
+
+        .chance = rand(10000);
+
+        if (.chance < 20){
+                .getnum = rand(getarraysize(.reward1)/2);
+                .getitem = .reward1[.getnum*2];
+                .amount = rand(1,.reward1[.getnum*2+1]);
+                 getitem  .getitem,.amount;
+                 announce "Chuìc mýÌng " + strcharinfo(0) + " nhân phâÒm bôòc phaìt nhâòn ðýõòc "+  .amount + " x "  + getitemname(.getitem),bc_all,"0xFFCE00";
+                 end;
+        }
+
+        if (.chance < 1000){
+                .getnum = rand(getarraysize(.reward2)/2);
+                .getitem = .reward2[.getnum*2];
+                .amount = rand(1,.reward2[.getnum*2+1]);
+                 getitem  .getitem,.amount;
+                 //announce "Chuìc mýÌng " + strcharinfo(0) + " nhân phâÒm biÌnh thýõÌng nhâòn ðýõòc "+  .amount + " x "  + getitemname(.getitem),bc_all,"0xFFCE00";
+                 end;
+        }
+        if (.chance < 2500){
+                .getnum = rand(getarraysize(.reward3)/2);
+                .getitem = .reward3[.getnum*2];
+                .amount = rand(1,.reward3[.getnum*2+1]);
+                 getitem  .getitem,.amount;
+                 //announce "Chuìc mýÌng " + strcharinfo(0) + " nhân phâÒm pheÌn pheÌn nhâòn ðýõòc "+  .amount + " x "  + getitemname(.getitem),bc_all,"0xFFCE00";
+                 end;
+        }
+	.zeny = rand(1,10000);
+	Zeny = Zeny + .zeny;
+	dispbottom "Nhân phâÒm baòn không tôìt nhýng ðýõòc thaình linh baÒo vêò, thu vêÌ " + .zeny + " Zeny";
+end;
+}
+
+-	script	NightDay	-1,{
+OnInit:
+	if( gettime(3) < 17 ){
+		day;
+	}else{
+		night;
+	}
+end;
+OnClock0600:
+	day;
+end;
+
+OnClock1800:
+	night;
+end;
+}

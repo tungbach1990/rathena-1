@@ -1,0 +1,44 @@
+//Zeny to Cash Exchanger NPC by teamcars of teamcars1broglobal@blogspot.com
+prontera,155,196,5	script	Zeny To Cash	894,{
+
+	mes "[TCG to Cash Exchanger]";
+	mes "Exchange Rate:";
+ 	mes "^0000FF1^000000 TCG = ^00FF00100^000000 cash point";
+	mes "Exchange^0000FF10^000000 cash points";
+	mes "Please select the service you want:";
+	next;
+	menu "^FF0000Exchange",MeExchange,"^00FF00Quit",MeEnd;
+	
+	MeExchange:
+		.@itemexchangeid = 7227;
+		set .@itemexchangecount,countitem(.@itemexchangeid);
+		mes "[TCG to Cash Exchanger]";
+		mes "^0000FF" + strcharinfo(0) + "^000000";
+		mes "Available Cash Points to Exchange: ^0000FF" + .@itemexchangecount*100 + "^000000";
+		mes "How Many TCG you want to Exchange?";
+		input @ExchangeEC;
+		if (.@itemexchangecount < @ExchangeEC) goto NotEnoughTCG;
+		next;
+		mes "Do you still wanna Exchange Cash Points?";
+		menu "^FF3355Exchange",LEyes,"Ive change my mind^000000",LEno;
+		LEyes:
+			set #CASHPOINTS,#CASHPOINTS+@ExchangeEC*100;
+			delitem .@itemexchangeid,@ExchangeEC;
+			goto MeEnd;
+			close;
+		LEno:
+			mes "Thanks you ^0000FF" + strcharinfo(0) + "^000000!";
+			mes "Come Again!";
+			close;
+	MeEnd:
+		close;	
+	NotEnoughTCG:
+			mes "Sorry You dont have enough TCG to exchange";
+			close;
+
+
+	OnInit:
+	waitingroom "TCG To Cash point Exchange",0;
+	end;
+
+}

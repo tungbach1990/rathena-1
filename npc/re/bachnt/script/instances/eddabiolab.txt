@@ -1,0 +1,2193 @@
+//===== rAthena Script =======================================
+//= Eddabioblab
+//===== By: ==================================================
+//= BACHNT
+//= Eddabioblab
+//===== Current Version: =====================================
+//= 1.0 
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Eddabioblab
+//============================================================
+
+//glast_01,241,290,4	script	Sierra S	4_F_SCIENCE,{
+prontera,147,168,4	script	Sierra S	4_F_SCIENCE,{
+	.@instance$ = "Edda Biolab";
+
+	.@party_id = getcharid(1);
+	.@p_name$ = getpartyname(.@party_id);
+	.@md_name$ = "Edda Biolab";
+	if (!instance_check_party(.@party_id)) {
+		mes "[Sierra]";
+		mes "Why don't you make a party with more than 1 person and talk to me again?";
+		close;
+	}
+	if (is_party_leader() == true) {
+		.@menu$ = "Generate Time Gap";
+		mes "[Sierra]";
+		mes "Do you interesting with Edda Biolab ?";
+	} else {
+		mes "[Sierra]";
+		mes "Have we met before? No way. It's my first time seeing you. What do you want?";
+	}
+	
+	.text1$ = "[^63f542 Easy^000000] - You +100% #Mob -75% #Drop -75%";
+	.text2$ = "[^42f5aa Normal^000000] - You -0% # Drop -0%";
+	.text3$ = "[^4266f5 Hard^000000] - You -25% #Drop +50%";
+	.text4$ = "[^f542ef Nightmare^000000] - You -50% #Drop +100%";
+	.text5$ = "[^f5425d Challenge^000000] - You -90% #Drop +200%";
+	.instances_name1$ = "Edda Biolab Easy";
+	.instances_name2$ = "Edda Biolab Normal";
+	.instances_name3$ = "Edda Biolab Hard";
+	.instances_name4$ = "Edda Biolab Nightmare";
+	.instances_name5$ = "Edda Biolab Challenge";
+	switch(select(.text1$,.text2$,.text3$,.text4$,.text5$)){
+		Case 1:
+			.@md_name$ = .instances_name1$;
+		break;
+		Case 2:
+			.@md_name$ = .instances_name2$;
+		break;
+		Case 3:
+			.@md_name$ = .instances_name3$;
+		break;
+		Case 4:
+			.@md_name$ = .instances_name4$;
+		break;
+		Case 5:
+			.@md_name$ = .instances_name5$;
+		break;
+	}
+	
+	switch( select( .@menu$, "Enter Edda Biolab", "Cancel" ) ) {
+	case 1:
+		switch( instance_create(.@md_name$) ) {
+		case -3:
+			dispbottom "Memorial Dungeon, 'Edda Biolab' is already in progress.",0xFFFFFF;
+			close;
+		case -4:
+		case -2:
+		case -1:
+			mes "Party Name: " + getpartyname( getcharid(1) );
+			mes "Party Leader: " + strcharinfo(0);
+			mes "^0000ff" + .@md_name$ + "^000000 - time gap generation failed.";
+			close;
+		end;
+			
+		}
+		mes "[Sierra]";
+		mes "After the time gap opens, please tell me again.";
+		close;
+	case 2:
+		if (checkquest(40000,PLAYTIME) == 0 || checkquest(40000,PLAYTIME) == 1) {
+			mes "[Siera S]";
+			mes "Is it tomorrow already? I don't think so! Can't you read the time?";
+			close;
+		} else if (checkquest(40000,PLAYTIME) == 2)
+			erasequest 40000;
+		switch( instance_enter(.@md_name$) ) {
+		case IE_OTHER:
+			mes "[Sierra]";
+			mes "An unknown error has occurred.";
+			close;
+		case IE_NOINSTANCE:
+			mes "[Sierra]";
+			mes "The time gap is not yet open.";
+			close;
+		case IE_NOMEMBER:
+			mes "[Sierra]";
+			mes "Your body is not fit to enter the time gap. You won't be able to get in if you're not in a party.";
+			close;
+		case IE_OK:
+			mapannounce "1@gol1", "" + getpartyname( getcharid(1) ) + " party member " + strcharinfo(0) + " enters the " + .@md_name$ + ".", bc_map,0x00FF99;
+			setquest 40000;
+			end;
+		}
+	case 3:
+		close;
+	}
+	end;
+}
+
+1@gol1,198,39,4	script	Sierra#1	4_F_SCIENCE,{
+	mes "[Sierra]";
+	mes "There is a girl who live with nameless";
+	mes "She angry everytime";
+	mes "I need you calm her down";
+	next;
+	mes "Have a lot of Guard, Scientist, Bad Experiment,... will try to stop you";
+	mes "Just stop them !!!!!!!!!!!!!!!";
+	mes "And help our Girl";
+	next;
+	.@party_id = getcharid(1);
+	if (.first == 0)
+	{
+		if (is_party_leader() == true) {
+			getpartymember getcharid(1),0;
+			getpartymember getcharid(1), 1;
+			.@count = $@partymembercount;
+			.countteam = 0;
+			copyarray .@charid[0], $@partymembercid[0], $@partymembercount;
+			for (.@i = 0; .@i < .@count; .@i++)
+			{
+				if (strcharinfo(3,.@charid[.@i]) == 'mapname$)
+					.countteam++;
+			}
+			if (.countteam == .@count)
+			{
+
+				doevent strnpcinfo(3)+"::OnSetMapFlag";
+				set .first,1;
+				warpparty 'mapname$,164,189,.@party_id;
+			} else {
+				mes "Call your team come here and we will start ";
+			}
+		} else {
+			mes "letme  talk with your ladder";
+		}
+	} else {
+		warp 'mapname$,164,189;
+	}
+end;
+
+OnSetMapFlag:
+	.instances_name1$ = "Edda Biolab Easy";
+	.instances_name2$ = "Edda Biolab Normal";
+	.instances_name3$ = "Edda Biolab Hard";
+	.instances_name4$ = "Edda Biolab Nightmare";
+	.instances_name5$ = "Edda Biolab Challenge";
+	.@md_name$ = instance_live_info(ILI_NAME);
+	if (.@md_name$ == .instances_name1$){
+		setmapflag instance_mapname("1@gol1"),mf_droprate25,1;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,100;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE2,BL_MOB,SKILLDMG_PC,-75;
+		setmapflag instance_mapname("1@gol2"),mf_droprate25,1;
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,100;
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE2,BL_MOB,SKILLDMG_PC,-75;
+	} else if (.@md_name$ == .instances_name2$){
+		setmapflag instance_mapname("1@gol1"),mf_droprate100,1;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,0;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE2,BL_MOB,SKILLDMG_PC,0;
+		setmapflag instance_mapname("1@gol2"),mf_droprate100,1;
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,0;
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE2,BL_MOB,SKILLDMG_PC,0;
+	} else if (.@md_name$ == .instances_name3$){
+		setmapflag instance_mapname("1@gol1"),mf_droprate150,1;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-25;
+		//setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE2,BL_MOB,SKILLDMG_PC,25;
+		setmapflag instance_mapname("1@gol2"),mf_droprate150,1;
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-25;
+		//setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE2,BL_MOB,SKILLDMG_PC,25;
+	} else if (.@md_name$ == .instances_name4$){
+		setmapflag instance_mapname("1@gol1"),mf_droprate200,1;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-50;
+		//setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE2,BL_MOB,SKILLDMG_PC,50;
+		setmapflag instance_mapname("1@gol2"),mf_droprate200,1;
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-50;
+		//setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE2,BL_MOB,SKILLDMG_PC,50;
+	} else if (.@md_name$ == .instances_name5$){
+		setmapflag instance_mapname("1@gol1"),mf_droprate300,1;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-90;
+		//setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE2,BL_MOB,SKILLDMG_PC,90;
+		setmapflag instance_mapname("1@gol2"),mf_droprate300,1;
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-90;
+		//setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE2,BL_MOB,SKILLDMG_PC,90;
+		
+	}
+	
+
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+
+OnInstanceInit:
+	enablenpc instance_npcname(strnpcinfo(0));
+	'mapname$ = instance_mapname("1@gol1");
+	.first = 0;
+end;
+}
+
+1@gol1,169,204,4	script	Sierra#2	4_F_SCIENCE,{
+	mes "[Sierra]";
+	mes "Good, good, continue then we will meet again!";
+	next;
+	mes "bye";
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv1Dead" );
+	if (.@num == 0) {
+		warp 'mapname$,64,277;
+	}
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+
+Onlv1Dead:
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv1Dead" );
+	
+	if (.@num == 0) {
+		.@party_id = getcharid(1);
+		warpparty 'mapname$,64,277,.@party_id;
+	}
+
+end;
+
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	'mapname$ = instance_mapname("1@gol1");
+	areamonster 'mapname$,157,204,158,205,"Rekenber Gunman",20541,3,strnpcinfo(3) + "::Onlv1Dead";
+	areamonster 'mapname$,156,188,166,189,"Rekenber Guard",20542,4,strnpcinfo(3) + "::Onlv1Dead";
+	areamonster 'mapname$,176,189,177,189,"Rekenber Scientist",20543,4,strnpcinfo(3) + "::Onlv1Dead";
+	areamonster 'mapname$,175,202,176,202,"Rekenber Guard",20542,4,strnpcinfo(3) + "::Onlv1Dead";
+end;
+
+}
+
+
+1@gol1,64,276,4	script	Sierra#3	4_F_SCIENCE,{
+	
+	mes "[Sierra]";
+	mes "Step by step...";
+	mes "But you should quicker";
+	mes "I need you calm her down";
+	next;
+	mes "Have a lot of Guard, Scientist, Bad Experiment,... will try to stop you";
+	mes "Just stop them !!!!!!!!!!!!!!!";
+	mes "And help our Girl";
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv2Dead" );
+	if (.@num == 0) {
+		warp 'mapname$,113,191;
+	}
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+
+Onlv2Dead:
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv2Dead" );
+	
+	if (.@num == 0) {
+		.@party_id = getcharid(1);
+		warpparty 'mapname$,113,191,.@party_id;
+	}
+
+end;
+
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	'mapname$ = instance_mapname("1@gol1");
+	areamonster 'mapname$,72,293,72,294,"Rekenber Gunman",20541,3,strnpcinfo(3) + "::Onlv2Dead";
+	areamonster 'mapname$,71,291,72,291,"Rekenber Guard",20542,3,strnpcinfo(3) + "::Onlv2Dead";
+	areamonster 'mapname$,73,294,73,294,"Rekenber Scientist",20543,1,strnpcinfo(3) + "::Onlv2Dead";
+	areamonster 'mapname$,74,295,74,295,"Rekenber Guard",20542,2,strnpcinfo(3) + "::Onlv2Dead";
+	
+	areamonster 'mapname$,67,301,67,301,"Rekenber Guard",20542,2,strnpcinfo(3) + "::Onlv2Dead";
+	areamonster 'mapname$,75,305,75,306,"Rekenber Guard",20542,2,strnpcinfo(3) + "::Onlv2Dead";
+	areamonster 'mapname$,71,306,72,306,"Rekenber Gunman",20541,2,strnpcinfo(3) + "::Onlv2Dead";
+	areamonster 'mapname$,68,312,69,312,"Nameless Acolyte",20538,2,strnpcinfo(3) + "::Onlv2Dead";
+	areamonster 'mapname$,75,306,75,307,"Rekenber Scientist",20543,1,strnpcinfo(3) + "::Onlv2Dead";
+	areamonster 'mapname$,68,323,68,324,"Rekenber Guard",20542,2,strnpcinfo(3) + "::Onlv2Dead";
+	
+	areamonster 'mapname$,8,319,15,315,"Rekenber Gunman",20541,2,strnpcinfo(3) + "::Onlv2Dead";
+	areamonster 'mapname$,8,319,15,315,"Rekenber Guard",20542,4,strnpcinfo(3) + "::Onlv2Dead";
+	areamonster 'mapname$,8,319,15,315,"Rekenber Scientist",20543,2,strnpcinfo(3) + "::Onlv2Dead";
+	
+	
+end;
+
+}
+
+
+1@gol1,119,196,4	script	Sierra#4	4_F_SCIENCE,{
+	
+	mes "[Sierra]";
+	mes "Step by step...";
+	mes "But you should quicker";
+	mes "I need you calm her down";
+	next;
+	mes "Have a lot of Guard, Scientist, Bad Experiment,... will try to stop you";
+	mes "Just stop them !!!!!!!!!!!!!!!";
+	mes "And help our Girl";
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv3Dead" );
+	if (.@num == 0) {
+		warp 'mapname$,69,114;
+	}
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+
+Onlv3Dead:
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv3Dead" );
+	
+	if (.@num == 0) {
+		.@party_id = getcharid(1);
+		warpparty 'mapname$,69,114,.@party_id;
+		donpcevent instance_npcname( "Sierra#5", instance_id() ) + "::OnStartBlind";
+	}
+
+end;
+
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	'mapname$ = instance_mapname("1@gol1");
+	areamonster 'mapname$,107,194,109,193,"Rekenber Guard",20542,3,strnpcinfo(3) + "::Onlv3Dead";
+	areamonster 'mapname$,108,203,109,202,"Rekenber Scientist",20543,3,strnpcinfo(3) + "::Onlv3Dead";
+	
+	areamonster 'mapname$,130,203,131,204,"Rekenber Guard",20542,3,strnpcinfo(3) + "::Onlv3Dead";
+	areamonster 'mapname$,132,199,134,199,"Rekenber Gunman",20541,3,strnpcinfo(3) + "::Onlv3Dead";
+	areamonster 'mapname$,120,221,124,221,"Rekenber Scientist",20543,5,strnpcinfo(3) + "::Onlv3Dead";
+	
+	areamonster 'mapname$,88,220,89,220,"Rekenber Guard",20542,6,strnpcinfo(3) + "::Onlv3Dead";
+	
+	
+end;
+
+}
+
+1@gol1,77,118,4	script	Sierra#5	4_F_SCIENCE,{
+	
+	mes "[Sierra]";
+	mes "Step by step...";
+	mes "But you should quicker";
+	mes "I need you calm her down";
+	next;
+	mes "You mind blind with light in this zone";
+	mes "Becarefullllllll";
+	mes "And help our Girl";
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv4Dead" );
+	if (.@num == 0) {
+		warp 'mapname$,116,25;
+	}
+end;
+OnStartBlind:
+	initnpctimer;
+end;
+OnTouch:
+	attachrid getcharid(3);
+	npctalk "becarerful ur eye";
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+
+OnTimer10000:
+	addrid(1);
+	sc_start SC_Blind,20000,0;
+	initnpctimer;
+end;
+
+Onlv4Dead:
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv4Dead" );
+	
+	if (.@num == 0) {
+		stopnpctimer;
+		sc_start SC_Blind,60000,1;
+		.@party_id = getcharid(1);
+		warpparty 'mapname$,116,25,.@party_id;
+	}
+
+end;
+
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	'mapname$ = instance_mapname("1@gol1");
+	areamonster 'mapname$,59,118,59,110,"Rekenber Guard",20542,3,strnpcinfo(3) + "::Onlv4Dead";
+	areamonster 'mapname$,59,118,59,110,"Rekenber Scientist",20543,3,strnpcinfo(3) + "::Onlv4Dead";
+	areamonster 'mapname$,59,118,59,110,"Rekenber Gunman",20541,1,strnpcinfo(3) + "::Onlv4Dead";
+	
+	areamonster 'mapname$,97,118,97,118,"Rekenber Scientist",20543,3,strnpcinfo(3) + "::Onlv4Dead";
+	areamonster 'mapname$,94,136,92,136,"Rekenber Guard",20542,4,strnpcinfo(3) + "::Onlv4Dead";
+	areamonster 'mapname$,97,151,97,151,"Rekenber Gunman",20541,1,strnpcinfo(3) + "::Onlv4Dead";
+	areamonster 'mapname$,62,138,62,139,"Rekenber Gunman",20541,1,strnpcinfo(3) + "::Onlv4Dead";
+	areamonster 'mapname$,50,90,50,90,"Rekenber Gunman",20541,1,strnpcinfo(3) + "::Onlv4Dead";
+	areamonster 'mapname$,51,90,54,90,"Rekenber Guard",20542,6,strnpcinfo(3) + "::Onlv4Dead";
+	areamonster 'mapname$,51,90,54,90,"Nameless Acolyte",20538,1,strnpcinfo(3) + "::Onlv4Dead";
+	
+end;
+
+}
+//S_EMPEL_2 1908
+//G_HORONG 1578
+
+
+1@gol1,127,37,4	script	Block#1	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,128,37,4	script	Block#2	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,129,37,4	script	Block#3	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,130,37,4	script	Block#4	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,131,37,4	script	Block#5	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,132,37,4	script	Block#6	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,118,22,4	script	Stone#1	1908,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,113,26,4	script	Sierra#6	4_F_SCIENCE,{
+	
+	mes "[Sierra]";
+	mes "Continueeeee";
+	mes "We have 4 zone here";
+	mes "You will be lock in barrier per zone, kill all enemy then remove crystal will open barrier";
+	next;
+	mes "This Zone have a lot of enemy";
+	mes "Becarefullllllll";
+	mes "And help our Girl";
+	next;
+	mes "bye";
+	.@num1 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv6Dead" );
+	.@num2 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv7Dead" );
+	.@num3 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv8Dead" );
+	.@num4 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv9Dead" );
+	if ((getvariableofinstance('doneTR,instance_id()) + getvariableofinstance('doneBL,instance_id()) + getvariableofinstance('doneTL,instance_id()) + getvariableofinstance('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
+		warp 'mapname$,168,108;
+	}
+end;
+
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+
+Onlv5Dead:
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv5Dead" );
+	//.@num = getareaunits(BL_MOB,'mapname$,98,34,135,7,.@array[0]);
+	if (.@num == 0) {
+		//if (checkwall("Block1") == true)
+		//	delwall "Block1";
+		setcell 'mapname$,127,37,127+5,37,cell_walkable,1; 
+		setcell 'mapname$,127,37,127+5,37,cell_shootable,1; 
+			
+		hideonnpc instance_npcname( "Block#1", instance_id() );
+		sleep 300;
+		hideonnpc instance_npcname( "Block#2", instance_id() );
+		sleep 300;
+		hideonnpc instance_npcname( "Block#3", instance_id() );
+		sleep 300;
+		hideonnpc instance_npcname( "Block#4", instance_id() );
+		sleep 300;
+		hideonnpc instance_npcname( "Block#5", instance_id() );
+		sleep 300;
+		hideonnpc instance_npcname( "Block#6", instance_id() );
+	}
+
+end;
+
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	'mapname$ = instance_mapname("1@gol1");
+	setcell 'mapname$,127,37,127+5,37,cell_walkable,0; 
+	setcell 'mapname$,127,37,127+5,37,cell_shootable,0;
+	//setwall 'mapname$,132,37,7,2,0,"Block1";
+	
+	areamonster 'mapname$,110,25,110,25,"Rekenber Gunman",20541,1,strnpcinfo(3) + "::Onlv5Dead";
+	areamonster 'mapname$,110,25,110,25,"Rekenber Guard",20542,2,strnpcinfo(3) + "::Onlv5Dead";
+	
+end;
+
+}
+
+1@gol1,142,70,3	script	Crystal Stone#TR	1908,7,7,{
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv6Dead" );
+	if (.@num == 0) {
+	    //if (is_party_leader() == true) {
+		//if (checkwall("Block1TR") == true)
+		//	delwall "Block1TR";
+		//if (checkwall("Block2TR") == true)
+		//	delwall "Block2TR";
+		setcell 'mapname$,136,57,136+11,57,cell_walkable,1; 
+		setcell 'mapname$,136,57,136+11,57,cell_shootable,1;
+		setcell 'mapname$,135,71,135,71+3,cell_walkable,1; 
+		setcell 'mapname$,135,71,135,71+3,cell_shootable,1;
+		disablenpc instance_npcname("MBlock#1",instance_id());
+		disablenpc instance_npcname("MBlock#2",instance_id());
+		disablenpc instance_npcname("MBlock#3",instance_id());
+		disablenpc instance_npcname("MBlock#4",instance_id());
+		disablenpc instance_npcname("MBlock#5",instance_id());
+		disablenpc instance_npcname("MBlock#6",instance_id());
+		disablenpc instance_npcname("MBlock#7",instance_id());
+		disablenpc instance_npcname("MBlock#8",instance_id());
+		disablenpc instance_npcname("MBlock#9",instance_id());
+		disablenpc instance_npcname("MBlock#10",instance_id());
+		disablenpc instance_npcname("Crystal Stone#TR",instance_id());
+	    //}
+	}
+	end;
+OnTouch_:
+	if ('doneTR == 0) {
+		//setwall 'mapname$,147,57,13,2,0,"Block1TR";
+		//setwall 'mapname$,134,71,7,0,0,"Block2TR";
+		setcell 'mapname$,136,57,136+11,57,cell_walkable,0; 
+		setcell 'mapname$,136,57,136+11,57,cell_shootable,0;
+		setcell 'mapname$,135,71,135,71+3,cell_walkable,0; 
+		setcell 'mapname$,135,71,135,71+3,cell_shootable,0;
+		hideoffnpc instance_npcname(strnpcinfo(0));
+		hideoffnpc instance_npcname("MBlock#1",instance_id());
+		hideoffnpc instance_npcname("MBlock#2",instance_id());
+		hideoffnpc instance_npcname("MBlock#3",instance_id());
+		hideoffnpc instance_npcname("MBlock#4",instance_id());
+		hideoffnpc instance_npcname("MBlock#5",instance_id());
+		hideoffnpc instance_npcname("MBlock#6",instance_id());
+		hideoffnpc instance_npcname("MBlock#7",instance_id());
+		hideoffnpc instance_npcname("MBlock#8",instance_id());
+		hideoffnpc instance_npcname("MBlock#9",instance_id());
+		hideoffnpc instance_npcname("MBlock#10",instance_id());
+		areamonster 'mapname$,142,70,143,70,"Rekenber Gunman",20541,3,strnpcinfo(3) + "::Onlv6Dead";
+		areamonster 'mapname$,142,70,143,70,"Rekenber Guard",20542,7,strnpcinfo(3) + "::Onlv6Dead";
+		'doneTR = 1;
+	}
+end;
+
+Onlv6Dead:
+	.@num1 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv6Dead" );
+	.@num2 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv7Dead" );
+	.@num3 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv8Dead" );
+	.@num4 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv9Dead" );
+	if ((getvariableofinstance('doneTR,instance_id()) + getvariableofinstance('doneBL,instance_id()) + getvariableofinstance('doneTL,instance_id()) + getvariableofinstance('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
+		warpparty 'mapname$,168,108,.@party_id;
+	}
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	'mapname$ = instance_mapname("1@gol1");
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+	'doneTR = 0;
+end;	
+}
+1@gol1,136,57,3	script	MBlock#1	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,138,57,3	script	MBlock#2	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,140,57,3	script	MBlock#3	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,142,57,3	script	MBlock#4	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,144,57,3	script	MBlock#5	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,146,57,3	script	MBlock#6	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,134,71,3	script	MBlock#7	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,134,73,3	script	MBlock#8	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,134,75,3	script	MBlock#9	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,134,77,3	script	MBlock#10	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+// Bot Right
+1@gol1,146,19,3	script	Crystal Stone#BR	1908,7,7,{
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv7Dead" );
+	if (.@num == 0) {
+	    //if (is_party_leader() == true) {
+		//if (checkwall("Block1BR") == true)
+		//	delwall "Block1BR";
+		setcell 'mapname$,140,30,151,30,cell_walkable,1; 
+		setcell 'mapname$,140,30,151,30,cell_shootable,1;
+		
+		
+		disablenpc instance_npcname("BRBlock#1",instance_id());
+		disablenpc instance_npcname("BRBlock#2",instance_id());
+		disablenpc instance_npcname("BRBlock#3",instance_id());
+		disablenpc instance_npcname("BRBlock#4",instance_id());
+		disablenpc instance_npcname("BRBlock#5",instance_id());
+		disablenpc instance_npcname("BRBlock#6",instance_id());
+		disablenpc instance_npcname("Crystal Stone#BR",instance_id());
+	    //}
+	}
+	end;
+OnTouch_:
+	if ('doneBR == 0) {
+		//setwall 'mapname$,151,30,13,2,0,"Block1BR";
+		setcell 'mapname$,140,30,151,30,cell_walkable,0; 
+		setcell 'mapname$,140,30,151,30,cell_shootable,0;
+		hideoffnpc instance_npcname(strnpcinfo(0));
+		hideoffnpc instance_npcname("BRBlock#1",instance_id());
+		hideoffnpc instance_npcname("BRBlock#2",instance_id());
+		hideoffnpc instance_npcname("BRBlock#3",instance_id());
+		hideoffnpc instance_npcname("BRBlock#4",instance_id());
+		hideoffnpc instance_npcname("BRBlock#5",instance_id());
+		hideoffnpc instance_npcname("BRBlock#6",instance_id());
+		areamonster 'mapname$,146,19,147,19,"Rekenber Gunman",20541,3,strnpcinfo(3) + "::Onlv7Dead";
+		areamonster 'mapname$,146,19,147,19,"Rekenber Guard",20542,7,strnpcinfo(3) + "::Onlv7Dead";
+		'doneBR = 1;
+	}
+end;
+
+Onlv7Dead:
+	.@num1 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv6Dead" );
+	.@num2 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv7Dead" );
+	.@num3 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv8Dead" );
+	.@num4 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv9Dead" );
+	if ((getvariableofinstance('doneTR,instance_id()) + getvariableofinstance('doneBL,instance_id()) + getvariableofinstance('doneTL,instance_id()) + getvariableofinstance('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
+		warpparty 'mapname$,168,108,.@party_id;
+	}
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	'mapname$ = instance_mapname("1@gol1");
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+	'doneTR = 0;
+end;	
+}
+1@gol1,150,29,3	script	BRBlock#1	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,148,29,3	script	BRBlock#2	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,146,29,3	script	BRBlock#3	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,144,29,3	script	BRBlock#4	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,142,29,3	script	BRBlock#5	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,140,29,3	script	BRBlock#6	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+
+
+//////////// TOp Left
+1@gol1,93,70,3	script	Crystal Stone#TL	1908,7,7,{
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv8Dead" );
+	if (.@num == 0) {
+	    //if (is_party_leader() == true) {
+		//if (checkwall("Block1TL") == true)
+		//	delwall "Block1TL";
+		//if (checkwall("Block2TL") == true)
+		//	delwall "Block2TL";
+		setcell 'mapname$,88,57,99,57,cell_walkable,1; 
+		setcell 'mapname$,88,57,99,57,cell_shootable,1;
+		setcell 'mapname$,100,72,100,76,cell_walkable,1; 
+		setcell 'mapname$,100,72,100,76,cell_shootable,1;
+		
+		disablenpc instance_npcname("TLBlock#1",instance_id());
+		disablenpc instance_npcname("TLBlock#2",instance_id());
+		disablenpc instance_npcname("TLBlock#3",instance_id());
+		disablenpc instance_npcname("TLBlock#4",instance_id());
+		disablenpc instance_npcname("TLBlock#5",instance_id());
+		disablenpc instance_npcname("TLBlock#6",instance_id());
+		disablenpc instance_npcname("TLBlock#7",instance_id());
+		disablenpc instance_npcname("TLBlock#8",instance_id());
+		disablenpc instance_npcname("TLBlock#9",instance_id());
+		disablenpc instance_npcname("TLBlock#10",instance_id());
+		disablenpc instance_npcname("Crystal Stone#TL",instance_id());
+            //}
+	}
+	end;
+OnTouch_:
+	if ('doneTL == 0) {
+		//setwall 'mapname$,99,57,13,2,0,"Block1TL";
+		//setwall 'mapname$,101,71,7,0,0,"Block2TL";
+		setcell 'mapname$,88,57,99,57,cell_walkable,0; 
+		setcell 'mapname$,88,57,99,57,cell_shootable,0;
+		setcell 'mapname$,100,72,100,76,cell_walkable,0; 
+		setcell 'mapname$,100,72,100,76,cell_shootable,0;
+		hideoffnpc instance_npcname(strnpcinfo(0));
+		hideoffnpc instance_npcname("TLBlock#1",instance_id());
+		hideoffnpc instance_npcname("TLBlock#2",instance_id());
+		hideoffnpc instance_npcname("TLBlock#3",instance_id());
+		hideoffnpc instance_npcname("TLBlock#4",instance_id());
+		hideoffnpc instance_npcname("TLBlock#5",instance_id());
+		hideoffnpc instance_npcname("TLBlock#6",instance_id());
+		hideoffnpc instance_npcname("TLBlock#7",instance_id());
+		hideoffnpc instance_npcname("TLBlock#8",instance_id());
+		hideoffnpc instance_npcname("TLBlock#9",instance_id());
+		hideoffnpc instance_npcname("TLBlock#10",instance_id());
+		areamonster 'mapname$,94,72,95,72,"Rekenber Gunman",20541,3,strnpcinfo(3) + "::Onlv8Dead";
+		areamonster 'mapname$,94,72,95,72,"Rekenber Guard",20542,7,strnpcinfo(3) + "::Onlv8Dead";
+		'doneTL = 1;
+	}
+end;
+
+Onlv8Dead:
+	.@num1 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv6Dead" );
+	.@num2 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv7Dead" );
+	.@num3 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv8Dead" );
+	.@num4 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv9Dead" );
+	if ((getvariableofinstance('doneTR,instance_id()) + getvariableofinstance('doneBL,instance_id()) + getvariableofinstance('doneTL,instance_id()) + getvariableofinstance('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
+		warpparty 'mapname$,168,108,.@party_id;
+	}
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	'mapname$ = instance_mapname("1@gol1");
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+	'doneTR = 0;
+end;	
+}
+1@gol1,99,57,3	script	TLBlock#1	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,97,57,3	script	TLBlock#2	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,95,57,3	script	TLBlock#3	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,93,57,3	script	TLBlock#4	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,91,57,3	script	TLBlock#5	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,89,57,3	script	TLBlock#6	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,101,71,3	script	TLBlock#7	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,101,73,3	script	TLBlock#8	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,101,75,3	script	TLBlock#9	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,101,77,3	script	TLBlock#10	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+// Bot Left
+1@gol1,90,19,3	script	Crystal Stone#BL	1908,7,7,{
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv9Dead" );
+	if (.@num == 0) {
+	    //if (is_party_leader() == true) {
+		//if (checkwall("Block1BL") == true)
+		//	delwall "Block1BL";
+		setcell 'mapname$,84,31,95,31,cell_walkable,1; 
+		setcell 'mapname$,84,31,95,31,cell_shootable,1;
+
+		disablenpc instance_npcname("BLBlock#1",instance_id());
+		disablenpc instance_npcname("BLBlock#2",instance_id());
+		disablenpc instance_npcname("BLBlock#3",instance_id());
+		disablenpc instance_npcname("BLBlock#4",instance_id());
+		disablenpc instance_npcname("BLBlock#5",instance_id());
+		disablenpc instance_npcname("BLBlock#6",instance_id());
+		disablenpc instance_npcname("Crystal Stone#BL",instance_id());
+	    //}
+		
+	}
+	end;
+OnTouch_:
+	if ('doneBL == 0) {
+		//setwall 'mapname$,95,31,13,2,0,"Block1BL";
+		setcell 'mapname$,84,31,95,31,cell_walkable,0; 
+		setcell 'mapname$,84,31,95,31,cell_shootable,0;
+		
+		hideoffnpc instance_npcname(strnpcinfo(0));
+		hideoffnpc instance_npcname("BLBlock#1",instance_id());
+		hideoffnpc instance_npcname("BLBlock#2",instance_id());
+		hideoffnpc instance_npcname("BLBlock#3",instance_id());
+		hideoffnpc instance_npcname("BLBlock#4",instance_id());
+		hideoffnpc instance_npcname("BLBlock#5",instance_id());
+		hideoffnpc instance_npcname("BLBlock#6",instance_id());
+		areamonster 'mapname$,90,19,91,19,"Rekenber Gunman",20541,3,strnpcinfo(3) + "::Onlv9Dead";
+		areamonster 'mapname$,90,19,91,19,"Rekenber Guard",20542,7,strnpcinfo(3) + "::Onlv9Dead";
+		'doneBL = 1;
+	}
+end;
+
+Onlv9Dead:
+	.@num1 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv6Dead" );
+	.@num2 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv7Dead" );
+	.@num3 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv8Dead" );
+	.@num4 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv9Dead" );
+	if ((getvariableofinstance('doneTR,instance_id()) + getvariableofinstance('doneBL,instance_id()) + getvariableofinstance('doneTL,instance_id()) + getvariableofinstance('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
+		warpparty 'mapname$,168,108,.@party_id;
+	}
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	'mapname$ = instance_mapname("1@gol1");
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+	'doneBL = 0;
+end;	
+}
+1@gol1,95,29,3	script	BLBlock#1	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,93,29,3	script	BLBlock#2	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,91,29,3	script	BLBlock#3	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,89,29,3	script	BLBlock#4	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,87,29,3	script	BLBlock#5	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol1,85,29,3	script	BLBlock#6	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+
+1@gol1,159,112,4	script	Sierra#7	4_F_SCIENCE,{
+	
+	mes "[Sierra]";
+	mes "Continueeeee";
+	mes "We are near the girl";
+	mes "But they are crowed";
+	next;
+	mes "This Zone have a lot of enemy";
+	mes "Becarefullllllll";
+	mes "And help our Girl";
+	next;
+	mes "bye";
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv10Dead" );
+	if (.@num == 0) {
+		warp 'mapname$,158,301;
+	}
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+Onlv10Dead:
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv10Dead" );
+	
+	if (.@num == 0) {
+		.@party_id = getcharid(1);
+		warpparty 'mapname$,158,301,.@party_id;
+	}
+
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	areamonster 'mapname$,156,112,158,110,"Rekenber Scientist",20543,5,strnpcinfo(3) + "::Onlv10Dead";
+	areamonster 'mapname$,156,112,158,110,"Rekenber Guard",20542,5,strnpcinfo(3) + "::Onlv10Dead";
+	areamonster 'mapname$,156,112,158,110,"Nameless Merchant",20539,5,strnpcinfo(3) + "::Onlv10Dead";
+	areamonster 'mapname$,156,112,158,110,"Nameless Swordman",20537,5,strnpcinfo(3) + "::Onlv10Dead";
+	areamonster 'mapname$,156,112,158,110,"Nameless Acolyte",20538,5,strnpcinfo(3) + "::Onlv10Dead";
+	
+	areamonster 'mapname$,189,134,188,134,"Rekenber Guard",20542,3,strnpcinfo(3) + "::Onlv10Dead";
+	areamonster 'mapname$,152,137,179,140,"Nameless Merchant",20539,5,strnpcinfo(3) + "::Onlv10Dead";
+	areamonster 'mapname$,152,137,179,140,"Nameless Swordman",20537,5,strnpcinfo(3) + "::Onlv10Dead";
+	areamonster 'mapname$,152,137,179,140,"Nameless Acolyte",20538,5,strnpcinfo(3) + "::Onlv10Dead";
+	areamonster 'mapname$,152,137,152,137,"Rekenber Scientist",20543,1,strnpcinfo(3) + "::Onlv10Dead";
+end;
+}
+
+
+1@gol1,172,309,4	script	Sierra#8	4_F_SCIENCE,{
+	
+	mes "[Sierra]";
+	mes "Continueeeee";
+	mes "We are near the girl";
+	mes "But they are crowed";
+	next;
+	mes "This Zone have a lot of enemy";
+	mes "Becarefullllllll";
+	mes "And help our Girl";
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv11Dead" );
+	
+	if (.@num == 0) {
+		enablenpc instance_npcname( "ebwarp#1", instance_id() );
+	}
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+Onlv11Dead:
+	.@num = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv11Dead" );
+	
+	if (.@num == 0) {
+		enablenpc instance_npcname( "ebwarp#1", instance_id() );
+	}
+
+end;
+OnInstanceInit:	
+	disablenpc instance_npcname( "ebwarp#1", instance_id() );
+	enablenpc instance_npcname(strnpcinfo(0));
+	
+	areamonster 'mapname$,150,301,150,301,"Rekenber Guard",20542,5,strnpcinfo(3) + "::Onlv11Dead";
+	
+	areamonster 'mapname$,153,301,154,301,"Rekenber Scientist",20543,3,strnpcinfo(3) + "::Onlv11Dead";
+	areamonster 'mapname$,153,301,154,301,"Rekenber Gunman",20541,3,strnpcinfo(3) + "::Onlv11Dead";
+	
+	areamonster 'mapname$,156,297,157,298,"Nameless Swordman",20537,4,strnpcinfo(3) + "::Onlv11Dead";
+
+	
+end;
+}
+
+1@gol1,189,328,3	script	ebwarp#1	WARPNPC,2,2,{
+	end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+//	enablenpc instance_npcname(strnpcinfo(0));
+end;
+OnTouch_:
+	warp instance_mapname( "1@gol2" ), 49, 10;
+	end;
+}
+1@gol2,50,26,4	script	Sierra#Boss	4_F_SCIENCE,{
+	
+	mes "[Sierra]";
+	mes "I locked her in this room";
+	mes "Help her";
+	next;
+	mes "I locked her in this room";
+	mes "Help her";
+	if (is_party_leader() == true) {
+	if (getvariableofinstance('openboss,instance_id()) == 1) {
+		hideonnpc instance_npcname("BossBlock#1",instance_id());
+		//if (checkwall("BlockBoss") == true)
+			//delwall "BlockBoss";
+	}
+	}
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	'openboss = 1;
+	'mapname2$ = instance_mapname("1@gol2");
+	enablenpc instance_npcname(strnpcinfo(0));
+	//setwall 'mapname2$,52,44,4,2,0,"BlockBoss";
+end;
+}
+
+1@gol2,51,44,3	script	BossBlock#1	802,{
+end;
+
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	'mapname2$ = instance_mapname("1@gol2");
+	enablenpc instance_npcname(strnpcinfo(0));
+	
+end;
+}
+
+1@gol2,52,67,4	script	Sierra#Boss2	4_F_SCIENCE,{
+	mes "[Sierra]";	
+	if (getvariableofinstance('openboss,instance_id()) == 1) {
+	    if (is_party_leader() == true) {
+		mes "Hmm maybe we cant calm her down";
+		next;
+		mes "Help me";
+		next;
+		mes "Kill her";
+		hideoffnpc instance_npcname("BossBlock#1",instance_id());
+		setwall 'mapname2$,52,44,4,2,0,"BlockBoss";
+		areamonster 'mapname2$,49,66,49,66,"Nameless Swordsman",20536,1,strnpcinfo(3) + "::OnBossDead"; 
+		set getvariableofinstance('openboss,instance_id()),0;
+		hideonnpc instance_npcname(strnpcinfo(0));
+		initnpctimer;
+	    }
+	} else {
+		mes "Thank you !!!!!!";
+		next;
+		getitem 25786,9;
+		getitem 25787,15;
+		warp "prontera",150,100;
+	}
+end;
+OnBossDead:
+	.instances_name1$ = "Edda Biolab Easy";
+	.instances_name2$ = "Edda Biolab Normal";
+	.instances_name3$ = "Edda Biolab Hard";
+	.instances_name4$ = "Edda Biolab Nightmare";
+	.instances_name5$ = "Edda Biolab Challenge";
+	.@md_name$ = instance_live_info(ILI_NAME);
+	if (.@md_name$ == .instances_name1$){
+		getitem 7929,20;
+		getitem 23992,1;
+	} else if (.@md_name$ == .instances_name2$){
+		getitem 7929,40;
+		getitem 23992,1;
+	} else if (.@md_name$ == .instances_name3$){
+		getitem 7929,60;
+		getitem 23992,1;
+	} else if (.@md_name$ == .instances_name4$){
+		getitem 7929,80;
+		getitem 23992,1;
+	} else if (.@md_name$ == .instances_name5$){
+		getitem 7929,100;
+		getitem 23992,1;
+	}
+	killmonster 'mapname2$,strnpcinfo(3) + "::OnSlaveDead";	
+	addrid(4,0,31,45,68,84);
+	hideoffnpc instance_npcname(strnpcinfo(0));
+	for(set .@i,1; .@i<15; set .@i,.@i+1){
+		hideonnpc instance_npcname("BTRBlock#" + .@i,instance_id());
+		hideonnpc instance_npcname("BBRBlock#" + .@i,instance_id());
+		hideonnpc instance_npcname("BTLBlock#" + .@i,instance_id());
+		hideonnpc instance_npcname("BBLBlock#" + .@i,instance_id());
+		disablenpc instance_npcname("BTRBlock#" + .@i,instance_id());
+		disablenpc instance_npcname("BBRBlock#" + .@i,instance_id());
+		disablenpc instance_npcname("BTLBlock#" + .@i,instance_id());
+		disablenpc instance_npcname("BBLBlock#" + .@i,instance_id());
+		
+	}
+/*	for(set .@i,1; .@i<5; set .@i,.@i+1){
+		delwall "BTRBlock" + .@i;
+		delwall "BTLBlock" + .@i;
+		delwall "BBRBlock" + .@i;
+		delwall "BBLBlock" + .@i;
+	}
+*/
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,48,64+.@i,48,64+.@i,cell_walkable,1; // TL
+		setcell 'mapname2$,48,64+.@i,48,64+.@i,cell_shootable,1; // TL
+		setcell 'mapname2$,48,60-.@i,48,60-.@i,cell_walkable,1; // BL
+		setcell 'mapname2$,48,60-.@i,48,60-.@i,cell_shootable,1; // BL		
+		setcell 'mapname2$,52,64+.@i,52,64+.@i,cell_walkable,1; // TR
+		setcell 'mapname2$,52,64+.@i,52,64+.@i,cell_shootable,1; // TR
+		setcell 'mapname2$,52,60-.@i,52,60-.@i,cell_walkable,1; // BR
+		setcell 'mapname2$,52,60-.@i,52,60-.@i,cell_shootable,1; // BR
+		//sleep(250);
+	}
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,48-.@i,71,48-.@i,71,cell_walkable,1; // TL
+		setcell 'mapname2$,48-.@i,71,48-.@i,71,cell_shootable,1; // TL
+		setcell 'mapname2$,48-.@i,53,48-.@i,53,cell_walkable,1; // BL
+		setcell 'mapname2$,48-.@i,53,48-.@i,53,cell_shootable,1; // BL		
+		setcell 'mapname2$,52+.@i,71,52+.@i,71,cell_walkable,1; // TR
+		setcell 'mapname2$,52+.@i,71,52+.@i,71,cell_shootable,1; // TR
+		setcell 'mapname2$,52+.@i,53,52+.@i,53,cell_walkable,1; // BR
+		setcell 'mapname2$,52+.@i,53,52+.@i,53,cell_shootable,1; // BR
+		//sleep(250);
+	}	
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,41,71-.@i,41,71-.@i,cell_walkable,1; // TL
+		setcell 'mapname2$,41,71-.@i,41,71-.@i,cell_shootable,1; // TL
+		setcell 'mapname2$,41,53+.@i,41,53+.@i,cell_walkable,1; // BL
+		setcell 'mapname2$,41,53+.@i,41,53+.@i,cell_shootable,1; // BL		
+		setcell 'mapname2$,59,71-.@i,59,71-.@i,cell_walkable,1; // TR
+		setcell 'mapname2$,59,71-.@i,59,71-.@i,cell_shootable,1; // TR
+		setcell 'mapname2$,59,53+.@i,59,53+.@i,cell_walkable,1; // BR
+		setcell 'mapname2$,59,53+.@i,59,53+.@i,cell_shootable,1; // BR
+		//sleep(250);
+	}
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,41+.@i,64,41+.@i,64,cell_walkable,1; // TL
+		setcell 'mapname2$,41+.@i,64,41+.@i,64,cell_shootable,1; // TL
+		setcell 'mapname2$,41+.@i,60,41+.@i,60,cell_walkable,1; // BL
+		setcell 'mapname2$,41+.@i,60,41+.@i,60,cell_shootable,1; // BL		
+		setcell 'mapname2$,59-.@i,64,59-.@i,64,cell_walkable,1; // TR
+		setcell 'mapname2$,59-.@i,64,59-.@i,64,cell_shootable,1; // TR
+		setcell 'mapname2$,59-.@i,60,59-.@i,60,cell_walkable,1; // BR
+		setcell 'mapname2$,59-.@i,60,59-.@i,60,cell_shootable,1; // BR
+		//sleep(250);
+	}
+	stopnpctimer;
+end;
+OnTimer60000:
+	for(set .@i,1; .@i<15; set .@i,.@i+1){
+		hideoffnpc instance_npcname("BTRBlock#" + .@i,instance_id());
+		hideoffnpc instance_npcname("BBRBlock#" + .@i,instance_id());
+		hideoffnpc instance_npcname("BTLBlock#" + .@i,instance_id());
+		hideoffnpc instance_npcname("BBLBlock#" + .@i,instance_id());
+		sleep(500);
+	}
+		
+	monster 'mapname2$,45,57,"Rekenber Guard",20542,1,strnpcinfo(3) + "::OnSlaveDead";	
+	monster 'mapname2$,56,57,"Rekenber Scientist",20543,1,strnpcinfo(3) + "::OnSlaveDead";
+	monster 'mapname2$,56,68,"Nameless Merchant",20539,1,strnpcinfo(3) + "::OnSlaveDead";
+	monster 'mapname2$,45,68,"Nameless Acolyte",20538,1,strnpcinfo(3) + "::OnSlaveDead";
+end;
+
+OnSlaveDead:
+
+end;
+OnTimer60500:
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,48,64+.@i,48,64+.@i,cell_walkable,0; // TL
+		setcell 'mapname2$,48,64+.@i,48,64+.@i,cell_shootable,0; // TL
+		setcell 'mapname2$,48,60-.@i,48,60-.@i,cell_walkable,0; // BL
+		setcell 'mapname2$,48,60-.@i,48,60-.@i,cell_shootable,0; // BL		
+		setcell 'mapname2$,52,64+.@i,52,64+.@i,cell_walkable,0; // TR
+		setcell 'mapname2$,52,64+.@i,52,64+.@i,cell_shootable,0; // TR
+		setcell 'mapname2$,52,60-.@i,52,60-.@i,cell_walkable,0; // BR
+		setcell 'mapname2$,52,60-.@i,52,60-.@i,cell_shootable,0; // BR
+		sleep(250);
+	}
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,48-.@i,71,48-.@i,71,cell_walkable,0; // TL
+		setcell 'mapname2$,48-.@i,71,48-.@i,71,cell_shootable,0; // TL
+		setcell 'mapname2$,48-.@i,53,48-.@i,53,cell_walkable,0; // BL
+		setcell 'mapname2$,48-.@i,53,48-.@i,53,cell_shootable,0; // BL		
+		setcell 'mapname2$,52+.@i,71,52+.@i,71,cell_walkable,0; // TR
+		setcell 'mapname2$,52+.@i,71,52+.@i,71,cell_shootable,0; // TR
+		setcell 'mapname2$,52+.@i,53,52+.@i,53,cell_walkable,0; // BR
+		setcell 'mapname2$,52+.@i,53,52+.@i,53,cell_shootable,0; // BR
+		sleep(250);
+	}	
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,41,71-.@i,41,71-.@i,cell_walkable,0; // TL
+		setcell 'mapname2$,41,71-.@i,41,71-.@i,cell_shootable,0; // TL
+		setcell 'mapname2$,41,53+.@i,41,53+.@i,cell_walkable,0; // BL
+		setcell 'mapname2$,41,53+.@i,41,53+.@i,cell_shootable,0; // BL		
+		setcell 'mapname2$,59,71-.@i,59,71-.@i,cell_walkable,0; // TR
+		setcell 'mapname2$,59,71-.@i,59,71-.@i,cell_shootable,0; // TR
+		setcell 'mapname2$,59,53+.@i,59,53+.@i,cell_walkable,0; // BR
+		setcell 'mapname2$,59,53+.@i,59,53+.@i,cell_shootable,0; // BR
+		sleep(250);
+	}
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,41+.@i,64,41+.@i,64,cell_walkable,0; // TL
+		setcell 'mapname2$,41+.@i,64,41+.@i,64,cell_shootable,0; // TL
+		setcell 'mapname2$,41+.@i,60,41+.@i,60,cell_walkable,0; // BL
+		setcell 'mapname2$,41+.@i,60,41+.@i,60,cell_shootable,0; // BL		
+		setcell 'mapname2$,59-.@i,64,59-.@i,64,cell_walkable,0; // TR
+		setcell 'mapname2$,59-.@i,64,59-.@i,64,cell_shootable,0; // TR
+		setcell 'mapname2$,59-.@i,60,59-.@i,60,cell_walkable,0; // BR
+		setcell 'mapname2$,59-.@i,60,59-.@i,60,cell_shootable,0; // BR
+		sleep(250);
+	}	
+/*	
+	setwall 'mapname2$,52,64,4,0,0,"BTRBlock1";
+	setwall 'mapname2$,48,64,4,0,0,"BTLBlock1";
+	setwall 'mapname2$,52,60,4,4,0,"BBRBlock1";
+	setwall 'mapname2$,48,60,4,4,0,"BBLBlock1";
+	sleep(1000);
+	if (checkwall("BTRBlock1") == true)
+		delwall "BTRBlock1";
+	if (checkwall("BTLBlock1") == true)
+		delwall "BTLBlock1";
+	if (checkwall("BBRBlock1") == true)
+		delwall "BBRBlock1";
+	if (checkwall("BBLBlock1") == true)
+		delwall "BBLBlock1";
+	
+	setwall 'mapname2$,52,64,8,0,0,"BTRBlock1";
+	setwall 'mapname2$,48,64,8,0,0,"BTLBlock1";
+	setwall 'mapname2$,52,60,8,4,0,"BBRBlock1";
+	setwall 'mapname2$,48,60,8,4,0,"BBLBlock1";
+	sleep(1000);
+	
+	setwall 'mapname2$,52,71,4,6,0,"BTRBlock2";
+	setwall 'mapname2$,48,71,4,2,0,"BTLBlock2";
+	setwall 'mapname2$,52,53,4,6,0,"BBRBlock2";
+	setwall 'mapname2$,48,53,4,2,0,"BBLBlock2";
+	sleep(1000);
+	if (checkwall("BTRBlock2") == true)
+		delwall "BTRBlock2";
+	if (checkwall("BTLBlock2") == true)
+		delwall "BTLBlock2";
+	if (checkwall("BBRBlock2") == true)
+		delwall "BBRBlock2";
+	if (checkwall("BBLBlock2") == true)
+		delwall "BBLBlock2";
+	setwall 'mapname2$,52,64,8,6,0,"BTRBlock2";
+	setwall 'mapname2$,48,64,8,2,0,"BTLBlock2";
+	setwall 'mapname2$,52,53,8,6,0,"BBRBlock2";
+	setwall 'mapname2$,48,53,8,2,0,"BBLBlock2";
+	sleep(1000);
+	
+	setwall 'mapname2$,59,71,4,4,0,"BTRBlock3";
+	setwall 'mapname2$,41,71,4,4,0,"BTLBlock3";
+	setwall 'mapname2$,59,53,4,0,0,"BBRBlock3";
+	setwall 'mapname2$,41,53,4,0,0,"BBLBlock3";
+	sleep(1000);
+	if (checkwall("BTRBlock3") == true)
+		delwall "BTRBlock3";
+	if (checkwall("BTLBlock3") == true)
+		delwall "BTLBlock3";
+	if (checkwall("BBRBlock3") == true)
+		delwall "BBRBlock3";
+	if (checkwall("BBLBlock3") == true)
+		delwall "BBLBlock3";
+	setwall 'mapname2$,59,71,8,4,0,"BTRBlock3";
+	setwall 'mapname2$,41,71,8,4,0,"BTLBlock3";
+	setwall 'mapname2$,59,53,8,0,0,"BBRBlock3";
+	setwall 'mapname2$,41,53,8,0,0,"BBLBlock3";
+	sleep(1000);
+	
+	setwall 'mapname2$,59,64,4,2,0,"BTRBlock4";
+	setwall 'mapname2$,41,64,4,6,0,"BTLBlock4";
+	setwall 'mapname2$,59,60,4,2,0,"BBRBlock4";
+	setwall 'mapname2$,41,60,4,6,0,"BBLBlock4";
+	sleep(1000);
+	if (checkwall("BTRBlock4") == true)
+		delwall "BTRBlock4";
+	if (checkwall("BTLBlock4") == true)
+		delwall "BTLBlock4";
+	if (checkwall("BBRBlock4") == true)
+		delwall "BBRBlock4";
+	if (checkwall("BBLBlock4") == true)
+		delwall "BBLBlock4";
+	setwall 'mapname2$,59,64,8,2,0,"BTRBlock4";
+	setwall 'mapname2$,41,64,8,6,0,"BTLBlock4";
+	setwall 'mapname2$,59,60,8,2,0,"BBRBlock4";
+	setwall 'mapname2$,41,60,8,6,0,"BBLBlock4";
+	sleep(1000);
+*/
+end;
+OnTimer150000:
+	for(set .@i,1; .@i<15; set .@i,.@i+1){
+		hideonnpc instance_npcname("BTRBlock#" + .@i,instance_id());
+		hideonnpc instance_npcname("BBRBlock#" + .@i,instance_id());
+		hideonnpc instance_npcname("BTLBlock#" + .@i,instance_id());
+		hideonnpc instance_npcname("BBLBlock#" + .@i,instance_id());
+	}
+/*	for(set .@i,1; .@i<5; set .@i,.@i+1){
+		if (checkwall("BTRBlock" + .@i) == true)
+			delwall "BTRBlock" + .@i;
+		if (checkwall("BTLBlock" + .@i) == true)
+			delwall "BTLBlock" + .@i;
+		if (checkwall("BBRBlock" + .@i) == true)
+			delwall "BBRBlock" + .@i;
+		if (checkwall("BBLBlock" + .@i) == true)
+			delwall "BBLBlock" + .@i;
+	}
+*/
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,48,64+.@i,48,64+.@i,cell_walkable,1; // TL
+		setcell 'mapname2$,48,64+.@i,48,64+.@i,cell_shootable,1; // TL
+		setcell 'mapname2$,48,60-.@i,48,60-.@i,cell_walkable,1; // BL
+		setcell 'mapname2$,48,60-.@i,48,60-.@i,cell_shootable,1; // BL		
+		setcell 'mapname2$,52,64+.@i,52,64+.@i,cell_walkable,1; // TR
+		setcell 'mapname2$,52,64+.@i,52,64+.@i,cell_shootable,1; // TR
+		setcell 'mapname2$,52,60-.@i,52,60-.@i,cell_walkable,1; // BR
+		setcell 'mapname2$,52,60-.@i,52,60-.@i,cell_shootable,1; // BR
+		//sleep(250);
+	}
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,48-.@i,71,48-.@i,71,cell_walkable,1; // TL
+		setcell 'mapname2$,48-.@i,71,48-.@i,71,cell_shootable,1; // TL
+		setcell 'mapname2$,48-.@i,53,48-.@i,53,cell_walkable,1; // BL
+		setcell 'mapname2$,48-.@i,53,48-.@i,53,cell_shootable,1; // BL		
+		setcell 'mapname2$,52+.@i,71,52+.@i,71,cell_walkable,1; // TR
+		setcell 'mapname2$,52+.@i,71,52+.@i,71,cell_shootable,1; // TR
+		setcell 'mapname2$,52+.@i,53,52+.@i,53,cell_walkable,1; // BR
+		setcell 'mapname2$,52+.@i,53,52+.@i,53,cell_shootable,1; // BR
+		//sleep(250);
+	}	
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,41,71-.@i,41,71-.@i,cell_walkable,1; // TL
+		setcell 'mapname2$,41,71-.@i,41,71-.@i,cell_shootable,1; // TL
+		setcell 'mapname2$,41,53+.@i,41,53+.@i,cell_walkable,1; // BL
+		setcell 'mapname2$,41,53+.@i,41,53+.@i,cell_shootable,1; // BL		
+		setcell 'mapname2$,59,71-.@i,59,71-.@i,cell_walkable,1; // TR
+		setcell 'mapname2$,59,71-.@i,59,71-.@i,cell_shootable,1; // TR
+		setcell 'mapname2$,59,53+.@i,59,53+.@i,cell_walkable,1; // BR
+		setcell 'mapname2$,59,53+.@i,59,53+.@i,cell_shootable,1; // BR
+		//sleep(250);
+	}
+	for(set .@i,1; .@i<8; set .@i,.@i+1){
+		setcell 'mapname2$,41+.@i,64,41+.@i,64,cell_walkable,1; // TL
+		setcell 'mapname2$,41+.@i,64,41+.@i,64,cell_shootable,1; // TL
+		setcell 'mapname2$,41+.@i,60,41+.@i,60,cell_walkable,1; // BL
+		setcell 'mapname2$,41+.@i,60,41+.@i,60,cell_shootable,1; // BL		
+		setcell 'mapname2$,59-.@i,64,59-.@i,64,cell_walkable,1; // TR
+		setcell 'mapname2$,59-.@i,64,59-.@i,64,cell_shootable,1; // TR
+		setcell 'mapname2$,59-.@i,60,59-.@i,60,cell_walkable,1; // BR
+		setcell 'mapname2$,59-.@i,60,59-.@i,60,cell_shootable,1; // BR
+		//sleep(250);
+	}
+	.@num = mobcount('mapname2$,instance_npcname( strnpcinfo(0), instance_id() )+"::OnSlaveDead" );
+	killmonster 'mapname2$,strnpcinfo(3) + "::OnSlaveDead";	
+	//addrid(4,0,31,45,68,84);
+	//Hp = Hp - MaxHp*.@num*25/100;
+	areapercentheal 'mapname2$,31,45,68,84,-25*.@num,-25*.@num;
+	//warp 'mapname2$,52,62;
+	areawarp 'mapname2$,31,45,68,84,'mapname2$,52,62;
+	initnpctimer;
+end;
+
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	'mapname2$ = instance_mapname("1@gol2");
+	enablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+1@gol2,52,64,3	script	BTRBlock#1	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+1@gol2,52,66,3	script	BTRBlock#2	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+1@gol2,52,68,3	script	BTRBlock#3	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,52,70,3	script	BTRBlock#4	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,53,71,3	script	BTRBlock#5	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,55,71,3	script	BTRBlock#6	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,57,71,3	script	BTRBlock#7	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,59,71,3	script	BTRBlock#8	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,59,69,3	script	BTRBlock#9	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,59,67,3	script	BTRBlock#10	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,59,65,3	script	BTRBlock#11	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,58,64,3	script	BTRBlock#12	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,56,64,3	script	BTRBlock#13	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,54,64,3	script	BTRBlock#14	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+
+1@gol2,52,60,3	script	BBRBlock#1	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,52,58,3	script	BBRBlock#2	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,52,56,3	script	BBRBlock#3	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,52,54,3	script	BBRBlock#4	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,53,53,3	script	BBRBlock#5	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,55,53,3	script	BBRBlock#6	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,57,53,3	script	BBRBlock#7	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,59,53,3	script	BBRBlock#8	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,59,55,3	script	BBRBlock#9	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,59,57,3	script	BBRBlock#10	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,59,59,3	script	BBRBlock#11	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,58,60,3	script	BBRBlock#12	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,56,60,3	script	BBRBlock#13	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,54,60,3	script	BBRBlock#14	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+
+1@gol2,48,64,3	script	BTLBlock#1	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,48,66,3	script	BTLBlock#2	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,48,68,3	script	BTLBlock#3	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,48,70,3	script	BTLBlock#4	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,47,71,3	script	BTLBlock#5	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,45,71,3	script	BTLBlock#6	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,43,71,3	script	BTLBlock#7	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,41,71,3	script	BTLBlock#8	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,41,69,3	script	BTLBlock#9	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,41,67,3	script	BTLBlock#10	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,41,65,3	script	BTLBlock#11	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,42,64,3	script	BTLBlock#12	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,44,64,3	script	BTLBlock#13	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,46,64,3	script	BTLBlock#14	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+
+1@gol2,48,60,3	script	BBLBlock#1	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,48,58,3	script	BBLBlock#2	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,48,56,3	script	BBLBlock#3	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,48,54,3	script	BBLBlock#4	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,47,53,3	script	BBLBlock#5	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,45,53,3	script	BBLBlock#6	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,43,53,3	script	BBLBlock#7	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,41,53,3	script	BBLBlock#8	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,41,55,3	script	BBLBlock#9	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,41,57,3	script	BBLBlock#10	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,41,59,3	script	BBLBlock#11	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,42,60,3	script	BBLBlock#12	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,44,60,3	script	BBLBlock#13	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+1@gol2,46,60,3	script	BBLBlock#14	802,{
+end;
+OnInit:
+	disablenpc strnpcinfo(0);
+end;
+OnInstanceInit:	
+	enablenpc instance_npcname(strnpcinfo(0));
+	hideonnpc instance_npcname(strnpcinfo(0));
+end;
+}
+//1@gol1	mapflag	nowarp
+1@gol1	mapflag	nowarpto
+1@gol1	mapflag	noteleport
+1@gol1	mapflag	nosave	SavePoint
+1@gol1	mapflag	nomemo
+1@gol1	mapflag	nobranch
+1@gol1	mapflag	noicewall
+1@gol1	mapflag	monster_noteleport
+1@gol1	mapflag	lootevent
+1@gol1	mapflag	partylock
+
+//1@gol2	mapflag	nowarp
+1@gol2	mapflag	nowarpto
+1@gol2	mapflag	noteleport
+1@gol2	mapflag	nosave	SavePoint
+1@gol2	mapflag	nomemo
+1@gol2	mapflag	nobranch
+1@gol2	mapflag	noicewall
+1@gol2	mapflag	monster_noteleport
+1@gol2	mapflag	lootevent
+1@gol2	mapflag	partylock

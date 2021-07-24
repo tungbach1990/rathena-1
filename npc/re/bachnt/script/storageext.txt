@@ -1,0 +1,18 @@
+//openstorage2 1,STOR_MODE_GET|STOR_MODE_PUT;
+-	script	atcmd_storage2	-1,{
+	OnInit:
+		bindatcmd "storage2",strnpcinfo(3) + "::OnAtcommand";
+		end;
+	OnAtcommand:
+		openstorage2 1,STOR_MODE_GET|STOR_MODE_PUT;
+		end;
+	}
+
+-	script	atcmd_storage3	-1,{
+        OnInit:
+                bindatcmd "storage3",strnpcinfo(3) + "::OnAtcommand";
+                end;
+        OnAtcommand:
+                openstorage2 2,STOR_MODE_GET|STOR_MODE_PUT;
+                end;
+        }

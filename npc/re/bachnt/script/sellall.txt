@@ -1,0 +1,55 @@
+prontera,145,200,5	script	Sell All Items	757,{
+getinventorylist;
+//dispbottom .myarray[1];
+.@overcharge_lv = getskilllv( "MC_OVERCHARGE" );
+if( .@overcharge_lv )
+        .@overcharge_rate = 105 + ( 2  * .@overcharge_lv ) - ( ( .@overcharge_lv >= 10 )? 1:0 );
+while( .@i < @inventorylist_count ){
+	if( !@inventorylist_equip[.@i] && @inventorylist_tradable[.@i] && (getiteminfo(@inventorylist_id[.@i],2 ) != 7)  &&(inarray(.myarray[0],@inventorylist_id[.@i]) == -1) && @inventorylist_refine[.@i] <= 0){		
+	//dispbottom inarray(.myarray,@inventorylist_id[.@i]);
+			//dispbottom  @inventorylist_id[.@i];
+	                .@item_sell_price = getiteminfo( @inventorylist_id[.@i],1 );
+			if (.@item_sell_price > 0) {
+	        	        if( .@overcharge_lv )
+        	        	        .@item_sell_price = ( ( .@item_sell_price * .@overcharge_rate ) / 100 );
+               		 	mes " > "+@inventorylist_amount[.@i]+ "x " +getitemname( @inventorylist_id[.@i] )+" : "+.@item_sell_price+"z";
+                		.@cost += .@item_sell_price * @inventorylist_amount[.@i];
+			}
+        }
+        .@i++;
+}
+if( .@cost ){
+        if( select( "Sell all items for "+.@cost+" zeny?","Cancel" ) == 1 ){
+                .@i = 0;
+                while( .@i < @inventorylist_count ){
+			if( !@inventorylist_equip[.@i] && @inventorylist_tradable[.@i] &&(getiteminfo(@inventorylist_id[.@i],2 ) != 7) && (inarray(.myarray[0],@inventorylist_id[.@i]) == -1) && @inventorylist_refine[.@i] <= 0){
+				.@item_sell_price = getiteminfo( @inventorylist_id[.@i],1 );
+	                        if (.@item_sell_price > 0)
+        	                        delitem @inventorylist_id[.@i],@inventorylist_amount[.@i];
+			}
+                        .@i++;
+                }
+                Zeny += .@cost;
+                mes "Gained "+.@cost+" zeny.";
+        }
+}else{
+        mes "You don't have any items to sell.";
+}
+close;
+OnInit:
+	.blacklist$ = "7929|7227|6225|6226|7619|7620|6635|12210|6240|6241|12103|12412|14545|14592|100065|100066|100067|100068|100069|100070|100071|100072|100073|100074";
+	setarray .myarray[0],7929,7227,6225,6226,7619,7620,6635,12210,6240,6241,12103,12412,14545,14592;
+end;
+
+end;
+
+}
+payon,166,117,5	duplicate(Sell All Items)	Sell All Items#1	757
+morocc,164,113,5	duplicate(Sell All Items)	Sell All Items#2	757
+louyang,217,120,5	duplicate(Sell All Items)	Sell All Items#3	757
+hugel,101,164,5	duplicate(Sell All Items)	Sell All Items#4	757
+moscovia,229,197,4	duplicate(Sell All Items)	Sell All Items#5	757
+dewata,186,200,4	duplicate(Sell All Items)	Sell All Items#6	757
+gonryun,153,127,4	duplicate(Sell All Items)	Sell All Items#7	757
+aldebaran,146,112,4	duplicate(Sell All Items)	Sell All Items#8	757
+izlude,117,158,3	duplicate(Sell All Items)	Sell All Items#9	757

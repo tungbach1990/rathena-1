@@ -1,0 +1,200 @@
+//===== rAthena Script =======================================
+//= Eddabioblab
+//===== By: ==================================================
+//= BACHNT
+//= Eddabioblab
+//===== Current Version: =====================================
+//= 1.0 
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Eddabioblab
+//============================================================
+
+//glast_01,241,290,4	script	Sierra S	4_F_SCIENCE,{
+prontera,144,168,5	script	Edda Enchant	4_F_SCIENCE,{
+	mes "[ EddaBiolab Enchanter ] ";
+	mes "";
+	mes "I can enchant EddaBiolab Weapon !!";
+	next;
+	mes "Normal enchant: ";
+	mes "50x <ITEM>"+getitemname(25786)+"<INFO>"+25786+"</INFO></ITEM>";
+	mes "50x <ITEM>"+getitemname(25787)+"<INFO>"+25787+"</INFO></ITEM>";
+	mes "";
+	mes "Advanced enchant: ";
+	mes "500x <ITEM>"+getitemname(25786)+"<INFO>"+25786+"</INFO></ITEM> ";
+	mes "500x <ITEM>"+getitemname(25787)+"<INFO>"+25787+"</INFO></ITEM>";
+	mes "";
+	mes "Determined Enchant:";
+	mes "5000x <ITEM>"+getitemname(25786)+"<INFO>"+25786+"</INFO></ITEM>";
+	disable_items;
+	switch(select(.main_menu$)) {
+		Case 1:
+			menu (inarray(.listweapon[0],getequipid(EQI_HAND_R)) > -1 ) ? getitemname(getequipid(EQI_HAND_R)):"",EnchantWeapon;
+			close;
+			EnchantWeapon:
+				menu  "General Enchant",NormalEnchantA,
+					  "Advanced Enchant",AdvanceEnchantA,
+					  getequipcardid(EQI_HAND_R,3) > 0 ? "Determined Enchant":"",DeterminedEnchantA;
+					
+				NormalEnchantA:callsub(EnchantNormalA);
+				AdvanceEnchantA:callsub(EnchantAdvanceA);
+				DeterminedEnchantA:callsub(EnchantDeterminedA);
+			end;
+			
+		break;
+		Case 2:
+		break;
+		Case 3:
+			close;
+		break;
+	}
+	end;
+	
+	EnchantNormalA:
+		.@loc = EQI_HAND_R;
+		.slot = 0;
+		.@item_id = getequipid(.@loc);
+		.@equip_refine = getequiprefinerycnt(.@loc);
+		setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+		if ((.itemslot[3] == 0 )|| (.itemslot[2] == 0)){
+		.call = callfunc("Edda_CheckAndDelItem",.price_general);
+		if (.call > 0){
+			if (.itemslot[3] == 0) {
+				set .slot,4;
+				setarray .changeratefail[0],30,5;
+				copyarray  .listenchant[0],.listslot4[0],getarraysize(.listslot4);
+			} else {
+				set .slot,3;
+				setarray .changeratefail[0],50,20;
+				copyarray  .listenchant[0],.listslot3[0],getarraysize(.listslot3);
+			}
+			specialeffect EF_SUI_EXPLOSION;
+			.chance = rand(100);
+			if (.chance < 100 - .changeratefail[0]) {
+				.@enchant_id = .listenchant[rand(getarraysize(.listenchant))];
+				delequip EQI_HAND_R;
+				if (.slot == 4) 
+				getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.@enchant_id);
+				else
+				getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.@enchant_id,.itemslot[3]);
+				end;
+				
+			} 
+			if (.chance < .changeratefail[1]) {
+				delequip EQI_HAND_R;
+				end;
+			}
+			mes "Sorry you're unlucky";
+			end;
+		}
+		}
+		else
+			mes "You have enchant already !!!";
+	end;
+	EnchantAdvanceA:
+		.@loc = EQI_HAND_R;
+		.@item_id = getequipid(.@loc);
+		.@equip_refine = getequiprefinerycnt(.@loc);
+		setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+		if ((.itemslot[3] == 0 )|| (.itemslot[2] == 0)){
+			.call = callfunc("Edda_CheckAndDelItem",.price_advan);
+		if (.call > 0){
+			if (.itemslot[3] == 0) {
+				set .slot,4;
+				setarray .changeratefail[0],10;
+				copyarray  .listenchant[0],.listslot4[0],getarraysize(.listslot4);
+			} else {
+				set .slot,3;
+				setarray .changeratefail[0],30;
+				copyarray  .listenchant[0],.listslot3[0],getarraysize(.listslot3);
+			}
+			specialeffect EF_SUI_EXPLOSION;
+			.chance = rand(100);
+			if (.chance < 100 - .changeratefail[0]) {
+				.@enchant_id = .listenchant[rand(getarraysize(.listenchant))];
+				delequip EQI_HAND_R;
+				if (.slot == 4) 
+				getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.@enchant_id);
+				else
+				getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.@enchant_id,.itemslot[3]);
+				end;
+			} 
+			mes "Sorry you're unlucky";
+			end;
+		}
+		}
+		else
+			mes "You have enchant already !!!";
+	end;
+	EnchantDeterminedA:
+		.@loc = EQI_HAND_R;
+		.@item_id = getequipid(.@loc);
+		.@equip_refine = getequiprefinerycnt(.@loc);
+		setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+		if (.itemslot[2] == 0){
+			 .call = callfunc("Edda_CheckAndDelItem",.price_deter);
+		if (.call > 0){
+			mes "Choose what you want";
+			.list$ = "";
+			for (.@i = 0; .@i < getarraysize(.listslot3); .@i++) {
+				.list$ += getitemname(.listslot3[.@i]) + ":";
+			}
+			
+			.choose = select(.list$);
+			.@enchant_id = .listslot3[.choose-1];
+			getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.@enchant_id,.itemslot[3]);
+			specialeffect EF_SUI_EXPLOSION;
+			delequip EQI_HAND_R;
+			end;
+			
+		}
+		} else {
+			mes "You have enchant already !!!";
+		}
+	end;
+
+	
+	OnInit:
+		setarray .listslot4[0],4832,4833,4834, // Expert Archer 1 2 3
+								4808,4820,4821, // Fighting Spirit 4 5 6
+								4818,4817,4816, // Sharp 123
+								4863,4864,4865, // Fatal 123
+								4815,4814,4813; // Spell 123
+		setarray .listslot3[0],29594,29595,29596,29598,29599,29600,29601,29602,29603,29604,29605,29606,29607;
+		setarray .listweapon[0],21051,21052,32023,1333,16092,28138,28765,28766,28044,28042,26158,2055,2056,26161,2057,16095,18185,18187,18186,32350,32024,
+							32025,32351,16093,16094,28767,28768,18184,28633,26159,26160,1865,1866,16096,18188,26212,26213,32107,32108;
+		set .main_menu$,"Enchant EddaBiolab Weapon:Quit";
+		setarray .price_general[0],25786,50,25787,50;
+		setarray .price_advan[0],25786,500,25787,500;
+		setarray .price_deter[0],25786,5000;
+		
+	
+	end;
+
+}
+
+function	script	Edda_CheckAndDelItem	{
+	.@size = getarraysize(getarg(0));
+	copyarray .array,getarg(0),.@size;
+	.temp = 0;
+	for (.@i = 0; .@i < .@size; .@i += 2) {
+		if (countitem(.array[.@i]) < .array[.@i+1]){
+		.temp++;
+		break;
+		}
+	}
+	if (Zeny < 500000) .temp++;
+	if (.temp > 0){
+		mes "You dont enough materials !";
+		close;
+		return 0;
+	} else {
+		for (.@i = 0; .@i < .@size; .@i += 2) {
+			delitem .array[.@i],.array[.@i+1];
+		}
+		Zeny = Zeny - 500000;
+		return 1;
+	}
+	
+}

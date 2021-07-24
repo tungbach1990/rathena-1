@@ -1,0 +1,944 @@
+//===== rAthena Script =======================================
+//= DaÞ TâÒu Quest
+//===== By: ==================================================
+//= BACHNT
+//= DaÞ TâÒu Quest
+//===== Current Version: =====================================
+//= 1.0 
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= DaÞ TâÒu Quest
+//============================================================
+-	shop	dt_shop	-1,909:-1
+-	exbartershop	GoldCoinShop	-1,9550:99:1000000-7929:0:1
+-	exbartershop	DragonShop	-1,9550:99:1000000-7929:0:1
+-	exbartershop	TGCardShop	-1,7776:99:10000-7227:0:1
+-	exbartershop	GoldCoinShop2	 -1,7776:99:10000-7929:0:1
+
+prontera,144,174,5	script	Racing Cap Hat	4_M_RACHOLD1,{
+        callshop "GoldCoinShop2";
+end;
+OnInit:
+        npcshopitem "GoldCoinShop2","19195:99:10000000","7929:0:300";
+        bartershopadditem "GoldCoinShop2","19196:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19197:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19189:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19190:99:10000000","7929:0:300";	
+	bartershopadditem "GoldCoinShop2","19191:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19192:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19193:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19194:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19198:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19199:99:10000000","7929:0:300";
+ 	bartershopadditem "GoldCoinShop2","19200:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19201:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19202:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19203:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19204:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19205:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19396:99:10000000","7929:0:300";
+	bartershopadditem "GoldCoinShop2","19397:99:10000000","7929:0:300";
+end;
+}
+
+prontera,164,179,5	script	TGCashShop	4_F_PINKWOMAN,{
+        callshop "TGCardShop";
+end;
+OnInit:
+	npcshopitem "TGCardShop","25375:1:2000000","7227:0:10";
+	bartershopadditem "TGCardShop","100536:9999:100000","7227:0:1";
+	bartershopadditem "TGCardShop","7776:99:1000000","7227:0:1";
+	bartershopadditem "TGCardShop","17162:99:1000000","7227:0:1";
+	bartershopadditem "TGCardShop","18813:99:1000000","7227:0:10";
+	bartershopadditem "TGCardShop","18563:99:1000000","7227:0:5";
+	bartershopadditem "TGCardShop","28942:99:100000000","7227:0:10";
+	bartershopadditem "TGCardShop","14192:99:10000000","7227:0:10";
+	bartershopadditem "TGCardShop","400002:99:50000000","7227:0:50";
+	bartershopadditem "TGCardShop","100009:99:2000000","7227:0:1";
+	bartershopadditem "TGCardShop","16771:99:10000000","7227:0:5";
+	end;
+}
+prontera,147,165,5	script	DaÞ TâÒu Shop	4_M_RACHOLD1,{
+	callshop "GoldCoinShop";
+end;
+OnInit:
+	npcshopitem "GoldCoinShop","9550:99:1000000","7929:0:1";
+	bartershopadditem "GoldCoinShop","7642:9999:20000","7929:0:1";
+	bartershopadditem "GoldCoinShop","5208:99:1000000","7929:0:50";
+	bartershopadditem "GoldCoinShop","14545:99:1000","7929:0:3";
+	bartershopadditem "GoldCoinShop","12210:99:1000","7929:0:10";
+	bartershopadditem "GoldCoinShop","12412:99:1000000","7929:0:50";
+	bartershopadditem "GoldCoinShop","15278:99:1000000","7929:0:150";
+	bartershopadditem "GoldCoinShop","15279:99:1000000","7929:0:150";
+	bartershopadditem "GoldCoinShop","15347:99:1000000","7929:0:150";
+	bartershopadditem "GoldCoinShop","15354:99:1000000","7929:0:150";
+	bartershopadditem "GoldCoinShop","15353:99:1000000","7929:0:150";
+	bartershopadditem "GoldCoinShop","15346:99:1000000","7929:0:150";
+	
+	bartershopadditem "GoldCoinShop","9551:99:1000000","7929:0:1";
+	bartershopadditem "GoldCoinShop","20963:99:1000000","7929:0:150";
+	bartershopadditem "GoldCoinShop","20964:99:1000000","7929:0:150";
+	bartershopadditem "GoldCoinShop","20965:99:1000000","7929:0:150";
+	bartershopadditem "GoldCoinShop","20966:99:1000000","7929:0:150";
+	bartershopadditem "GoldCoinShop","20967:99:1000000","7929:0:150";
+	bartershopadditem "GoldCoinShop","20968:99:1000000","7929:0:150";
+	
+	bartershopadditem "GoldCoinShop","32237:99:1000000","7929:0:666";
+	bartershopadditem "GoldCoinShop","28424:99:1000000","7929:0:200";
+	bartershopadditem "GoldCoinShop","17070:99:10000","7929:0:10";
+	bartershopadditem "GoldCoinShop","17067:99:10000","7929:0:10";
+	bartershopadditem "GoldCoinShop","13894:99:10000","7929:0:1";
+	bartershopadditem "GoldCoinShop","13891:99:10000","7929:0:1";
+	bartershopadditem "GoldCoinShop","13892:99:10000","7929:0:1";
+	bartershopadditem "GoldCoinShop","13893:99:10000","7929:0:1";
+	bartershopadditem "GoldCoinShop","14199:99:10000","7929:0:1";
+	end;
+}
+
+prontera,147,162,5	script	Dragon Abyss	4_M_ROKI2,{
+	callshop "DragonShop";
+end;
+OnInit:
+	npcshopitem "DragonShop","23981:99:1000000","25765:0:1","25766:0:5";
+	bartershopadditem "DragonShop","23981:99:1000000","25759:0:12","25760:0:12","25761:0:12","25762:0:12","25763:0:12","25764:0:12";
+	bartershopadditem "DragonShop","5452:99:100000","7445:0:25","7446:0:25","7447:0:25","7448:0:25","7123:0:75";
+	bartershopadditem "DragonShop","5451:99:100000","1035:0:75","1036:0:100","1037:0:50","7123:0:100","7445:0:35","7446:0:35";
+	bartershopadditem "DragonShop","15391:99:1000000","25761:0:50","25765:0:3","25766:0:15","5451:0:1","7448:0:35","7447:0:35";
+	bartershopadditem "DragonShop","15392:99:1000000","25759:0:50","25765:0:3","25766:0:15","5451:0:1","7448:0:35","7447:0:35";
+	bartershopadditem "DragonShop","15393:99:1000000","25762:0:50","25765:0:3","25766:0:15","5451:0:1","7448:0:35","7447:0:35";
+	bartershopadditem "DragonShop","15394:99:1000000","25763:0:50","25765:0:3","25766:0:15","5451:0:1","7448:0:35","7447:0:35";
+	bartershopadditem "DragonShop","15395:99:1000000","25760:0:50","25765:0:3","25766:0:15","5451:0:1","7448:0:35","7447:0:35";
+	bartershopadditem "DragonShop","15396:99:1000000","25764:0:50","25765:0:3","25766:0:15","5451:0:1","7448:0:35","7447:0:35";
+	bartershopadditem "DragonShop","20946:99:1000000","1035:0:15","1036:0:75","1037:0:15","25765:0:2","25766:0:6","5452:0:1";
+	bartershopadditem "DragonShop","22208:99:1000000","1035:0:30","1036:0:60","1037:0:40","25765:0:1","25766:0:8","5452:0:1";
+	end;
+}
+
+prontera,155,174,5	script	DaÞ TâÒu	4_M_RACHOLD1,{
+
+	mes "[^995050 DaÞ TâÒu ^000000]";
+	mes "Ta laÌ DaÞ TâÒu"; 
+	mes "Ta ðaÞ xuyên không týÌ VoÞ Lâm sang ðây";
+	next;
+	mes "[^995050 DaÞ TâÒu ^000000]";
+	mes "Haha ngýõi nghiÞ ta chiÒ coì ðôÌ HoaÌng Kim môn phaìi hay caìc moìn ðôÌ Phýõng Ðông ý ?";
+	mes "Ngýõi sai rôÌi !!!!!!!!";
+	next;
+	mes "[^995050 DaÞ TâÒu ^000000]";
+	mes "HaÞy laÌm nhiêòm vuò cho ta";
+	mes "Ta seÞ cho ngýõi ðôÌ ngýõi muôìn nhýng ngýõi câÌn may mãìn nýÞa";
+	next;
+	query_sql( "SELECT COUNT(*) FROM `datau_doing` WHERE `name` = '" + strcharinfo(0) + "' AND `complete` = 0",.@doing_count );
+	query_sql( "SELECT Count(id) FROM `datau_quest` WHERE " + BaseLevel + " BETWEEN minlv AND maxlv",.@mission_count );
+
+	query_sql( "SELECT id,name,rq,rqa,rwi,rwe,rwz,type,diff FROM `datau_quest`WHERE " + BaseLevel + " BETWEEN minlv AND maxlv",.@id,.@char$,.@rq$,.@rqa,.@rwi,.@rwe,.@rwz,.@type$,.@diff );
+	switch(select("Thýa laÞo,ta muôìn nhâòn nhiêòm vuò:Ta ðaÞ hoaÌn thaÌnh nhiêòm vuò:Ta muôìn huÒy boÒ nhiêòm vuò:Ta không thiìch Trung Quôìc"))
+	{
+		Case 1:
+			if (.@mission_count > 0) 
+			{
+				if (.@doing_count == 0) {
+					mes "[^995050 DaÞ TâÒu ^000000]";
+					mes "Ta muôìn giao cho ngýõi nhiêòm vuò laÌ...";
+					mes "";
+					mes "...";
+					.nv = rand(getarraysize(.@type$));
+					mes "[  ^4A32A8"+.@char$[.nv]+"^000000  ]";
+					mes "";
+					query_sql( "INSERT INTO `datau_doing` SET `questid`= '" + .@id[.nv] + "',`name` = '" + strcharinfo(0) + "',`questtype` = '" + .@type$[.nv] + "', `progress` = 0, `complete` = 0, `mobname` = '" + .@rq$[.nv] + "'"  );
+					switch(callsub(OnSwitchType,.@type$[.nv]))
+					{
+						Case 1: // i
+							mes "HaÞy thu thâòp cho ta vâòt liêòu coì";
+							mes "[^87D37C" + .@rq$[.nv] + "^000000]"; 
+							mes "trong tên vâòt phâÒm (trong @ii) võìi sôì lýõòng laÌ " + .@rqa[.nv];
+							break;
+						Case 2: // m
+							mes "HaÞy giêìt cho ta caìc loaòi quaìi coì";
+							mes "[^DC3023" + .@rq$[.nv] + "^000000]";
+							mes "trong tên quaìi vâòt (trong @mi) võìi sôì lýõòng laÌ " + .@rqa[.nv];
+							@nhannvu = 1;
+							@tenquai$ = .@rq$[.nv];
+							@soluong = .@rqa[.nv];
+							@tinhtrang = 0;
+							break;
+						Case 3: // z
+							mes "HaÞy ðýa ta :" + .@rqa[.nv] + " Zeny laÌ coì quaÌ rôÌi haha";
+							break;
+						Case 4: // r
+							mes "HaÞy ðýa ta vâòt phâÒm chýìa tên";
+							mes "[^DC3023" + .@rq$[.nv] + "^000000]";
+							mes "vaÌ ðýõòc cýõÌng hoìa";
+							mes "[^DC3023 +" + .@rqa[.nv] + "^000000]";
+							break;
+						Case 5: // o
+							mes "HaÞy ðýa ta vâòt phâÒm chýìa tên";
+							mes "[^DC3023" + .@rq$[.nv] + "^000000]";
+							mes "vaÌ enchant option";
+							mes "[^DC3023 " + callsub(OnChangeIdToOpt,.@rqa[.nv]) + "^000000]";
+							break;
+					} 
+					
+					close;
+				} else {
+					query_sql( "SELECT q.name,q.rq,q.rqa,q.rwi,q.rwe,q.rwz,q.type,d.progress,q.diff,q.rwexi FROM `datau_doing` d INNER JOIN datau_quest q ON q.id = d.questid WHERE d.`name` = '" + strcharinfo(0) + "' AND d.`complete` = 0",.@char$,.@require$,.@requirea,.@rewardi,.@rewarde,.@rewardz,.@questtype$,.@processing,.@diff,.@rewardexi$ );
+					mes "[^995050 DaÞ TâÒu ^000000]";
+					mes "Ngýõi ðang coì nhiêòm vuò trong ngýõÌi maÌ ?";
+					mes "----------------------------------------";
+					mes "";
+					mes "[  ^4A32A8"+.@char$[0]+"^000000  ]";
+					mes "";
+					
+					switch(callsub(OnSwitchType,.@questtype$[0]))
+					{
+						Case 1: // i
+							mes "HaÞy thu thâòp cho ta vâòt liêòu coì";
+							mes "[^87D37C" + .@require$[0] + "^000000]"; 
+							mes "trong tên vâòt phâÒm (trong @ii) võìi sôì lýõòng laÌ " + .@requirea[0];
+							break;
+						Case 2: // m
+							mes "HaÞy giêìt cho ta caìc loaòi quaìi coì";
+							mes "[^DC3023" + .@require$[0] + "^000000]";
+							mes "trong tên quaìi vâòt (trong @mi) võìi sôì lýõòng laÌ " + .@requirea[0];
+							break;
+						Case 3: // z
+							mes "HaÞy ðýa ta :" + .@requirea[0] + " Zeny laÌ coì quaÌ rôÌi haha";
+							break;
+						Case 4: // r
+							mes "HaÞy ðýa ta vâòt phâÒm chýìa tên";
+							mes "[^DC3023" + .@require$[0] + "^000000]";
+							mes "vaÌ ðýõòc cýõÌng hoìa";
+							mes "[^DC3023 +" + .@requirea[0] + "^000000]";
+							break;
+						Case 5: // o
+							mes "HaÞy ðýa ta vâòt phâÒm chýìa tên";
+							mes "[^DC3023" + .@require$[0] + "^000000]";
+							mes "vaÌ enchant option";
+							mes "[^DC3023 " + callsub(OnChangeIdToOpt,.@requirea[0]) + "^000000]";
+							break;
+					} 
+					
+					close;
+					end;
+				}
+			} else {
+					mes "[^995050 DaÞ TâÒu ^000000]";
+					mes "Xin lôÞi ngýõi không phuÌ hõòp yêu câÌu cuÒa ta";
+					close;
+					end;
+			}
+		break;
+		Case 2:
+			if (.@doing_count == 1) {
+				mes "[^995050 DaÞ TâÒu ^000000]";
+				mes "...";
+				mes "Khuò..Khuò....";
+				mes "";
+				mes "Hmmm";
+				mes "ÐêÒ ta kiêÒm tra tiêìn triÌnh cuÒa ngýõi";
+				next;
+				query_sql( "SELECT q.rq,q.rqa,q.rwi,q.rwe,q.rwz,q.type,d.progress,q.diff,q.rwexi FROM `datau_doing` d INNER JOIN datau_quest q ON q.id = d.questid WHERE d.`name` = '" + strcharinfo(0) + "' AND d.`complete` = 0",.@require$,.@requirea,.@rewardi,.@rewarde,.@rewardz,.@questtype$,.@processing,.@diff,.@rewardexi$ );
+
+				switch(callsub(OnSwitchType,.@questtype$[0]))
+				{
+					Case 1: // i
+						mes "[^995050 DaÞ TâÒu ^000000]";
+						mes "HaÞy cho ta xem";						
+						mes "ngýõi thu thâòp ðýõòc giÌ naÌo";
+						mes "-----------------------------------";
+						deletearray @sold_nameid[0],getarraysize(@sold_nameid);
+						callshop "dt_shop",2;
+						npcshopattach "dt_shop";
+					end;
+					Case 2: // m
+						if (.@processing[0] >= .@requirea) {
+							callsub(OnCompleteDT);
+						} else {
+							mes "[^995050 DaÞ TâÒu ^000000]";
+							mes "";
+							mes "Ngýõi mõìi kill ðýõòc " + .@processing[0];
+							mes "Côì gãìng lên naÌo";
+							close;
+						}
+					end;					
+					Case 3: // z
+						if (Zeny >= .@requirea) {
+							Zeny = Zeny - .@requirea;
+							callsub(OnCompleteDT);
+						} else {
+							mes "[^995050 DaÞ TâÒu ^000000]";
+							mes "";
+							mes "Ngýõi mõìi kiêìm ðýõòc " + Zeny;
+							mes "Côì gãìng lên naÌo";
+							close;
+						}
+					end;
+					Case 4: //r
+						mes "[^995050 DaÞ TâÒu ^000000]";
+						mes "HaÞy cho ta xem";						
+						mes "ngýõi thu thâòp ðýõòc giÌ naÌo";
+						mes "-----------------------------------";
+						deletearray @sold_nameid[0],getarraysize(@sold_nameid);
+						callshop "dt_shop",2;
+						npcshopattach "dt_shop";
+					end;
+					Case 5: //o
+						mes "[^995050 DaÞ TâÒu ^000000]";
+						mes "HaÞy cho ta xem";						
+						mes "ngýõi thu thâòp ðýõòc giÌ naÌo";
+						mes "-----------------------------------";
+						deletearray @sold_nameid[0],getarraysize(@sold_nameid);
+						callshop "dt_shop",2;
+						npcshopattach "dt_shop";
+					end;
+				}
+				
+			} else {
+				mes "[^995050 DaÞ TâÒu ^000000]";
+				mes "Ngýõi ðaÞ nhâòn nhiêòm vuò ðâu ?";
+				close;
+				end;
+			}
+		break;
+		Case 3:
+			if (.@doing_count == 1) {
+				mes "[^995050 DaÞ TâÒu ^000000]";
+				mes "...";
+				mes "NgýõÌi treÒ tuôÒi ðuìng laÌ thiêìu kiên nhâÞn";
+				mes "Thôi ðýõòc rôÌi ðýa 1,000,000 Zeny ðây ta huÒy nhiêòm vuò cho";
+				next;
+				mes "[^995050 DaÞ TâÒu ^000000]";
+				mes "Ngýõi coì chãìc muôìn huÒy nhiêòm vuò không ?";
+				switch(select("Nhiêòm vuò quaìi quyÒ khoì quaì, chãìc chãìn huÒy:ÐêÒ ta suy nghiÞ laòi ðaÞ"))
+				{
+					Case 1:
+						if (Zeny < 1000000)
+						{
+							mes "ÐaÞ không coì chiì tiêìn thuÒ laòi coÌn ngheÌo nýÞa";
+							mes "Thua !!!!!!!!!!!!!";
+							close;
+						} else {
+							Zeny = Zeny - 1000000;
+							query_sql( "SELECT d.id FROM `datau_doing` d INNER JOIN datau_quest q ON q.id = d.questid WHERE d.`name` = '" + strcharinfo(0) + "' AND d.`complete` = 0",.@qid );	
+							//query_sql( "DELETE FROM `datau_doing` WHERE `id`= '" + .@qid +"'" );
+							mes "Haiz, ðaÞ huÒy rôÌi ðoì";
+							query_sql( "UPDATE `datau_doing` SET `complete`= 2, `countcomplete` = 0 WHERE `id`= '" + .@qid +"'" );
+							 query_sql( " INSERT INTO datau_status   (`name`,`countcomplete`) VALUES   ('" + strcharinfo(0) + "',1) ON DUPLICATE KEY UPDATE `countcomplete` = 0" );
+							mes "Hi voòng ta không gãòp laòi";
+							close;
+						}
+					Case 2:
+						mes "Um haÞy suy nghiÞ kiÞ ði nheì";
+						close;					
+				}
+				
+			} else {
+				mes "[^995050 DaÞ TâÒu ^000000]";
+				mes "Ngýõi ðaÞ nhâòn nhiêòm vuò ðâu ?";
+				close;
+				end;
+			}
+		break;
+		Case 4:
+			
+		break;
+	}
+	
+	close;
+OnSellItem:
+	query_sql( "SELECT q.rq,q.rqa,q.rwi,q.rwe,q.rwz,q.type,d.progress,q.diff,q.rwexi FROM `datau_doing` d INNER JOIN datau_quest q ON q.id = d.questid WHERE d.`name` = '" + strcharinfo(0) + "' AND d.`complete` = 0",.@require$,.@requirea,.@rewardi,.@rewarde,.@rewardz,.@questtype$,.@processing,.@diff,.@rewardexi$ );
+	set .@count,0;
+	for(set .@i,0; .@i<getarraysize(@sold_nameid); set .@i,.@i+1)
+	{
+		//dispbottom strtolower(getitemname(@sold_nameid[.@i])) + "  "  + strtolower(.@require$[0]) ;
+		if (compare(strtolower(getitemname(@sold_nameid[.@i])),strtolower(.@require$[0]))) {
+			//dispbottom .@questtype$[0];
+			if (.@questtype$[0] == "i") {
+				//dispbottom strtolower(getitemname(@sold_nameid[.@i]));
+				.@count = .@count + @sold_quantity[.@i];
+				set .@dt_id[getarraysize(.@dt_id)], @sold_nameid[.@i];
+				set .@dt_amt[getarraysize(.@dt_amt)], @sold_quantity[.@i];
+			} else if (.@questtype$[0] == "r") {
+				if (@sold_refine[.@i] >= .@requirea[0]) {
+					.@count = @sold_refine[.@i];
+					set .@dt_id[getarraysize(.@dt_id)], @sold_nameid[.@i];
+					set .@dt_amt[getarraysize(.@dt_amt)], @sold_quantity[.@i];
+				}
+			}  else if (.@questtype$[0] == "o") {
+				//dispbottom "@sold_option_id1[.@i] " + callsub(OnChangeIdToOpt,@sold_option_id1[.@i]);
+				if (@sold_option_id1[.@i] == .@requirea[0]) {
+					.@count = @sold_option_id1[.@i];
+					set .@dt_id[getarraysize(.@dt_id)], @sold_nameid[.@i];
+					set .@dt_amt[getarraysize(.@dt_amt)], @sold_quantity[.@i];
+				}
+			}
+		}
+	}
+	
+	deletearray @sold_nameid[0], getarraysize(@sold_nameid);
+	deletearray @sold_quantity[0], getarraysize(@sold_quantity);
+	//if (!.@dt_id) {
+	//	mes "  ^777777(none)^000000";
+	//	emotion e_swt;
+	//	close;
+	//}
+	if (.@count >= .@requirea[0] && .@dt_id)
+	{
+		for(set .@i,0; .@i<getarraysize(.@dt_id); set .@i,.@i+1)
+			delitem .@dt_id[.@i],.@dt_amt[.@i];
+		callsub(OnCompleteDT);
+	} else {
+		mes "[^995050 DaÞ TâÒu ^000000]";
+		mes "";
+		mes "ÐôÌ vâòt ngýõi ðýa chýa phuÌ hõòp yêu câÌu, haÞy kiêÒm tra laòi !!!";
+		mes "Côì gãìng lên naÌo";
+		//close;
+	}
+	close;
+OnCompleteDT:
+	query_sql( "SELECT q.rq,q.rqa,q.rwi,q.rwe,q.rwz,q.type,d.progress,q.diff,q.rwexi,d.id FROM `datau_doing` d INNER JOIN datau_quest q ON q.id = d.questid WHERE d.`name` = '" + strcharinfo(0) + "' AND d.`complete` = 0",.@require$,.@requirea,.@rewardi$,.@rewarde,.@rewardz$,.@questtype$,.@processing,.@diff,.@rewardexi$,.@qid );
+	query_sql( "UPDATE `datau_doing` SET `complete`= 1 WHERE `id`= '" + .@qid +"'" );
+	mes "[^995050 DaÞ TâÒu ^000000]";
+	mes "Chuìc mýÌng ngýõi ðaÞ hoaÌn thaÌnh nhiêòm vuò";
+	mes "HaÞy choòn phâÌn thýõÒng cuÒa miÌnh vaÌ ði ði";	
+	explode(.@arrayrewardz$,.@rewardz$[0],"|");
+	explode(.@arrayreward$,.@rewardi$[0],"|");
+	//debugmes 
+	.@rewardi = atoi(.@arrayreward$[rand(getarraysize(.@arrayreward$))]);
+	.@rewardz = atoi(.@arrayrewardz$[rand(getarraysize(.@arrayrewardz$))]);
+	if (BaseLevel >= 200) {
+
+		query_sql( " SELECT countcomplete FROM datau_status WHERE `name` = '" + strcharinfo(0) +"'",.@countcomplete );
+		//dispbottom .@countcomplete;
+		setarray .rewardtimes[0],7227,2,7227,10,6230,1,6234,1,6229,1,6233,1,6228,1,6232,1;
+		setarray .rewardtimes2[0],	10,7929,40,	// 10 nvu 40x Gold Coin
+						15,7227,3, 	// 15 nvu 3x TCG
+						20,6231,1, 	// 20 nvu 1x Safe Weapon 6
+						25,7929,15, 	// 25 nvu 15x Gold Coin	
+						30,6230,1,  	// 30 nvu 1x Safe Weapon 7
+						35,7227,3,  	// 35 nvu 3 x TCg
+						40,6635,15,  	// 40 nvu 15x Bsb
+						45,7929,15,  	// 45 nvu 15x GC
+						50,100536,20, 	// 50 nvu 20x Egg
+						55,7227,3, 	// 55nvu 3x TCG
+						60,100536,30,	// 60nvu 30x Egg
+						65,7929,15,	// 65 nvu 15x GC
+						70,23436,10,	// 70 nvu 10x Shadow hammer
+						75,7227,3,	// 75 nvu 3x TCG
+						80,6235,1,	// 80 nvu 1x Safe Armor 6
+						85,7929,15,	// 85 nvu 15x GC
+						90,6234,1,	// 90 nvu 1x Safe Armor 7
+						95,7227,3,	// 95 nvu 3x TCG
+						100,6232,1,	// 100 nvu 1x Safe Armor 9
+						150,7929,1000,	// 150 nvu 1000x Gold Coin
+						150,100536,100, // 150 nvu 100x Egg
+						150,6226,100,	// 150 nvu 100x HD Bradium
+						150,22944,1,	// 150 nvu 1x Safe Weapon 10
+						175,100536,500, // 175 nvu 500x Egg
+						200,23926,1,	// 200 nvu 1x Shadow hammer +9
+						300,100536,100, // 300 nvu 100x Egg
+						400,100536,100, // 400 nvu 100x Egg		
+						500,6871,1, 	// 500 nvu 1x Safe weapon 14
+						1000,6877,1,	// 1000 nvu 1x Safe armor 14
+						100000,6864,1,	// 100000 nvu 1x safe weapon 19
+						100000,6865,1;   // 100000 nvu 1x safe armor 19	
+						
+		query_sql( " INSERT INTO datau_status   (`name`,`countcomplete`) VALUES   ('" + strcharinfo(0) + "',1) ON DUPLICATE KEY UPDATE `countcomplete` = `countcomplete` + 1" );
+		//dispbottom getarraysize(.rewardtimes2)/3;
+		for ( .@i = 0; .@i < getarraysize(.rewardtimes2)/3; .@i++) {
+			//dispbottom .rewardtimes2[.@i*3];
+			if (.@countcomplete == .rewardtimes2[.@i*3]) {
+				getitem .rewardtimes2[.@i*3+1],.rewardtimes2[.@i*3+2];
+				announce "Chuìc mýÌng ðaòo hýÞu " + strcharinfo(0) + " ðaÞ hoaÌn thaÌnh nhiêòm vuò DaÞ tâÒu "+.rewardtimes2[.@i*3]+" lâÌn liên tiêìp, thýõÒng  "+ .rewardtimes2[.@i*3+2]+"x" + getitemname(.rewardtimes2[.@i*3+1]),bc_all,"0xFFCE00";
+                     
+			}
+		}
+/* 
+		switch (.@countcomplete) {
+		Case 5:
+			announce "Chuìc mýÌng ðaòo hýÞu " + strcharinfo(0) + " ðaÞ hoaÌn thaÌnh nhiêòm vuò DaÞ tâÒu 5 lâÌn liên tiêìp, thýõÒng  "+ .rewardtimes[1]+"x" + getitemname(.rewardtimes[0]),bc_all,"0xFFCE00";
+			getitem .rewardtimes[0],.rewardtimes[1];
+			break;
+		Case 10:
+			announce "Chuìc mýÌng ðaòo hýÞu " + strcharinfo(0) + " ðaÞ hoaÌn thaÌnh nhiêòm vuò DaÞ tâÒu 10 lâÌn liên tiêìp, thýõÒng  "+ .rewardtimes[3]+"x" + getitemname(.rewardtimes[2]),bc_all,"0xFFCE00";
+                        getitem .rewardtimes[2],.rewardtimes[3];
+			break;
+		Case 20:
+			announce "Chuìc mýÌng ðaòo hýÞu " + strcharinfo(0) + " ðaÞ hoaÌn thaÌnh nhiêòm vuò DaÞ tâÒu 20 lâÌn liên tiêìp, thýõÒng  "+ .rewardtimes[5]+"x" + getitemname(.rewardtimes[4]),bc_all,"0xFFCE00";
+                        getitem .rewardtimes[4],.rewardtimes[5];
+			break;
+		Case 30:
+			announce "Chuìc mýÌng ðaòo hýÞu " + strcharinfo(0) + " ðaÞ hoaÌn thaÌnh nhiêòm vuò DaÞ tâÒu 30 lâÌn liên tiêìp, thýõÒng  "+ .rewardtimes[7]+"x" + getitemname(.rewardtimes[6]),bc_all,"0xFFCE00";
+                        getitem .rewardtimes[6],.rewardtimes[7];
+			break;
+		Case 40:
+			announce "Chuìc mýÌng ðaòo hýÞu " + strcharinfo(0) + " ðaÞ hoaÌn thaÌnh nhiêòm vuò DaÞ tâÒu 40 lâÌn liên tiêìp, thýõÒng  "+ .rewardtimes[9]+"x" + getitemname(.rewardtimes[8]),bc_all,"0xFFCE00";
+                        getitem .rewardtimes[8],.rewardtimes[9];
+			break;
+		Case 50:
+			announce "Chuìc mýÌng ðaòo hýÞu " + strcharinfo(0) + " ðaÞ hoaÌn thaÌnh nhiêòm vuò DaÞ tâÒu 50 lâÌn liên tiêìp, thýõÒng  "+ .rewardtimes[11]+"x" + getitemname(.rewardtimes[10]),bc_all,"0xFFCE00";
+                        getitem .rewardtimes[10],.rewardtimes[11];
+			break;
+		Case 100:
+			announce "Chuìc mýÌng ðaòo hýÞu " + strcharinfo(0) + " ðaÞ hoaÌn thaÌnh nhiêòm vuò DaÞ tâÒu 100 lâÌn liên tiêìp, thýõÒng  "+ .rewardtimes[13]+"x" + getitemname(.rewardtimes[12]),bc_all,"0xFFCE00";
+                        getitem .rewardtimes[12],.rewardtimes[13];
+			break;
+		Case 200:
+			announce "Chuìc mýÌng ðaòo hýÞu " + strcharinfo(0) + " ðaÞ hoaÌn thaÌnh nhiêòm vuò DaÞ tâÒu 200 lâÌn liên tiêìp, thýõÒng  "+ .rewardtimes[15]+"x" + getitemname(.rewardtimes[14]),bc_all,"0xFFCE00";
+                        getitem .rewardtimes[14],.rewardtimes[15];
+			break;
+	}
+
+*/
+		.@reward = 1;
+		.@reward$ = "Zeny ";
+	}
+	else {
+		.@reward = 0;
+		.@reward$ = "Exp ";
+	}
+	switch(select("Ta muôìn " + getitemname(.@rewardz) +"x" + .@diff[0] +":Ta muôìn "+ .@reward$  + .@rewarde +"x" + .@diff[0] +":Ta muôìn "+getitemname(.@rewardi) +":TuÌy yì ði"))
+	{
+		Case 1:
+			getitem.@rewardz,.@diff[0];
+		break;
+		Case 2:
+			getexp rand(.@rewarde*9/10,.@rewarde)*.@diff[0],rand(.@rewarde*9/10,.@rewarde)*.@diff[0];
+			if (.@reward == 0)
+                           getexp rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0],rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+                        else
+                           Zeny = Zeny + .@rewarde*.@diff[0];
+		break;
+		Case 3:
+			getitem .@rewardi,1;
+		break;
+		Case 4:
+			switch(rand(1,19))
+			{
+				Case 1:
+					getitem .@rewardz,.@diff[0]/2;
+				break;
+				Case 2:
+					if (.@reward == 0)
+					getexp rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0],rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+					else
+					Zeny = Zeny + rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0]; 
+				break;
+				Case 3:
+					getitem .@rewardi,1;
+				break;
+				Case 4:
+					getitem .@rewardz,.@diff[0]/2;
+				break;
+				Case 5:
+					//getexp rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0],rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+					if (.@reward == 0)
+                                        getexp rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0],rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+                                        else
+                                        Zeny = Zeny + rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+				break;
+				Case 6:
+					getitem .@rewardi,1;
+				break;
+				Case 7:
+					getitem .@rewardz,.@diff[0]/2;
+				break;
+				Case 8:
+					//getexp rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0],rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+					if (.@reward == 0)
+                                        getexp rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0],rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+                                        else
+                                        Zeny = Zeny + rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+				break;
+				Case 9:
+					getitem .@rewardi,1;
+				break;
+				Case 10:
+					explode(.@arrayrewardnew$,.@rewardexi$[0],"|");
+					//debugmes 
+					.@itembest = atoi(.@arrayrewardnew$[rand(getarraysize(.@arrayrewardnew$))]);
+					getitem .@itembest,.@diff[0] * 2;
+					announce "Chuìc mýÌng ðaòo hýÞu " + strcharinfo(0) + " ðaÞ hoaÌn thaÌnh nhiêòm vuò DaÞ tâÒu, nhâòn ðýõòc " + .@diff[0] * 2 + "x" + getitemname(.@itembest),bc_all,"0xFFCE00";
+				break;
+				Case 11:
+                                        getitem .@rewardz,.@diff[0]/2;
+                                break;
+                                Case 12:
+                                        if (.@reward == 0)
+                                        getexp rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0],rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+                                        else
+                                        Zeny = Zeny + rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+                                break;
+                                Case 13:
+                                        getitem .@rewardi,1;
+                                break;
+                                Case 14:
+                                        getitem .@rewardz,.@diff[0]/2;
+                                break;
+                                Case 15:
+                                        //getexp rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0],rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+                                        if (.@reward == 0)
+                                        getexp rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0],rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+                                        else
+                                        Zeny = Zeny + rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+                                break;
+                                Case 16:
+                                        getitem .@rewardi,1;
+                                break;
+                                Case 17:
+                                        getitem .@rewardz,.@diff[0]/2;
+                                break;
+                                Case 18:
+                                        //getexp rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0],rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+                                        if (.@reward == 0)
+                                        getexp rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0],rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+                                        else
+                                        Zeny = Zeny + rand(.@rewarde[0],.@rewarde[0]*11/10)*.@diff[0];
+                                break;
+                                Case 19:
+                                        getitem .@rewardi,1;
+                                break;
+			}
+		break;
+	}
+	//query_sql( "UPDATE `datau_doing` SET `complete`= 1 WHERE `id`= '" + .@qid +"'" );
+	getitem 7929,.@diff[0];
+	close;
+OnSwitchType:
+	.input$ = getarg(0);
+	//dispbottom ".input$ " + .input$;
+	if (.input$ == "i") {
+		.choose2 = 1;
+	}
+	else if (.input$ == "m") {
+		.choose2 = 2;
+	}
+	else if (.input$ == "z") {
+		.choose2 = 3;
+	}
+	else if (.input$ == "r") {
+		.choose2 = 4;
+	}
+	else if (.input$ == "o") {
+		.choose2 = 5;
+	}
+	return .choose2;
+end;
+OnPCLoginEvent:
+query_sql( "SELECT a.mobname,a.id,a.progress,a.questtype,b.rqa FROM `datau_doing` a INNER JOIN datau_quest b ON a.questid = b.id WHERE a.`name` = '" + strcharinfo(0) + "' AND a.`complete` = 0 AND a.`questtype` = 'm'",.@mobname$,.@qid,.@progress,.@qt$ ,.@soluong);
+if (.@qid > 0) {
+	@nhannvu = 1;
+	@tenquai$ = .@mobname$;
+	@soluong = .@soluong;
+	@tinhtrang = .@progress;
+}
+end;
+
+OnPCLogoutEvent:
+if (@nhannvu == 1) {
+	query_sql( "UPDATE `datau_doing` SET `progress`="+@tinhtrang +" WHERE `name` = '" + strcharinfo(0) + "' AND `complete` = 0 AND `questtype` = 'm'" );
+}
+end;
+
+OnNPCKillEvent:
+
+if (@nhannvu ==1)
+if (@tinhtrang >= @soluong){
+query_sql( "UPDATE `datau_doing` SET `progress`="+ @tinhtrang +" WHERE  `name` = '" + strcharinfo(0) + "' AND `complete` = 0 AND `questtype` = 'm'" );
+@nhannvu = 0;
+end;
+}
+	if (getcharid(1) == 0 && @nhannvu == 1){
+		//query_sql( "SELECT mobname,id,progress,questtype FROM `datau_doing` WHERE `name` = '" + strcharinfo(0) + "' AND `complete` = 0 AND `questtype` = 'm'",.@mobname$,.@qid,.@progress,.@qt$ );
+		/*
+		if ((.@qt$ == "m") && compare(strtolower(getmonsterinfo(killedrid, MOB_NAME)),strtolower(.@mobname$))) {
+                	.@progress = .@progress + 1;
+                	dispbottom "Baòn ðaÞ giêìt ðýõòc " + .@progress + " Quaìi vâòt coì " + .@mobname$ + " trong tên";
+                	query_sql( "UPDATE `datau_doing` SET `progress`="+.@progress +" WHERE `id`= '" + .@qid +"'" );
+        	}
+		*/
+		if ((@id != killedgid) && compare(strtolower(getmonsterinfo(killedrid, MOB_NAME)),strtolower(@tenquai$))){
+			
+			@tinhtrang = @tinhtrang + 1;
+                        dispbottom "Baòn ðaÞ giêìt ðýõòc " + @tinhtrang + "/" + @soluong + " Quaìi vâòt coì " + @tenquai$ + " trong tên";
+			@id = killedgid;
+		}
+	end;
+	} else {
+	getpartymember getcharid(1),1;
+	getpartymember getcharid(1),2;
+	.killmobname$ = strtolower(getmonsterinfo(killedrid, MOB_NAME));
+	copyarray .@raid[0], $@partymemberaid[0], $@partymembercount;
+	copyarray .@rcid[0], $@partymembercid[0], $@partymembercount;
+	.partycount = $@partymembercount;
+	.newkillgedid = killedgid;
+	for ( .@i = 0; .@i < .partycount; .@i++ )
+		if ( isloggedin( .@raid[.@i], .@rcid[.@i] ) == 1 ) {
+			attachrid(.@raid[.@i]);
+
+/*
+			query_sql( "SELECT mobname,id,progress,questtype FROM `datau_doing` WHERE `name` = '" + strcharinfo(0) + "' AND `complete` = 0 AND `questtype` = 'm'",.@mobname$,.@qid,.@progress,.@qt$ );
+                	if ((.@qt$ == "m") && compare(.killmobname$,strtolower(.@mobname$))) {
+                        	.@progressn = .@progress + 1;
+                        	dispbottom "Baòn ðaÞ giêìt ðýõòc " + .@progressn + " Quaìi vâòt coì " + .@mobname$ + " trong tên";
+                  	      	query_sql( "UPDATE `datau_doing` SET `progress`="+.@progressn +" WHERE `id`= '" + .@qid +"'" );
+                	} 
+*/
+			//dispbottom "Party baòn ðaÞ giêìt ðýõòc " + @tinhtrang + "/" + @soluong + " Quaìi vâòt coì " + @tenquai$ + " trong tên";
+			//break;
+			//end;
+			if ((@nhannvu == 1) && (@id != .newkillgedid) && compare(.killmobname$,strtolower(@tenquai$))){
+	                        @tinhtrang = @tinhtrang + 1;
+                        	dispbottom "Party baòn ðaÞ giêìt ðýõòc " + @tinhtrang + "/" + @soluong + " Quaìi vâòt coì " + @tenquai$ + " trong tên";
+				if (@tinhtrang >= @soluong){
+					query_sql( "UPDATE `datau_doing` SET `progress`="+ @tinhtrang +" WHERE  `name` = '" + strcharinfo(0) + "' AND `complete` = 0 AND `questtype` = 'm'" );
+					@nhannvu = 0;
+					end;
+				}
+				@id = .newkillgedid;
+                	}
+			detachrid;
+			//.@id = killedgid;
+		}
+		//mes (.@i +1) + ". ^0000FF" + .@name$[.@i] + "^000000";
+	}
+
+end;
+
+OnChangeIdToOpt:
+	.input = getarg(0);
+	switch(.input) {
+		Case 1: .opt$ =" MaxHP +"; break;
+		Case 2: .opt$ =" MaxSP +"; break;
+		Case 3: .opt$ =" STR +"; break;
+		Case 4: .opt$ =" AGI +"; break;
+		Case 5: .opt$ =" VIT +"; break;
+		Case 6: .opt$ =" INT +"; break;
+		Case 7: .opt$ =" DEX +"; break;
+		Case 8: .opt$ =" LUK +"; break;
+		Case 9: .opt$ =" MaxHP +%"; break;
+		Case 10: .opt$ =" MaxSP +%"; break;
+		Case 11: .opt$ =" HP regen +%"; break;
+		Case 12: .opt$ =" SP regen +%"; break;
+		Case 13: .opt$ =" ATK +%"; break;
+		Case 14: .opt$ =" MATK +%"; break;
+		Case 15: .opt$ =" ASPD +"; break;
+		Case 16: .opt$ =" Delay after attack -%"; break;
+		Case 17: .opt$ =" ATK +"; break;
+		Case 18: .opt$ =" HIT +"; break;
+		Case 19: .opt$ =" MATK +"; break;
+		Case 20: .opt$ =" DEF +"; break;
+		Case 21: .opt$ =" MDEF +"; break;
+		Case 22: .opt$ =" FLEE +"; break;
+		Case 23: .opt$ =" Perfect dodge +"; break;
+		Case 24: .opt$ =" CRIT +"; break;
+		Case 25: .opt$ =" Neutral elemental resistance +%"; break;
+		Case 26: .opt$ =" Water elemental resistance +%"; break;
+		Case 27: .opt$ =" Earth elemental resistance +%"; break;
+		Case 28: .opt$ =" Fire elemental resistance +%"; break;
+		Case 29: .opt$ =" Wind elemental resistance +%"; break;
+		Case 30: .opt$ =" Poison elemental resistance +%"; break;
+		Case 31: .opt$ =" Holy elemental resistance +%"; break;
+		Case 32: .opt$ =" Shadow elemental resistance +%"; break;
+		Case 33: .opt$ =" Ghost elemental resistance +%"; break;
+		Case 34: .opt$ =" Undead elemental resistance +%"; break;
+		Case 35: .opt$ =" All elementals resistance +%"; break;
+		Case 36: .opt$ =" Neutral monster resistance +%"; break;
+		Case 37: .opt$ =" ATK +% against Neutral monster"; break;
+		Case 38: .opt$ =" Water monster resistance +%"; break;
+		Case 39: .opt$ =" ATK +% against Water monster"; break;
+		Case 40: .opt$ =" Earth monster resistance +%"; break;
+		Case 41: .opt$ =" ATK +% against Earth monster"; break;
+		Case 42: .opt$ =" Fire monster resistance +%"; break;
+		Case 43: .opt$ =" ATK +% against Fire monster"; break;
+		Case 44: .opt$ =" Wind monster resistance +%"; break;
+		Case 45: .opt$ =" ATK +% against Wind monster"; break;
+		Case 46: .opt$ =" Poison monster resistance +%"; break;
+		Case 47: .opt$ =" ATK +% against Poison monster"; break;
+		Case 48: .opt$ =" Holy monster resistance +%"; break;
+		Case 49: .opt$ =" ATK +% against Holy monster"; break;
+		Case 50: .opt$ =" Shadow monster resistance +%"; break;
+		Case 51: .opt$ =" ATK +% against Shadow monster"; break;
+		Case 52: .opt$ =" Ghost monster resistance +%"; break;
+		Case 53: .opt$ =" ATK +% against Ghost monster"; break;
+		Case 54: .opt$ =" Undead monster resistance +%"; break;
+		Case 55: .opt$ =" ATK +% against Undead monster"; break;
+		Case 56: .opt$ =" Neutral monster magic resistance +%"; break;
+		Case 57: .opt$ =" MATK +% against Neutral monster"; break;
+		Case 58: .opt$ =" Water monster magic resistance +%"; break;
+		Case 59: .opt$ =" MATK +% against Water monster"; break;
+		Case 60: .opt$ =" Earth monster magic resistance +%"; break;
+		Case 61: .opt$ =" MATK +% against  Earth monster"; break;
+		Case 62: .opt$ =" Fire monster magic resistance +%"; break;
+		Case 63: .opt$ =" MATK +% against Fire monster"; break;
+		Case 64: .opt$ =" Wind monster magic resistance +%"; break;
+		Case 65: .opt$ =" MATK +% against Wind monster"; break;
+		Case 66: .opt$ =" Poison monster magic resistance +%"; break;
+		Case 67: .opt$ =" MATK +% against Poison monster"; break;
+		Case 68: .opt$ =" Holy monster magic resistance +%"; break;
+		Case 69: .opt$ =" MATK +% against Holy monster"; break;
+		Case 70: .opt$ =" Shadow monster magic resistance +%"; break;
+		Case 71: .opt$ =" MATK +% against Shadow monster"; break;
+		Case 72: .opt$ =" Ghost monster magic resistance +%"; break;
+		Case 73: .opt$ =" MATK +% against Ghost monster"; break;
+		Case 74: .opt$ =" Undead monster magic resistance +%"; break;
+		Case 75: .opt$ =" MATK +% against Undead monster"; break;
+		Case 76: .opt$ =" Armor element: Neutral"; break;
+		Case 77: .opt$ =" Armor element: Water"; break;
+		Case 78: .opt$ =" Armor element: Earth"; break;
+		Case 79: .opt$ =" Armor element: Fire"; break;
+		Case 80: .opt$ =" Armor element: Wind"; break;
+		Case 81: .opt$ =" Armor element: Poison"; break;
+		Case 82: .opt$ =" Armor element: Holy"; break;
+		Case 83: .opt$ =" Armor element: Shadow"; break;
+		Case 84: .opt$ =" Armor element: Ghost"; break;
+		Case 85: .opt$ =" Armor element: Undead"; break;
+		Case 87: .opt$ =" Formless monster resistance +%"; break;
+		Case 88: .opt$ =" Undead monster resistance +%"; break;
+		Case 89: .opt$ =" Brute monster resistance +%"; break;
+		Case 90: .opt$ =" Plant monster resistance +%"; break;
+		Case 91: .opt$ =" Insect monster resistance +%"; break;
+		Case 92: .opt$ =" Fish monster resistance +%"; break;
+		Case 93: .opt$ =" Demon monster resistance +%"; break;
+		Case 94: .opt$ =" Demihuman monster resistance +%"; break;
+		Case 95: .opt$ =" Angel monster resistance +%"; break;
+		Case 96: .opt$ =" Dragon monster resistance +%"; break;
+		Case 97: .opt$ =" ATK +% against Formless monster"; break;
+		Case 98: .opt$ =" ATK +% against Undead monster"; break;
+		Case 99: .opt$ =" ATK +% against Brute monster"; break;
+		Case 100: .opt$ =" ATK +% against Plant monster"; break;
+		Case 101: .opt$ =" ATK +% against Insect monster"; break;
+		Case 102: .opt$ =" ATK +% against Fish monster"; break;
+		Case 103: .opt$ =" ATK +% against Demon monster"; break;
+		Case 104: .opt$ =" ATK +% against Demihuman monster"; break;
+		Case 105: .opt$ =" ATK +% against Angel monster"; break;
+		Case 106: .opt$ =" ATK +% against Dragon monster"; break;
+		Case 107: .opt$ =" MATK +% against Formless monster"; break;
+		Case 108: .opt$ =" MATK +% against Undead monster"; break;
+		Case 109: .opt$ =" MATK +% against Brute monster"; break;
+		Case 110: .opt$ =" MATK +% against Plant monster"; break;
+		Case 111: .opt$ =" MATK +% against Insect monster"; break;
+		Case 112: .opt$ =" MATK +% against Fish monster"; break;
+		Case 113: .opt$ =" MATK +% against Devil monster"; break;
+		Case 114: .opt$ =" MATK +% against Demihuman monster"; break;
+		Case 115: .opt$ =" MATK +% against Angel monster"; break;
+		Case 116: .opt$ =" MATK +% against Dragon monster"; break;
+		Case 117: .opt$ =" CRIT + against Formless monster"; break;
+		Case 118: .opt$ =" CRIT + against Undead monster"; break;
+		Case 119: .opt$ =" CRIT + against Brute monster"; break;
+		Case 120: .opt$ =" CRIT + against Plant monster"; break;
+		Case 121: .opt$ =" CRIT + against Insect monster"; break;
+		Case 122: .opt$ =" CRIT + against Fish monster"; break;
+		Case 123: .opt$ =" CRIT + against Demon monster"; break;
+		Case 124: .opt$ =" CRIT + against Demihuman monster"; break;
+		Case 125: .opt$ =" CRIT + against Angel monster"; break;
+		Case 126: .opt$ =" CRIT + against Dragon monster"; break;
+		Case 127: .opt$ =" Pierces % DEF of Formless monster"; break;
+		Case 128: .opt$ =" Pierces % DEF of Undead monster"; break;
+		Case 129: .opt$ =" Pierces % DEF of Brute monster"; break;
+		Case 130: .opt$ =" Pierces % DEF of Plant monster"; break;
+		Case 131: .opt$ =" Pierces % DEF of Insect monster"; break;
+		Case 132: .opt$ =" Pierces % DEF of Fish monster"; break;
+		Case 133: .opt$ =" Pierces % DEF of Demon monster"; break;
+		Case 134: .opt$ =" Pierces % DEF of Demihuman monster"; break;
+		Case 135: .opt$ =" Pierces % DEF of Angel monster"; break;
+		Case 136: .opt$ =" Pierces % DEF of Dragon monster"; break;
+		Case 137: .opt$ =" Pierces % MDEF of Formless monster"; break;
+		Case 138: .opt$ =" Pierces % MDEF of Undead monster"; break;
+		Case 139: .opt$ =" Pierces % MDEF of Brute monster"; break;
+		Case 140: .opt$ =" Pierces % MDEF of Plant monster"; break;
+		Case 141: .opt$ =" Pierces % MDEF of Insect monster"; break;
+		Case 142: .opt$ =" Pierces % MDEF of Fish monster"; break;
+		Case 143: .opt$ =" Pierces % MDEF of Demon monster"; break;
+		Case 144: .opt$ =" Pierces % MDEF of Demihuman monster"; break;
+		Case 145: .opt$ =" Pierces % MDEF of Angel monster"; break;
+		Case 146: .opt$ =" Pierces % MDEF of Dragon monster"; break;
+		Case 147: .opt$ =" ATK +% against Normal monster"; break;
+		Case 148: .opt$ =" ATK +% against Boss monster"; break;
+		Case 149: .opt$ =" Normal monster resistance +%"; break;
+		Case 150: .opt$ =" Boss monster resistance +%"; break;
+		Case 151: .opt$ =" MATK +% against Normal monster"; break;
+		Case 152: .opt$ =" MATK +% against Boss monster"; break;
+		Case 153: .opt$ =" Pierces % DEF of Normal monster"; break;
+		Case 154: .opt$ =" Pierces % DEF of Boss monster"; break;
+		Case 155: .opt$ =" Pierces % MDEF of Normal monster"; break;
+		Case 156: .opt$ =" Pierces % MDEF of Boss monster"; break;
+		Case 157: .opt$ =" ATK +% against Small size monster"; break;
+		Case 158: .opt$ =" ATK +% against Medium size monster"; break;
+		Case 159: .opt$ =" ATK +% against Large size monster"; break;
+		Case 160: .opt$ =" Small monster resistance +%"; break;
+		Case 161: .opt$ =" Medium monster resistance +%"; break;
+		Case 162: .opt$ =" Large monster resistance +%"; break;
+		Case 163: .opt$ =" Nullify weapon's damage size penalty"; break;
+		Case 164: .opt$ =" Critical attack +%"; break;
+		Case 165: .opt$ =" Critical damage -%"; break;
+		Case 166: .opt$ =" Long range physical attack +%"; break;
+		Case 167: .opt$ =" Long range physical damage -%"; break;
+		Case 168: .opt$ =" Healing skills +%"; break;
+		Case 169: .opt$ =" Restoration gained from Healing skills +%"; break;
+		Case 170: .opt$ =" Variable cast time -%"; break;
+		Case 171: .opt$ =" After cast delay -%"; break;
+		Case 172: .opt$ =" Reduces SP cost by %"; break;
+		Case 175: .opt$ =" Weapon element: Neutral"; break;
+		Case 176: .opt$ =" Weapon element: Water"; break;
+		Case 177: .opt$ =" Weapon element: Earth"; break;
+		Case 178: .opt$ =" Weapon element: Fire"; break;
+		Case 179: .opt$ =" Weapon element: Wind"; break;
+		Case 180: .opt$ =" Weapon element: Poison"; break;
+		Case 181: .opt$ =" Weapon element: Holy"; break;
+		Case 182: .opt$ =" Weapon element: Shadow"; break;
+		Case 183: .opt$ =" Weapon element: Ghost"; break;
+		Case 184: .opt$ =" Weapon element: Undead"; break;
+		Case 185: .opt$ =" Indestructible in battle"; break;
+		Case 186: .opt$ =" Indestructible in battle"; break;
+		Case 187: .opt$ =" MATK against Small size monster +%"; break;
+		Case 188: .opt$ =" MATK against Medium size monster +%"; break;
+		Case 189: .opt$ =" MATK against Large size monster +%"; break;
+		Case 190: .opt$ =" Small monster magic resistance +%"; break;
+		Case 191: .opt$ =" Medium monster magic resistance +%"; break;
+		Case 192: .opt$ =" Large monster magic resistance +%"; break;
+		Case 193: .opt$ =" Elemental attacks resistance +%"; break;
+		Case 194: .opt$ =" Formless monster resistance +%"; break;
+		Case 195: .opt$ =" Undead monster resistance +%"; break;
+		Case 196: .opt$ =" Brute monster resistance +%"; break;
+		Case 197: .opt$ =" Plant monster resistance +%"; break;
+		Case 198: .opt$ =" Insect monster resistance +%"; break;
+		Case 199: .opt$ =" Fish monster resistance +%"; break;
+		Case 200: .opt$ =" Demon monster resistance +%"; break;
+		Case 201: .opt$ =" Demihuman monster resistance +%"; break;
+		Case 202: .opt$ =" Angel monster resistance +%"; break;
+		Case 203: .opt$ =" Dragon monster resistance +%"; break;
+		Case 206: .opt$ =" Demi-Human players resistance + %"; break;
+		Case 207: .opt$ =" Doram players resistance +%"; break;
+		Case 208: .opt$ =" ATK against Demi-Human players +%"; break;
+		Case 209: .opt$ =" ATK against Doram players +%"; break;
+		Case 210: .opt$ =" MATK against Demi-Human players +%"; break;
+		Case 211: .opt$ =" MATK against Doram players +%"; break;
+		Case 212: .opt$ =" Critical + for Demi-Human players"; break;
+		Case 213: .opt$ =" Critical + for Doram players"; break;
+		Case 214: .opt$ =" Pierces % DEF of Demi-Human players"; break;
+		Case 215: .opt$ =" Pierces % DEF of Doram players"; break;
+		Case 216: .opt$ =" Pierces % MDEF of Demi-Human players"; break;
+		Case 217: .opt$ =" Pierces % MDEF of Doram players"; break;
+		Case 219: .opt$ =" Melee physical damage +%"; break;
+		Case 220: .opt$ =" Melee physical damage -%"; break;
+
+
+	}
+return .opt$;	
+OnInit:
+	
+	end;
+}
+
+
+payon,166,110,5	duplicate(DaÞ TâÒu)	DaÞ TâÒu#1	4_M_RACHOLD1
+morocc,149,97,5	duplicate(DaÞ TâÒu)	DaÞ TâÒu#2	4_M_RACHOLD1
+hugel,101,147,4	duplicate(DaÞ TâÒu)	DaÞ TâÒu#3	4_M_RACHOLD1
+louyang,217,108,5	duplicate(DaÞ TâÒu)	DaÞ TâÒu#4	4_M_RACHOLD1
+moscovia,222,198,5	duplicate(DaÞ TâÒu)	DaÞ TâÒu#5	4_M_RACHOLD1
+gonryun,167,127,5	duplicate(DaÞ TâÒu)	DaÞ TâÒu#6	4_M_RACHOLD1
+dewata,197,184,5	duplicate(DaÞ TâÒu)	DaÞ TâÒu#7	4_M_RACHOLD1
+izlude,124,148,5	duplicate(DaÞ TâÒu)	DaÞ TâÒu#8	4_M_RACHOLD1
+aldebaran,133,124,5	duplicate(DaÞ TâÒu)	DaÞ TâÒu#9	4_M_RACHOLD1

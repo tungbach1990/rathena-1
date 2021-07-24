@@ -1,0 +1,115 @@
+// http://rathena.org/board/topic/73652-different-exp-rate-for-each-group/
+-	script	GroupBonuxEXP	-,{
+// OnInit:
+// setarray .GroupLevel[0], 1, 10, 99; // Group Level
+// setarray .GroupBonus[0], 1, 10, 1000; // Bonus EXP * 10%, might overflow in high-rate server due to large amount of number
+// end;
+//OnNPCKillEvent:
+//
+//	if ( getcharid(1)) {
+//		query_sql( "SELECT `exp` FROM `party` WHERE `name` ='" + getpartyname(getcharid(1)) + "'",.@shareexp );
+//		if (.@shareexp[0] == 0) {
+//			getexp (getmonsterinfo(killedrid,MOB_BASEEXP) * @BonusBase / 1000), (getmonsterinfo(killedrid,MOB_JOBEXP) * @BonusJob / 1000);
+//			end;
+//		}
+//		getpartymember getcharid(1), 1;
+//		getpartymember getcharid(1), 2;
+//
+//		getmapxy(.@mapname$,.@mapx,.@mapy,BL_PC);
+//			for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
+//				if ( !isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ))  // what happens if someone in the party member is offline =/
+//					continue;
+//				if  ( strcharinfo(3,$@partymembercid[.@i]) != .@mapname$ )  // If the party member is not on the same map of the killer
+//					continue;
+//				attachrid $@partymemberaid[.@i];
+//				if (HP > 0) {
+//					query_sql( "SELECT `name`,`rate`,`type` FROM `bachnt_rate` WHERE `name` ='"+rid2name( $@partymemberaid[ .@i ] )+"'",.@namept$,.@ratept,.@typept );
+//					if (.@typept[0] == 0) {
+//						//dispbottom .@shareexp[0] + "b";
+//						set @BonusBasePT, 2000;
+//						set @BonusJobPT, 2000;
+//						getexp (getmonsterinfo(killedrid,MOB_BASEEXP) * @BonusBasePT / 1000), (getmonsterinfo(killedrid,MOB_JOBEXP) * @BonusJobPT / 1000);
+//					} else {
+//						//dispbottom .@shareexp[0] + "a";
+//						set @BonusBasePT, 10;
+//						set @BonusJobPT, 100;
+//						getexp (getmonsterinfo(killedrid,MOB_BASEEXP) * @BonusBasePT / 1000), (getmonsterinfo(killedrid,MOB_JOBEXP) * @BonusJobPT / 1000);
+//					}
+//							
+//					detachrid;
+//				}
+//			}
+//	} else {
+//		getexp (getmonsterinfo(killedrid,MOB_BASEEXP) * @BonusBase / 1000), (getmonsterinfo(killedrid,MOB_JOBEXP) * @BonusJob / 1000);
+//	}
+//end;
+
+OnPCLoginEvent:
+.alootidcount = query_sql("select `name`,`itemid` from `bachnt_autolootid` WHERE `name` ='"+strcharinfo(0)+"'", .@name$, .@itemid);
+for (.@i = 0; .@i < getarraysize(.@itemid); .@i++) {
+				atcommand "@alootid +" + .@itemid[.@i] ;
+}
+
+.autoloot = query_sql("select `name`,`autoloot` from `bachnt_autoloot` WHERE `name` ='"+strcharinfo(0)+"'", .@name$, .@autoloot$);
+if (getarraysize(.@autoloot$) > 0)
+	atcommand "@autoloot +" + .@autoloot$[0];
+
+query_sql( "SELECT `name`,`rate`,`type` FROM `bachnt_rate` WHERE `name` ='"+strcharinfo(0)+"'",.@name$,.@rate,.@type );
+if( getarraysize( .@name$ ) ){
+	if (.@type == 0) {
+		set @BonusBase, 2000;
+		set @BonusJob, 2000;
+	} else {
+		set @BonusBase, 10;
+		set @BonusJob, 100;
+		if (BaseLevel >= 175){
+			query_sql( "INSERT INTO `bachnt_rate` SET `name`='"+strcharinfo(0)+"',`rate`= 0 ON DUPLICATE KEY UPDATE `rate`= 0" );
+			if (!getstatus("SC_ITEMBOOST",0)) {
+				sc_start SC_ITEMBOOST,86400000,.@rate;
+			} else {
+				if (getstatus(SC_ITEMBOOST,1) > .@rate) {
+					sc_start SC_ITEMBOOST,getstatus(SC_ITEMBOOST,5),.@rate + getstatus(SC_ITEMBOOST,1);
+				} else {
+					sc_start SC_ITEMBOOST,86400000,.@rate;
+				}
+			}
+			
+		}	
+	}
+	end;
+} else {
+	query_sql( "INSERT INTO `bachnt_rate` SET `name`='"+strcharinfo(0)+"',`rate`= 0,`type` = 0" );
+	//mes "Choose ur rate";
+	//mes "Take careful !!!!!!!!!!!";
+	//next;
+	
+	//	switch(select("Rate 200/200 EXP,DROP 1:Rate 1/1 EXP,DROP +50%")){
+	//		case 1:
+	//			query_sql( "INSERT INTO `bachnt_rate` SET `name`='"+strcharinfo(0)+"',`rate`= 0,`type` = 0" );
+	//			set @BonusBase, 2000;
+	//			set @BonusJob, 2000;
+	//			getmapxy(.@mapname$, .@mapx, .@mapy);
+	//			warp .@mapname$, .@mapx, .@mapy;
+	//			close;
+	//		case 2:
+	//			set @BonusBase, 10;
+	//			set @BonusJob, 100;
+	//			query_sql( "INSERT INTO `bachnt_rate` SET `name`='"+strcharinfo(0)+"',`rate`= 0,`type` = 1" );
+	//			getmapxy(.@mapname$, .@mapx, .@mapy);
+	//			warp .@mapname$, .@mapx, .@mapy;
+	//			close;
+	//	}
+	
+	end;
+}
+}
+
+
+
+// Custom Drop Rate
+function	script	getratedrop	{
+	query_sql( "SELECT `name`,`rate`,`type` FROM `bachnt_rate` WHERE `name` ='"+strcharinfo(0)+"'",.@name$,.@rate,.@type );
+	set getarg(0),.@rate;
+	return ;
+}
+

@@ -1,0 +1,356 @@
+//===== rAthena Script =======================================
+//= FOGH
+//===== By: ==================================================
+//= BACHNT
+//= FOGH
+//===== Current Version: =====================================
+//= 1.0 
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= FOGH
+//============================================================
+
+//glast_01,241,290,4	script	Sierra S	4_F_SCIENCE,{
+
+-	exbartershop	FOGHSHOP	-1,9550:99:1000000-7929:0:1
+prontera,141,182,5	script	OSC1052	2_VENDING_MACHINE1,{
+	callshop "FOGHSHOP";
+	OnInit:
+        	npcshopitem "FOGHSHOP","15388:99:10000000","25739:0:5","6607:0:10";
+        	bartershopadditem "FOGHSHOP","15389:99:10000000","25739:0:5","6607:0:10";
+		bartershopadditem "FOGHSHOP","32228:99:10000000","25740:0:5","6755:0:5";
+		bartershopadditem "FOGHSHOP","32229:99:10000000","25740:0:5","6755:0:5";
+		bartershopadditem "FOGHSHOP","32230:99:10000000","25740:0:5","6755:0:5";
+		bartershopadditem "FOGHSHOP","32231:99:10000000","25740:0:5","6755:0:5";
+		bartershopadditem "FOGHSHOP","32232:99:10000000","25740:0:5","6755:0:5";
+		bartershopadditem "FOGHSHOP","32233:99:10000000","25740:0:5","6755:0:5";
+	end;
+
+}
+
+prontera,139,181,5	script	OSC1127	2_SLOT_MACHINE,{
+	disable_items;
+        if (checkweight(1201,1) == 0) {
+                mes "The kind of items you have is too various. Retry after reducing the sort of items.";
+                close;
+        }
+        if ((MaxWeight - Weight) < 10000) {
+                mes "You are overburdened, so you cannot proceed it anymore. Please try again after reduce the weight.";
+                close;
+        }
+        mes "[ OSC1127 ]";
+        mes " Hello there, ";
+        mes " I Can enchant Fall of Glast Heim equipment";
+        next;
+	mes "[ OSC1127 ]";
+	mes " Depend on what Equipment you choose, let me see";
+        menu (compare( "|"+.listequip$+"|","|"+getequipid(EQI_ARMOR)+"|" )) ? getitemname(getequipid(EQI_ARMOR)):"",EnchantArmor,
+                                (compare( "|"+.listequip$+"|","|"+getequipid(EQI_ACC_L)+"|" )) ? getitemname(getequipid(EQI_ACC_L)):"",EnchantAccL,
+                                (compare( "|"+.listequip$+"|","|"+getequipid(EQI_GARMENT)+"|" )) ? getitemname(getequipid(EQI_GARMENT)):"",EnchantGarment;
+        close;
+	
+	EnchantArmor:
+		next;
+		mes "[ OSC1127 ]";
+	        mes " wanna enchant ?,i need  ";
+		copyarray .array,.price_armor,getarraysize(.price_armor);
+		for (.@i = 0; .@i < getarraysize(.array); .@i += 2) {
+			mes .array[.@i+1] + " x <ITEM>" + getitemname(.array[.@i]) + "<INFO>" + .array[.@i] + "</INFO></ITEM>";
+		}
+		mes " and 1,000,000 zeny";
+		switch(select("Continue:Maybe Later")) {
+			Case 1:
+				.call = callfunc("FOGH_CheckAndDelItem",.price_armor);
+				if (.call > 0){
+					.@loc = EQI_ARMOR;
+					.@item_id = getequipid(.@loc);
+					.@equip_refine = getequiprefinerycnt(.@loc);
+					setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+					if (.itemslot[3] == 0){
+					    .@enchant_id = .enchant_allstat345[rand(getarraysize(.enchant_allstat345))];
+					    getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.@enchant_id);
+						delequip .@loc;
+					    end;
+					}
+					if (.itemslot[2] == 0){
+						.@enchant_id = .enchant_allstat345[rand(getarraysize(.enchant_allstat345))];
+                                            getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.@enchant_id,.itemslot[3]);
+						delequip .@loc;
+                                            end;
+                                        }
+					if (.itemslot[1] == 0 && getequiprandomoption(.@loc,0,ROA_ID) == 0){
+						if (rand(1,2) == 1){
+							.@enchant_id = .enchant_armor_2nd[rand(getarraysize(.enchant_armor_2nd))];
+                                            		getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.@enchant_id,.itemslot[2],.itemslot[3]);
+						}else {
+							
+							setarray .optopt[0],.enchant_armor_2nd_ele[rand(getarraysize(.enchant_armor_2nd_ele))];
+							setarray .optval[0],0;
+							setarray .optparam[0],0;
+							getitem3(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.itemslot[3],.optopt,.optval,.optparam);
+
+						}
+						delequip .@loc;
+                                            end;
+                                        }
+						
+				}
+				break;
+			Case 2:
+				mes "Okey, bye";
+				break;
+			end;
+		}
+		
+	end;
+	EnchantAccL:
+		 next;
+                mes "[ OSC1127 ]";
+                mes " wanna enchant ?,i need  ";
+                copyarray .array,.price_acc,getarraysize(.price_acc);
+                for (.@i = 0; .@i < getarraysize(.array); .@i += 2) {
+                        mes .array[.@i+1] + " x <ITEM>" + getitemname(.array[.@i]) + "<INFO>" + .array[.@i] + "</INFO></ITEM>";
+                }
+                mes " and 1,000,000 zeny";
+		 mes " Accessory with 2nd slot have 30% fail";
+                switch(select("Continue:Maybe Later")) {
+                        Case 1:
+                                .call = callfunc("FOGH_CheckAndDelItem",.price_acc);
+                                if (.call > 0){
+                                        .@loc = EQI_ACC_L;
+                                        .@item_id = getequipid(.@loc);
+                                        .@equip_refine = getequiprefinerycnt(.@loc);
+                                        setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+                                        if (.itemslot[3] == 0){
+                                            .@enchant_id = .enchant_allstat345[rand(getarraysize(.enchant_allstat345))];
+                                            getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.@enchant_id);
+                                                delequip .@loc;
+                                            end;
+                                        }
+                                        if (.itemslot[2] == 0){
+                                                .@enchant_id = .enchant_acc_3rd[rand(getarraysize(.enchant_acc_3rd))];
+                                            getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.@enchant_id,.itemslot[3]);
+                                                delequip .@loc;
+                                            end;
+                                        }
+					
+                                        if (.itemslot[1] == 0){
+						if (rand(1,100) > 5){
+                                                .@enchant_id = .enchant_acc_2nd[rand(getarraysize(.enchant_acc_2nd))];
+                                           	 getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.@enchant_id,.itemslot[2],.itemslot[3]);
+						} else specialeffect EF_SUI_EXPLOSION;
+					
+                                                delequip .@loc;
+						break;
+                                            end;
+                                        }
+
+                                }
+                                break;
+                        Case 2:
+                                mes "Okey, bye";
+                                break;
+                        end;
+                }
+        end;
+	EnchantGarment:
+		next;
+                mes "[ OSC1127 ]";
+                mes " wanna enchant ?,i need  ";
+                copyarray .array,.price_armor,getarraysize(.price_armor);
+                for (.@i = 0; .@i < getarraysize(.array); .@i += 2) {
+                        mes .array[.@i+1] + " x <ITEM>" + getitemname(.array[.@i]) + "<INFO>" + .array[.@i] + "</INFO></ITEM>";
+                }
+                mes " and 1,000,000 zeny";
+                switch(select("Continue:Maybe Later")) {
+                        Case 1:
+                                .call = callfunc("FOGH_CheckAndDelItem",.price_armor);
+                                if (.call > 0){
+                                        .@loc = EQI_GARMENT;
+                                        .@item_id = getequipid(.@loc);
+                                        .@equip_refine = getequiprefinerycnt(.@loc);
+                                        setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+                                        if (.itemslot[3] == 0){
+                                            .@enchant_id = .enchant_garmentall[rand(getarraysize(.enchant_garmentall))];
+                                            getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.@enchant_id);
+                                                delequip .@loc;
+                                            end;
+                                        }
+                                        if (.itemslot[2] == 0){
+                                                .@enchant_id = .enchant_garmentall[rand(getarraysize(.enchant_garmentall))];
+                                            getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.@enchant_id,.itemslot[3]);
+                                                delequip .@loc;
+                                            end;
+                                        }
+
+                                        if (.itemslot[1] == 0){
+                                                .@enchant_id = .enchant_garmentall[rand(getarraysize(.enchant_garmentall))];
+                                            getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.@enchant_id,.itemslot[2],.itemslot[3]);
+                                                delequip .@loc;
+                                            end;
+                                        }
+
+                                }
+                                break;
+                        Case 2:
+                                mes "Okey, bye";
+                                break;
+                        end;
+                }
+        end;
+
+	
+
+	
+	OnInit:
+		setarray .price_acc[0],25740,10,6755,40;
+		setarray .price_armor[0],25739,5,6608,10;
+		setarray .enchant_garmentall[0],			4834,4835,4836, // Expert Archer 3 4 5
+								4808,4820,4821, // Fighting Spirit 4 5 6
+								4817,4816,4843, // Sharp 234
+								4863,4864,4865, // Fatal 123
+								4813,4812,4826; // Spell 345
+		setarray .enchant_acc_2nd[0],			29587, //Flash
+								29588, // Strong
+								29589, // Thousand Bow
+								29590, //Divine			
+								29591, //Rigid	
+								29592; // Hundred Luck
+		setarray .enchant_acc_3rd[0],                        4835,4836, // Expert Archer 4 5
+                                                                4822,4821, // Fighting Spirit 67
+                                                                4844,4843, // Sharp 45
+                                                                4864,4865, // Fatal 23
+                                                                4812,4826; // Spell 45
+		setarray .enchant_allstat345[0],                4702,4703,4704, // Str 345
+                                                                4732,4733,4734, // Agi 345
+                                                                4742,4743,4744, // Vit 345
+                                                                4712,4713,4714, // Int 345
+                                                                4722,4723,4724, // Dex 345		
+								4752,4753,4754; // Luk 345
+		setarray .enchant_armor_2nd[0],                 4702, // Str 3
+                                                                4732, // Agi 3
+                                                                4742, // Vit 3
+                                                                4712, // Int 3
+                                                                4722, // Dex 3
+                                                                4752; // Luk 3
+		setarray .enchant_armor_2nd_ele[0],RDMOPT_BODY_ATTR_SAINT,RDMOPT_BODY_ATTR_POISON,RDMOPT_BODY_ATTR_WIND,RDMOPT_BODY_ATTR_FIRE,RDMOPT_BODY_ATTR_GROUND,RDMOPT_BODY_ATTR_WATER,RDMOPT_BODY_ATTR_DARKNESS,RDMOPT_BODY_ATTR_UNDEAD;						
+									
+		.listequip$ = "15388|15389|32228|32229|32230|32231|32232|32233";
+	end;
+
+end;
+
+}
+
+prontera,137,180,5	script	OSC1198	2_DROP_MACHINE,{
+	disable_items;	
+	if (checkweight(1201,1) == 0) {
+		mes "The kind of items you have is too various. Retry after reducing the sort of items.";
+		close;
+	}
+	if ((MaxWeight - Weight) < 10000) {
+		mes "You are overburdened, so you cannot proceed it anymore. Please try again after reduce the weight.";
+		close;
+	}
+	mes "[ OSC1198 ]";
+	mes "  Br br brrr... ";
+	mes "I Can recycle Fall of Glast Heim equipment";
+	next;
+	menu (compare( "|"+.listequip$+"|","|"+getequipid(EQI_ARMOR)+"|" )) ? getitemname(getequipid(EQI_ARMOR)):"",ExchangeArmor,
+				(compare( "|"+.listequip$+"|","|"+getequipid(EQI_ACC_L)+"|" )) ? getitemname(getequipid(EQI_ACC_L)):"",ExchangeAccL,
+				(compare( "|"+.listequip$+"|","|"+getequipid(EQI_GARMENT)+"|" )) ? getitemname(getequipid(EQI_GARMENT)):"",ExchangeGarment;
+	close;
+	
+	ExchangeArmor:
+				.@loc = EQI_ARMOR;
+				.itemex = 25739;
+				setarray .slarray[0],3,6,6,10,9,15;
+				menu  "Exchange "+getitemname(getequipid(.@loc))+" for " + getitemname(.itemex),ExchangeA,
+					"Maybe later",GotoClose;
+					
+				ExchangeA: 
+					if (getequipcardid(.@loc,1) > 0)
+						.slitem = rand(.slarray[4],.slarray[5]);
+					 else if (getequipcardid(.@loc,2) > 0)
+						.slitem = rand(.slarray[2],.slarray[3]);
+					else if (getequipcardid(.@loc,3) > 0)
+						.slitem = rand(.slarray[0],.slarray[1]);
+					else .slitem = rand(1,2);
+					getitem .itemex,.slitem;
+					delequip(.@loc);
+					if (rand(1,1000) <= 10) getitem rand(31631,31633),1;
+				end;
+	end;
+	ExchangeAccL:
+				.@loc = EQI_ACC_L;
+                                .itemex = 25740;
+                                setarray .slarray[0],2,6,4,12,6,18;
+                                menu  "Exchange "+getitemname(getequipid(.@loc))+" for " + getitemname(.itemex),ExchangeAL,
+                                        "Maybe later",GotoClose;
+
+                                ExchangeAL:
+                                        if (getequipcardid(.@loc,1) > 0)
+                                                .slitem = rand(.slarray[4],.slarray[5]);
+                                         else if (getequipcardid(.@loc,2) > 0)
+                                                .slitem = rand(.slarray[2],.slarray[3]);
+                                        else if (getequipcardid(.@loc,3) > 0)
+                                                .slitem = rand(.slarray[0],.slarray[1]);
+                                        else .slitem = rand(1,2);
+                                        getitem .itemex,.slitem;
+                                        delequip(.@loc);
+					if (rand(1,1000) <= 10) getitem rand(31631,31633),1;
+				end;
+	end;
+	ExchangeGarment:
+		
+			.@loc = EQI_GARMENT;
+                                .itemex = 25739;
+                                setarray .slarray[0],3,6,6,10,9,15;
+                                menu  "Exchange "+getitemname(getequipid(.@loc))+" for " + getitemname(.itemex),ExchangeG,
+                                        "Maybe later",GotoClose;
+
+                                ExchangeG:
+                                        if (getequipcardid(.@loc,1) > 0)
+                                                .slitem = rand(.slarray[4],.slarray[5]);
+                                         else if (getequipcardid(.@loc,2) > 0)
+                                                .slitem = rand(.slarray[2],.slarray[3]);
+                                        else if (getequipcardid(.@loc,3) > 0)
+                                                .slitem = rand(.slarray[0],.slarray[1]);
+                                        else .slitem = rand(1,2);
+                                        getitem .itemex,.slitem;
+                                        delequip(.@loc);
+					if (rand(1,1000) <= 10) getitem rand(31631,31633),1;
+                                end;
+	end;
+	GotoClose: close;		
+        OnInit:
+		.listequip$ = "15388|15389|32228|32229|32230|32231|32232|32233";
+        end;
+
+}
+
+function	script	FOGH_CheckAndDelItem	{
+	.@size = getarraysize(getarg(0));
+	copyarray .array,getarg(0),.@size;
+	.temp = 0;
+	for (.@i = 0; .@i < .@size; .@i += 2) {
+		if (countitem(.array[.@i]) < .array[.@i+1]){
+		.temp++;
+		break;
+		}
+	}
+	if (Zeny < 1000000) .temp++;
+	if (.temp > 0){
+		mes "You dont enough materials !";
+		close;
+		return 0;
+	} else {
+		for (.@i = 0; .@i < .@size; .@i += 2) {
+			delitem .array[.@i],.array[.@i+1];
+		}
+		Zeny = Zeny - 1000000;
+		return 1;
+	}
+	
+}
