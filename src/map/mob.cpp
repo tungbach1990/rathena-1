@@ -2797,16 +2797,16 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 			}
 		}
 		//ShowDebug(" Im out of IF 2 \n");
-		if (ptmemcount > 1)
-		{
-			if (sd && // check BL_PC
-					//ptt &&					// is party ?
-					map_getmapflag(m, MF_LOOTEVENT) &&  // is mapflag set lootevent ?
-					((max_lv - min_lv) <= 15) && // expshare in party				
-					//(ptt->party.count >= 2) && // more than 2 on party
-					!(ptt->party.item & 2) )// not evenshare item party 
-					
-			{ 
+
+		if (sd && // check BL_PC
+				ptmemcount > 1 &&
+				//ptt &&					// is party ?
+				map_getmapflag(m, MF_LOOTEVENT) &&  // is mapflag set lootevent ?
+				((max_lv - min_lv) <= 15) && // expshare in party				
+				//(ptt->party.count >= 2) && // more than 2 on party
+				!(ptt->party.item & 2) )// not evenshare item party 
+				
+		{ 
 				//ShowDebug(" Im in of IF party \n");
 				int bachnt = 0;
 				int distance_check = 20;
@@ -2987,7 +2987,6 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 						// Stop drop item in party
 					}
 				}
-			}
 		} else {
 		// Item drop normal start	
 			struct item_drop_list *dlist = ers_alloc(item_drop_list_ers, struct item_drop_list);
