@@ -2995,3 +2995,1464 @@ Body:
       callfunc("F_Lapine_Abyss_Ddbox4", .@opts[0], .@vals[0]);
       .@params[0] = 0;
       getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: M_M_Defense #25670 Modification Module (Defense)
+    TargetItem:
+      - Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      - Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      - Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      - Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+    Result: |
+        .@enchant_id = 29527;
+        .@max_enchant = 3;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25670,1;
+        }
+  - Item: M_M_Magic_Defense #25671 # M_M_Magic_Defense,Modification Module (Magic Defense)
+    TargetItem:
+      - Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      - Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      - Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      - Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+    Result: |
+        .@enchant_id = 29528;
+        .@max_enchant = 3;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25671,1;
+        }
+  - Item: M_M_Vit   #25672 # M_M_Vit Modification Module (Vit)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 4742;
+        .@max_enchant = 3;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25672,1;
+        }
+  - Item: M_M_Luk #25673 # M_M_Luk Modification Module (Luk)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 4752;
+        .@max_enchant = 3;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25673,1;
+        }
+  - Item: M_M_Str #25674 # M_M_Str Modification Module (Str)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 4702;
+        .@max_enchant = 3;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25674,1;
+        }
+  - Item: M_M_Agi #25675 # M_M_Agi Modification Module (Agi)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 4732;
+        .@max_enchant = 3;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25675,1;
+        }
+  - Item: M_M_Int #25676 # M_M_Int Modification Module (Int)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 4712;
+        .@max_enchant = 3;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25676,1;
+        }
+  - Item: M_M_Dex #25677 # M_M_Dex Modification Module (Dex)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 4722;
+        .@max_enchant = 3;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25677,1;
+        }
+  - Item: M_M_HP_recovery #25678 # M_M_HP_recovery Modification Module (HP recovery)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29529;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25678,1;
+        }
+  - Item: M_M_SP_recovery #25679 # M_M_SP_recovery Modification Module (SP recovery)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29532;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25679,1;
+        }
+  - Item: M_M_Spell5 #25680 # M_M_Spell5 Modification Module (Spell)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 4826;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25680,1;
+        }
+  - Item: M_M_Attack_Delay_4 #25681 # M_M_Attack_Delay_4 Modification Module (Attack Speed)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 4881;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25681,1;
+        }
+  - Item: M_M_Fatal4 #25682 # M_M_Fatal4 Modification Module (Fatal)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 4866;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25682,1;
+        }
+  - Item: M_M_Expert_Archer5 #25683 # M_M_Expert_Archer5 Modification Module (Expert Archer)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 4836;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25683,1;
+        }
+  - Item: M_M_Vital #25684 # M_M_Vital Modification Module (Vital)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29531;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25684,1;
+        }
+  - Item: M_M_Mental #25685 # M_M_Mental Modification Module (Mental)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29530;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25685,1;
+        }
+  - Item: M_M_Heal #25686 # M_M_Heal Modification Module (Mental)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29533;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25686,1;
+        }
+  - Item: M_M_Power #25687 # M_M_Power Modification Module (Power)
+    TargetItem:
+      - Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      - Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29534;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25687,1;
+        }
+  - Item: M_M_Magic #25688 # M_M_Magic Modification Module (Magic)
+    TargetItem:
+      - Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      - Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29535;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25688,1;
+        }
+  - Item: M_M_Shooter #25689 # M_M_Shooter Modification Module (Shooter)
+    TargetItem:
+      - Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      - Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29536;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25689,1;
+        }
+  - Item: M_M_Fast #25690 # M_M_Fast Modification Module (Fast)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      - Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      - Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+      Result: |
+        .@enchant_id = 29537;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25690,1;
+        }
+  - Item: M_M_Caster #25691 # M_M_Caster Modification Module (Caster)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      - Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      - Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29538;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25691,1;
+        }
+  - Item: M_M_Critical #25692 # M_M_Critical Modification Module (Critical)	
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      - Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      - Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29539;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25692,1;
+        }
+  - Item: M_M_Delay_After_skill #25693 # M_M_Delay_After_skill Modification Module (Delay After Skill)
+    TargetItem:
+      - Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      - Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29540;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25693,1;
+        }
+  - Item: M_M_Fixed_Casting #25694 # M_M_Fixed_Casting Modification Module (Fixed Casting)
+    TargetItem:
+      - Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      - Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29541;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25694,1;
+        }
+  - Item: M_M_Above_All #25695 # M_M_Above_All Modification Module (Above All)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      - Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      - Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29542;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25695,1;
+        }
+  - Item: M_M_Drain_Life #25696 # M_M_Drain_Life Modification Module (Drain Life)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29543;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        setarray .@unique[0],29543,29544,29545,29546;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (inarray(.@unique[0],@last_lapine_card1) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card2) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card3) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card4) >= 0) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25696,1;
+        }
+  - Item: M_M_Drain_Soul #25697 # M_M_Drain_Soul Modification Module (Drain Soul)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29544;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        setarray .@unique[0],29543,29544,29545,29546;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (inarray(.@unique[0],@last_lapine_card1) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card2) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card3) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card4) >= 0) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25697,1;
+        }
+  - Item: M_M_Magic_Healing #25698 # M_M_Magic_Healing Modification Module (Magic Healing)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29545;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        setarray .@unique[0],29543,29544,29545,29546;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (inarray(.@unique[0],@last_lapine_card1) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card2) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card3) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card4) >= 0) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25698,1;
+        }
+  - Item: M_M_Magic_Soul #25699 # M_M_Magic_Soul Modification Module (Magic Soul)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29546;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        setarray .@unique[0],29543,29544,29545,29546;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (inarray(.@unique[0],@last_lapine_card1) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card2) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card3) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card4) >= 0) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25699,1;
+        }
+  - Item: M_M_Unlimited_Vital #25700 # M_M_Unlimited_Vital Modification Module (Unlimited Vital)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29547;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        setarray .@unique[0],29547,29548,29549,29550,29551,29552;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (inarray(.@unique[0],@last_lapine_card1) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card2) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card3) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card4) >= 0) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25700,1;
+        }
+  - Item: M_M_Spell_Buster # 25701 # M_M_Spell_Buster Modification Module (Spell Buster)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29548;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        setarray .@unique[0],29547,29548,29549,29550,29551,29552;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (inarray(.@unique[0],@last_lapine_card1) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card2) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card3) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card4) >= 0) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25701,1;
+        }
+  - Item: M_M_Firing_Shot #25702 # M_M_Firing_Shot Modification Module (Firing Shot)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29549;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        setarray .@unique[0],29547,29548,29549,29550,29551,29552;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (inarray(.@unique[0],@last_lapine_card1) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card2) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card3) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card4) >= 0) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25702,1;
+        }
+  - Item: M_M_Overpower #25703 # M_M_Overpower Modification Module (Overpower)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29550;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        setarray .@unique[0],29547,29548,29549,29550,29551,29552;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (inarray(.@unique[0],@last_lapine_card1) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card2) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card3) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card4) >= 0) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25703,1;
+        }
+  - Item: M_M_Fatal_Flash #25704 # M_M_Fatal_Flash Modification Module (Fatal Flash)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29551;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        setarray .@unique[0],29547,29548,29549,29550,29551,29552;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (inarray(.@unique[0],@last_lapine_card1) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card2) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card3) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card4) >= 0) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25704,1;
+        }
+  - Item: M_M_Lucky_Strike #25705 # M_M_Lucky_Strike Modification Module (Lucky Strike)
+    TargetItem:
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
+    Result: |
+        .@enchant_id = 29552;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        setarray .@unique[0],29547,29548,29549,29550,29551,29552;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (inarray(.@unique[0],@last_lapine_card1) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card2) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card3) >= 0) {
+            .@count_enchant++;
+        } else if (inarray(.@unique[0],@last_lapine_card4) >= 0) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem 25705,1;
+        }     
+        
