@@ -3759,7 +3759,7 @@ Body:
       #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
       #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
       #- Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L
-      Result: |
+    Result: |
         .@enchant_id = 29537;
         .@max_enchant = 2;
         .@count_enchant = 0;
