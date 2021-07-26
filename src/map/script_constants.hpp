@@ -5293,6 +5293,10 @@
 	export_constant(IG_COLLECTIBLES_EXCHANGE_BOX);
 	export_constant(IG_PERFECTSIZE_MIX);
 	export_constant(IG_MAGICPIERCING_MIX);
+	export_constant(IG_BS_MAKING_SCROLLS_LIST);
+	export_constant(IG_STONE_EXCHANGE_BOX);
+	export_constant(IG_CUSTOM_CARDALBUM_MVP);
+	export_constant(IG_CUSTOM_CARDALBUM_NOR);
 
 	/* unit stop walking */
 	export_constant(USW_NONE);
