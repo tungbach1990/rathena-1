@@ -4478,7 +4478,7 @@ Body:
         .@params[0] = 0;
         getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
         
-- Id: 100205 # Shadow_Class_Physic, 
+- Id: Class_Sha_R_M_Melee #100205 # Shadow_Class_Physic, 
   NeedRefineMin: 0
   NotSocketEnchantItem: false
   TargetItem:
@@ -4576,7 +4576,7 @@ Body:
     callfunc("F_Lapine_Shadow_Class_Physic_Mix", .@opts[0], .@vals[0]);
     .@params[0] = 0;
     getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
-- Id: 100206 # Shadow_Class_Magic, 
+- Id: Class_Sha_R_M_Magic #100206 # Shadow_Class_Magic, 
   NeedRefineMin: 0
   NotSocketEnchantItem: false
   TargetItem:
