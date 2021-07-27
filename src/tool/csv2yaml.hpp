@@ -102,7 +102,7 @@ struct s_item_group_db_csv2yaml {
 
 std::map<std::string, s_item_group_db_csv2yaml> item_group;
 
-static std::map<std::string, int> um_mapid2jobname {
+static std::map<std::string, int> um_mapid2jobname{
 	{ "Novice", JOB_NOVICE }, // Novice and Super Novice share the same value
 	{ "SuperNovice", JOB_NOVICE },
 	{ "Swordman", JOB_SWORDMAN },
@@ -129,9 +129,9 @@ static std::map<std::string, int> um_mapid2jobname {
 	{ "Taekwon", 21 },
 	{ "StarGladiator", 22 },
 	{ "SoulLinker", 23 },
-//	{ "Gangsi", 26 },
-//	{ "DeathKnight", 27 },
-//	{ "DarkCollector", 28 },
+	//	{ "Gangsi", 26 },
+	//	{ "DeathKnight", 27 },
+	//	{ "DarkCollector", 28 },
 #ifdef RENEWAL
 	{ "KagerouOboro", 29 }, // Kagerou and Oboro share the same value
 	{ "Rebellion", 30 },
@@ -139,7 +139,7 @@ static std::map<std::string, int> um_mapid2jobname {
 #endif
 };
 
-static std::unordered_map<std::string, equip_pos> um_equipnames {
+static std::unordered_map<std::string, equip_pos> um_equipnames{
 	{ "Head_Low", EQP_HEAD_LOW },
 	{ "Head_Mid", EQP_HEAD_MID },
 	{ "Head_Top", EQP_HEAD_TOP },
@@ -165,7 +165,7 @@ static std::unordered_map<std::string, equip_pos> um_equipnames {
 
 // Initialize Random Option constants
 void init_random_option_constants() {
-	#define export_constant2(a, b) script_set_constant_(a, b, a, false, false)
+#define export_constant2(a, b) script_set_constant_(a, b, a, false, false)
 
 	export_constant2("RDMOPT_VAR_MAXHPAMOUNT", 1);
 	export_constant2("RDMOPT_VAR_MAXSPAMOUNT", 2);
@@ -405,11 +405,11 @@ void init_random_option_constants() {
 	export_constant2("RDMOPT_ADDEXPPERCENT_KILLRACE_DRAGON", 241);
 	export_constant2("RDMOPT_ADDEXPPERCENT_KILLRACE_ALL", 242);
 
-	#undef export_constant2
+#undef export_constant2
 }
 
-static bool guild_read_guildskill_tree_db( char* split[], int columns, int current );
-static bool pet_read_db( const char* file );
+static bool guild_read_guildskill_tree_db(char* split[], int columns, int current);
+static bool pet_read_db(const char* file);
 static bool skill_parse_row_magicmushroomdb(char *split[], int column, int current);
 static bool skill_parse_row_abradb(char* split[], int columns, int current);
 static bool skill_parse_row_spellbookdb(char* split[], int columns, int current);
