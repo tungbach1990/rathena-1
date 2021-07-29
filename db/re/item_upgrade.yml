@@ -4674,3 +4674,221 @@ Body:
         callfunc("F_Lapine_Shadow_Class_Magic_Mix", .@opts[0], .@vals[0]);
         .@params[0] = 0;
         getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+
+  - Item: Auto_Imp_Melee_1
+    TargetItem:      
+      - Item: Ep172_1h_Sword
+      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Wand
+      - Item: Ep172_1h_Book
+      - Item: Ep172_1h_Axe
+      - Item: Ep172_1h_Sword2
+      - Item: Ep172_Bh_Bow
+      - Item: Ep172_Bh_Bow2
+      - Item: Ep172_Bh_knuck
+      - Item: Ep172_1h_Spear
+      - Item: Ep172_Bh_Spear
+      - Item: Ep172_1h_Dagger
+      - Item: Ep172_Bh_Katar
+      - Item: Ep172_Bh_Staff
+      - Item: Ep172_1h_Book2
+      - Item: Ep172_1h_Dagger2
+      - Item: Ep172_1h_Whip
+      - Item: Ep172_1h_Inst
+      - Item: Ep172_Bh_Bow3
+      - Item: Ep172_Bh_Huuma
+      - Item: Ep172_1h_Hammer
+      - Item: Ep172_1h_Foxtail
+      - Item: Ep172_1h_Rifle
+      - Item: Ep172_1h_Shotgun
+      - Item: Ep172_1h_Gatling
+      - Item: Ep172_1h_Grenade
+    Result: |
+      callfunc("F_Lapine_Auto_Imp_Melee_1", .@opts[0], .@vals[0], .@opts[1], .@vals[1]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Auto_Imp_Melee_2
+    TargetItem:      
+      - Item: Ep172_1h_Sword
+      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Wand
+      - Item: Ep172_1h_Book
+      - Item: Ep172_1h_Axe
+      - Item: Ep172_1h_Sword2
+      - Item: Ep172_Bh_Bow
+      - Item: Ep172_Bh_Bow2
+      - Item: Ep172_Bh_knuck
+      - Item: Ep172_1h_Spear
+      - Item: Ep172_Bh_Spear
+      - Item: Ep172_1h_Dagger
+      - Item: Ep172_Bh_Katar
+      - Item: Ep172_Bh_Staff
+      - Item: Ep172_1h_Book2
+      - Item: Ep172_1h_Dagger2
+      - Item: Ep172_1h_Whip
+      - Item: Ep172_1h_Inst
+      - Item: Ep172_Bh_Bow3
+      - Item: Ep172_Bh_Huuma
+      - Item: Ep172_1h_Hammer
+      - Item: Ep172_1h_Foxtail
+      - Item: Ep172_1h_Rifle
+      - Item: Ep172_1h_Shotgun
+      - Item: Ep172_1h_Gatling
+      - Item: Ep172_1h_Grenade
+    Result: |
+      callfunc("F_Lapine_Auto_Imp_Melee_2", .@opts[0], .@vals[0], .@opts[1], .@vals[1]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Auto_Imp_Melee_3
+    TargetItem:      
+      - Item: Ep172_1h_Sword
+      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Wand
+      - Item: Ep172_1h_Book
+      - Item: Ep172_1h_Axe
+      - Item: Ep172_1h_Sword2
+      - Item: Ep172_Bh_Bow
+      - Item: Ep172_Bh_Bow2
+      - Item: Ep172_Bh_knuck
+      - Item: Ep172_1h_Spear
+      - Item: Ep172_Bh_Spear
+      - Item: Ep172_1h_Dagger
+      - Item: Ep172_Bh_Katar
+      - Item: Ep172_Bh_Staff
+      - Item: Ep172_1h_Book2
+      - Item: Ep172_1h_Dagger2
+      - Item: Ep172_1h_Whip
+      - Item: Ep172_1h_Inst
+      - Item: Ep172_Bh_Bow3
+      - Item: Ep172_Bh_Huuma
+      - Item: Ep172_1h_Hammer
+      - Item: Ep172_1h_Foxtail
+      - Item: Ep172_1h_Rifle
+      - Item: Ep172_1h_Shotgun
+      - Item: Ep172_1h_Gatling
+      - Item: Ep172_1h_Grenade
+    Result: |
+      callfunc("F_Lapine_Auto_Imp_Melee_3", .@opts[0], .@vals[0], .@opts[1], .@vals[1], .@opts[2], .@vals[2]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Auto_Imp_Magic_1
+    TargetItem:      
+      - Item: Ep172_1h_Sword
+      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Wand
+      - Item: Ep172_1h_Book
+      - Item: Ep172_1h_Axe
+      - Item: Ep172_1h_Sword2
+      - Item: Ep172_Bh_Bow
+      - Item: Ep172_Bh_Bow2
+      - Item: Ep172_Bh_knuck
+      - Item: Ep172_1h_Spear
+      - Item: Ep172_Bh_Spear
+      - Item: Ep172_1h_Dagger
+      - Item: Ep172_Bh_Katar
+      - Item: Ep172_Bh_Staff
+      - Item: Ep172_1h_Book2
+      - Item: Ep172_1h_Dagger2
+      - Item: Ep172_1h_Whip
+      - Item: Ep172_1h_Inst
+      - Item: Ep172_Bh_Bow3
+      - Item: Ep172_Bh_Huuma
+      - Item: Ep172_1h_Hammer
+      - Item: Ep172_1h_Foxtail
+      - Item: Ep172_1h_Rifle
+      - Item: Ep172_1h_Shotgun
+      - Item: Ep172_1h_Gatling
+      - Item: Ep172_1h_Grenade
+    Result: |
+      callfunc("F_Lapine_Auto_Imp_Magic_1", .@opts[0], .@vals[0], .@opts[1], .@vals[1]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Auto_Imp_Magic_2
+    TargetItem:      
+      - Item: Ep172_1h_Sword
+      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Wand
+      - Item: Ep172_1h_Book
+      - Item: Ep172_1h_Axe
+      - Item: Ep172_1h_Sword2
+      - Item: Ep172_Bh_Bow
+      - Item: Ep172_Bh_Bow2
+      - Item: Ep172_Bh_knuck
+      - Item: Ep172_1h_Spear
+      - Item: Ep172_Bh_Spear
+      - Item: Ep172_1h_Dagger
+      - Item: Ep172_Bh_Katar
+      - Item: Ep172_Bh_Staff
+      - Item: Ep172_1h_Book2
+      - Item: Ep172_1h_Dagger2
+      - Item: Ep172_1h_Whip
+      - Item: Ep172_1h_Inst
+      - Item: Ep172_Bh_Bow3
+      - Item: Ep172_Bh_Huuma
+      - Item: Ep172_1h_Hammer
+      - Item: Ep172_1h_Foxtail
+      - Item: Ep172_1h_Rifle
+      - Item: Ep172_1h_Shotgun
+      - Item: Ep172_1h_Gatling
+      - Item: Ep172_1h_Grenade
+    Result: |
+      callfunc("F_Lapine_Auto_Imp_Magic_2", .@opts[0], .@vals[0], .@opts[1], .@vals[1]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Auto_Imp_Magic_3
+    TargetItem:      
+      - Item: Ep172_1h_Sword
+      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Wand
+      - Item: Ep172_1h_Book
+      - Item: Ep172_1h_Axe
+      - Item: Ep172_1h_Sword2
+      - Item: Ep172_Bh_Bow
+      - Item: Ep172_Bh_Bow2
+      - Item: Ep172_Bh_knuck
+      - Item: Ep172_1h_Spear
+      - Item: Ep172_Bh_Spear
+      - Item: Ep172_1h_Dagger
+      - Item: Ep172_Bh_Katar
+      - Item: Ep172_Bh_Staff
+      - Item: Ep172_1h_Book2
+      - Item: Ep172_1h_Dagger2
+      - Item: Ep172_1h_Whip
+      - Item: Ep172_1h_Inst
+      - Item: Ep172_Bh_Bow3
+      - Item: Ep172_Bh_Huuma
+      - Item: Ep172_1h_Hammer
+      - Item: Ep172_1h_Foxtail
+      - Item: Ep172_1h_Rifle
+      - Item: Ep172_1h_Shotgun
+      - Item: Ep172_1h_Gatling
+      - Item: Ep172_1h_Grenade
+    Result: |
+      callfunc("F_Lapine_Auto_Imp_Magic_3", .@opts[0], .@vals[0], .@opts[1], .@vals[1], .@opts[2], .@vals[2]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: Illu_Enhance_Cube
+    NeedRefineMin: 4
+    TargetItem:      
+      - Item: Illusion_Armor_A-type
+      - Item: Illusion_Armor_B-type
+      - Item: Illusion_Engine_wing_A-type
+      - Item: Illusion_Engine_wing_B-type
+      - Item: Illusion_Leg_A-type
+      - Item: Illusion_Leg_B-type
+    Result: |
+      callfunc("F_Lapine_Illu_Enhance_Cube", .@refine);
+      getitem3(@last_lapine_id,1,1,.@refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);   
+  - Item: Auto_Enhance_Cube
+    NeedRefineMin: 4
+    TargetItem:      
+      - Item: Automatic_Armor_A-type
+      - Item: Automatic_Armor_B-type
+      - Item: Automatic_Engine_wing_A-type
+      - Item: Automatic_Engine_wing_B-type
+      - Item: Automatic_Leg_A-type
+      - Item: Automatic_Leg_B-type
+    Result: |
+      callfunc("F_Lapine_Auto_Enhance_Cube", .@refine);
+      getitem3(@last_lapine_id,1,1,.@refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+        

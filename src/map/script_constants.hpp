@@ -3797,6 +3797,8 @@
 	export_constant(RC2_HEARTHUNTER);
 	export_constant(RC2_ROCKRIDGE);
 	export_constant(RC2_WERNER_LAB);
+	export_constant(RC2_EP172BETA);
+	export_constant(RC2_EP172ALPHA);	
 	export_constant(RC2_TEMPLE_DEMON);
 	export_constant(RC2_ILLUSION_VAMPIRE);
 	export_constant(RC2_MAX);
@@ -7551,6 +7553,9 @@
 	export_constant(EF_TIME_ACCESSORY);
 	export_constant(EF_SPRITEMABLE);
 	export_constant(EF_TUNAPARTY);
+	export_constant(EF_LIGHTSPHERE_SUN);
+	export_constant(EF_LIGHTSPHERE_MOON);
+	export_constant(EF_LIGHTSPHERE_STAR);
 
 	/* hat effects */
 	export_constant(HAT_EF_BLOSSOM_FLUTTERING);

@@ -1,0 +1,2 @@
+100160,Automatic_Module_Box,Automatic Module Box,11,,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ callfunc "auto_module_box",1; },{},{}
+100161,Epic_Module_Box,Epic Module Box,11,,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ callfunc "auto_module_box",2; },{},{}

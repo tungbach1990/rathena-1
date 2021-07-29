@@ -14829,6 +14829,70 @@ BUILDIN_FUNC(specialeffect2)
 	return SCRIPT_CMD_SUCCESS;
 }
 
+ 
+BUILDIN_FUNC(removespecialeffect)
+{
+	struct block_list *bl=map_id2bl(st->oid);
+	int type = script_getnum(st,2);
+	enum send_target target = script_hasdata(st,3) ? (send_target)script_getnum(st,3) : AREA;
+
+	if(bl==nullptr)
+		return SCRIPT_CMD_FAILURE;
+
+	if( type <= EF_NONE || type >= EF_MAX ){
+		ShowError( "buildin_removespecialeffect: unsupported effect id %d\n", type );
+		return SCRIPT_CMD_FAILURE;
+	}
+
+	if( script_hasdata(st,4) )
+	{
+		TBL_NPC *nd = npc_name2id(script_getstr(st,4));
+		if(nd)
+			clif_specialeffect_remove(&nd->bl, type, target);
+		else {
+			ShowError("buildin_removespecialeffect: can't find npc %s\n", script_getstr(st,4));
+			st->state = END;
+			return SCRIPT_CMD_FAILURE;
+		}
+	}
+	else
+	{
+		if (target == SELF) {
+			TBL_PC *sd;
+			if (script_rid2sd(sd))
+				clif_specialeffect_remove_single(bl,type,&sd->bl);
+			else {
+				ShowError("buildin_removespecialeffect: no player attached.");
+				return SCRIPT_CMD_FAILURE;
+			}
+		} else {
+			clif_specialeffect_remove(bl, type, target);
+		}
+	}
+	return SCRIPT_CMD_SUCCESS;
+}
+
+BUILDIN_FUNC(removespecialeffect2)
+{
+	TBL_PC *sd;
+
+	if( !script_nick2sd(4,sd) )
+		return SCRIPT_CMD_FAILURE;
+	else {
+		int type = script_getnum(st,2);
+		enum send_target target = script_hasdata(st,3) ? (send_target)script_getnum(st,3) : AREA;
+
+		if( type <= EF_NONE || type >= EF_MAX ){
+			ShowError( "buildin_removespecialeffect2: unsupported effect id %d\n", type );
+			return SCRIPT_CMD_FAILURE;
+		}
+
+		clif_specialeffect_remove(&sd->bl, type, target);
+	}
+	return SCRIPT_CMD_SUCCESS;
+}
+
+
 /**
  * nude({<char_id>});
  * @author [Valaris]
@@ -25467,6 +25531,8 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(npcskilleffect,"viii"), // npc skill effect [Valaris]
 	BUILDIN_DEF(specialeffect,"i??"), // npc skill effect [Valaris]
 	BUILDIN_DEF(specialeffect2,"i??"), // skill effect on players[Valaris]
+	BUILDIN_DEF(removespecialeffect,"i??"),
+	BUILDIN_DEF(removespecialeffect2,"i??"),	
 	BUILDIN_DEF(nude,"?"), // nude command [Valaris]
 	BUILDIN_DEF(mapwarp,"ssii??"),		// Added by RoVeRT
 	BUILDIN_DEF(atcommand,"s"), // [MouseJstr]
