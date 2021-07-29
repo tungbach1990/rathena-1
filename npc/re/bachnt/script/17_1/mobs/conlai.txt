@@ -1,0 +1,102 @@
+ice_d03_i,0,0	monster	Angry Gazeti	3792,20,5000
+ice_d03_i,0,0	monster	Angry Snowier	3793,30,5000
+ice_d03_i,0,0	monster	Angry Ice Titan	3794,20,5000
+ice_d03_i,0,0	monster	Solid Icicle	3795,20,5000
+ice_d03_i,0,0	monster	Awaken Ktullanux	3796,1,3600000
+				
+				
+				
+com_d02_i,0,0	monster	Ancient Megalith	20272,40,5000
+com_d02_i,0,0	monster	Ancient Tri Joint	20270,20,5000
+com_d02_i,0,0	monster	Ancient Stalactic Golem	20271,25,5000
+com_d02_i,0,0	monster	Ancient Stone Shooter	20274,30,5000
+com_d02_i,0,0	monster	Ancient Wootan Shooter	20275,30,5000
+com_d02_i,0,0	monster	Ancient Wootan Fighter	20276,30,5000
+com_d02_i,0,0	monster	Ancient Tao Gunka	20273,1,3600000
+com_d02_i,0,0	monster	Ancient Wootan Defender	20277,1,3600000
+				
+ein_d02_i,0,0	monster	Red Teddy Bear	20255,25,5000
+ein_d02_i,0,0	monster	Yellow Teddy Bear	20256,25,5000
+ein_d02_i,0,0	monster	Green Teddy Bear	20257,25,5000
+ein_d02_i,0,0	monster	White Teddy Bear	20258,25,5000
+ein_d02_i,0,0	monster	Blue Teddy Bear	20259,25,5000
+ein_d02_i,0,0	monster	Hardworking Pitman	20261,20,5000
+ein_d02_i,0,0	monster	Soul Fragment	20262,20,5000
+ein_d02_i,0,0	monster	Haunted Obsidian	20263,20,5000
+ein_d02_i,0,0	monster	Shining Teddy Bear	20260,1,3600000
+				
+prt_mz03_i,0,0	monster	Chaotic Andrea	20521,10,5000
+prt_mz03_i,0,0	monster	Chaotic Anes	20522,10,5000
+prt_mz03_i,0,0	monster	Chaotic Silvano	20523,5,5000
+prt_mz03_i,0,0	monster	Chaotic Cecilia	20524,5,5000
+prt_mz03_i,0,0	monster	Chaotic Baphomet Jr.	20525,25,5000
+prt_mz03_i,0,0	monster	Chaotic Side Winder	20526,40,5000
+prt_mz03_i,0,0	monster	Chaotic Hunter Fly	20527,30,5000
+prt_mz03_i,0,0	monster	Chaotic Mantis	20528,30,5000
+prt_mz03_i,0,0	monster	Chaotic Ghostring	20529,5,5000
+prt_mz03_i,0,0	monster	Chaotic Killer Mantis	20530,20,5000
+prt_mz03_i,0,0	monster	Chaotic Poporing	20531,45,5000
+prt_mz03_i,0,0	monster	Chaotic Stem Worm	20532,20,5000
+prt_mz03_i,0,0	monster	Chaotic Baphomet	20520,1,3600000
+				
+iz_d04_i,0,0	monster	Deep Sea Sropho	20801,20,5000
+iz_d04_i,0,0	monster	Deep Sea Obeaune	20802,20,5000
+iz_d04_i,0,0	monster	Deep Sea Deviace	20803,20,5000
+iz_d04_i,0,0	monster	Deep Sea Marse	20804,20,5000
+iz_d04_i,0,0	monster	Deep Sea Merman	20805,20,5000
+iz_d05_i,0,0	monster	Deep Sea Sedora	20806,20,5000
+iz_d05_i,0,0	monster	Deep Sea Swordfish	20807,20,5000
+iz_d05_i,0,0	monster	Deep Sea Strouf	20808,20,5000
+iz_d05_i,0,0	monster	Deep Sea Phen	20809,20,5000
+iz_d05_i,0,0	monster	Deep Sea King Dramoh	20810,20,5000
+iz_d05_i,0,0	monster	Deep Sea Kraken	20811,1,3600000
+				
+ein_dun03,0,0	monster	Poisonous	20592,30,5000
+ein_dun03,0,0	monster	Toxious	20593,30,5000
+ein_dun03,0,0	monster	Green Mineral	20594,30,5000
+ein_dun03,0,0	monster	Red Mineral	20595,30,5000
+ein_dun03,0,0	monster	White Mineral	20596,30,5000
+ein_dun03,0,0	monster	Purple Mineral	20597,30,5000
+ein_dun03,0,0	monster	Jewelry Ant	20598,30,5000
+ein_dun03,0,0	monster	Jewel	20600,3,5000
+ein_dun03,0,0	monster	Jeweled Ungoliant	20601,1,3600000
+ein_dun03,0,0	monster	White Porcellio	20602,30,5000
+ein_dun03,0,0	monster	Abyssman	20603,15,5000
+				
+odin_past,0,0	monster	Angelgolt	20604,30,5000
+odin_past,0,0	monster	Angelgolt	20605,40,5000
+odin_past,0,0	monster	Holy Frus	20606,30,5000
+odin_past,0,0	monster	Holy Skogul	20607,30,5000
+odin_past,0,0	monster	Arch Plasma	20608,10,5000
+odin_past,0,0	monster	Spectrum Plasma	20609,10,5000
+odin_past,0,0	monster	Valkyrie Reginleif	20610,1,3600000
+odin_past,0,0	monster	Valkyrie Ingrid	20611,1,3600000
+				
+abyss_04,0,0	monster	Purple Ferus	20612,15,5000
+abyss_04,0,0	monster	Treasure Mimic	20613,10,5000
+abyss_04,0,0	monster	Black Acidus	20614,30,5000
+abyss_04,0,0	monster	Silver Acidus	20615,30,5000
+abyss_04,0,0	monster	Bone Ferus	20616,20,5000
+abyss_04,0,0	monster	Bone Acidus	20617,20,5000
+abyss_04,0,0	monster	Bone Detale	20618,1,3600000
+			
+
+gef_d01_i,0,0	monster	Bomi	3756,1,5000
+pay_d03_i,0,0	monster	Angry Nine Tail	3759,10,5000
+
+anexus,0,0	monster	Dark Raydric	20577,40,3000
+anexus,0,0	monster	Dark Raydric Archer	20578,40,3000
+anexus,0,0	monster	Dark KHALITZBURG	20576,40,3000
+anexus,0,0	monster	Dark WHITEKNIGHT	20574,40,3000
+anexus,252,98,1,1	monster	HEMEL	20572,1,18000000
+
+anexus	mapflag	nowarpto
+anexus	mapflag	nomemo
+anexus	mapflag	nosave	SavePoint
+anexus	mapflag	nobranch
+anexus	mapflag	noicewall
+anexus	mapflag	gvg	off
+anexus	mapflag	pvp	off
+anexus	mapflag	noteleport
+anexus	mapflag	lootevent
+anexus	mapflag	droprate25

@@ -1,0 +1,29 @@
+//===== rAthena Script =======================================
+//= Turtle Island Monster Spawn Script
+//===== By: ==================================================
+//= Bachnt
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: =====================================
+//= rAthena Project
+
+
+//==================================================
+// tur_d03_i - Turtle Island Illusion
+//==================================================
+
+gef_d01_i,0,0	monster	Matte Drainliars	3750,25,5000,15000
+gef_d01_i,0,0	monster	Undead Zombie	3751,10,15000,15000,"",4
+gef_d01_i,0,0	monster	Illusion Zombie	3752,20,15000
+gef_d01_i,0,0	monster	Illusion Ghoul	3753,30,15000
+gef_d01_i,0,0	monster	Sweet Nightmare	3754,25,15000
+gef_d01_i,0,0	monster	White Plant	1082,12,180000
+gef_d01_i,0,0	monster	Blue Plant	1079,12,180000
+gef_d01_i,0,0	monster	Dracula	3757,1,3600000
+
+gef_d01_i,88,133	monster	Illusion Black Mushroom#1	3755,1,180000,190000
+gef_d01_i,244,140	monster	Illusion Black Mushroom#2	3755,1,180000,190000
+gef_d01_i,148,226	monster	Illusion Black Mushroom#3	3755,1,180000,190000
+gef_d01_i,153,229	monster	Illusion Black Mushroom#4	3755,1,180000,190000
+gef_d01_i,201,61	monster	Illusion Black Mushroom#5	3755,1,180000,190000
+gef_d01_i,0,0	monster	Illusion Black Mushroom	3755,10,180000,190000
