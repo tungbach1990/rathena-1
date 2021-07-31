@@ -442,7 +442,6 @@ OnTimer420000:	callsub OnMobSpawn,40;
 OnTimer480000:	callsub OnMobSpawn,45;
 OnTimer540000:	callsub OnMobSpawn,50;
 OnTimer600000:
-	getitem 7929,10;
 	killmonster instance_mapname("1@ma_b"),instance_npcname("#Bakonawan3-1")+"::OnMyMobDead";
 	stopnpctimer;
 	end;

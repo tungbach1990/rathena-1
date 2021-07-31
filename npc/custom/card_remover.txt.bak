@@ -97,7 +97,6 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 		// Third value = Harmless failure chance (all that's lost is your investment)
 
 		set .@failchance,rand(100);
-		/*
 		if (.faildestroy==1) {
 			if(.@failchance < 2) {
 				next;
@@ -125,7 +124,7 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 				}
 			}
 		}
-		*/
+
 		if(.@failchance < 10) {
 			next;
 			failedremovecards .@part,3;

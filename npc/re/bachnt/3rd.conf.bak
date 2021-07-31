@@ -14,9 +14,6 @@ npc: npc/re/bachnt/script/storageext.txt
 // Show NPC Custom
 //npc: npc/re/bachnt/script/costume_exc.txt
 npc: npc/custom/warper.txt
-npc: npc/custom/healer.txt
-npc: npc/custom/jobmaster.txt
-npc: npc/custom/resetnpc.txt
 npc: npc/re/bachnt/script/cardtrader.txt
 npc: npc/re/bachnt/script/illusion_sp.txt
 npc: npc/re/bachnt/script/odin_enchant.txt
@@ -40,13 +37,7 @@ npc: npc/re/bachnt/script/ancient.txt
 
 npc: npc/re/bachnt/script/instances/eddabiolab.txt
 npc: npc/re/bachnt/script/instances/eddabiolabenchant.txt
-npc: npc/re/bachnt/script/instances/InfiniteSpace.txt
-npc: npc/re/bachnt/script/instances/OGHH.txt
-npc: npc/re/bachnt/script/instances/TempleOfDemonGod.txt
-npc: npc/re/bachnt/script/instances/ViciousMind_Enchanter.txt
-npc: npc/re/bachnt/script/instances/OGHH_enchant.txt
-npc: npc/re/bachnt/script/instances/verus_enchant.txt
-npc: npc/re/bachnt/script/instances/charleston_merchant.txt
+
 
 // 17.1 
 npc: npc/re/bachnt/eps17_1/Global_Functions.txt
@@ -57,7 +48,6 @@ npc: npc/re/bachnt/eps17_1/instances/Regenschirm.txt
 npc: npc/re/bachnt/eps17_1/instances/SealedOS.txt
 npc: npc/re/bachnt/eps17_1/mapflag/eps_17_1.txt
 npc: npc/re/bachnt/eps17_1/mobs/mobs_spawn.txt
-npc: npc/re/bachnt/eps17_1/mobs/conlai.txt
 npc: npc/re/bachnt/eps17_1/quests/quests_17_1.txt
 //npc: npc/re/bachnt/eps17_1/quests/quests_17_2.txt
 

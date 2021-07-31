@@ -965,7 +965,6 @@ OnInstanceInit:
 	'disablenpc = 0;
 	'map_name$ = instance_mapname("1@ma_h");
 	monster 'map_name$,131,62,"Bangungot",2318,1;
-	getitem 7929,10;
 	end;
 }
 

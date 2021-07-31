@@ -1,8 +1,0 @@
-pay_d03_i,0,0	monster	Cursed Munak	3760,20,5000
-pay_d03_i,0,0	monster	Cursed Bongun	3761,20,5000
-pay_d03_i,0,0	monster	Cursed Sohee	3762,20,5000
-pay_d03_i,0,0	monster	Angry Soldier	3763,10,5000
-pay_d03_i,0,0	monster	Fury Hero	3765,3,5000
-pay_d03_i,0,0	monster	Wizard of Truth	3764,3,5000
-
-pay_d03_i,0,0	monster	Angry Moonlight	3758,1,1600000

@@ -1175,8 +1175,6 @@ OnTimer6000:
 		enablenpc instance_npcname("warp5a#air2");
 		cutin "",255;
 		getexp 100000,65000;
-		getitem 7929,10;
-		
 	}
 	end;
 }

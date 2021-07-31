@@ -309,31 +309,7 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 			mes "The second enchantment. I will buff one of the previous states. There also is no failure, so don't worry, kukuku";// custom
 		}
 		else {
-			//mes "Ho~ This has already reached the peak. It is impossible to higher enchant, so be content and use it well.";// custom
-			 switch( select( "Reset Enchant","Bye")){
-				case 1:
-					setarray .price_reset[0],7642,200;
-					mes "Enchant price is " + .price_reset[1] + "x" + getitemname(.price_reset[0]) ;
-                                        mes "And 1,000,000 zeny";
-					next;
-					
-					.call = callfunc("HTF_CheckAndDelItem",.price_reset);
-			                .@loc = .@eq_num;
-			                if (.call > 0) {
-                        			.@equip_refine = getequiprefinerycnt(.@loc);
-		                	        setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
-        			                getitem2(getequipid(.@loc),1,1,.@equip_refine,0,.itemslot[0],0,0,0);
-                			        delequip(.@loc);
-						end;
-			                }	
-					mes "Enchant price is " + .price_reset[2] + "x" + getitemname(.price_reset[1]) ;
-					mes "And 1,000,000 zeny";
-					close;
-				case 2:
-					close;
-					break;
-					end;
-			}
+			mes "Ho~ This has already reached the peak. It is impossible to higher enchant, so be content and use it well.";// custom
 			close;
 		}
 		.@string$ = "You blow hot and cold, this fickle friend.!";
@@ -502,30 +478,4 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 	}
 	mes "Hmm.. By the way, you need to fill up Bloody Coins. You cannot even pay for the fee.";
 	close;
-}
-
-
-function	script	HTF_CheckAndDelItem	{
-        .@size = getarraysize(getarg(0));
-        copyarray .array,getarg(0),.@size;
-        .temp = 0;
-        for (.@i = 0; .@i < .@size; .@i += 2) {
-                if (countitem(.array[.@i]) < .array[.@i+1]){
-                .temp++;
-                break;
-                }
-        }
-        if (Zeny < 500000) .temp++;
-        if (.temp > 0){
-                mes "You dont enough materials !";
-                close;
-                return 0;
-        } else {
-                for (.@i = 0; .@i < .@size; .@i += 2) {
-                        delitem .array[.@i],.array[.@i+1];
-                }
-                Zeny = Zeny - 500000;
-                return 1;
-        }
-
 }
