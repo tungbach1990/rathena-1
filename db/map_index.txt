@@ -1131,3 +1131,22 @@ verus02_b
 //======================================================================================
 // - Other/Extra maps -
 //======================================================================================
+skycity
+trin_in
+trinity
+vdistrict
+works
+anexus
+guild_vs3_b
+guild_base
+nov_grnds
+sanctum
+sanctum_in
+courtyard
+port
+hallow01
+1@new
+2@new
+3@new
+4@new
+5@new

@@ -2354,7 +2354,7 @@ OnSpawn00:
 		.@bone = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
 		.@flame = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
 		getunitdata .@bone,.@mode;
-		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACK_IMMUNE|MD_DETECTOR);
+		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACKIMMUNE|MD_DETECTOR);
 		setunitdata .@flame,UMOB_DMGIMMUNE,true;
 	}
 	setarray .@xy,
@@ -2421,7 +2421,7 @@ OnSpawn01:
 		.@bone = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
 		.@flame = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
 		getunitdata .@bone,.@mode;
-		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACK_IMMUNE|MD_DETECTOR);
+		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACKIMMUNE|MD_DETECTOR);
 		setunitdata .@flame,UMOB_DMGIMMUNE,true;
 	}
 	setarray .@xy,
@@ -2495,7 +2495,7 @@ OnSpawn02:
 		.@bone = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
 		.@flame = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
 		getunitdata .@bone,.@mode;
-		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACK_IMMUNE|MD_DETECTOR);
+		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACKIMMUNE|MD_DETECTOR);
 		setunitdata .@flame,UMOB_DMGIMMUNE,true;
 	}
 	setarray .@xy,
@@ -2574,7 +2574,7 @@ OnSpawn03:
 		.@bone = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
 		.@flame = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
 		getunitdata .@bone,.@mode;
-		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACK_IMMUNE|MD_DETECTOR);
+		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACKIMMUNE|MD_DETECTOR);
 		setunitdata .@flame,UMOB_DMGIMMUNE,true;
 	}
 	setarray .@xy,
