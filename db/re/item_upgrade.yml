@@ -4678,7 +4678,7 @@ Body:
   - Item: Auto_Imp_Melee_1
     TargetItem:      
       - Item: Ep172_1h_Sword
-      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Sword2
       - Item: Ep172_1h_Wand
       - Item: Ep172_1h_Book
       - Item: Ep172_1h_Axe
@@ -4710,7 +4710,7 @@ Body:
   - Item: Auto_Imp_Melee_2
     TargetItem:      
       - Item: Ep172_1h_Sword
-      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Sword2
       - Item: Ep172_1h_Wand
       - Item: Ep172_1h_Book
       - Item: Ep172_1h_Axe
@@ -4742,7 +4742,7 @@ Body:
   - Item: Auto_Imp_Melee_3
     TargetItem:      
       - Item: Ep172_1h_Sword
-      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Sword2
       - Item: Ep172_1h_Wand
       - Item: Ep172_1h_Book
       - Item: Ep172_1h_Axe
@@ -4774,7 +4774,7 @@ Body:
   - Item: Auto_Imp_Magic_1
     TargetItem:      
       - Item: Ep172_1h_Sword
-      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Sword2
       - Item: Ep172_1h_Wand
       - Item: Ep172_1h_Book
       - Item: Ep172_1h_Axe
@@ -4806,7 +4806,7 @@ Body:
   - Item: Auto_Imp_Magic_2
     TargetItem:      
       - Item: Ep172_1h_Sword
-      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Sword2
       - Item: Ep172_1h_Wand
       - Item: Ep172_1h_Book
       - Item: Ep172_1h_Axe
@@ -4838,7 +4838,7 @@ Body:
   - Item: Auto_Imp_Magic_3
     TargetItem:      
       - Item: Ep172_1h_Sword
-      - Item: Ep172_2h_Sword
+      - Item: Ep172_1h_Sword2
       - Item: Ep172_1h_Wand
       - Item: Ep172_1h_Book
       - Item: Ep172_1h_Axe
@@ -4870,24 +4870,24 @@ Body:
   - Item: Illu_Enhance_Cube
     NeedRefineMin: 4
     TargetItem:      
-      - Item: Illusion_Armor_A-type
-      - Item: Illusion_Armor_B-type
-      - Item: Illusion_Engine_wing_A-type
-      - Item: Illusion_Engine_wing_B-type
-      - Item: Illusion_Leg_A-type
-      - Item: Illusion_Leg_B-type
+      - Item: Illusion_Armor_A
+      - Item: Illusion_Armor_B
+      - Item: Illusion_Engine_A
+      - Item: Illusion_Engine_B
+      - Item: Illusion_Leg_A
+      - Item: Illusion_Leg_B
     Result: |
       callfunc("F_Lapine_Illu_Enhance_Cube", .@refine);
       getitem3(@last_lapine_id,1,1,.@refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);   
   - Item: Auto_Enhance_Cube
     NeedRefineMin: 4
     TargetItem:      
-      - Item: Automatic_Armor_A-type
-      - Item: Automatic_Armor_B-type
-      - Item: Automatic_Engine_wing_A-type
-      - Item: Automatic_Engine_wing_B-type
-      - Item: Automatic_Leg_A-type
-      - Item: Automatic_Leg_B-type
+      - Item: Auto_Armor_A #Automatic_Armor_A-type
+      - Item: Auto_Armor_B #Automatic_Armor_B-type
+      - Item: Auto_Engine_A #Automatic_Engine_wing_A-type
+      - Item: Auto_Engine_B #Automatic_Engine_wing_B-type
+      - Item: Auto_Leg_B #Automatic_Leg_A-type
+      - Item: Auto_Leg_A #Automatic_Leg_B-type
     Result: |
       callfunc("F_Lapine_Auto_Enhance_Cube", .@refine);
       getitem3(@last_lapine_id,1,1,.@refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
