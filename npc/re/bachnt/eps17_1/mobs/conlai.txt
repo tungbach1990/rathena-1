@@ -1,10 +1,12 @@
+/*
 ice_d03_i,0,0	monster	Angry Gazeti	3792,20,5000
 ice_d03_i,0,0	monster	Angry Snowier	3793,30,5000
 ice_d03_i,0,0	monster	Angry Ice Titan	3794,20,5000
 ice_d03_i,0,0	monster	Solid Icicle	3795,20,5000
 ice_d03_i,0,0	monster	Awaken Ktullanux	3796,1,3600000
 				
-				
+gef_d01_i,0,0	monster	Bomi	3756,1,5000
+pay_d03_i,0,0	monster	Angry Nine Tail	3759,10,5000				
 				
 com_d02_i,0,0	monster	Ancient Megalith	20272,40,5000
 com_d02_i,0,0	monster	Ancient Tri Joint	20270,20,5000
@@ -50,6 +52,8 @@ iz_d05_i,0,0	monster	Deep Sea Strouf	20808,20,5000
 iz_d05_i,0,0	monster	Deep Sea Phen	20809,20,5000
 iz_d05_i,0,0	monster	Deep Sea King Dramoh	20810,20,5000
 iz_d05_i,0,0	monster	Deep Sea Kraken	20811,1,3600000
+
+*/
 				
 ein_dun03,0,0	monster	Poisonous	20592,30,5000
 ein_dun03,0,0	monster	Toxious	20593,30,5000
@@ -79,10 +83,6 @@ abyss_04,0,0	monster	Silver Acidus	20615,30,5000
 abyss_04,0,0	monster	Bone Ferus	20616,20,5000
 abyss_04,0,0	monster	Bone Acidus	20617,20,5000
 abyss_04,0,0	monster	Bone Detale	20618,1,3600000
-			
-
-gef_d01_i,0,0	monster	Bomi	3756,1,5000
-pay_d03_i,0,0	monster	Angry Nine Tail	3759,10,5000
 
 gl_cas01_,0,0	monster	Contaminated Raydric	20367,15
 gl_cas01_,0,0	monster	Contaminated Raydric Archer	20368,16
@@ -94,6 +94,17 @@ gl_cas01_,0,0	monster	Flame Ghost	20380,7
 gl_cas01_,0,0	monster	Contaminated Wanderer	20420,5
 gl_cas01_,0,0	monster	Contaminated Spider Queen	20421,1,3600000,3000000
 gl_cas01_,0,0	monster	Contaminated Dark Lord	20422,1,3600000,3000000
+
+// mag_dun03
+mag_dun03,0,0	monster	Rigid Blazer	20372,30,5000
+mag_dun03,0,0	monster	Rigid Nightmare Terror	20373,20,5000
+mag_dun03,0,0	monster	Rigid Sky Deleter	20374,30,5000
+mag_dun03,0,0	monster	Rigid Deleter	20375,20,5000
+mag_dun03,0,0	monster	Rigid Explosion	20376,20,5000
+mag_dun03,0,0	monster	Rigid Kaho	20377,20,5000
+mag_dun03,0,0	monster	Rigid Lava Golem	20378,10,5000
+mag_dun03,0,0,0,0	boss_monster	Rigid Muspellskoll	20419,1,7200000,600000,1
+
 
 /*
 anexus,0,0	monster	Dark Raydric	20577,40,3000

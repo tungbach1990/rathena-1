@@ -5,7 +5,7 @@ mes "You touch the mysterious portal.";
 mes " ";
 mes "You can feel cold fog suddenly rolling toward you";
 next;
-switch(select("Throw 10 Poring Coin at the Portal","Leave")) {	
+switch(select("Throw 10 Gold Coin at the Portal","Leave")) {	
 	case 1:
 	goto yesTicket;
 	close;
@@ -19,15 +19,15 @@ mes "You better run and hide!";
 close;
 
 yesTicket:
-if (countitem(7539) < 10){
-	mes "It's like you don't have enough Poring Coin to throw!";
+if (countitem(7929) < 10){
+	mes "It's like you don't have enough Gold Coin to throw!";
 	close;
 }
 mes "The cold fog enter your body!";
 specialeffect 74;
 progressbar "ffff00", 1;
 sleep2 1000;
-delitem 7539, 10;
+delitem 7929, 10;
 warp "ice_d03_i",150,23;
 close;
 	}

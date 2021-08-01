@@ -1,13 +1,13 @@
 //====================ILLUSION MOONLIGHT========================\\
 
-pay_d03_i,0,0	monster	Angry Nine Tail	3759,10,3000,5000,"Angry Nine Tail#illusionmoonlight::OnKill"
+//pay_d03_i,0,0	monster	Angry Nine Tail	3759,10,3000,5000,"Angry Nine Tail#illusionmoonlight::OnKill"
 pay_d03_i,0,0	monster	Resentful Munak	3760,20,5000
 pay_d03_i,0,0	monster	Resentful Bongun	3761,20,5000
 pay_d03_i,0,0	monster	Resentful Sohee	3762,20,5000
-pay_d03_i,0,0	monster	Resentful Soldier	3763,15,3000,5000,"Unfair Soldier#illusionmoonlight::OnKill"
-pay_d03_i,0,0	monster	Wizard of Truth	3764,1,3000,5000,"Truthful Wizard#illusionmoonlight::OnKill"
-pay_d03_i,0,0	monster	Deranged Adventurer	3765,5,5000
-pay_d03_i,155,133,8,8	boss_monster	Illusion Moonlight	3758,1,7200000,600000,1
+pay_d03_i,0,0	monster	Resentful Soldier	3763,15,3000,5000,"Resentful Soldier#illusionmoonlight::OnKill"
+//pay_d03_i,0,0	monster	Wizard of Truth	3764,1,3000,5000,"Truthful Wizard#illusionmoonlight::OnKill"
+//pay_d03_i,0,0	monster	Deranged Adventurer	3765,5,5000
+//pay_d03_i,155,133,8,8	boss_monster	Illusion Moonlight	3758,1,7200000,600000,1
 
 //====================ILLUSION VAMPIRE========================\\
 
@@ -17,8 +17,8 @@ gef_d01_i,0,0	monster	Illusion Zombie	3752,47,5000
 gef_d01_i,0,0	monster	Illusion Ghoul	3753,30,5000
 gef_d01_i,0,0	monster	Illusion Nightmare	3754,30,5000
 gef_d01_i,0,0	monster	Illusion Black Mushroom	3755,10,5000
-gef_d01_i,0,0	monster	Bream	3756,1,3000,5000,"Bream#illusionvampire::OnKill"
-gef_d01_i,0,0	boss_monster	Illusion Dracula	3757,1,7200000,600000,1
+//gef_d01_i,0,0	monster	Bream	3756,1,3000,5000,"Bream#illusionvampire::OnKill"
+//gef_d01_i,0,0	boss_monster	Illusion Dracula	3757,1,7200000,600000,1
 
 //====================ILLUSION FROZEN========================\\
 

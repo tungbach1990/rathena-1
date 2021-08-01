@@ -24,7 +24,7 @@ OnMyMobDead:
 			}
 			setarray .@mob_list[0], 20811,20811;
 			monster "iz_d04_i",.@x,.@y,"--en--",.@mob_list[ rand(2) ],1, "iz_d04_i::OnMyMVPDead";
-			announce "El gran Kraken del mar profundo se aproxima!",bc_map,0x00CCFF,FW_NORMAL,22;
+			announce "The great Kraken of the deep sea is coming!",bc_map,0x00CCFF,FW_NORMAL,22;
 		}
 	}
 	end;
