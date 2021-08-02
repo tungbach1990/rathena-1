@@ -3,12 +3,12 @@ OnPCLoadMapEvent:
 	set .@charmap$, strcharinfo(3);
 	if(!compare(.tmp$,.@charmap$)) end;
 	//set .@len, query_sql("SELECT DISTINCT `account_id` FROM `char` WHERE `account_id` IN (SELECT `account_id` FROM `login` WHERE `last_ip` = (SELECT `last_ip` FROM `login` WHERE `account_id`="+getcharid(3)+")) AND `online` <> 0;",.@a);
-	set .@len, query_sql("select account_id from `char` right join login on login.account_id = `char`.account_id where `char`.online = 1 and login.last_ip = '"+ getcharip() +"'",.@a ); //Annieruru Addition.
+	set .@len, query_sql("select `char`.account_id from `char` right join login on login.account_id = `char`.account_id where `char`.online = 1 and login.last_ip = '"+ getcharip() +"'",.@a ); //Annieruru Addition.
 	if(.@len-1) {
 		for(set(.@d,0);.@d<.@len;set(.@d,.@d+1)) {
-			getmapxy(.@map$,.@x,.@y,0,rid2name(.@a[.@d]));
+			getmapxy(.@map$,.@x,.@y,BL_PC,rid2name(.@a[.@d]));
 			if(.@charmap$==.@map$&&rid2name(.@a[.@d])!=strcharinfo(0)) {
-				dispbottom "Duel accounts not allowed in WOE.";
+			//dispbottom "Duel accounts not allowed in this map.";
 				warp "geffen",0,0;
 			}
 		}
