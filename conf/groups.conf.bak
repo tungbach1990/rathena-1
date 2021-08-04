@@ -156,7 +156,6 @@ groups: (
 		showzeny: true
 		whereis: true
 		/* feature commands */
-		warp: true
 		refresh: true
 		noask: true
 		noks: true
