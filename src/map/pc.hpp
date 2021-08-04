@@ -281,6 +281,7 @@ struct map_session_data {
 	struct status_change sc;
 	struct regen_data regen;
 	struct regen_data_sub sregen, ssregen;
+	unsigned int autoattack_delay;  // autoattack timer	BACHNT	
 	//NOTE: When deciding to add a flag to state or special_state, take into consideration that state is preserved in
 	//status_calc_pc, while special_state is recalculated in each call. [Skotlex]
 	struct s_state {
@@ -311,6 +312,7 @@ struct map_session_data {
 		unsigned int killable : 1;
 		unsigned int doridori : 1;
 		unsigned int ignoreAll : 1;
+		unsigned int autoattack : 1; // autoattack BACHNT	
 		unsigned int debug_remove_map : 1; // temporary state to track double remove_map's [FlavioJS]
 		unsigned int buyingstore : 1;
 		unsigned int lesseffect : 1;
