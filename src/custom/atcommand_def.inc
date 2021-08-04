@@ -9,3 +9,5 @@
  **/
 
 //ACMD_DEF(newcommand),
+// Define command autoattack Bachnt
+ACMD_DEF(autoattack),

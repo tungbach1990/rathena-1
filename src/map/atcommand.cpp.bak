@@ -235,8 +235,7 @@ static const char* atcommand_help_string( const char* command ){
 	return info->help.c_str();
 }
 
-// change include atcommand to run autoattack Bachnt
-#include "../custom/atcommand.inc"
+
 /*==========================================
  * @send (used for testing packet sends from the client)
  *------------------------------------------*/
@@ -10449,7 +10448,7 @@ ACMD_FUNC(upgradeui) {
 	return 0;
 }
 
-//#include "../custom/atcommand.inc"
+#include "../custom/atcommand.inc"
 
 /**
  * Fills the reference of available commands in atcommand DBMap
