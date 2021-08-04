@@ -2782,7 +2782,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		unsigned int min_lv = UINT_MAX;
 		std::string ip_array[MAX_PARTY];
 		int clone = 0;
-		if (sd) {
+		if (sd && map_getmapflag(m, MF_LOOTEVENT)) {
 			ptt = party_search(sd->status.party_id);
 			if (ptt) {
 				for(i=0;i<MAX_PARTY;i++){
@@ -2809,7 +2809,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 					if (lv > max_lv) max_lv = lv;
 				}
 				for(i=0;i<MAX_PARTY;i++){
-					for(j=i+1;i<MAX_PARTY;j++){
+					for(j=i+1;j<MAX_PARTY;j++){
 						if (ip_array[i] == ip_array[j])
 						{
 							clone++;
