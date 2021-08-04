@@ -20160,7 +20160,7 @@ Body:
       Splash: true
     Hit: Single
     HitCount: 1
-    Element: Holy
+#    Element: Holy
     SplashArea: 15
     CastCancel: true
     CastTime: 1000
@@ -20187,7 +20187,7 @@ Body:
       Splash: true
     Hit: Single
     HitCount: 1
-    Element: Holy
+#    Element: Holy
     SplashArea: 15
     CastCancel: true
     CastTime: 1000
@@ -20218,7 +20218,7 @@ Body:
     Range: 11
     Hit: Single
     HitCount: 1
-    Element: Holy
+#    Element: Holy
     SplashArea: 15
     CopyFlags:
       Skill:
