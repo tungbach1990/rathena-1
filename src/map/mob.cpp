@@ -2776,11 +2776,11 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 	{ // Item Drop start
 		int ptmemcount = 0;
 		struct party_data *ptt;
-		int i;
+		int i,j;
 		unsigned int lv;
 		unsigned int max_lv = 0;
 		unsigned int min_lv = UINT_MAX;
-		string ip_array[MAX_PARTY];
+		std::string ip_array[MAX_PARTY];
 		int clone = 0;
 		if (sd) {
 			ptt = party_search(sd->status.party_id);
