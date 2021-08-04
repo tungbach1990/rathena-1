@@ -2780,6 +2780,16 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		unsigned int lv;
 		unsigned int max_lv = 0;
 		unsigned int min_lv = UINT_MAX;
+		if (sd && sd->fd && session[sd->fd])
+		{
+			const char *ip_addr = NULL;
+			uint32 ip;
+
+			/* set ip, ip_addr and convert to ip and push str */
+			ip = session[sd->fd]->client_addr;
+			ip_addr = ip2str(ip, NULL);
+			ShowWarning("IP %s \n",ip_addr);
+		}
 		if (sd) {
 			ptt = party_search(sd->status.party_id);
 			if (ptt) {
