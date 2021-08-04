@@ -2780,35 +2780,48 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		unsigned int lv;
 		unsigned int max_lv = 0;
 		unsigned int min_lv = UINT_MAX;
-		if (sd && sd->fd && session[sd->fd])
-		{
-			const char *ip_addr = NULL;
-			uint32 ip;
-
-			/* set ip, ip_addr and convert to ip and push str */
-			ip = session[sd->fd]->client_addr;
-			ip_addr = ip2str(ip, NULL);
-			ShowWarning("IP %s \n",ip_addr);
-		}
+		string ip_array[MAX_PARTY];
+		int clone = 0;
 		if (sd) {
 			ptt = party_search(sd->status.party_id);
 			if (ptt) {
 				for(i=0;i<MAX_PARTY;i++){
+					
 					/**
 					* - If not online (doesn't affect exp range)
 					**/
 					if (!ptt->party.member[i].online)
 					continue;
+					if (ptt->data[i].sd && ptt->data[i].sd->fd && session[ptt->data[i].sd->fd])
+					{
+						const char *ip_addr = NULL;
+						uint32 ip;
+
+						/* set ip, ip_addr and convert to ip and push str */
+						ip = session[ptt->data[i].sd->fd]->client_addr;
+						ip_addr = ip2str(ip, NULL);
+						ip_array[i] = ip_addr;
+						ShowWarning("IP %s \n",ip_addr);
+					}
 					ptmemcount ++;
 					lv=ptt->party.member[i].lv;
 					if (lv < min_lv) min_lv = lv;
 					if (lv > max_lv) max_lv = lv;
+				}
+				for(i=0;i<MAX_PARTY;i++){
+					for(j=i+1;i<MAX_PARTY;j++){
+						if (ip_array[i] == ip_array[j])
+						{
+							clone++;
+						}
+					}
 				}
 			}
 		}
 		//ShowDebug(" Im out of IF 2 \n");
 
 		if (sd && // check BL_PC
+			clone < 3 && // check clone
 				ptmemcount > 1 &&
 				//ptt &&					// is party ?
 				map_getmapflag(m, MF_LOOTEVENT) &&  // is mapflag set lootevent ?
