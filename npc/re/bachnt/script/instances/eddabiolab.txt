@@ -160,30 +160,29 @@ OnSetMapFlag:
 	.@md_name$ = instance_live_info(ILI_NAME);
 	if (.@md_name$ == .instances_name1$){
 		setmapflag instance_mapname("1@gol1"),mf_droprate25,1;
-		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,100,SKILLDMG_MOB;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,100;
 		setmapflag instance_mapname("1@gol2"),mf_droprate25,1;
-		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,100,SKILLDMG_MOB;
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,100;
 	} else if (.@md_name$ == .instances_name2$){
 		setmapflag instance_mapname("1@gol1"),mf_droprate100,1;
-		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,1,SKILLDMG_MOB;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,0;
 		setmapflag instance_mapname("1@gol2"),mf_droprate100,1;
-		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,1,SKILLDMG_MOB;
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,0;
 	} else if (.@md_name$ == .instances_name3$){
 		setmapflag instance_mapname("1@gol1"),mf_droprate150,1;
-		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,-25,SKILLDMG_MOB;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-25;
 		setmapflag instance_mapname("1@gol2"),mf_droprate150,1;
-		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,-25,SKILLDMG_MOB;;
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-25;
 	} else if (.@md_name$ == .instances_name4$){
 		setmapflag instance_mapname("1@gol1"),mf_droprate200,1;
-		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,-50,SKILLDMG_MOB;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-50;
 		setmapflag instance_mapname("1@gol2"),mf_droprate200,1;
-		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,-50,SKILLDMG_MOB;
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-50;
 	} else if (.@md_name$ == .instances_name5$){
 		setmapflag instance_mapname("1@gol1"),mf_droprate300,1;
-		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,-90,SKILLDMG_MOB;;
+		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-90;
 		setmapflag instance_mapname("1@gol2"),mf_droprate300,1;
-		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,-90,SKILLDMG_MOB;
-
+		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-90;
 		
 	}
 	

@@ -43,6 +43,10 @@ prontera,164,165,4	script	Illusion Manager	4_BARYO_CHIEF,{
 OnInit:
 	.main_menu$ = "Illusion Deep Sea:Illusion Moonlight:Illusion Vampire:Illusion Frozen:Illusion Abyss:Illusion Luanda:Illusion Teddy:Illusion Labyrith";
 	npcshopitem "IllusionMoonlight","15195:1:1000000","15012:0:1","25271:0:10","23228:0:100";
+        //#bartershopadditem "IllusionMoonlight","100003:1:2000000","523:0:1";
+	//#bartershopadditem "IllusionMoonlight","100003:1:1","25271:0:10";
+        //#bartershopadditem "IllusionMoonlight","100004:1:2000000","523:0:1";
+        //#bartershopadditem "IllusionMoonlight","100004:1:1","25271:0:10";
 	bartershopadditem "IllusionMoonlight","19209:1:1000000","2277:9:1","25271:0:10","25257:0:100";
 	bartershopadditem "IllusionMoonlight","19210:1:1000000","2285:9:1","25271:0:10","25258:0:100";
 	bartershopadditem "IllusionMoonlight","20838:1:1000000","2504:9:1","25271:0:10","23228:0:100";
@@ -97,6 +101,10 @@ OnInit:
 
 
 	npcshopitem "IllusionDeepSea","400053:1:1000000","5127:9:1","25271:0:100","25896:0:100","25899:0:50";
+        bartershopadditem "IllusionDeepSea","100003:1:2000000","523:0:1";
+        bartershopadditem "IllusionDeepSea","100003:1:1","25271:0:10";
+        bartershopadditem "IllusionDeepSea","100004:1:2000000","523:0:1";
+        bartershopadditem "IllusionDeepSea","100004:1:1","25271:0:10";
 	bartershopadditem "IllusionDeepSea","480054:1:1000000","2519:9:1","25271:0:100","25894:0:100","25899:0:50";
 	bartershopadditem "IllusionDeepSea","490069:1:1000000","2650:0:1","25271:0:150","25893:0:100","25899:0:50";
 	bartershopadditem "IllusionDeepSea","490070:1:1000000","2651:0:1","25271:0:150","25892:0:100","25899:0:50";

@@ -1766,6 +1766,17 @@ Body:
         bonus bDex,1;
         bonus bHit,1;
       }
+    Evolution:            
+     - Target: GLOOMUNDERNIGHT2  
+       ItemRequirements:
+         - Item: Powerful_Soul_Essence
+           Amount: 30
+         - Item: Hodremlin_Card
+           Amount: 10
+         - Item: Isilla_Card
+           Amount: 10
+         - Item: Agav_Card
+           Amount: 10
   - Mob: XM_TEDDY_BEAR
     EggItem: Xm_Teddybear_Egg
     FoodItem: Pet_Food
@@ -1936,57 +1947,57 @@ Body:
       if (.@i >= PET_INTIMATE_CORDIAL) {
         bonus2 bExpAddClass,Class_All,1;
       }
-#  - Mob: NIGHTMARE_TERROR_H
-#    EggItem: Rigid_Nightmare_Terror_Egg
-#    FoodItem: Pet_Food
-#    Fullness: 2
-#    HungryDelay: 120
-#    IntimacyFed: 15
-#    CaptureRate: 0
-#    SpecialPerformance: false
-#    AllowAutoFeed: true
-#    Script: >
-#      .@i = getpetinfo(PETINFO_INTIMATE);
-#      
-#      if (.@i >= PET_INTIMATE_LOYAL) {
-#        bonus bInt,4;
-#        bonus bMaxSPrate,3;
-#        bonus2 bResEff,Eff_Sleep,10000;
-#      } else if (.@i >= PET_INTIMATE_CORDIAL) {
-#        bonus bInt,3;
-#        bonus bMaxSPrate,1;
-#        bonus2 bResEff,Eff_Sleep,10000;
-#      } else if (.@i >= PET_INTIMATE_NEUTRAL) {
-#        bonus bInt,3;
-#      } else {
-#        bonus bInt,1;
-#      }
-#  - Mob: WANDER_MAN_H
-#    EggItem: Contaminated_Wanderer_Egg
-#    FoodItem: Pet_Food
-#    Fullness: 2
-#    HungryDelay: 120
-#    IntimacyFed: 15
-#    CaptureRate: 0
-#    SpecialPerformance: false
-#    AllowAutoFeed: true
-#    Script: >
-#      .@i = getpetinfo(PETINFO_INTIMATE);
-#      
-#      if (.@i >= PET_INTIMATE_LOYAL) {
-#        bonus bAgi,4;
-#        bonus bCritical,3;
-#        bonus bCritAtkRate,7;
-#      } else if (.@i >= PET_INTIMATE_CORDIAL) {
-#        bonus bAgi,4;
-#        bonus bCritical,2;
-#        bonus bCritAtkRate,5;
-#      } else if (.@i >= PET_INTIMATE_NEUTRAL) {
-#        bonus bAgi,4;
-#        bonus bCritical,1;
-#      } else {
-#        bonus bAgi,4;
-#      }
+  - Mob: NIGHTMARE_TERROR_H
+    EggItem: Rigid_Nightmare_Terror_Egg
+    FoodItem: Pet_Food
+    Fullness: 2
+    HungryDelay: 120
+    IntimacyFed: 15
+    CaptureRate: 0
+    SpecialPerformance: false
+    AllowAutoFeed: true
+    Script: >
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bInt,4;
+        bonus bMaxSPrate,3;
+        bonus2 bResEff,Eff_Sleep,10000;
+      } else if (.@i >= PET_INTIMATE_CORDIAL) {
+        bonus bInt,3;
+        bonus bMaxSPrate,1;
+        bonus2 bResEff,Eff_Sleep,10000;
+      } else if (.@i >= PET_INTIMATE_NEUTRAL) {
+        bonus bInt,3;
+      } else {
+        bonus bInt,1;
+      }
+  - Mob: WANDER_MAN_H
+    EggItem: Contaminated_Wanderer_Egg
+    FoodItem: Pet_Food
+    Fullness: 2
+    HungryDelay: 120
+    IntimacyFed: 15
+    CaptureRate: 0
+    SpecialPerformance: false
+    AllowAutoFeed: true
+    Script: >
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAgi,4;
+        bonus bCritical,3;
+        bonus bCritAtkRate,7;
+      } else if (.@i >= PET_INTIMATE_CORDIAL) {
+        bonus bAgi,4;
+        bonus bCritical,2;
+        bonus bCritAtkRate,5;
+      } else if (.@i >= PET_INTIMATE_NEUTRAL) {
+        bonus bAgi,4;
+        bonus bCritical,1;
+      } else {
+        bonus bAgi,4;
+      }
   - Mob: ALIOT
     EggItem: Aliot_Egg
     FoodItem: Pet_Food
@@ -2104,11 +2115,34 @@ Body:
       } else {
         bonus bAtkRate,1;
       }
+  - Mob: GLOOMUNDERNIGHT2
+    CaptureRate : 1000
+    EggItem: Gloom_Under_Egg
+    FoodItem: Luxurious_Pet_Food
+    Fullness: 2
+    IntimacyFed: 20
+    Script: >
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bMatk,40;
+        bonus2 bMagicAtkEle,Ele_Ghost,7;
+        bonus2 bMagicAtkEle,Ele_Fire,7;
+      }
+      if (.@i >= PET_INTIMATE_CORDIAL) {
+        bonus bMatk,30;
+        bonus2 bMagicAtkEle,Ele_Ghost,5;
+        bonus2 bMagicAtkEle,Ele_Fire,5;
+      } 
+      if (.@i >= PET_INTIMATE_NEUTRAL) {
+        bonus bMatk,20;
+      } 
+      bonus bMatk,10;
+
   - Mob: EP17_2_CHILD_ADMIN1
     CaptureRate : 1000
-    EggItem: Child_Admin_Beta_Egg
-    EquipItem: Little_Headdress_Beta
-    FoodItem: Cloud_Cotton
+    EggItem: Ep_17_2_C_Admin1_Egg
+    EquipItem: Ep_17_2_C_Admin1_Acc
+    FoodItem: aegis_1000227
     Fullness: 2
     IntimacyFed: 20
     Script: >
@@ -2132,8 +2166,8 @@ Body:
 
   - Mob: EP17_2_CHILD_ADMIN2
     CaptureRate : 1000
-    EggItem: Child_Admin_Alpha_Egg
-    EquipItem: Little_Headdress_Alpha
+    EggItem: Ep_17_2_C_Admin2_Egg
+    EquipItem: Ep_17_2_C_Admin2_Acc
     FoodItem: Pet_Food
     Fullness: 2
     IntimacyFed: 20

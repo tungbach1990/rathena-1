@@ -29,9 +29,9 @@ menu	"Last Warp ^777777["+lastwarp$+"]^000000",-,
     	" ~ Dungeons",Dungeons,
 		" ~ 17.1 new map", New_maps,	
 		" ~ Illusion Dungeon",ILL_Dungeons,
-		" ~ Farmmmmmmmm",Farm_zone,
+	//	" ~ Farmmmmmmmm",Farm_zone,
     	" ~ Guild Castles",Castles,
-    	" ~ Guild Dungeons",Guild_Dungeons,
+    	//" ~ Guild Dungeons",Guild_Dungeons,
     	" ~ Instances",Instances,
     	" ~ Special Areas",Special;
 
@@ -505,10 +505,10 @@ Anexus: Restrict("RE");
 // --------------------------------------------------
         New_maps:
 // --------------------------------------------------
-menu	"Special border area OS",sp_os,
-	"Rudus F1",sp_rudus,
-	"Rudus F2",sp_rudus2,
-	"Rudus F3",sp_rudus3,
+menu	//"Special border area OS",sp_os,
+	//"Rudus F1",sp_rudus,
+	//"Rudus F2",sp_rudus2,
+	//"Rudus F3",sp_rudus3,
 	"Abyss GlastHeim",gl_cas01_,
 	"Abyss Dungeon 04",abyss_04,
 	"Einbroch Dungeon 03",ein_dun03,
@@ -534,7 +534,7 @@ odin_past: Restrict("RE");
 // --------------------------------------------------
 	Instances:
 // --------------------------------------------------
-menu	"Bakonawa Lake",I1, "Bangungot Hospital 2F",I2, "Buwaya Cave",I3, "Chaleston", I22,
+menu	"Airship",bachnt_I1,"Bakonawa Lake",I1, "Bangungot Hospital 2F",I2, "Buwaya Cave",I3, "Chaleston", I22,
 		"Devil Tower",I4, "Eclage Interior",I5, "Endless Tower",I6,
 		"Faceworms Nest",I7, "Geffen Magic Tournament",I8, "Ghost Palace",I9,
 		"Hazy Forest",I10, "Horror Toy Factory",I11, "Malangdo Culvert",I12,
@@ -542,6 +542,8 @@ menu	"Bakonawa Lake",I1, "Bangungot Hospital 2F",I2, "Buwaya Cave",I3, "Chalesto
 		"Orc's Memory",I16, "Sarah and Fenrir",I17, "Sara Memory",I18,
 		"Sealed Shrine",I19, "Wolfchev's Laboratory",I20, "Sky Fortress", I21,"Charleston",I22, "Infinite Space",I23 ;
 
+bachnt_I1: Restrict("RE");
+        Go("dali02",133,82);
 I1: Restrict("RE");
 	Go("ma_scene01",172,175);
 I2: Restrict("RE");

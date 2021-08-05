@@ -9122,7 +9122,7 @@ Body:
           - Item: Turtle_General_Card
             Rate: 1
             Announced: true
-  - Group: IG_BS_SHA_M_S_11
+  - Group: BS_SHA_M_S_11
     SubGroups:
       - SubGroup: 1
         List:
