@@ -2810,7 +2810,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				}
 				for(i=0;i<MAX_PARTY;i++){
 					for(j=i+1;j<MAX_PARTY;j++){
-						if (ip_array[i] == ip_array[j])
+						if (ip_array[i] == ip_array[j] && ip_array[i] != "")
 						{
 							clone++;
 						}
