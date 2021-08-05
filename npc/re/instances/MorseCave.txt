@@ -189,8 +189,11 @@ moro_cav,61,69,3	script	Senior Tracker#a1	4_M_JOB_ASSASSIN,{
 		mes "and help me track";
 		mes "him down again?";
 		mes "I'll be waiting here.";
-		if (checkquest(9318,HUNTING) == 2)
+		if (checkquest(9318,HUNTING) == 2) {
 			getitem 6684,1;	// TokenOfHero
+			callfunc "getitemclone",7929,10;
+			}
+		
 		erasequest 9318;// Pursuing Hiding Morocc
 		setquest 9319;// Pursuing Hiding Morocc Continues
 		ep14_3_mors01 = 1;

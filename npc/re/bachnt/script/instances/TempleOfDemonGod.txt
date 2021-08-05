@@ -65,6 +65,7 @@ moro_vol,108,88,5	script	Commander Hiva Agip::alatdgcha	4_M_REDSWORD,{
 		//complete quest
 		mes "*Whistle* Good work!";
 		mes "How's the Temple of Demon God? Still the same?";
+		callfunc "getitemclone",7929,10;
 		getitem 22567,1; //Expedition Award Box
 		completequest .questId;
 		erasequest .questId;

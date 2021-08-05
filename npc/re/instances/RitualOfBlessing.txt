@@ -746,6 +746,7 @@ OnInstanceInit:
 2@mir,101,10,0	script	to_prt_lib	WARPNPC,1,1,{
 	if (isbegin_quest(7693) == 1) {
 		warp "prt_lib",88,80;
+		callfunc "getitemclone",7929,10;
 		end;
 	}
 	mes "[" + strcharinfo(0) + "]";

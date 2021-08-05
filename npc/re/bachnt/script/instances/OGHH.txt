@@ -926,8 +926,8 @@ OnTimer5000:
 			getexp 250000,250000;
 		}
 		mes "This item has an extraordinary aura with it. Can be very useful for someone special.";
-		getitem 6607,1;// Temporal_Crystal
-		getitem 6608,1;// Coagulated_Spell
+		callfunc "getitemclone",6607,1;// Temporal_Crystal
+		callfunc "getitemclone",6608,1;// Coagulated_Spell
 		
 	} else if('OGH_Mode == 2) { // Hard Mode
 		if (checkquest(12336,HUNTING) != 2) {
@@ -944,9 +944,9 @@ OnTimer5000:
 			getexp 250000,250000; // Same EXP for Hard Mode?
 		}
 		mes "This item has an extraordinary aura with it. Can be very useful for someone special.";
-		getitem 6607,1; // Temporal_Crystal
-		getitem 6607,rand(1,4); // Extra Temporal_Crystal
-		getitem 6755,1; // Contaminated_Magic
+		callfunc "getitemclone",6607,1; // Temporal_Crystal
+		callfunc "getitemclone",6607,rand(1,4); // Extra Temporal_Crystal
+		callfunc "getitemclone",6755,1; // Contaminated_Magic
 	}
 	close3;
 }
@@ -1722,13 +1722,14 @@ OnTimer10000:
 			if (isbegin_quest(12321) == 0) {
 				setquest 12321;// Time Conqueror
 				completequest 12321;
-				getitem 6607,5;// Temporal_Crystal
-				getitem 6608,5;// Coagulated_Spell
+				callfunc "getitemclone",7929,10;
+				callfunc "getitemclone",6607,5;// Temporal_Crystal
+				callfunc "getitemclone",6608,5;// Coagulated_Spell
 				getexp 350000,350000;
 			}
 			else {
-				getitem 6607,1;// Temporal_Crystal
-				getitem 6608,1;// Coagulated_Spell
+				callfunc "getitemclone",6607,1;// Temporal_Crystal
+				callfunc "getitemclone",6608,1;// Coagulated_Spell
 			}
 			next;
 			mes "[Hugin]";
@@ -1758,14 +1759,15 @@ OnTimer10000:
 			setquest 12335;// Space Distortion
 			if (isbegin_quest(12339) == 0) {
 				setquest 12339;// Time Conqueror
+				callfunc "getitemclone",7929,30;
 				completequest 12339;
-				getitem 6607,5;// Temporal_Crystal
-				getitem 6755,5;// Contaminated_Magic
+				callfunc "getitemclone",6607,5;// Temporal_Crystal
+				callfunc "getitemclone",6755,5;// Contaminated_Magic
 				getexp 350000,350000;
 			}
 			else {
-				getitem 6607,1;// Temporal_Crystal
-				getitem 6755,1;// Contaminated_Magic
+				callfunc "getitemclone",6607,1;// Temporal_Crystal
+				callfunc "getitemclone",6755,1;// Contaminated_Magic
 			}
 			next;
 			mes "[Hugin]";

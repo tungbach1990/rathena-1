@@ -1354,6 +1354,7 @@ OnStart:
 		close;
 	}
 	close2;
+	callfunc "getitemclone",7929,10;
 	warp "xmas",233,300;
 	end;
 }

@@ -387,6 +387,7 @@ OnInstanceInit:
 	mes "[Verkina]";
 	mes "Okay, let me show you the way outside.";
 	if(ep17_2_garden == 3) ep17_2_garden = 4;
+	getitem 7929,10;
 	warp "ba_maison",233,46;
 	close;
 }

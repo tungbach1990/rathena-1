@@ -13,6 +13,10 @@ function	script	i100536	{
                                 400121,1, // Twin_Crown
                                 410005,1, // C_Magic_Heir_TW
                                 400057,1, // VIP_Hair_Male
+				12887,1, // Infinite Fly Wing
+				12884,1, // Infinite concentration
+				12885,1, // Infinite awake
+				12886,1, // Infinite berserk
 				400056,1, // VIP_Hair_Female
 				420010,1, // Cons_Of_Darkness
 				31907,1,  // C_PGstone_Knit_Hat_BW
@@ -28,7 +32,7 @@ function	script	i100536	{
 				25740,5,  // Cursed Gemstone
 				25739,5;  // Cursed crystal
                 setarray .reward2[0], 6635,2,7620,2,7619,2,6225,2,6226,2,7227,3,7929,10,17449,5,12710,5;
-                setarray .reward3[0], 7227,1,7929,1;
+                setarray .reward3[0], 7227,1,7929,1,12883,1;
 
         .chance = rand(10000);
 

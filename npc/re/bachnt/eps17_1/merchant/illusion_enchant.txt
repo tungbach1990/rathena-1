@@ -1,365 +1,1034 @@
-//===== rAthena Script ======================================= 
-//= Illusion Enchanter 'Episode 17.1'  (kRO Servers)
-//===== By: ================================================== 
-//= NotKappa#2400 - https://rathena.org/board/profile/18391-notkappa/
-//===== Current Version: ===================================== 
-//= 1.0 (Initial release)
-//===== Additional Comments: ================================= 
-// -
-//============================================================
+// @reloadnpcfile npc/realro/utilidades/illusion_enchant.txt
 
-prontera,160,191,5	script	Illusion Enchanter#maintown	677,{
-	disable_command;
+prontera,90,115,5	script	Illusion of Logging	677,{
 	disable_items;
-	.@npc$ = "[ ^0000FFIllusion Enchanter^000000 ]";
-	if(!metIlluEnchant){
-		mes .@npc$,
-			"Oh, did you bring Illusion equipment?";
-		next;
-		select("I don't know what those are...");
-		mes .@npc$,
-			"I was in a hurry, I should have explained that first.";
-		next;
-		mes .@npc$,
-			"I am an alchemist studying a substance called the Illusion Stone. It's been circulating among adventurers lately.";
-		next;
-		select("Is this an Illusion?");
-		mes .@npc$,
-			"We don't know yet, but it's quite interesting.";
-		next;
-		select("That's amazing!");
-		mes .@npc$,
-			"I'm guessing you've heard about strange spaces that have opened all over the world. Illusion stones are rare occurrences that appear inside these spaces.";
-		next;
-		mes .@npc$,
-			"Their atomic structure is not consistent with any minerals that I've came across so far...";
-		next;
-		select("Tell me more!");
-		mes .@npc$,
-			"To cut the chase, if you bring me Illusion stones, I can upgrade certain pieces of equipment for you.";
-		next;
-		select("What's the catch?");
-		mes .@npc$,
-			"There is no danger to the enchanting process. It cannot break your items unless you decide to reset the enchantments.";
-		next;
-		mes .@npc$,
-			"I'll continue to study these Illusion dungeons to be able to create even more powerful equipments!";
-		next;
-		mes .@npc$,
-			"Though, maybe I should have mentioned this earlier... This isn't a free service, I'll need Zeny and Illusion Stones.";
-		next;
-		mes .@npc$,
-			"Did you get all that?";
-		next;
-		select("Yeah!");
-		metIlluEnchant = 1;
-		mes .@npc$,
-			"Alright then! Let's get started.";
-		close;
-	}
-	
-	mes .@npc$,
-		"I only enchant equipment that you have obtained from exchanging Illusion Stones.";
+	//if(getgroupid()< 99) end;
+	mes .npc_name$;
+	mes "Renew your equipment right now.";
+	mes "Enchantment will do this.";
 	next;
-	switch(select("What do I need to enchant?", "Enchant Illusion equipment", "Reset Illusion equipment")){
-		case 1: // What do I need to enchant?
-			mes .@npc$,
-				"Remember, I only enchant equipment that you have obtained from exchanging Illusion Stones.";
+	mes .npc_name$;
+	mes "Renew your equipment right now.";
+	mes "Enchantment will do this.";	
+	switch(select("~ Enchantment chance and How much ?:~ Illusion Enchantment:~ Illusion Enchantment Reset"))
+	{
+		case 1: 
 			next;
-			mes .@npc$,
-				"You can enchant each item twice, paying 5 Illusion Stones per enchant.";
+			mes .npc_name$;
+			mes "Any Illusion equipment can be enchanted, except Weapon lv 4.";
+			mes "The enchant does not fail, only to remove the enchant which may fail depending on your choice.";
 			next;
-			mes .@npc$,
-				"There is no chance of failure when enchanting, but there is a chance of failure when you reset the item. This is just how the process works.";
+			mes .npc_name$;
+			mes "To remove the enchant you will be able to choose the chance of success paying more for this.";
 			next;
-			mes .@npc$,
-				"It costs Zeny to reset the enchants, but the chance of success depends on the amount of Zeny you give me. Give it a shot.";
+			mes .npc_name$;
+			mes "Incantations can range from Stats, Neve enchants similar to Abusive and enchant similar to those of Old Bionightmare.";
+			next;
+			mes .npc_name$;
+			mes "The cost per enchant is 5x "+getitemname(25271)+" and 10.000z.";			
 			close;
-		
-		case 2: // Enchant Illusion equipment
-			
-			for(.@i=0;.@i<10;.@i++){
-				if (!getequipisequiped(.@i))
-					continue;
-				.@eqId = getequipid(.@i);
-				if (inarray(.MeleeWeaponIds,.@eqId) == -1 && 
-					inarray(.RangeWeaponIds,.@eqId) == -1 && 
-					inarray(.MagicWeaponIds,.@eqId) == -1 && 
-					inarray(.AccessoryIds,.@eqId) == -1 && 
-					inarray(.ArmorIds,.@eqId) == -1)
-					continue;
-				.@eqSlots[getarraysize(.@eqSlots)] = .@i;
-				.@cItems[getarraysize(.@cItems)] = .@eqId;
-				.@menu$ += getitemname(.@eqId) + ":";
-				.@count++;
-			}
-			if(.@count == 0){
-				mes .@npc$,
-					"You don't have any Illusion equipment equipped.";
-				close;			
-			}
-			.@s = select(.@menu$) - 1;
-			.@slot = .@eqSlots[.@s];
-			.@equip_id = .@cItems[.@s];
-			.@equip_name$ = getitemname(.@equip_id);
-			setarray .@card[0],
-				getequipcardid(.@slot,0),
-				getequipcardid(.@slot,1),
-				getequipcardid(.@slot,2),
-				getequipcardid(.@slot,3);
-			copyarray .@equip_card[0], .@card[0], 4;	// for final check
-			.@equip_refine = getequiprefinerycnt(.@slot);
-			
-			if (.@card[3] > 0) {
-				mes .@npc$;
-				mes .@equip_name$ + " have already passed the enchanting limit. We can't enchant them any more.";
-				close;
-			}
-			if(.@card[2] == 0)
-				.@cardSlot = 2;
-			else if(.@card[3] == 0)
-				.@cardSlot = 3;
-				
-			if (.@card[.@cardSlot] == 0) {
-				.@cost = .costStones;
-				mes .@npc$;
-				mes "Want to enchant ^0000FF" + .@equip_name$ + "^000000?";
-				mes "For enchanting, you need ^0000FF" + .@cost + "^000000 Illusion Stones.";
-				next;
-				.@s2 = select( "Quit", "Enchant") - 2;
-				if (.@s2 == -1) {
-					mes .@npc$;
-					mes "Ok, come back when you are ready.";
-					close;
-				}
-				if (inarray(.MeleeWeaponIds,.@equip_id) != -1)
-					.@card[.@cardSlot] = .MeleeWeaponEn[rand(0,getarraysize(.MeleeWeaponEn)-1)];
-				else if (inarray(.RangeWeaponIds,.@equip_id) != -1)
-					.@card[.@cardSlot] = .RangeWeaponEn[rand(0,getarraysize(.RangeWeaponEn)-1)];
-				else if (inarray(.MagicWeaponIds,.@equip_id) != -1)
-					.@card[.@cardSlot] = .MagicWeaponEn[rand(0,getarraysize(.MagicWeaponEn)-1)];
-				else if (inarray(.AccessoryIds,.@equip_id) != -1)
-					.@card[.@cardSlot] = .AccessoryEnchants[rand(0,getarraysize(.AccessoryEnchants)-1)];
-				else if (inarray(.ArmorIds,.@equip_id) != -1)
-					.@card[.@cardSlot] = .ArmorEnchants[rand(0,getarraysize(.ArmorEnchants)-1)];
-				.@string$ = "enchant number ^630000" + (.@cardSlot - 1) + "^000000.";
-			}
-			
-			if (.@cost > countitem(25271)){
-				mes .@npc$;
-				mes "Hmm, you are missing " + (.@cost - countitem(25271)) + " Illusion Stones. Go get more, and then we can talk about more enchants.";
-				close;
-			}
-			
-			specialeffect2 EF_REPAIRWEAPON;
-			delitem 25271,.@cost;// Illusion Stones
-			
-			// anti-hack
-			if (callfunc("F_IsEquipIDHack", .@slot, .@equip_id) || callfunc("F_IsEquipCardHack", .@slot, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]) || 
-				callfunc("F_IsEquipRefineHack", .@slot, .@equip_refine))
-				close;
-				
-			delequip .@slot;
-			mes .@npc$;
-			mes "Trying for " + .@string$;
-			getitem2 .@equip_id,1,1,.@equip_refine,0,.@card[0],.@card[1],.@card[2],.@card[3];
-			close;
-		case 3: // Reset Illusion equipment
-			for(.@i=0;.@i<10;.@i++){
-				if (!getequipisequiped(.@i))
-					continue;
-				.@eqId = getequipid(.@i);
-				if (inarray(.MeleeWeaponIds,.@eqId) == -1 && 
-					inarray(.RangeWeaponIds,.@eqId) == -1 && 
-					inarray(.MagicWeaponIds,.@eqId) == -1 && 
-					inarray(.AccessoryIds,.@eqId) == -1 && 
-					inarray(.ArmorIds,.@eqId) == -1)
-					continue;
-				.@eqSlots[getarraysize(.@eqSlots)] = .@i;
-				.@cItems[getarraysize(.@cItems)] = .@eqId;
-				.@menu$ += getitemname(.@eqId) + ":";
-				.@count++;
-			}
-			
-			if(.@count == 0){
-				mes .@npc$,
-					"You don't have any Illusion equipment equipped.";
-				close;			
-			}
-			
-			.@s = select(.@menu$) - 1;
-			.@slot = .@eqSlots[.@s];
-			.@equip_id = .@cItems[.@s];
-			.@equip_name$ = getitemname(.@equip_id);
-			setarray .@card[0],
-				getequipcardid(.@slot,0),
-				getequipcardid(.@slot,1),
-				getequipcardid(.@slot,2),
-				getequipcardid(.@slot,3);
-			copyarray .@equip_card[0], .@card[0], 4;	// for final check
-			.@equip_refine = getequiprefinerycnt(.@slot);
-			
-			if (.@card[2] == 0) {
-				mes .@npc$;
-				mes .@equip_name$ + " Doesn't have any enchants..";
-				close;
-			}
-			
-			mes .@npc$,
-				"So you want to reset all the slots..";
-			next;
-			mes .@npc$,
-				"How much are you gonna to pay me to reset the item for you?";
-			next;
-			.@p = select("100,000 zeny", "200,000 zeny", "300,000 zeny", "400,000 zeny", "500,000 zeny", "5 Illusion Stones");
-			.@chance = 0;
-			if(.@p < 6){
-				.@amt = .@p * 100000;
-				if(.@p < 5){
-					mes .@npc$,
-						"Only " + F_InsertComma(.@amt) + " zeny...";
-					.@chance = 40 + (.@p*10);
-				}else{
-					.@chance = 100;
-					mes .@npc$,
-						"W-wow, " + F_InsertComma(.@amt) + " zeny!";
+		case 2://Illusion Enchant Menu
+			switch(select("~ Right Hand Weapons:~ Armor:~ Shoes:~ Garment:~ Helm:~ Shield:~ Accessory Left"))
+			{
+				case 1: //Right Hand Weapons
+					
+					
+
+					switch(select("~ Melee:~ Ranged:~ Magic"))
+					{
+						case 1:
+							@type_w = 1;
+							break;
+						case 2:
+							@type_w = 2;
+							break;
+						case 3:
+							@type_w = 3;
+							break;							
+					}
+					setarray .@equip_card[0], getequipcardid(EQI_HAND_R,0), getequipcardid(EQI_HAND_R,1), getequipcardid(EQI_HAND_R,2), getequipcardid(EQI_HAND_R,3);
 					next;
-					mes .@npc$,
-						"I've never seen this much before.";
-				}
-			}else {
-				.@amt = 5;
-				.@chance = 100;
-				mes .@npc$,
-					"Illusion Stones!!";
-				emotion ET_SPARK,getnpcid(0,"Illusion Enchanter#maintown");
+					mes .npc_name$;
+					if(.@equip_card[3] == 0)
+						mes "1  Enchantment status.";
+					else
+						if(.@equip_card[2] == 0)
+							mes "2  Enchantment status.";
+						else
+						{
+							mes "Your equipment is already enchanted. You can choose the reset option.";
+							close;
+						}
+					mes "^FF0000After choosing to enchant your item you can not go back.^000000 Do you agree and want to continue?";
+					switch(select("Back later:Okay!"))
+					{
+						case 1:
+							close;
+						case 2:
+							break;						
+					}
+					if (checkweight(1201,1) == 0) {
+						next;
+						mes .npc_name$;
+						mes "Your weight is on the edge, save a little something and talk to me again!";
+						close;
+					}
+					if (MaxWeight - Weight < 10000) {
+						next;
+						mes .npc_name$;
+						mes "Your weight is on the edge, save a little something and talk to me again!";
+						close;
+					}
+					if (!getequipisequiped(EQI_HAND_R)) {
+						next;
+						mes .npc_name$;
+						mes "Wait .. You are not with Illusion equipped!";
+						close;
+					}
+					setarray .@equip_card[0], getequipcardid(EQI_HAND_R,0), getequipcardid(EQI_HAND_R,1), getequipcardid(EQI_HAND_R,2), getequipcardid(EQI_HAND_R,3);
+					if (!getequipisequiped(EQI_HAND_R)) {
+						next;
+						mes .npc_name$;
+						mes "It is dangerous to remove equipment during enchant process!";
+						close;
+					}
+					set .@equip_id, getequipid(EQI_HAND_R);
+						set .@item$, "|28023|";
+					if (!compare(.@item$,"|"+.@equip_id+"|")) {
+						next;
+						mes .npc_name$;
+						mes "I do not like this item. Need to equip an Illusion.";
+						close;
+					}
+					if (.@equip_card[3] == 0){
+
+						//----------------slot 4-->---------------------------
+					if(@type_w == 1) //Melee
+						{
+							.@ctrl = rand(1,60);						
+							if(.@ctrl >= 1 && .@ctrl < 10) //STR
+							{
+								set .@enchant,4700+rand(4);
+							}
+							else
+								if(.@ctrl >= 10 && .@ctrl < 20) //DEX
+								{
+									set .@enchant,4720+rand(4);
+								}
+								else
+									if(.@ctrl >= 20 && .@ctrl < 30) //LUK
+									{
+										set .@enchant,4750+rand(4);
+									}
+									else
+										if(.@ctrl >= 30 && .@ctrl < 40) //FS 1~5
+										{
+											if(rand(5) < 4)
+												set .@enchant,4808+rand(4);
+											else
+												set .@enchant,4820;
+										}
+										else
+											if(.@ctrl >= 40 && .@ctrl < 50) //ASPD
+											{
+													if(rand(2))
+														set .@enchant,4807;
+													else
+														set .@enchant,4842;										
+											}
+												else												
+														if(.@ctrl >= 50) //Ambition | Expect
+														{
+															if(rand(2))
+																set .@enchant,29061+rand(5);
+															else
+																set .@enchant,29081+rand(5);
+														}
+						}
+						else
+							if(@type_w == 2) //Ranged
+							{
+								.@ctrl = rand(1,60);						
+								if(.@ctrl >= 1 && .@ctrl < 10) //AGI
+								{
+									set .@enchant,4730+rand(4);
+								}
+								else
+									if(.@ctrl >= 10 && .@ctrl < 20) //DEX
+									{
+										set .@enchant,4720+rand(4);
+									}
+									else
+										if(.@ctrl >= 20 && .@ctrl < 30) //LUK
+										{
+											set .@enchant,4750+rand(4);
+										}
+										else
+											if(.@ctrl >= 30 && .@ctrl < 40) //Sharp 1~5
+											{
+												if(rand(5) < 3)
+													set .@enchant,4816+rand(3);
+												else
+													set .@enchant,4843+rand(2);
+											}
+											else
+												if(.@ctrl >= 40 && .@ctrl < 50) //ASPD
+												{
+														if(rand(2))
+															set .@enchant,4807;
+														else
+															set .@enchant,4842;										
+												}
+													else												
+															if(.@ctrl >= 50) //Arch | Algo ???
+															{
+																//if(rand(2))
+																	set .@enchant,29091+rand(5);
+																//else
+																	//set .@enchant,29081+rand(5);
+															}
+							}
+							else
+								if(@type_w == 3) //Magic
+								{
+									.@ctrl = rand(1,49);						
+									if(.@ctrl >= 1 && .@ctrl < 10) //|INT
+									{
+										set .@enchant,4710+rand(4);
+									}
+									else
+										if(.@ctrl >= 10 && .@ctrl < 20) //DEX
+										{
+											set .@enchant,4720+rand(4);
+										}
+										else
+											if(.@ctrl >= 20 && .@ctrl < 30) //LUK
+											{
+												set .@enchant,4750+rand(4);
+											}
+											else
+												if(.@ctrl >= 30 && .@ctrl < 40) //Spell 1~5
+												{
+													if(rand(5) < 4)
+														set .@enchant,4812+rand(4);
+													else
+														set .@enchant,4826;
+												}
+												else
+													if(.@ctrl >= 40 && .@ctrl < 50) //archbishop
+													{
+															if(rand(2))
+																set .@enchant,4805;
+															else
+																set .@enchant,4850;										
+													}
+														//else												
+														//		if(.@ctrl >= 50) // Algo ???
+														//		{
+
+																		//set .@enchant,29081+rand(5);
+														//		}
+								}							
+						set .@equip_refine, getequiprefinerycnt(EQI_HAND_R);
+						
+						// anti-hack
+						if (callfunc("F_IsEquipIDHack", EQI_HAND_R, .@equip_id) ||
+							callfunc("F_IsEquipCardHack", EQI_HAND_R, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]))
+							close;
+						set .@equip_id, getequipid(EQI_HAND_R);
+						set .@item$, "|28023|";
+						if (!compare(.@item$,"|"+.@equip_id+"|")) {
+							mes "I do not like this item. Need to equip an Illusion.";
+							close;
+						}
+						setarray .@equip_card[0], getequipcardid(EQI_HAND_R,0), getequipcardid(EQI_HAND_R,1), getequipcardid(EQI_HAND_R,2), getequipcardid(EQI_HAND_R,3);
+						if (.@equip_card[3] != 0) close;
+						if(countitem(25271) >= 5 && Zeny >= 10000){
+							//-------Teste FALHA----------------
+							//set .@i, rand(1,100);
+							//if (.@i > 95) { delitem 25271,5; delequip .@part; specialeffect 155; mes "Falhou..."; close;}
+							//------------------------------------
+							delitem 25271,5;
+							Zeny = Zeny - 10000;
+							delequip EQI_HAND_R;
+							getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@equip_card[2],.@enchant;
+							//mes "Success!";
+							specialeffect2 154;
+							next; mes .npc_name$; mes "Ready. Work is done now.";
+							close;
+						}
+						mes "You do not have 5x "+getitemname(25271)+" or 10.000z.";
+						close;
+					}
+//-------------------------------------------------------------------------------------
+
+					if (.@equip_card[2] == 0){
+						.@ctrl = rand(1,8);
+						//----------------slot 4-->---------------------------
+						
+						if(.@ctrl == 1) //STR
+						{
+							set .@enchant,4700+rand(4);
+						}
+						else
+							if(.@ctrl == 2) //VIT
+							{
+								set .@enchant,4740+rand(4);
+							}
+							else
+								if(.@ctrl == 3) //AGI
+								{
+									set .@enchant,4730+rand(4);
+								}
+								else
+									if(.@ctrl == 4) //INT
+									{
+										set .@enchant,4710+rand(4);
+									}
+									else
+										if(.@ctrl == 5) //DEX
+										{
+											set .@enchant,4720+rand(4);
+										}
+										else										
+											if(.@ctrl == 6) //LUK
+											{
+												set .@enchant,4750+rand(4);
+											}	
+											else
+												if(.@ctrl == 7) //HP 100
+												{
+														set .@enchant,4795+rand(5);
+												}
+												else												
+													if(.@ctrl == 8) //SP 50
+													{
+														.@ctrl2 = rand(1,5);
+														if(.@ctrl2 == 1) //SP 10
+															set .@enchant,4928;
+														else	
+															if(.@ctrl2 == 2) //SP 25
+																set .@enchant,4870;
+															else	
+																if(.@ctrl2 == 3) //SP 50
+																	set .@enchant,4800;
+																else	
+																	if(.@ctrl2 == 4) //SP 75
+																		set .@enchant,4871;
+																	else	
+																		if(.@ctrl2 == 5) //SP 100
+																			set .@enchant,4801;
+																										
+													}
+
+						
+						set .@equip_refine, getequiprefinerycnt(EQI_HAND_R);
+						
+						// anti-hack
+						if (callfunc("F_IsEquipIDHack", EQI_HAND_R, .@equip_id) ||
+							callfunc("F_IsEquipCardHack", EQI_HAND_R, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]))
+							close;
+						set .@equip_id, getequipid(EQI_HAND_R);
+						set .@item$, "|28023|";
+						if (!compare(.@item$,"|"+.@equip_id+"|")) {
+							mes "I do not like this item. Need to equip an Illusion.";
+							close;
+						}
+						setarray .@equip_card[0], getequipcardid(EQI_HAND_R,0), getequipcardid(EQI_HAND_R,1), getequipcardid(EQI_HAND_R,2), getequipcardid(EQI_HAND_R,3);
+						if (.@equip_card[2] != 0) close;
+						if(countitem(25271) >= 5 && Zeny >= 10000){
+							//-------Teste FALHA----------------
+							//set .@i, rand(1,100);
+							//if (.@i > 95) { delitem 25271,5; delequip .@part; specialeffect 155; mes "Falhou..."; close;}
+							//------------------------------------
+							delitem 25271,5;
+							Zeny = Zeny - 10000;
+							delequip EQI_HAND_R;
+							getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@enchant,.@equip_card[3];
+							////mes "Success!";
+							specialeffect2 154;
+							
+							next; mes .npc_name$; mes "Ready. Work is done now.";
+							close;
+						}
+						mes "You do not have 5x "+getitemname(25271)+" or 10.000z.";
+						close;
+					}					
+					
+					
+					
+					
+					
+					close;				
+				case 2: //Armor
+					@position_id = 7;
+					break;
+				case 3: //Shoes
+					@position_id = 2;
+					break;
+				case 4: //Garment
+					@position_id = 3;
+					break;
+				case 5: //Helm
+					@position_id = 6;
+					break;
+				case 6: //Shield
+					@position_id = 8;
+					break;
+				case 7: //Accessory
+					setarray .@equip_card[0], getequipcardid(EQI_ACC_L,0), getequipcardid(EQI_ACC_L,1), getequipcardid(EQI_ACC_L,2), getequipcardid(EQI_ACC_L,3);
+					next;
+					mes .npc_name$;
+					if(.@equip_card[3] == 0)
+						mes "1  Enchantment status.";
+					else
+						if(.@equip_card[2] == 0)
+							mes "2  Enchantment status.";
+						else
+						{
+							mes "Your equipment is already enchanted. You can choose the reset option.";
+							close;
+						}
+					mes "^FF0000After choosing to enchant your item you can not go back.^000000 Do you agree and want to continue?";
+					switch(select("Back later:Okay!"))
+					{
+						case 1:
+							close;
+						case 2:
+							break;						
+					}
+					if (checkweight(1201,1) == 0) {
+						next;
+						mes .npc_name$;
+						mes "Your weight is on the edge, save a little something and talk to me again!";
+						close;
+					}
+					if (MaxWeight - Weight < 10000) {
+						next;
+						mes .npc_name$;
+						mes "Your weight is on the edge, save a little something and talk to me again!";
+						close;
+					}
+					if (!getequipisequiped(EQI_ACC_L)) {
+						next;
+						mes .npc_name$;
+						mes "Wait .. You are not with Illusion equipped!";
+						close;
+					}
+					setarray .@equip_card[0], getequipcardid(EQI_ACC_L,0), getequipcardid(EQI_ACC_L,1), getequipcardid(EQI_ACC_L,2), getequipcardid(EQI_ACC_L,3);
+					if (!getequipisequiped(EQI_ACC_L)) {
+						next;
+						mes .npc_name$;
+						mes "It is dangerous to remove equipment during enchant process!";
+						close;
+					}
+					set .@equip_id, getequipid(EQI_ACC_L);
+						set .@item$, "|28508|28509|";
+					if (!compare(.@item$,"|"+.@equip_id+"|")) {
+						next;
+						mes .npc_name$;
+						mes "I do not like this item. Need to equip an Illusion.";
+						close;
+					}
+					if (.@equip_card[3] == 0){
+						.@ctrl = rand(1,8);
+						//----------------slot 4-->---------------------------
+						
+						if(.@ctrl == 1) //STR
+						{
+							set .@enchant,4700+rand(4);
+						}
+						else
+							if(.@ctrl == 2) //VIT
+							{
+								set .@enchant,4740+rand(4);
+							}
+							else
+								if(.@ctrl == 3) //AGI
+								{
+									set .@enchant,4730+rand(4);
+								}
+								else
+									if(.@ctrl == 4) //INT
+									{
+										set .@enchant,4710+rand(4);
+									}
+									else
+										if(.@ctrl == 5) //DEX
+										{
+											set .@enchant,4720+rand(4);
+										}
+										else										
+											if(.@ctrl == 6) //LUK
+											{
+												set .@enchant,4750+rand(4);
+											}	
+											else
+												if(.@ctrl == 7) //HP 100
+												{
+														set .@enchant,4795+rand(5);
+												}
+												else												
+													if(.@ctrl == 8) //SP 50
+													{
+														.@ctrl2 = rand(1,5);
+														if(.@ctrl2 == 1) //SP 10
+															set .@enchant,4928;
+														else	
+															if(.@ctrl2 == 2) //SP 25
+																set .@enchant,4870;
+															else	
+																if(.@ctrl2 == 3) //SP 50
+																	set .@enchant,4800;
+																else	
+																	if(.@ctrl2 == 4) //SP 75
+																		set .@enchant,4871;
+																	else	
+																		if(.@ctrl2 == 5) //SP 100
+																			set .@enchant,4801;
+																										
+													}
+
+						
+						set .@equip_refine, getequiprefinerycnt(EQI_ACC_L);
+						
+						// anti-hack
+						if (callfunc("F_IsEquipIDHack", EQI_ACC_L, .@equip_id) ||
+							callfunc("F_IsEquipCardHack", EQI_ACC_L, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]))
+							close;
+						set .@equip_id, getequipid(EQI_ACC_L);
+						set .@item$, "|28508|28509|";
+						if (!compare(.@item$,"|"+.@equip_id+"|")) {
+							mes "I do not like this item. Need to equip an Illusion.";
+							close;
+						}
+						setarray .@equip_card[0], getequipcardid(EQI_ACC_L,0), getequipcardid(EQI_ACC_L,1), getequipcardid(EQI_ACC_L,2), getequipcardid(EQI_ACC_L,3);
+						if (.@equip_card[3] != 0) close;
+						if(countitem(25271) >= 5 && Zeny >= 10000){
+							//-------Teste FALHA----------------
+							//set .@i, rand(1,100);
+							//if (.@i > 95) { delitem 25271,5; delequip .@part; specialeffect 155; mes "Falhou..."; close;}
+							//------------------------------------
+							delitem 25271,5;
+							Zeny = Zeny - 10000;
+							delequip EQI_ACC_L;
+							getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@equip_card[2],.@enchant;
+							//mes "Success!";
+							specialeffect2 154;
+							next; mes .npc_name$; mes "Ready. Work is done now.";
+							close;
+						}
+						mes "You do not have 5x "+getitemname(25271)+" or 10.000z.";
+						close;
+					}
+//-------------------------------------------------------------------------------------
+
+					if (.@equip_card[2] == 0){
+						.@ctrl = rand(1,8);
+						//----------------slot 4-->---------------------------
+						
+						if(.@ctrl == 1) //STR
+						{
+							set .@enchant,4700+rand(4);
+						}
+						else
+							if(.@ctrl == 2) //VIT
+							{
+								set .@enchant,4740+rand(4);
+							}
+							else
+								if(.@ctrl == 3) //AGI
+								{
+									set .@enchant,4730+rand(4);
+								}
+								else
+									if(.@ctrl == 4) //INT
+									{
+										set .@enchant,4710+rand(4);
+									}
+									else
+										if(.@ctrl == 5) //DEX
+										{
+											set .@enchant,4720+rand(4);
+										}
+										else										
+											if(.@ctrl == 6) //LUK
+											{
+												set .@enchant,4750+rand(4);
+											}	
+											else
+												if(.@ctrl == 7) //HP 100
+												{
+														set .@enchant,4795+rand(5);
+												}
+												else												
+													if(.@ctrl == 8) //SP 50
+													{
+														.@ctrl2 = rand(1,5);
+														if(.@ctrl2 == 1) //SP 10
+															set .@enchant,4928;
+														else	
+															if(.@ctrl2 == 2) //SP 25
+																set .@enchant,4870;
+															else	
+																if(.@ctrl2 == 3) //SP 50
+																	set .@enchant,4800;
+																else	
+																	if(.@ctrl2 == 4) //SP 75
+																		set .@enchant,4871;
+																	else	
+																		if(.@ctrl2 == 5) //SP 100
+																			set .@enchant,4801;
+																										
+													}
+
+						
+						set .@equip_refine, getequiprefinerycnt(EQI_ACC_L);
+						
+						// anti-hack
+						if (callfunc("F_IsEquipIDHack", EQI_ACC_L, .@equip_id) ||
+							callfunc("F_IsEquipCardHack", EQI_ACC_L, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]))
+							close;
+						set .@equip_id, getequipid(EQI_ACC_L);
+						set .@item$, "|28508|28509|";
+						if (!compare(.@item$,"|"+.@equip_id+"|")) {
+							mes "I do not like this item. Need to equip an Illusion.";
+							close;
+						}
+						setarray .@equip_card[0], getequipcardid(EQI_ACC_L,0), getequipcardid(EQI_ACC_L,1), getequipcardid(EQI_ACC_L,2), getequipcardid(EQI_ACC_L,3);
+						if (.@equip_card[2] != 0) close;
+						if(countitem(25271) >= 5 && Zeny >= 10000){
+							//-------Teste FALHA----------------
+							//set .@i, rand(1,100);
+							//if (.@i > 95) { delitem 25271,5; delequip .@part; specialeffect 155; mes "Falhou..."; close;}
+							//------------------------------------
+							delitem 25271,5;
+							Zeny = Zeny - 10000;
+							delequip EQI_ACC_L;
+							getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@enchant,.@equip_card[3];
+							////mes "Success!";
+							specialeffect2 154;
+							
+							next; mes .npc_name$; mes "Ready. Work is done now.";
+							close;
+						}
+						mes "You do not have 5x "+getitemname(25271)+" or 10.000z.";
+						close;
+					}
+					close;
 			}
-			next;
-			mes .@npc$,
-				"The chance of success is " + .@chance + "%";
-			next;
-			if(.@chance != 100){
-				mes .@npc$,	
-					"These is a chance that the item could break and you can lose the item AND the cards!";
+
+
+					setarray .@equip_card[0], getequipcardid(@position_id,0), getequipcardid(@position_id,1), getequipcardid(@position_id,2), getequipcardid(@position_id,3);
+					next;
+					mes .npc_name$;
+					if(.@equip_card[3] == 0)
+						mes "1  Enchantment status.";
+					else
+						if(.@equip_card[2] == 0)
+							mes "2  Enchantment status.";
+						else
+						{
+							mes "Your equipment is already enchanted. You can choose the reset option.";
+							close;
+						}
+					mes "^FF0000After choosing to enchant your item you can not go back.^000000 Do you agree and want to continue?";
+					switch(select("Back later:Okay!"))
+					{
+						case 1:
+							close;
+						case 2:
+							break;						
+					}
+					if (checkweight(1201,1) == 0) {
+						next;
+						mes .npc_name$;
+						mes "Your weight is on the edge, save a little something and talk to me again!";
+						close;
+					}
+					if (MaxWeight - Weight < 10000) {
+						next;
+						mes .npc_name$;
+						mes "Your weight is on the edge, save a little something and talk to me again!";
+						close;
+					}
+					if (!getequipisequiped(@position_id)) {
+						next;
+						mes .npc_name$;
+						mes "Wait .. You are not with Illusion equipped!";
+						close;
+					}
+					setarray .@equip_card[0], getequipcardid(@position_id,0), getequipcardid(@position_id,1), getequipcardid(@position_id,2), getequipcardid(@position_id,3);
+					if (!getequipisequiped(@position_id)) {
+						next;
+						mes .npc_name$;
+						mes "It is dangerous to remove equipment during enchant process!";
+						close;
+					}
+					set .@equip_id, getequipid(@position_id);
+						if(@position_id == 6) //Headgear
+							set .@item$, "|19209|19210|19247|19223|19344|19366|";
+						if(@position_id == 7) //Armor
+							set .@item$, "|15195|15348|";	
+						if(@position_id == 2) //Shoes
+							set .@item$, "|22133|22190|22192|";	
+						if(@position_id == 3) //Garment
+							set .@item$, "|20838|20840|20847|20923|";	
+						if(@position_id == 8) //Shield
+							set .@item$, "|28922|";							
+					if (!compare(.@item$,"|"+.@equip_id+"|")) {
+						next;
+						mes .npc_name$;
+						mes "I do not like this item. Need to equip an Illusion.";
+						close;
+					}
+					if (.@equip_card[3] == 0){
+						.@ctrl = rand(1,85);
+						//----------------slot 4-->---------------------------
+						
+						if(.@ctrl >= 1 && .@ctrl < 10) //STR
+						{
+							set .@enchant,4700+rand(4);
+						}
+						else
+							if(.@ctrl >= 10 && .@ctrl < 20) //VIT
+							{
+								set .@enchant,4740+rand(4);
+							}
+							else
+								if(.@ctrl >= 20 && .@ctrl < 30) //AGI
+								{
+									set .@enchant,4730+rand(4);
+								}
+								else
+									if(.@ctrl >= 30 && .@ctrl < 40) //INT
+									{
+										set .@enchant,4710+rand(4);
+									}
+									else
+										if(.@ctrl >= 40 && .@ctrl < 50) //DEX
+										{
+											set .@enchant,4720+rand(4);
+										}
+										else										
+											if(.@ctrl >= 50 && .@ctrl < 60) //LUK
+											{
+												set .@enchant,4750+rand(4);
+											}	
+											else
+												if(.@ctrl >= 60 && .@ctrl < 70) //MHP %
+												{
+													if(rand(2) == 1)
+														set .@enchant,4861+rand(2);
+													else
+														set .@enchant,4867+rand(2);
+												}
+												else												
+													if(.@ctrl >= 70) //The power ??
+													{
+														.@ctrl2 = rand(1,6);
+														if(.@ctrl2 == 1)
+															set .@enchant,4994+rand(2);
+														else	
+															if(.@ctrl2 == 2)
+																set .@enchant,4997+rand(2);
+															else	
+																if(.@ctrl2 == 3)
+																	set .@enchant,29000+rand(2);
+																else	
+																	if(.@ctrl2 == 4)
+																		set .@enchant,29003+rand(2);
+																	else	
+																		if(.@ctrl2 == 5)
+																			set .@enchant,29006+rand(2);
+																		else
+																			if(.@ctrl2 == 6)
+																				set .@enchant,29009+rand(2);								
+													}
+
+						
+						set .@equip_refine, getequiprefinerycnt(@position_id);
+						
+						// anti-hack
+						if (callfunc("F_IsEquipIDHack", @position_id, .@equip_id) ||
+							callfunc("F_IsEquipCardHack", @position_id, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]))
+							close;
+						set .@equip_id, getequipid(@position_id);
+						if(@position_id == 6) //Headgear
+							set .@item$, "|19209|19210|19247|19223|19344|19366|";
+						if(@position_id == 7) //Armor
+							set .@item$, "|15195|15348|";	
+						if(@position_id == 2) //Shoes
+							set .@item$, "|22133|22190|22192|";	
+						if(@position_id == 3) //Garment
+							set .@item$, "|20838|20840|20847|20923|";	
+						if(@position_id == 8) //Shield
+							set .@item$, "|28922|";
+						if (!compare(.@item$,"|"+.@equip_id+"|")) {
+							mes "I do not like this item. Need to equip an Illusion.";
+							close;
+						}
+						setarray .@equip_card[0], getequipcardid(@position_id,0), getequipcardid(@position_id,1), getequipcardid(@position_id,2), getequipcardid(@position_id,3);
+						if (.@equip_card[3] != 0) close;
+						if(countitem(25271) >= 5 && Zeny >= 10000){
+							//-------Teste FALHA----------------
+							//set .@i, rand(1,100);
+							//if (.@i > 95) { delitem 25271,5; delequip .@part; specialeffect 155; mes "Falhou..."; close;}
+							//------------------------------------
+							delitem 25271,5;
+							Zeny = Zeny - 10000;
+							delequip @position_id;
+							getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@equip_card[2],.@enchant;
+							//mes "Success!";
+							specialeffect2 154;
+							next; mes .npc_name$; mes "Ready. Work is done now.";
+							close;
+						}
+						mes "You do not have 5x "+getitemname(25271)+" or 10.000z.";
+						close;
+					}
+//-------------------------------------------------------------------------------------
+
+					if (.@equip_card[2] == 0){
+						.@ctrl = rand(1,85);
+						//----------------slot 3-->--1-2-3-4-------------------------
+						
+						if(.@ctrl >= 1 && .@ctrl < 10) //STR
+						{
+							set .@enchant,4700+rand(4);
+						}
+						else
+							if(.@ctrl >= 10 && .@ctrl < 20) //VIT
+							{
+								set .@enchant,4740+rand(4);
+							}
+							else
+								if(.@ctrl >= 20 && .@ctrl < 30) //AGI
+								{
+									set .@enchant,4730+rand(4);
+								}
+								else
+									if(.@ctrl >= 30 && .@ctrl < 40) //INT
+									{
+										set .@enchant,4710+rand(4);
+									}
+									else
+										if(.@ctrl >= 40 && .@ctrl < 50) //DEX
+										{
+											set .@enchant,4720+rand(4);
+										}
+										else										
+											if(.@ctrl >= 50 && .@ctrl < 60) //LUK
+											{
+												set .@enchant,4750+rand(4);
+											}	
+											else
+												if(.@ctrl >= 60 && .@ctrl < 70) //MHP %
+												{
+													if(rand(2) == 1)
+														set .@enchant,4861+rand(2);
+													else
+														set .@enchant,4867+rand(2);
+												}
+												else												
+													if(.@ctrl >= 70) //The power ??
+													{
+														.@ctrl2 = rand(1,6);
+														if(.@ctrl2 == 1)
+															set .@enchant,4994+rand(2);
+														else	
+															if(.@ctrl2 == 2)
+																set .@enchant,4997+rand(2);
+															else	
+																if(.@ctrl2 == 3)
+																	set .@enchant,29000+rand(2);
+																else	
+																	if(.@ctrl2 == 4)
+																		set .@enchant,29003+rand(2);
+																	else	
+																		if(.@ctrl2 == 5)
+																			set .@enchant,29006+rand(2);
+																		else
+																			if(.@ctrl2 == 6)
+																				set .@enchant,29009+rand(2);								
+													}
+
+						
+						set .@equip_refine, getequiprefinerycnt(@position_id);
+						
+						// anti-hack
+						if (callfunc("F_IsEquipIDHack", @position_id, .@equip_id) ||
+							callfunc("F_IsEquipCardHack", @position_id, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]))
+							close;
+						set .@equip_id, getequipid(@position_id);
+						if(@position_id == 6) //Headgear
+							set .@item$, "|19209|19210|19247|19223|19344|19366|";
+						if(@position_id == 7) //Armor
+							set .@item$, "|15195|15348|";	
+						if(@position_id == 2) //Shoes
+							set .@item$, "|22133|22190|22192|";	
+						if(@position_id == 3) //Garment
+							set .@item$, "|20838|20840|20847|20923|";	
+						if(@position_id == 8) //Shield
+							set .@item$, "|28922|";
+						if (!compare(.@item$,"|"+.@equip_id+"|")) {
+							mes "I do not like this item. Need to equip an Illusion.";
+							close;
+						}
+						setarray .@equip_card[0], getequipcardid(@position_id,0), getequipcardid(@position_id,1), getequipcardid(@position_id,2), getequipcardid(@position_id,3);
+						if (.@equip_card[2] != 0) close;
+						if(countitem(25271) >= 5 && Zeny >= 10000){
+							//-------Teste FALHA----------------
+							//set .@i, rand(1,100);
+							//if (.@i > 95) { delitem 25271,5; delequip .@part; specialeffect 155; mes "Falhou..."; close;}
+							//------------------------------------
+							delitem 25271,5;
+							Zeny = Zeny - 10000;
+							delequip @position_id;
+							getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@enchant,.@equip_card[3];
+							////mes "Success!";
+							specialeffect2 154;
+							
+							next; mes .npc_name$; mes "Ready. Work is done now.";
+							close;
+						}
+						mes "You do not have 5x "+getitemname(25271)+" or 10.000z.";
+						close;
+					}
+
+
+			
+			close;
+			
+			
+		case 3: //Illusion Reset Menu
+			switch(select("~ Right Hand Weapons:~ Armor:~ Shoes:~ Garment:~ Helm:~ Shield:~ Accessory Left"))
+			{
+				case 1:
+					@position_id = 9;
+					break;
+				case 2:
+					@position_id = 7;
+					break;
+				case 3:
+					@position_id = 2;
+					break;
+				case 4:
+					@position_id = 3;
+					break;
+				case 5:
+					@position_id = 6;
+					break;
+				case 6:
+					@position_id = 8;
+					break;
+				case 7:
+					@position_id = 1;
+					break;					
+			}
 				next;
-				mes .@npc$,
-					"Are you sure that you want to continue?";
-				next;
-				if(select("No. Cancel.", "Yes. I'm sure.") == 1){
-					mes .@npc$,
-						"Alright, come back when you're confidant.";
-					close;
+				mes .npc_name$;
+				mes "The removal of the enchantment and success rate depends on the cost. What would you like to do?";
+				switch(select("Back later:10k z (50%):20k z (60%):30k z (70%):40k z (80%):50kz (90%):1kk z +10 Stones (100%)"))
+				{
+					case 1:
+						close;
+					case 2:
+						@chance = 50;
+						@multip = 1;
+						break;
+					case 3:
+						@chance = 60;
+						@multip = 2;
+						break;
+					case 4:
+						@chance = 70;
+						@multip = 3;
+						break;
+					case 5:
+						@chance = 80;
+						@multip = 4;
+						break;
+					case 6:
+						@chance = 90;
+						@multip = 5;
+						break;
+					case 7:
+						@chance = 100;
+						break;						
 				}
-			}
-			
-			mes .@npc$,
-				"This will cost:";
-			if(.@p == 6)
-				mes .@amt + " Illusion Stones.";
-			else
-				mes F_InsertComma(.@amt) + " Zeny";
-			next;
-			
-			if(select("Cancel.", "Continue.") == 1){
-				mes .@npc$,
-					"Alright, come back when you're confidant.";
-				close;
-			}
-			
-			if(.@p == 6){
-				if(.@amt > countitem(25271)){
-					mes .@npc$,
-						"You don't have "+.@amt+" Illusion Stones.";
-					close;
-				}
-				delitem 25271,.@amt;
-			}else{
-				if(.@amt > Zeny){
-					mes .@npc$,
-						"You don't have enough Zeny.",
-						"You require " + F_InsertComma(.@amt) + " zeny";
-					close;
-				}
-				Zeny -= .@amt;
-			}
-			
-			// anti-hack
-			if (callfunc("F_IsEquipIDHack", .@slot, .@equip_id) || callfunc("F_IsEquipCardHack", .@slot, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]) || 
-				callfunc("F_IsEquipRefineHack", .@slot, .@equip_refine))
-				close;
-				
-			.@c = rand(100);
-			if(.@chance >= .@c){
-				specialeffect2 EF_REPAIRWEAPON;
-				delequip .@slot;
-				mes .@npc$;
-				mes "The process was a success!";
-				getitem2 .@equip_id,1,1,.@equip_refine,0,.@card[0],.@card[1],0,0;
-				close;
-			}
-			
-			specialeffect2 EF_REFINEFAIL;
-			delequip .@slot;
-			mes .@npc$;
-			mes "Sorry, but it seems I didn't put much effort into the process...";
-		close;
+
+					if (checkweight(1201,1) == 0) {
+						mes "Your weight is on the edge, save a little something and talk to me again!";
+						close;
+					}
+					if (MaxWeight - Weight < 10000) {
+						mes "Your weight is on the edge, save a little something and talk to me again!";
+						close;
+					}
+					if (!getequipisequiped(@position_id)) {
+						mes "Wait .. You are not with Illusion equipped!";
+						close;
+					}
+					setarray .@equip_card[0], getequipcardid(@position_id,0), getequipcardid(@position_id,1), getequipcardid(@position_id,2), getequipcardid(@position_id,3);
+					if (!getequipisequiped(@position_id)) {
+						mes "It is dangerous to remove equipment during enchant process!";
+						close;
+					}
+						set .@equip_id, getequipid(@position_id);		
+						set .@equip_refine, getequiprefinerycnt(@position_id);
+						
+						// anti-hack
+						if (callfunc("F_IsEquipIDHack", @position_id, .@equip_id) ||
+							callfunc("F_IsEquipCardHack", @position_id, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]))
+							close;
+						set .@item$, "|19209|19210|19247|19223|19344|19366|15195|20838|22133|20840|28023|28508|28509|20847|28922|19344|22190|15348|20923|22192|";
+						
+						if (!compare(.@item$,"|"+.@equip_id+"|")) {
+							mes "I do not like this item. Need to equip an Illusion.";
+							close;
+						}
+						setarray .@equip_card[0], getequipcardid(@position_id,0), getequipcardid(@position_id,1), getequipcardid(@position_id,2), getequipcardid(@position_id,3);
+						//if (.@equip_card[2] != 0) close;
+						if(@chance == 100)
+						{
+							if(countitem(25271) >= 10 && Zeny >= 1000000){
+								delitem 25271,10;
+								Zeny = Zeny - 1000000;
+								delequip @position_id;
+								getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],0,0;
+								//mes "Success!";
+								specialeffect2 154;
+								next; mes .npc_name$; mes "Ready. Work is done now.";
+								close;
+							
+							}
+							mes "You do not have 10x "+getitemname(25271)+" or 1.000.000z.";
+							close;	
+						}				
+						else
+						{
+							if(Zeny >= 10000*@multip){
+								//-------Teste FALHA----------------
+								set .@i, rand(1,100);
+								if (.@i > @chance) { Zeny = Zeny - 10000*@multip; delequip @position_id; specialeffect 155; mes "Failed ..."; close;}
+								//------------------------------------
+								Zeny = Zeny - 10000*@multip;
+								delequip @position_id;
+								getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],0,0;
+								//mes "Success!";
+								specialeffect2 154;
+								next; mes .npc_name$; mes "Ready. Work is done now.";
+								close;
+							}
+							mes "You do not have "+@multip*10+".000z.";
+							close;	
+						}
+					
+			close;
 	}
 	end;
-OnInit:
-	.costStones = 5;
-	setarray .MeleeWeaponIds,	28762,1846,28745,13337,13469,28022,
-								16065,16063,28725,32005,28023,26007,
-								21050,1326,13338;
-								
-	setarray .RangeWeaponIds,	18149,28254,28244,18174;
-								
-	setarray .MagicWeaponIds,	28612,26109,2051,28626,2039;
-	setarray .AccessoryIds,		28508,28509;
-	setarray .ArmorIds,			15348,22192,15195,22133,20840,
-								19210,20838,19209,28922,20847,
-								19223,22190,19344;
-	
-	setarray .AccessoryEnchants,4795,4796,4797,4798,	//HP 100~400
-								4928,4870,4800,4871,	//SP 10~75
-								4700,4701,4702,4703,	//STR 1~4
-								4730,4731,4732,4733,	//AGI 1~4
-								4740,4741,4742,4743,	//VIT 1~4
-								4710,4711,4712,4713,	//INT 1~4
-								4720,4721,4722,4723,	//DEX 1~4
-								4750,4751,4752,4753;	//LUK 1~4
-	
-	setarray .ArmorEnchants,	4861,4862,4863,4864,	//Max HP 1~4%
-								4993,29208,4992,29210,	//HP/SP Absorption  1~2%
-								4994,4995,4997,4998,	//strength/agility Lv 1~2
-								29009,29010,29000,29001,//Vitality/Intellect Lv 1~2
-								29003,29004,29006,29007,//Dexterity/Luck Lv 1~2
-								4700,4701,4702,4703,	//STR 1~4
-								4730,4731,4732,4733,	//AGI 1~4
-								4740,4741,4742,4743,	//VIT 1~4
-								4710,4711,4712,4713,	//INT 1~4
-								4720,4721,4722,4723,	//DEX 1~4
-								4750,4751,4752,4753;	//LUK 1~4
-								
-	setarray .MeleeWeaponEn,	4811,4810,4809,4808,4820,		//Fighting Spirit 1~5
-								29081,29082,29083,29084,29085,	//Acute Lv 1~5
-								29061,29062,29063,29064,29065,	//Mettle Lv 1~5
-								4807,4842,						//ASPD 1 2
-								4700,4701,4702,4703,			//STR 1~4
-								4720,4721,4722,4723,			//DEX 1~4
-								4750,4751,4752,4753;			//LUK 1~4
-	
-	setarray .RangeWeaponEn,	4832,4833,4834,4835,4836,		// Expert Archer 1~5
-								29091,29092,29093,29094,29095,	//Master Archer Lv 1~5
-								29071,29072,29073,29074,29075,	//Magic Essence Lv 1~5
-								4807,4842,						//ASPD 1 2
-								4730,4731,4732,4733,			//AGI 1~4
-								4720,4721,4722,4723,			//DEX 1~4
-								4750,4751,4752,4753;			//LUK 1~4
-								
-	setarray .MagicWeaponEn,	4815,4814,4813,4812,4826,	//Spell 1~5
-								4805,4850,					// Archbishop Lv 1~2
-								4710,4711,4712,4713,		//INT 1~4
-								4720,4721,4722,4723,		//DEX 1~4
-								4750,4751,4752,4753;		//LUK 1~4
-end;
+	OnInit:
+		.npc_name$ = "[ Illusion of Logging House ]";
+	end;
 }

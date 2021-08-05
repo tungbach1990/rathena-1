@@ -1283,6 +1283,7 @@ OnSpawn:
 		if(checkquest(16363,HUNTING) == 2){
 			getitem 25669,1;
 			getitem 25723,1;
+			getitem 7929,2;
 			erasequest 16363;
 		}
 		warp "sp_cor",111,125;

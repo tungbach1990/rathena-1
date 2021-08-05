@@ -1399,7 +1399,7 @@ end;
 			completequest 12496;
 			setquest 12497;
 			completequest 12497;
-			getitem 1000103,20;
+			callfunc "getitemclone",1000103,20;
 		}
 		specialeffect EF_MARKING_USE_CHANGEMONSTER;
 		end;
@@ -1421,8 +1421,9 @@ end;
 			completequest 12496;
 			setquest 12497;
 			completequest 12497;
-			getitem 1000103,20;
+			callfunc "getitemclone",1000103,20;
 		}
+		callfunc "getitemclone",7929,10;
 		warp "ba_maison",136,309;
 		end;
 	}
@@ -1970,7 +1971,7 @@ end;
 			mes "Since they will recover after some time, I think you will need to continue fighting them until Master Varmundt returns.";
 			close2;
 			erasequest .@quest;
-			getitem 1000103,.@amount;
+			callfunc "getitemclone",1000103,.@amount;
 
 		}
 		warp "ba_maison",136,309;

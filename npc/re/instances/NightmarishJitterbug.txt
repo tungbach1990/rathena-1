@@ -3996,7 +3996,8 @@ OnStop:
 					18122,	// Gigantic_Bow
 					18123	// Bow_Of_Storm
 				 );
-				getitem .@item_id,1;
+				callfunc "getitemclone",.@item_id,1;
+				callfunc "getitemclone",7929,10;
 				mes "[Mingmin]";
 				mes "Enjoy your item. Bring more Jitterbug Teeth if you want more items.";
 			}

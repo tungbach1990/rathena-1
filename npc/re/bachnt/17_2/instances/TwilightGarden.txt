@@ -807,6 +807,7 @@ end;
 	end;
 	
 OnTouch:
+	callfunc "getitemclone",7929,10;
 	warp "ba_maison",33,220;
 end;
 }
@@ -961,7 +962,7 @@ end;
 			mes "I've recovered the core.";
 			mes "I'll let Alpha know later so she can retrieve the doll's body.";
 			set_instance_var("broken_beta_" + .@id,1);
-			getitem 1000226,1;
+			callfunc "getitemclone",1000226,1;
 			end;
 		}
 	}

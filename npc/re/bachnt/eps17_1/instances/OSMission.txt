@@ -529,6 +529,7 @@ OnInstanceInit:
 			'os_a = 3;
 			completequest 12452;
 			getitem 25668,1;
+			getitem 7929,2;
 			getitem 25723,5;
 			getexp 3000000,3000000;
 			end;

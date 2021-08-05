@@ -509,14 +509,14 @@ glast_01,241,296,5	script	OSC1198#edda_fogh	2_DROP_MACHINE,{
 	progressbar_npc "00FF00",2;
 	delequip .@slot;
 	mes "Your equipment has been succesfully processed.";
-	getitem .@stone,rand(.@min,.@max);
+	callfunc "getitemclone",.@stone,rand(.@min,.@max);
 	if(rand(1,100) <= .chance){
 		next;
 		.@costume_id = .drooping_id[rand(getarraysize(.drooping_id))];
 		mes "[ OSC1198 ]";
 		mes "*Pi-pi-ping*";
 		mes "It's your lucky day... I have succesfully created a memento out of the equipment that you recycled.";
-		getitem .@costume_id,1;
+		callfunc "getitemclone",.@costume_id,1;
 	}
 	end;
 	
@@ -717,7 +717,7 @@ glast_01,245,296,5	script	OSC1052#edda_fogh	2_VENDING_MACHINE1,{
 		delitem .@requirement[.@i],.@requirement[.@i+1];
 	mes "[ OSC1052 ]"; 
 	mes "Here's your <ITEM>King Schmidt's" + .@item$ + "<INFO>" + .@item_id + "</INFO></ITEM>";
-	getitem .@item_id,1;
+	callfunc "getitemclone",.@item_id,1;
 	end;
 	
 OnInit:
@@ -2150,10 +2150,12 @@ end;
 	mes "Oh, I think this dimension will start to collapse. Let's get out first.";
 	if(checkquest(.@var,HUNTING) == 2){
 		if(!.@mode)
-			getitem 25739,9;
+			callfunc "getitemclone",25739,9;
+			callfunc "getitemclone",7929,10;
 		else {
-			getitem 25739,5;
-			getitem 25740,6;
+			callfunc "getitemclone",25739,5;
+			callfunc "getitemclone",25740,6;
+			callfunc "getitemclone",7929,30;
 		}
 		erasequest .@var;
 	}

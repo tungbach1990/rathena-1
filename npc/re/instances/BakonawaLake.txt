@@ -442,7 +442,7 @@ OnTimer420000:	callsub OnMobSpawn,40;
 OnTimer480000:	callsub OnMobSpawn,45;
 OnTimer540000:	callsub OnMobSpawn,50;
 OnTimer600000:
-	getitem 7929,10;
+	callfunc "getitemclone",7929,10;
 	killmonster instance_mapname("1@ma_b"),instance_npcname("#Bakonawan3-1")+"::OnMyMobDead";
 	stopnpctimer;
 	end;
@@ -481,9 +481,9 @@ OnMobSpawn:
 		mes "[Taho]";
 		mes "This was found from Bakonawa's corpse. It would be better if you take this.";
 		if (!VIP_SCRIPT || vip_status(VIP_STATUS_ACTIVE))
-			getitem 6499,7; //Ancient_Grudge
+			callfunc "getitemclone",6499,7; //Ancient_Grudge
 		else
-			getitem 6499,5; //Ancient_Grudge
+			callfunc "getitemclone",6499,5; //Ancient_Grudge
 		getexp 0,100000;
 		next;
 	}

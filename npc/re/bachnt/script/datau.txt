@@ -114,6 +114,7 @@ OnInit:
 	bartershopadditem "DragonShop","22208:99:1000000","1035:0:30","1036:0:60","1037:0:40","25765:0:1","25766:0:8","5452:0:1";
 	end;
 }
+/*
 
 prontera,155,174,5	script	Daﬁ T‚“u	4_M_RACHOLD1,{
 
@@ -931,7 +932,7 @@ OnInit:
 	
 	end;
 }
-
+*/
 
 payon,166,110,5	duplicate(Daﬁ T‚“u)	Daﬁ T‚“u#1	4_M_RACHOLD1
 morocc,149,97,5	duplicate(Daﬁ T‚“u)	Daﬁ T‚“u#2	4_M_RACHOLD1

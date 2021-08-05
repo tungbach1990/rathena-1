@@ -579,7 +579,7 @@ OnTouch:
 	
 OnMobDead:
 	.@map$ = 'ftt_map$;
-	getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+	callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 	enablenpc instance_npcname("#r_mob_trig01");
 	mapannounce .@map$,"Silk: Ahhhh!!! Save the automatic doll!!",bc_map,"0xFFFF33";
 	sleep 1500;
@@ -663,7 +663,7 @@ OnMobDead:
 	.@label$ = instance_npcname("#r_mob_trig03") + "::OnMobDead";
 	.@count = mobcount( 'ftt_map$, .@label$ );
 	if (.@count == 0){
-		getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+		callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 		enablenpc instance_npcname("#r_mob_trig04");
 		disablenpc instance_npcname("#r_mob_trig03");
 		end;
@@ -691,7 +691,7 @@ OnMobDead:
 	.@label$ = instance_npcname("#r_mob_trig04") + "::OnMobDead";
 	.@count = mobcount( 'ftt_map$, .@label$ );
 	if (.@count == 0){
-		getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+		callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 		enablenpc instance_npcname("#r_mob_trig05");
 		disablenpc instance_npcname("#r_mob_trig04");
 		end;
@@ -719,7 +719,7 @@ OnMobDead:
 	.@label$ = instance_npcname("#r_mob_trig05") + "::OnMobDead";
 	.@count = mobcount( 'ftt_map$, .@label$ );
 	if (.@count == 0){
-		getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+		callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 		hideoffnpc instance_npcname("Wooden Box#10");
 		disablenpc instance_npcname("#r_mob_trig05");
 		end;
@@ -751,7 +751,7 @@ OnTouch:
 	
 OnMobDead:
 	.@map$ = 'ftt_map$;
-	getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+	callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 	enablenpc instance_npcname("#l_mob_trig01");
 	mapannounce .@map$,"Silk: Ahhhh!!! Save the automatic doll!!",bc_map,"0xFFFF33";
 	sleep 1500;
@@ -835,7 +835,7 @@ OnMobDead:
 	.@label$ = instance_npcname("#l_mob_trig03") + "::OnMobDead";
 	.@count = mobcount( 'ftt_map$, .@label$ );
 	if (.@count == 0){
-		getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+		callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 		enablenpc instance_npcname("#l_mob_trig04");
 		disablenpc instance_npcname("#l_mob_trig03");
 		end;
@@ -888,7 +888,7 @@ OnMobDead:
 	.@label$ = instance_npcname("#l_mob_trig05") + "::OnMobDead";
 	.@count = mobcount( 'ftt_map$, .@label$ );
 	if (.@count == 0){
-		getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+		callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 		disablenpc instance_npcname("#l_mob_trig05");
 		hideoffnpc instance_npcname("Wooden Box#10");
 		end;
@@ -962,7 +962,7 @@ OnTouch:
 
 OnBossDead:
 	.@map$ = 'ftt_map$;
-	getitem 1000098,1;
+	callfunc "getitemclone",1000098,1;
 	npctalk "It's doneeeee!!",instance_npcname("Wooden Box#10-1"),bc_area;  // 13429
 	'fft_done = 1;
 	sleep 2000;
@@ -1029,10 +1029,10 @@ OnMobDead:
 				if(.@p_tail) delitem 1000097,.@p_tail;
 				if(.@boss_tail) delitem 1000098,.@boss_tail;
 				if(.@total_tail < 10) {
-					getitem 1000103,2;
+					callfunc "getitemclone",1000103,2;
 					erasequest 8588;
 				} else {
-					getitem 1000103,4;
+					callfunc "getitemclone",1000103,4;
 					erasequest 8588;
 				}
 				close;
@@ -1044,6 +1044,7 @@ OnMobDead:
 			if(select("Go out:Don't go out") == 2) close;
 			mes "[Silk]";
 			mes "Even if I have finished reporting, you should say something to Luina. Thank you for your hard work. Hmm... so, see you next time!";
+			callfunc "getitemclone",7929,10;
 			warp "ba_maison",308,202;
 			close;
 			end;
@@ -1120,31 +1121,31 @@ OnMobDead:
 	if (.@count == 0){
 		switch('fftp){
 			case 2:
-				getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+				callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 				hideonnpc instance_npcname("Wooden Box#01");
 				hideoffnpc instance_npcname("Silk#01");
 				end;
 			case 4:
-				getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+				callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 				hideonnpc instance_npcname("Wooden Box#02");
 				hideoffnpc instance_npcname("Silk#02");
 				end;
 			case 6:
-				getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+				callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 				npctalk "Silk: !!",instance_npcname("Silk#03"),bc_area; // 13413
 				hideonnpc instance_npcname("Wooden Box#03");
 				hideoffnpc instance_npcname("Silk#03");
 				sleep 1000;
 				end;
 			case 8:
-				getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+				callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 				npctalk "Silk: ...Oops...",instance_npcname("Silk#04"),bc_area;  // 13415
 				hideonnpc instance_npcname("Wooden Box#04");
 				hideoffnpc instance_npcname("Silk#04");
 				sleep 1000;
 				end;
 			case 10:
-				getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+				callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 				npctalk "Silk: Are you finished!?",instance_npcname("Silk#05"),bc_area;  // 13417
 				hideonnpc instance_npcname("Wooden Box#05");
 				hideoffnpc instance_npcname("Silk#05");
@@ -1152,7 +1153,7 @@ OnMobDead:
 				npctalk "Silk: ............What's the difference!",instance_npcname("Silk#05"),bc_area;  // 13417
 				end;
 			case 12:
-				getitem callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
+				callfunc "getitemclone",callfunc("F_Rand",1000094,1000095,1000096,1000097),1;
 				npctalk "Silk: ...I am okay~~~",instance_npcname("Silk#06"),bc_area;  // 13419
 				hideonnpc instance_npcname("Wooden Box#06");
 				hideoffnpc instance_npcname("Silk#06");

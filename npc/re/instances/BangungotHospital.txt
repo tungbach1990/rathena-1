@@ -165,9 +165,9 @@ ma_dun01,147,10,5	script	Nurse#ma_dun01	4_F_NURSE,{
 			callsub S_Complete, true;
 			getexp 500000,0;
 			if (VIP_SCRIPT == 0 || vip_status(VIP_STATUS_ACTIVE))
-				getitem 6499,7;// Ancient_Grudge
+				callfunc "getitemclone",6499,7;// Ancient_Grudge
 			else
-				getitem 6499,5;
+				callfunc "getitemclone",6499,5;
 			close2;
 			cutin "",255;
 			end;
@@ -965,7 +965,7 @@ OnInstanceInit:
 	'disablenpc = 0;
 	'map_name$ = instance_mapname("1@ma_h");
 	monster 'map_name$,131,62,"Bangungot",2318,1;
-	getitem 7929,10;
+	callfunc "getitemclone",7929,10;
 	end;
 }
 

@@ -419,6 +419,7 @@ OnBossKill:
 		erasequest 12454;
 		getexp 150000,150000;
 		getitem 25669,5;
+		getitem 7929,2;
 		getitem 25723,1;
 		next;
 		mes "[ Operation Officer ]";

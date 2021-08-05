@@ -2801,7 +2801,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 						ip = session[ptt->data[i].sd->fd]->client_addr;
 						ip_addr = ip2str(ip, NULL);
 						ip_array[i] = ip_addr;
-						ShowWarning("IP %s \n",ip_addr);
+						//ShowWarning("IP %s \n",ip_addr);
 					}
 					ptmemcount ++;
 					lv=ptt->party.member[i].lv;
@@ -2819,7 +2819,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 			}
 		}
 		//ShowDebug(" Im out of IF 2 \n");
-		ShowWarning("clone %d \n",clone);
+		//ShowWarning("clone %d \n",clone);
 		if (sd && // check BL_PC
 			clone < 3 && // check clone
 				ptmemcount > 1 &&

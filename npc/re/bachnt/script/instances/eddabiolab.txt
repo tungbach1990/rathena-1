@@ -1273,8 +1273,8 @@ end;
 	} else {
 		mes "Thank you !!!!!!";
 		next;
-		getitem 25786,9;
-		getitem 25787,15;
+		callfunc "getitemclone",25786,9;
+		callfunc "getitemclone",25787,15;
 		warp "prontera",150,100;
 	}
 end;
@@ -1286,20 +1286,20 @@ OnBossDead:
 	.instances_name5$ = "Edda Biolab Challenge";
 	.@md_name$ = instance_live_info(ILI_NAME);
 	if (.@md_name$ == .instances_name1$){
-		getitem 7929,20;
-		getitem 23992,1;
+		callfunc "getitemclone",7929,20;
+		callfunc "getitemclone",23992,1;
 	} else if (.@md_name$ == .instances_name2$){
-		getitem 7929,40;
-		getitem 23992,1;
+		callfunc "getitemclone",7929,40;
+		callfunc "getitemclone",23992,1;
 	} else if (.@md_name$ == .instances_name3$){
-		getitem 7929,60;
-		getitem 23992,1;
+		callfunc "getitemclone",7929,60;
+		callfunc "getitemclone",23992,1;
 	} else if (.@md_name$ == .instances_name4$){
-		getitem 7929,80;
-		getitem 23992,1;
+		callfunc "getitemclone",7929,80;
+		callfunc "getitemclone",23992,1;
 	} else if (.@md_name$ == .instances_name5$){
-		getitem 7929,100;
-		getitem 23992,1;
+		callfunc "getitemclone",7929,100;
+		callfunc "getitemclone",23992,1;
 	}
 	killmonster 'mapname2$,strnpcinfo(3) + "::OnSlaveDead";	
 	addrid(4,0,31,45,68,84);
