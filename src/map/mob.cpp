@@ -2819,7 +2819,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 			}
 		}
 		//ShowDebug(" Im out of IF 2 \n");
-
+		ShowWarning("clone %d \n",clone);
 		if (sd && // check BL_PC
 			clone < 3 && // check clone
 				ptmemcount > 1 &&
