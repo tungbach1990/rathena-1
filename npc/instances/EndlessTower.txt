@@ -2166,6 +2166,7 @@ OnMyMobDead:
 	mes "[Lost Souls]";
 	mes "Farewell, young adventurer. I wish you good luck.";
 	close2;
+	callfunc "getitemclone",7929,100;
 	warp "alberta",223,36;
 	end;
 

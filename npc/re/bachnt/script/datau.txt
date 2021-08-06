@@ -491,7 +491,8 @@ OnCompleteDT:
 			break;
 	}
 
-*/
+*/ 
+/*
 		.@reward = 1;
 		.@reward$ = "Zeny ";
 	}
@@ -659,6 +660,7 @@ end;
                 	query_sql( "UPDATE `datau_doing` SET `progress`="+.@progress +" WHERE `id`= '" + .@qid +"'" );
         	}
 		*/
+/*
 		if ((@id != killedgid) && compare(strtolower(getmonsterinfo(killedrid, MOB_NAME)),strtolower(@tenquai$))){
 			
 			@tinhtrang = @tinhtrang + 1;
@@ -689,6 +691,7 @@ end;
 			//dispbottom "Party baòn ðaÞ giêìt ðýõòc " + @tinhtrang + "/" + @soluong + " Quaìi vâòt coì " + @tenquai$ + " trong tên";
 			//break;
 			//end;
+/*
 			if ((@nhannvu == 1) && (@id != .newkillgedid) && compare(.killmobname$,strtolower(@tenquai$))){
 	                        @tinhtrang = @tinhtrang + 1;
                         	dispbottom "Party baòn ðaÞ giêìt ðýõòc " + @tinhtrang + "/" + @soluong + " Quaìi vâòt coì " + @tenquai$ + " trong tên";

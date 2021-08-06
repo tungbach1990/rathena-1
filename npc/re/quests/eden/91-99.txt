@@ -100,7 +100,7 @@ moc_para01,48,177,3	script	91-99 Mission Board	857,{
 				mes ":: You've got a";
 				mes ":: salutary experience.";
 				erasequest .@quest;
-				getexp .@exp[.@quest-4181],0;
+				getexp .@exp[.@quest-4181],.@exp[.@quest-4181];
 				close;
 			}
 		}

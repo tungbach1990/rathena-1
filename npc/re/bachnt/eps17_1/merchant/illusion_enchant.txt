@@ -1,6 +1,6 @@
 // @reloadnpcfile npc/realro/utilidades/illusion_enchant.txt
 
-prontera,90,115,5	script	Illusion of Logging	677,{
+prontera,164,163,4	script	Illusion of Logging	677,{
 	disable_items;
 	//if(getgroupid()< 99) end;
 	mes .npc_name$;

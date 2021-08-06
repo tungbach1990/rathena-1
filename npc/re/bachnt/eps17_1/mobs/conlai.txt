@@ -104,7 +104,7 @@ mag_dun03,0,0	monster	Rigid Explosion	20376,20,5000
 mag_dun03,0,0	monster	Rigid Kaho	20377,20,5000
 mag_dun03,0,0	monster	Rigid Lava Golem	20378,10,5000
 mag_dun03,0,0,0,0	boss_monster	Rigid Muspellskoll	20419,1,7200000,600000,1
-
+mag_dun02,247,65,3	warp	warptomag3	2,2,mag_dun03,124,110
 
 /*
 anexus,0,0	monster	Dark Raydric	20577,40,3000
