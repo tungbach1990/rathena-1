@@ -84629,7 +84629,6 @@ Body:
         Rate: 30
       - Item: Seed_Of_Yggdrasil
         Rate: 30
-<<<<<<< HEAD
       - Item: Oridecon_Stone
         Rate: 150
       - Item: Oridecon
@@ -84637,12 +84636,10 @@ Body:
       - Item: Build_Up_Potion_SS
         Rate: 200
         StealProtected: true
-=======
       - Item: Build_Up_Potion_SC
         Rate: 200
       - Item: Oridecon
         Rate: 80
->>>>>>> 2f311bd1ef6abf0de642f93690eb37bebbb34d14
       - Item: Matter_Kimera_Card
         Rate: 1
         StealProtected: true

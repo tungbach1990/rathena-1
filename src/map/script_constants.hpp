@@ -5299,6 +5299,9 @@
 	export_constant(IG_STONE_EXCHANGE_BOX);
 	export_constant(IG_CUSTOM_CARDALBUM_MVP);
 	export_constant(IG_CUSTOM_CARDALBUM_NOR);
+	export_constant(IG_XMAS_PACKAGE_14);
+	export_constant(IG_EASTER_EGG);
+	export_constant(IG_PITAPAT_BOX);
 
 	/* unit stop walking */
 	export_constant(USW_NONE);
