@@ -505,22 +505,26 @@ Anexus: Restrict("RE");
 // --------------------------------------------------
         New_maps:
 // --------------------------------------------------
-menu	//"Special border area OS",sp_os,
-	//"Rudus F1",sp_rudus,
-	//"Rudus F2",sp_rudus2,
-	//"Rudus F3",sp_rudus3,
+menu	"Special border area OS",sp_os,
+	"Rudus F1",sp_rudus,
+	"Rudus F2",sp_rudus2,
+	"Rudus F3",sp_rudus3,
 	"Abyss GlastHeim",gl_cas01_,
 	"Abyss Dungeon 04",abyss_04,
 	"Einbroch Dungeon 03",ein_dun03,
 	"Odin Temple Past",odin_past;
 
 sp_os: Restrict("RE");
+if (ep_illusion >= 35)
         Go("sp_os",260,348);
 sp_rudus: Restrict("RE");
+if (ep_illusion >= 35)
         Go("sp_rudus",200,377);
 sp_rudus2: Restrict("RE");
+if (ep_illusion >= 35)
         Go("sp_rudus2",267,106);
 sp_rudus3: Restrict("RE");
+if (ep_illusion >= 35)
         Go("sp_rudus3",366,205);
 gl_cas01_: Restrict("RE");
         Go("gl_cas01_",200,29);
