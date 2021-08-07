@@ -16,6 +16,9 @@
 -	shop	NEWBIESHOP1	-1,512:-1
 -	shop	NEWBIESHOP2	-1,512:-1
 -	shop	NEWBIESHOP3	-1,512:-1
+-	exbartershop	NEWBIESHOP4	-1,9550:99:1000000-7929:0:1
+-	exbartershop	NEWBIESHOP5	-1,9550:99:1000000-7929:0:1
+-	exbartershop	NEWBIESHOP6	-1,9550:99:1000000-7929:0:1
 //-	shop	MSHOP4	-1,512:-1
 //-	shop	MSHOP5	-1,512:-1
 //-	shop	MSHOP6	-1,512:-1
@@ -27,16 +30,21 @@ prontera,147,174,5	script	Newbie Equip	984,{
 	set @s, select(.main_menu$);//:Headgears:Armors:Garments:Shoes:Shields:Cards:Misc");
 
 // --------------------------------------------------
-	if (.Currency[@s] == .zeny_id)
-	{
-		message strcharinfo(0),"This shop only accepts Zeny.";
-		dispbottom "You have "+Zeny+" Zeny.";
-	} else {
-		message strcharinfo(0),"This shop only accepts "+getitemname(.Currency[@s])+".";
-		dispbottom "You have "+countitem(.Currency[@s])+" "+getitemname(.Currency[@s])+".";
+	if (@s <= 3) { 
+		if (.Currency[@s] == .zeny_id)
+		{
+			message strcharinfo(0),"This shop only accepts Zeny.";
+			dispbottom "You have "+Zeny+" Zeny.";
+		} else {
+			message strcharinfo(0),"This shop only accepts "+getitemname(.Currency[@s])+".";
+			dispbottom "You have "+countitem(.Currency[@s])+" "+getitemname(.Currency[@s])+".";
+		}
+		callshop "NEWBIESHOP"+@s,1;
+		
+		npcshopattach "NEWBIESHOP"+@s;
+		end;
 	}
 	callshop "NEWBIESHOP"+@s,1;
-	npcshopattach "NEWBIESHOP"+@s;
 	end;
 
 OnBuyItem:
@@ -83,13 +91,157 @@ OnBuyItem:
 	end;
 
 OnInit:
+	npcshopitem "NEWBIESHOP4","100128:99:1","6919:0:10";
+    bartershopadditem "NEWBIESHOP4","450018:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450019:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450020:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450021:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450022:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450023:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450024:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450025:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450026:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450027:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450028:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450029:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450030:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450031:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450032:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450033:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450034:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450035:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450036:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450037:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450038:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450039:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450040:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450041:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450042:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450043:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450044:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450045:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450046:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450047:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450048:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450049:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450050:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450051:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450121:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","450122:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","470016:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","470017:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","480012:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","480014:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","490014:99:1","6919:0:10";
+	bartershopadditem "NEWBIESHOP4","490015:99:1","6919:0:10";
+	
+	
+	npcshopitem "NEWBIESHOP5","100129:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","100131:99:1","25155:0:5";
+	bartershopadditem "NEWBIESHOP5","100132:99:1","25155:0:5";
+	bartershopadditem "NEWBIESHOP5","100135:99:1","25155:0:5";
+	bartershopadditem "NEWBIESHOP5","100136:99:1","25155:0:5";
+	
+    bartershopadditem "NEWBIESHOP5","450052:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450053:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450054:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450055:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450056:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450057:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450058:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450059:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450060:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450061:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450062:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450063:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450064:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450065:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450066:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450067:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450068:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450069:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450070:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450071:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450072:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450073:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450074:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450075:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450076:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450077:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450078:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450079:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450080:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450081:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450082:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450083:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450084:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450085:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450123:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","450124:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","470018:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","470019:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","480016:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","480017:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","490017:99:1","25155:0:10";
+	bartershopadditem "NEWBIESHOP5","490018:99:1","25155:0:10";
+	
+	
+	npcshopitem "NEWBIESHOP6","100130:99:1","25723:0:20";
+	bartershopadditem "NEWBIESHOP6","100133:99:1","25669:0:10";
+	bartershopadditem "NEWBIESHOP6","100134:99:1","25669:0:10";
+	bartershopadditem "NEWBIESHOP6","100137:99:1","25669:0:10";
+	bartershopadditem "NEWBIESHOP6","100138:99:1","25669:0:10";
+	
+    bartershopadditem "NEWBIESHOP6","450086:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450087:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450088:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450089:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450090:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450091:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450092:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450093:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450094:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450095:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450096:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450097:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450098:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450099:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450100:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450101:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450102:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450103:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450104:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450105:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450106:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450107:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450108:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450109:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450110:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450111:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450112:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450113:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450114:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450115:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450116:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450117:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450118:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450119:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450125:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","450126:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","470020:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","470021:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","480018:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","480019:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","490019:99:1","25669:0:20";
+	bartershopadditem "NEWBIESHOP6","490020:99:1","25669:0:20";
+	
 
 // -------------------- Config 2 --------------------
 // Currency:  The ID of each shop currency,
 //    in the same order as the shops.
 // Shop order follows that of the select() call,
 //   and is formatted "ID1,Count1,ID2,Count2,..."
-	.main_menu$ = "Noblesse - 100:Imperial - 125:Grace - 150";
+	.main_menu$ = "Noblesse-100-Zeny:Imperial-125-Zeny:Grace-150-Zeny:Noblesse-100-Honor:Imperial-125-Honor:Grace-150-UnknownPart";
 	.zeny_id = 123;
 	
 // Set Price for all
