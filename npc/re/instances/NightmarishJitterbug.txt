@@ -3997,7 +3997,6 @@ OnStop:
 					18123	// Bow_Of_Storm
 				 );
 				callfunc "getitemclone",.@item_id,1;
-				callfunc "getitemclone",7929,10;
 				mes "[Mingmin]";
 				mes "Enjoy your item. Bring more Jitterbug Teeth if you want more items.";
 			}
@@ -4401,6 +4400,19 @@ OnNextIs23:
 	end;
 OnMobDead23:
 	if (mobcount('map_jtb$, 'jitterbug_main$ + "::OnMobDead23") == 0) {
+		if( getcharid(1) ) {
+                getpartymember( getcharid(1),2 );
+                getpartymember( getcharid(1),1 );
+                .@map_killer$ = strcharinfo(3);
+                .@chance = rand(10);
+                for( .@i = 0; .@i < $@partymembercount; .@i++ )
+                        if( isloggedin( $@partymemberaid[ .@i ],$@partymembercid[ .@i ] ) )
+                                if( !getmapxy( .@map$, .@x, .@y, BL_PC, rid2name( $@partymemberaid[ .@i ] ) ) && .@map$ == .@map_killer$ ) {
+                                        callfunc "getitemclone",7929,10,$@partymemberaid[ .@i ];// put ID bronze coin instead of 501
+                                        if( !.@chance )
+                                                callfunc "getitemclone",7929,10,$@partymemberaid[ .@i ];// put ID gold coin
+                                }
+        	}
 		sleep 1500;
 		donpcevent instance_npcname("Newoz#boss") + "::OnStop";
 		enablenpc instance_npcname("Newoz#24");

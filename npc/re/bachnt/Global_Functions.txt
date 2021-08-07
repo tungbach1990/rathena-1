@@ -1,38 +1,39 @@
 function	script	i100536	{
                 setarray .reward1[0],   400078,1, // Goral Crown
-                                400079,1, // Trial diadem
-                                400094,1, // Jade_Crown
-                                400095,1, // Spinel_Diadem
-                                400098,1, // Bull_Crown
-                                400099,1, // Taurus Diadem
-                                400116,1, // Celestial_Jewel_Crown
-                                400117,1, // Libra_Crown
-                                400118,1, // Saint_Crown
-                                400119,1, // Lion_Crown
-                                400120,1, // Goat_Crown
-                                400121,1, // Twin_Crown
-                                410005,1, // C_Magic_Heir_TW
-                                400057,1, // VIP_Hair_Male
-				12887,1, // Infinite Fly Wing
-				12884,1, // Infinite concentration
-				12885,1, // Infinite awake
-				12886,1, // Infinite berserk
-				400056,1, // VIP_Hair_Female
-				420010,1, // Cons_Of_Darkness
-				31907,1,  // C_PGstone_Knit_Hat_BW
-				31906,1,  // C_PGstone_Knit_Hat_PK
-				31905,1,  // C_Blanc_Neige_Prince
-				31846,1,  // C_Lovely_Ribbon_Hair
-                                6635,20,  // Bsb
-                                12103,20, // BB
-                                6225,20,  // HD Car
-                                6226,20,  // HD Bra
-                                7227,500, // TCG
-                                7929,500, // GC
-				25740,5,  // Cursed Gemstone
-				25739,5;  // Cursed crystal
-                setarray .reward2[0], 6635,2,7620,2,7619,2,6225,2,6226,2,7227,3,7929,10,17449,5,12710,5;
+	                                400079,1, // Trial diadem
+        	                        400094,1, // Jade_Crown
+                	                400095,1, // Spinel_Diadem
+                        	        400098,1, // Bull_Crown
+                                	400099,1, // Taurus Diadem
+	                                400116,1, // Celestial_Jewel_Crown
+        	                        400117,1, // Libra_Crown
+                	                400118,1, // Saint_Crown
+                        	        400119,1, // Lion_Crown
+                                	400120,1, // Goat_Crown
+	                                400121,1, // Twin_Crown
+					22869,1,  // Lucky_Roulette_Tickets	
+					7227,250, // TCG
+                                        7929,250, // GC
+					100536,250; // Holy_Darkness_Egg
+                setarray .reward2[0], 6635,2,7620,2,7619,2,6225,2,6226,2,7227,3,7929,10,17449,5,12710,5,100536,2;
                 setarray .reward3[0], 7227,1,7929,1,12883,1;
+		setarray .reward4[0], 	100536,100, // Holy_Darkness_Egg
+					410005,1, // C_Magic_Heir_TW
+        	                        400057,1, // VIP_Hair_Male
+        	                        400056,1, // VIP_Hair_Female
+	                                420010,1, // Cons_Of_Darkness
+                                	31907,1,  // C_PGstone_Knit_Hat_BW
+                        	        31906,1,  // C_PGstone_Knit_Hat_PK
+	                                6635,10,  // Bsb
+                                	12103,10, // BB
+                        	        6225,10,  // HD Car
+                	                6226,10,  // HD Bra
+        	                        7227,100, // TCG
+	                                7929,100, // GC
+					12887,1, // Infinite Fly Wing
+        	                        12884,1, // Infinite concentration
+	                                12885,1, // Infinite awake
+                                	12886,1; // Infinite berserk
 
         .chance = rand(10000);
 
@@ -40,6 +41,14 @@ function	script	i100536	{
                 .getnum = rand(getarraysize(.reward1)/2);
                 .getitem = .reward1[.getnum*2];
                 .amount = rand(1,.reward1[.getnum*2+1]);
+                 getitem  .getitem,.amount;
+                 announce "Chuìc mýÌng " + strcharinfo(0) + " nhân phâÒm bôòc phaìt nhâòn ðýõòc "+  .amount + " x "  + getitemname(.getitem),bc_all,"0xFFCE00";
+                 end;
+        }
+	if (.chance < 50){
+                .getnum = rand(getarraysize(.reward4)/2);
+                .getitem = .reward4[.getnum*2];
+                .amount = rand(1,.reward4[.getnum*2+1]);
                  getitem  .getitem,.amount;
                  announce "Chuìc mýÌng " + strcharinfo(0) + " nhân phâÒm bôòc phaìt nhâòn ðýõòc "+  .amount + " x "  + getitemname(.getitem),bc_all,"0xFFCE00";
                  end;
@@ -98,7 +107,7 @@ function	script	getitemclone	{
                         }
         //      }
         }
-        if (@clone >= 3){
+        if (@clone > 3){
                 dispbottom "Không nhâòn ðýõòc quaÌ do coì clone";
                 
         }else {

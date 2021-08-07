@@ -47,7 +47,7 @@ prontera,164,179,5	script	TGCashShop	4_F_PINKWOMAN,{
 end;
 OnInit:
 	npcshopitem "TGCardShop","25375:1:2000000","7227:0:10";
-	bartershopadditem "TGCardShop","100536:9999:100000","7227:0:1";
+	bartershopadditem "TGCardShop","100536:9999:10","7227:0:1";
 	bartershopadditem "TGCardShop","7776:99:1000000","7227:0:1";
 	bartershopadditem "TGCardShop","17162:99:1000000","7227:0:1";
 	bartershopadditem "TGCardShop","18813:99:1000000","7227:0:10";
@@ -77,12 +77,12 @@ OnInit:
 	bartershopadditem "GoldCoinShop","15346:99:1000000","7929:0:150";
 	
 	bartershopadditem "GoldCoinShop","9551:99:1000000","7929:0:1";
-	bartershopadditem "GoldCoinShop","20963:99:1000000","7929:0:150";
-	bartershopadditem "GoldCoinShop","20964:99:1000000","7929:0:150";
-	bartershopadditem "GoldCoinShop","20965:99:1000000","7929:0:150";
-	bartershopadditem "GoldCoinShop","20966:99:1000000","7929:0:150";
-	bartershopadditem "GoldCoinShop","20967:99:1000000","7929:0:150";
-	bartershopadditem "GoldCoinShop","20968:99:1000000","7929:0:150";
+	//bartershopadditem "GoldCoinShop","20963:99:1000000","7929:0:150";
+	//bartershopadditem "GoldCoinShop","20964:99:1000000","7929:0:150";
+	//bartershopadditem "GoldCoinShop","20965:99:1000000","7929:0:150";
+	//bartershopadditem "GoldCoinShop","20966:99:1000000","7929:0:150";
+	//bartershopadditem "GoldCoinShop","20967:99:1000000","7929:0:150";
+	//bartershopadditem "GoldCoinShop","20968:99:1000000","7929:0:150";
 	
 	bartershopadditem "GoldCoinShop","32237:99:1000000","7929:0:666";
 	bartershopadditem "GoldCoinShop","28424:99:1000000","7929:0:200";

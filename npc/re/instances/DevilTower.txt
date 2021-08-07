@@ -1864,7 +1864,7 @@ OnTimer55500:
 		mes "^4d4dffLoki, Guillotine Cross of the Assassin Guild, has joined your party.";
 		mes "We have to get rid of the demonic Lord Knight by Mind Blasting him with Loki's skill.^000000";
 		'devil_tower = 14;
-		mercenary_create 2937,1800000;// M_LOKI
+		//mercenary_create 2937,1800000;// M_LOKI
 		mapannounce 'map_tnm3$, "Demon Worshipper's Voice: Such rubbish! Where did you hide yourself?", bc_map,0xFF00;
 		initnpctimer;
 	}
@@ -2118,6 +2118,7 @@ OnBossDead:
 	mes "[Loki]";
 	mes "Perhaps, our missions will ally us again in the future..";
 	close2;
+	callfunc "getitemclone",7929,10;
 	warp "dali02",134,112;
 	end;
 

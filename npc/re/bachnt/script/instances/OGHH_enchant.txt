@@ -47,7 +47,7 @@ glast_01,210,273,5	script	Hugin's butler#pa0829	1_F_04,{
 			22005;	// Temporal_LUK_Boots
 		break;
 	case 4:
-		/*
+		
 		setarray .@equip_type[0],
 			22107,	// Modified_STR_Boots
 			22108,	// Modified_INT_Boots
@@ -55,8 +55,8 @@ glast_01,210,273,5	script	Hugin's butler#pa0829	1_F_04,{
 			22110,	// Modified_VIT_Boots
 			22111,	// Modified_DEX_Boots
 			22112;	// Modified_LUK_Boots
-		*/
-		mes "All now we use Temporal Boots";
+		
+		//mes "All now we use Temporal Boots";
 		break;
 	}
 	if (!getequipisequiped(EQI_SHOES)) {

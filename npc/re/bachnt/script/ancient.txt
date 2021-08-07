@@ -15,20 +15,20 @@ prontera,144,171,5	script	Bao Công	4_M_GREATPO,{
 	
 	next;
 	mes "[^995050 Bao Công ^000000]";
-	mes "HaŞy ğıa ta 1.000.000 zeny ";
+	mes "HaŞy ğıa ta 100.000 zeny ";
 	mes "Ta seŞ cho ngıõi ğôÌ ngıõi muôìn nhıng ngıõi câÌn may mãìn nıŞa";
 	next;
 	switch(select("ĞôÒi cho ta ği:Ta không thiìch")) {
 		Case 1:
 			.call = callfunc("Ancient_CheckAndDelItem",.exchange_require);
 			if (.call > 0){
-				if (rand(1,3) > 1){
+				if (rand(1,4) > 1){
 					mes "Râìt tiêìc nhıng ğôÌ cuÒa ngıõi ta laÌm mâìt rôÌi";
 					close;
 					end;
 				}
 				.rand = rand(1,10000);
-				if (.rand >= 5000) {
+				if (.rand >= 2000) {
 					mes "Ôi thôi ğôÌ kia ta laÌm mâìt rôÌi, ğêÌn buÌ cho ngıõi nheì";
 					getitem 7929,1;
 					end;
@@ -81,7 +81,7 @@ function	script	Ancient_CheckAndDelItem	{
 		break;
 		}
 	}
-	if (Zeny < 1000000) .temp++;
+	if (Zeny < 100000) .temp++;
 	if (.temp > 0){
 		mes "You dont enough materials !";
 		close;
@@ -90,7 +90,7 @@ function	script	Ancient_CheckAndDelItem	{
 		for (.@i = 0; .@i < .@size; .@i += 2) {
 			delitem .array[.@i],.array[.@i+1];
 		}
-		Zeny = Zeny - 1000000;
+		Zeny = Zeny - 100000;
 		return 1;
 	}
 	
