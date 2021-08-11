@@ -28785,6 +28785,7 @@ Body:
       Splash: true
     Hit: Single
     HitCount: 1
+    Range: 9
     Element: Weapon
     SplashArea:
       - Level: 1
