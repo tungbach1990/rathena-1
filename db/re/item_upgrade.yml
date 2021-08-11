@@ -2822,7 +2822,7 @@ Body:
       - Item: Grace_Attack_Manteau
       - Item: Grace_Magic_Manteau
     Result: |
-      callfunc("F_Lapine_Grace_Convert1", .@opts[0], .@vals[0]);
+      callfunc("F_Lapine_Grace_Convert1", .@opts[0], .@vals[0],.@opts[1], .@vals[1]);
       .@params[0] = 0;
       getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
   - Item: Grace_M_Mo_Garment
@@ -2830,7 +2830,7 @@ Body:
       - Item: Grace_Attack_Manteau
       - Item: Grace_Magic_Manteau
     Result: |
-      callfunc("F_Lapine_Grace_Convert2", .@opts[0], .@vals[0]);
+      callfunc("F_Lapine_Grace_Convert2", .@opts[0], .@vals[0],.@opts[1], .@vals[1]);
       .@params[0] = 0;
       getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
   - Item: Grace_P_Mo_Armor
@@ -2872,7 +2872,7 @@ Body:
       - Item: Grace_Snovice_Suit
       - Item: Grace_Snovice_Robe
     Result: |
-      callfunc("F_Lapine_Grace_Convert3", .@opts[0], .@vals[0]);
+      callfunc("F_Lapine_Grace_Convert3", .@opts[0], .@vals[0],.@opts[1], .@vals[1]);
       .@params[0] = 0;
       getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
   - Item: Grace_M_Mo_Armor
@@ -2914,7 +2914,7 @@ Body:
       - Item: Grace_Snovice_Suit
       - Item: Grace_Snovice_Robe
     Result: |
-      callfunc("F_Lapine_Grace_Convert4", .@opts[0], .@vals[0]);
+      callfunc("F_Lapine_Grace_Convert4", .@opts[0], .@vals[0],.@opts[1], .@vals[1]);
       .@params[0] = 0;
       getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
   - Item: Ein_Ddbox
@@ -4894,12 +4894,12 @@ Body:
 ## Start 17.2 Modudle Epic first     
   - Item: EP17_2_EP1 # 1000152
     TargetItem:
-      - Item: Auto_Armor_A #Automatic_Armor_A-type
-      - Item: Auto_Armor_B #Automatic_Armor_B-type
-      #- Item: Auto_Engine_A #Automatic_Engine_wing_A-type
-      #- Item: Auto_Engine_B #Automatic_Engine_wing_B-type
-      #- Item: Auto_Leg_B #Automatic_Leg_A-type
-      #- Item: Auto_Leg_A #Automatic_Leg_B-type
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
     Result: |
         .@itemid = 1000152;
         .@enchant_id = 310127;
@@ -4929,12 +4929,12 @@ Body:
         } 
   - Item: EP17_2_EP2 # 1000153
     TargetItem:
-      - Item: Auto_Armor_A #Automatic_Armor_A-type
-      - Item: Auto_Armor_B #Automatic_Armor_B-type
-      #- Item: Auto_Engine_A #Automatic_Engine_wing_A-type
-      #- Item: Auto_Engine_B #Automatic_Engine_wing_B-type
-      #- Item: Auto_Leg_B #Automatic_Leg_A-type
-      #- Item: Auto_Leg_A #Automatic_Leg_B-type
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
     Result: |
         .@itemid = 1000153;
         .@enchant_id = 310128;
@@ -4964,12 +4964,12 @@ Body:
         }      
   - Item: EP17_2_EP3 # 1000154
     TargetItem:
-      - Item: Auto_Armor_A #Automatic_Armor_A-type
-      - Item: Auto_Armor_B #Automatic_Armor_B-type
-      #- Item: Auto_Engine_A #Automatic_Engine_wing_A-type
-      #- Item: Auto_Engine_B #Automatic_Engine_wing_B-type
-      #- Item: Auto_Leg_B #Automatic_Leg_A-type
-      #- Item: Auto_Leg_A #Automatic_Leg_B-type
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
     Result: |
         .@itemid = 1000154;
         .@enchant_id = 310129;
@@ -4999,12 +4999,12 @@ Body:
         }
   - Item: EP17_2_EP4 # 1000155
     TargetItem:
-      - Item: Auto_Armor_A #Automatic_Armor_A-type
-      - Item: Auto_Armor_B #Automatic_Armor_B-type
-      #- Item: Auto_Engine_A #Automatic_Engine_wing_A-type
-      #- Item: Auto_Engine_B #Automatic_Engine_wing_B-type
-      #- Item: Auto_Leg_B #Automatic_Leg_A-type
-      #- Item: Auto_Leg_A #Automatic_Leg_B-type
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
     Result: |
         .@itemid = 1000155;
         .@enchant_id = 310130;
@@ -5031,4 +5031,74 @@ Body:
         } else {
             getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
             getitem .@itemid,1;
-        }        
+        } 
+  - Item: EP17_2_EP5 # 1000156
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+    Result: |
+        .@itemid = 1000156;
+        .@enchant_id = 310131;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }          
+  - Item: EP17_2_EP6 # 1000157
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+    Result: |
+        .@itemid = 1000157;
+        .@enchant_id = 310132;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }          
