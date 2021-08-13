@@ -2783,11 +2783,11 @@ Body:
     SourceItem:
       - Item: Crimson_Rose
     Reward: getitem2(800002,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
-    - Id: 100405 # Master_Soul_Rifle_Cube
-      NeedRefineMin: 9
-      SourceItem:
+  - Item: Master_Soul_Rifle_Cube # 100405
+    NeedRefineMin: 9
+    SourceItem:
       - Item: 28255
-      Reward: getitem(810001,1);
+    Reward: getitem(810001,1);
     - Id: 100406 # Golden_L_Launcher_Cube
       NeedRefineMin: 9
       SourceItem:
