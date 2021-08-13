@@ -1,44 +1,102 @@
+//prontera,172,182
 prontera,172,182,4	script	Costumer#cs_0	646,{
-	mes "[ "+strnpcinfo(1)+" ]";
-	mes "I can convert your equipment into costumes!";
-	mes "^ff0000Warning!^000000";
-	mes "Converted item will lose all defense, refine, cards and abilities permanently!";
-	mes "I also charge a modest service fee of 30 Karvodailnirol, 30 Detrimindexta and 1 million zeny.";
-	next;
-	setarray .@Position$[1],"Top","Mid","Low";
-	setarray .@Position[1],EQI_HEAD_TOP , EQI_HEAD_MID,EQI_HEAD_LOW;
-	set .@Menu$,"";
-	for( set .@i, 1; .@i < 5; set .@i, .@i + 1 )
-	{
-		if( getequipisequiped(.@Position[.@i]) )
-		set .@Menu$, .@Menu$ + .@Position$[.@i] + "-" + "[" + getequipname(.@Position[.@i]) + "]";
-		set .@Menu$, .@Menu$ + ":";
+	switch(select("Top:Mid:Low")){
+	Case 1:
+		.@loc = EQI_COSTUME_HEAD_TOP;
+                .slot = 0;
+                .@listenchant = 0;
+                 copyarray  .@listenchant[0],.effect_topid[0],getarraysize(.effect_topid);
+                .@item_id = getequipid(.@loc);
+                .@equip_refine = getequiprefinerycnt(.@loc);
+                setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+                if (.itemslot[3] == 0)
+                if (.@item_id > 0){
+                        //dispbottom "a";
+                        .@name$ = "";
+                        for(.@i=0;.@i<getarraysize(.@listenchant);.@i++){
+                                //if (countitem(.@listenchant[.@i]))
+                                .@name$ += getitemname(.@listenchant[.@i]) + ":";
+                        }
+                        .selected = select(.@name$);
+                        if (.selected){
+                                .@enchant_id = .@listenchant[.selected - 1 ];
+                         //       dispbottom .@enchant_id;
+                                if (countitem(.@enchant_id) > 0){
+
+                                        dispbottom .@enchant_id;
+                                        delequip EQI_COSTUME_HEAD_TOP;
+                                        delitem .@enchant_id,1;
+                                        getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.@enchant_id);
+                                }
+                        }
+                }
+	
+	break;
+	Case 2:
+		.@loc = EQI_COSTUME_HEAD_MID;
+                .slot = 0;
+		.@listenchant = 0;
+		 copyarray  .@listenchant[0],.effect_midid[0],getarraysize(.effect_midid);
+                .@item_id = getequipid(.@loc);
+                .@equip_refine = getequiprefinerycnt(.@loc);
+                setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+		if (.itemslot[3] == 0)
+                if (.@item_id > 0){
+                       // dispbottom "a";
+			.@name$ = "";
+                        for(.@i=0;.@i<getarraysize(.@listenchant);.@i++){
+				//if (countitem(.@listenchant[.@i]))
+                                .@name$ += getitemname(.@listenchant[.@i]) + ":";
+			}
+                        .selected = select(.@name$);
+			if (.selected){
+	                        .@enchant_id = .@listenchant[.selected - 1 ];
+			//	dispbottom .@enchant_id;
+				if (countitem(.@enchant_id) > 0){
+					
+					dispbottom .@enchant_id;
+        	        	        delequip EQI_COSTUME_HEAD_MID;
+                	        	delitem .@enchant_id,1;
+	                	        getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.@enchant_id);
+				}	
+			}
+                }
+
+	break;
+	Case 3:
+		.@loc = EQI_COSTUME_HEAD_LOW;
+                .slot = 0;
+		.@listenchant = 0;
+                 copyarray  .@listenchant[0],.effect_lowid[0],getarraysize(.effect_lowid);
+                .@item_id = getequipid(.@loc);
+                .@equip_refine = getequiprefinerycnt(.@loc);
+                setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+                if (.itemslot[3] == 0)
+                if (.@item_id > 0){
+                        //dispbottom "a";
+			.@name$ = "";
+                        for(.@i=0;.@i<getarraysize(.@listenchant);.@i++){
+                                //if (countitem(.@listenchant[.@i]))
+                                .@name$ += getitemname(.@listenchant[.@i]) + ":";
+                        }
+                        .selected = select(.@name$);
+                        if (.selected){
+                                .@enchant_id = .@listenchant[.selected - 1 ];
+                          //      dispbottom .@enchant_id;
+                                if (countitem(.@enchant_id) > 0){
+
+                                        dispbottom .@enchant_id;
+                                        delequip EQI_COSTUME_HEAD_LOW;
+                                        delitem .@enchant_id,1;
+                                        getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.@enchant_id);
+                                }
+                        }
+                }
+	break;
 	}
-	set .@Part, .@Position[ select(.@Menu$) ];
-	if( !getequipisequiped(.@Part) )
-	{
-		mes "[ " + strnpcinfo(1) + " ]";
-		mes "You are not wearing anything there...";
-		close;
-	}
-	mes "[ "+strnpcinfo(1)+" ]";
-	mes "You want to Costume your " + getitemname(getequipid(.@Part)) + "?";
-	next;
-	if( select("Yes, proceed:No, I am sorry.") == 2 )
-	{
-		mes "[ "+strnpcinfo(1)+" ]";
-		mes "Need some time to think about it, huh?";
-		mes "Alright, I can understand.";
-		close;
-	}
-	if (Zeny<1000000) { mes "You didn't bring enough money!"; close; }
-	if (Countitem(971)<30) { mes "You didn't bring enough Detrimindexta!"; close; }
-	if (Countitem(972)<30) { mes "You didn't bring enough Karvodailnirol!"; close; }
-	Zeny = Zeny - 1000000;
-	delitem 971,30;
-	delitem 972,30;
-	costume .@Part; // Convert the Headgear
-	mes "[ "+strnpcinfo(1)+" ]";
-	mes "Done, enjoy your costume headgear.";
-	close;
+OnInit:
+	setarray .effect_topid[0],25058;
+	setarray .effect_midid[0],25059,25138,25136,25176,25178,25224;
+	setarray .effect_lowid[0],25226,25205;
+end;
 }

@@ -158,6 +158,7 @@ OnSetMapFlag:
 	.instances_name4$ = "Edda Biolab Nightmare";
 	.instances_name5$ = "Edda Biolab Challenge";
 	.@md_name$ = instance_live_info(ILI_NAME);
+	setmapflag instance_mapname("1@gol1"),mf_nosave,0;
 	if (.@md_name$ == .instances_name1$){
 		setmapflag instance_mapname("1@gol1"),mf_droprate25,1;
 		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,100;
@@ -2160,10 +2161,13 @@ OnInstanceInit:
 	hideonnpc instance_npcname(strnpcinfo(0));
 end;
 }
+
+
+
 //1@gol1	mapflag	nowarp
 1@gol1	mapflag	nowarpto
 1@gol1	mapflag	noteleport
-1@gol1	mapflag	nosave	SavePoint
+//1@gol1	mapflag	nosave	SavePoint
 1@gol1	mapflag	nomemo
 1@gol1	mapflag	nobranch
 1@gol1	mapflag	noicewall
@@ -2174,7 +2178,7 @@ end;
 //1@gol2	mapflag	nowarp
 1@gol2	mapflag	nowarpto
 1@gol2	mapflag	noteleport
-1@gol2	mapflag	nosave	SavePoint
+//1@gol2	mapflag	nosave	SavePoint
 1@gol2	mapflag	nomemo
 1@gol2	mapflag	nobranch
 1@gol2	mapflag	noicewall

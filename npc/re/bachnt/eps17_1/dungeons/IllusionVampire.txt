@@ -4157,12 +4157,12 @@ end;
 
 -	script	hunt#illuvamp	-1,{
 OnKillMushroom:
-if((illusion_vampire == 8 || checkquest(14671) == 1) && 10 > countitem(25269)){ // TODO maybe not limit to 10?
+if(10 > countitem(25269)){ // TODO maybe not limit to 10?
 	getitem 25269,1;
 }
 end;
 OnKillDrainlair:
-if((illusion_vampire == 8 || checkquest(14671) == 1) && 10 > countitem(25268)){ // TODO maybe not limit to 10?
+if( 10 > countitem(25268)){ // TODO maybe not limit to 10?
 	getitem 25268,1;
 }
 end;

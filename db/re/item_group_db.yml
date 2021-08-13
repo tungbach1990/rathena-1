@@ -27871,4 +27871,159 @@ Body:
             Rate: 300
             Amount: 1
             Announced: true
-
+  - Group: BS_MAKING_SCROLLS_LIST
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Bs_Item_M_S_2
+            Rate: 1
+          - Item: Bs_Item_M_S_8
+            Rate: 1
+          - Item: Bs_Item_M_S_10
+            Rate: 1
+          - Item: Bs_Item_M_S_11
+            Rate: 1
+          - Item: Bs_Item_M_S_34
+            Rate: 1
+          - Item: Bs_Item_M_S_41
+            Rate: 1
+          - Item: Bs_Item_M_S_42
+            Rate: 1
+          - Item: Bs_Item_M_S_43
+            Rate: 1
+          - Item: Bs_Item_M_S_44
+            Rate: 1
+          - Item: Bs_Sha_M_S_1
+            Rate: 1
+          - Item: Bs_Sha_M_S_17
+            Rate: 1
+          - Item: Bs_Sha_M_S_18
+            Rate: 1
+          - Item: Bs_Sha_M_S_19
+            Rate: 1
+          - Item: Bs_Sha_M_S_20
+            Rate: 1
+          - Item: Bs_Item_M_S_4
+            Rate: 1
+          - Item: Bs_Item_M_S_6
+            Rate: 1
+          - Item: Bs_Item_M_S_7
+            Rate: 1
+          - Item: Bs_Item_M_S_12
+            Rate: 1
+          - Item: Bs_Item_M_S_13
+            Rate: 1
+          - Item: Bs_Item_M_S_15
+            Rate: 1
+          - Item: Bs_Item_M_S_28
+            Rate: 1
+          - Item: Bs_Item_M_S_29
+            Rate: 1
+          - Item: Bs_Item_M_S_31
+            Rate: 1
+          - Item: Bs_Item_M_S_32
+            Rate: 1
+          - Item: Bs_Item_M_S_33
+            Rate: 1
+          - Item: Bs_Item_M_S_36
+            Rate: 1
+          - Item: Bs_Item_M_S_37
+            Rate: 1
+          - Item: Bs_Item_M_S_38
+            Rate: 1
+          - Item: Bs_Item_M_S_39
+            Rate: 1
+          - Item: Bs_Item_M_S_40
+            Rate: 1
+          - Item: Bs_Item_M_S_45
+            Rate: 1
+          - Item: Bs_Item_M_S_46
+            Rate: 1
+          - Item: Bs_Item_M_S_47
+            Rate: 1
+          - Item: Bs_Item_M_S_48
+            Rate: 1
+          - Item: Bs_Item_M_S_49
+            Rate: 1
+          - Item: Bs_Item_M_S_50
+            Rate: 1
+          - Item: Bs_Sha_M_S_2
+            Rate: 1
+          - Item: Bs_Sha_M_S_5
+            Rate: 1
+          - Item: Bs_Sha_M_S_6
+            Rate: 1
+          - Item: Bs_Sha_M_S_7
+            Rate: 1
+          - Item: Bs_Sha_M_S_8
+            Rate: 1
+          - Item: Bs_Sha_M_S_13
+            Rate: 1
+          - Item: Bs_Sha_M_S_15
+            Rate: 1
+          - Item: Bs_Sha_M_S_16
+            Rate: 1
+          - Item: Bs_Sha_M_S_23
+            Rate: 1
+          - Item: Bs_Item_M_S_5
+            Rate: 1
+          - Item: Bs_Item_M_S_9
+            Rate: 1
+          - Item: Bs_Item_M_S_14
+            Rate: 1
+          - Item: Bs_Item_M_S_16
+            Rate: 1
+          - Item: Bs_Item_M_S_17
+            Rate: 1
+          - Item: Bs_Item_M_S_19
+            Rate: 1
+          - Item: Bs_Item_M_S_27
+            Rate: 1
+          - Item: Bs_Item_M_S_35
+            Rate: 1
+          - Item: Bs_Sha_M_S_9
+            Rate: 1
+          - Item: Bs_Sha_M_S_10
+            Rate: 1
+          - Item: Bs_Sha_M_S_11
+            Rate: 1
+          - Item: Bs_Sha_M_S_21
+            Rate: 1
+          - Item: Bs_Sha_M_S_22
+            Rate: 1
+          - Item: Bs_Item_M_S_1
+            Rate: 1
+          - Item: Bs_Item_M_S_3
+            Rate: 1
+          - Item: Bs_Item_M_S_18
+            Rate: 1
+          - Item: Bs_Item_M_S_20
+            Rate: 1
+          - Item: Bs_Item_M_S_21
+            Rate: 1
+          - Item: Bs_Item_M_S_22
+            Rate: 1
+          - Item: Bs_Item_M_S_23
+            Rate: 1
+          - Item: Bs_Item_M_S_24
+            Rate: 1
+          - Item: Bs_Item_M_S_25
+            Rate: 1
+          - Item: Bs_Item_M_S_26
+            Rate: 1
+          - Item: Bs_Item_M_S_30
+            Rate: 1
+          - Item: Bs_Sha_M_S_3
+            Rate: 1
+          - Item: Bs_Sha_M_S_4
+            Rate: 1
+          - Item: Bs_Sha_M_S_12
+            Rate: 1
+          - Item: Bs_Sha_M_S_14
+            Rate: 1
+          - Item: Bs_Sha_M_S_24
+            Rate: 1
+          - Item: Bs_Sha_M_S_25
+            Rate: 1
+          - Item: Bs_Item_M_S_51
+            Rate: 1

@@ -1693,7 +1693,7 @@ OnTimer300:
 			}
 			close2;
 			getitem 6752,3;	// Charleston_Parts
-			callfunc "getitemclone",7929,30;
+			callfunc "getitemclone",7929,10;
 			cutin "",255;
 			warp "verus04",107,124;
 			end;
