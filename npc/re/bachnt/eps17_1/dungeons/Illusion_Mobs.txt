@@ -11,12 +11,12 @@ pay_d03_i,0,0	monster	Resentful Soldier	3763,15,3000,5000,"Resentful Soldier#ill
 
 //====================ILLUSION VAMPIRE========================\\
 
-gef_d01_i,0,0	monster	Illusion Drainliar	3750,37,5000
+gef_d01_i,0,0	monster	Illusion Drainliar	3750,37,1000,5000,"hunt#illuvamp::OnKillDrainlair"
 gef_d01_i,0,0	monster	Illusion Zombie Cursed	3751,6,5000
 gef_d01_i,0,0	monster	Illusion Zombie	3752,47,5000
 gef_d01_i,0,0	monster	Illusion Ghoul	3753,30,5000
 gef_d01_i,0,0	monster	Illusion Nightmare	3754,30,5000
-gef_d01_i,0,0	monster	Illusion Black Mushroom	3755,10,5000
+gef_d01_i,0,0	monster	Illusion Black Mushroom	3755,10,1000,5000,"hunt#illuvamp::OnKillMushroom"
 //gef_d01_i,0,0	monster	Bream	3756,1,3000,5000,"Bream#illusionvampire::OnKill"
 //gef_d01_i,0,0	boss_monster	Illusion Dracula	3757,1,7200000,600000,1
 

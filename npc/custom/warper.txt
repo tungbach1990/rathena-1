@@ -27,7 +27,7 @@ menu	"Last Warp ^777777["+lastwarp$+"]^000000",-,
     	" ~ Towns",Towns,
     	" ~ Fields",Fields,
     	" ~ Dungeons",Dungeons,
-		" ~ 17.1 new map", New_maps,	
+		" ~ 17.1-17.2 new map", New_maps,	
 		" ~ Illusion Dungeon",ILL_Dungeons,
 	//	" ~ Farmmmmmmmm",Farm_zone,
     	" ~ Guild Castles",Castles,
@@ -253,12 +253,12 @@ F20: setarray @c[2],82,104,131,147;
 	 Disp("Moscovia Field",1,2); Pick("mosk_fild");
 F21: setarray @c[2],215,229,167,234;
 	 Disp("Niflheim Field",1,2); Pick("nif_fild");
-F22: Restrict("Pre-RE",5,11);
+F22: //Restrict("Pre-RE",5,11);
 	 setarray @c[2],158,206,151,219,205,148,186,247,134,204,193,235,200,177,137,189,201,224,160,205,194,150;
 	 Disp("Payon Forest",1,11); Pick("pay_fild");
 F23: setarray @c[0],208,227,190,206,240,206,190,143,307,252,239,213,185,188,193,194,187,218,210,183,195,149,198,164;
 	 Disp("Prontera Field",0,11); Pick("prt_fild",1);
-F24: Restrict("Pre-RE",2,7,9,10,11,13);
+F24: //Restrict("Pre-RE",2,7,9,10,11,13);
 	 setarray @c[2],192,162,235,166,202,206,202,208,225,202,202,214,263,196,217,201,87,121,277,181,221,185,175,200,174,197;
 	 Disp("Rachel Field",1,13); Pick("ra_fild");
 F25: if(.Satan_Morocc){
@@ -273,10 +273,10 @@ F26: setarray @c[2],175,186,236,184,188,204;
 	 Disp("Splendide Field",1,3); Pick("spl_fild");
 F27: setarray @c[2],217,206,223,221,237,215,202,197;
 	 Disp("Umbala Field",1,4); Pick("um_fild");
-F28: Restrict("Pre-RE",5);
+F28: //Restrict("Pre-RE",5);
 	 setarray @c[2],186,175,196,370,222,45,51,250,202,324,150,223,149,307;
 	 Disp("Veins Field",1,7); Pick("ve_fild");
-F29: Restrict("Pre-RE",5,10);
+F29: //Restrict("Pre-RE",5,10);
 	 setarray @c[2],189,224,192,207,221,157,226,199,223,177,187,232,231,174,196,203,183,214,200,124,195,226,210,304;
 	 Disp("Juno Field",1,12); Pick("yuno_fild");
 
@@ -294,7 +294,7 @@ menu	"Abyss Lakes",D1, "Amatsu Dungeon",D2, "Anthell",D3,
     	"Ice Dungeon",D20, "Juperos",D21, "Kiel Dungeon",D22, "Lasagna Dungeon",D23,
 		"Luoyang Dungeon",D24, "Magma Dungeon",D25, "Malangdo Dungeon",D26,
 		"Moscovia Dungeon",D27, "Nidhogg's Dungeon",D28, "Odin Temple",D29,
-		"Orc Dungeon",D30, "Payon Dungeon",D31, "Pyramids",D32, "Rachel Sanctuary",D33,
+		"Orc Dungeon",D30, "Payon Dungeon",D31, "Pyramids",D32, "Rachel Sanctuary",D33, "RockRidge Dungeon", RR1,
     	"Scaraba Hole",D34, "Sphinx",D35, "Sunken Ship",D36, "Thanatos Tower",D37,
     	"Thor Volcano",D38, "Toy Factory",D39, "Turtle Dungeon",D40, "Umbala Dungeon",D41;
 
@@ -376,6 +376,8 @@ D32: Restrict("RE",7,8);
 	 Pick("","moc_pryd01","moc_pryd02","moc_pryd03","moc_pryd04","moc_pryd05","moc_pryd06","moc_prydn1","moc_prydn2");
 D33: setarray @c[2],140,11,32,21,8,149,204,218,150,9;
 	 Disp("Rachel Sanctuary",1,5); Pick("ra_san");
+RR1: Restrict("RE");
+        Go("rockmi1",245,21);
 D34: Restrict("RE");
 	 setarray @c[2],364,44,101,141;
 	 Disp("Scaraba Hole",1,2); Pick("dic_dun");
@@ -505,26 +507,45 @@ Anexus: Restrict("RE");
 // --------------------------------------------------
         New_maps:
 // --------------------------------------------------
-menu	"Special border area OS",sp_os,
-	"Rudus F1",sp_rudus,
-	"Rudus F2",sp_rudus2,
-	"Rudus F3",sp_rudus3,
-	"Abyss GlastHeim",gl_cas01_,
-	"Abyss Dungeon 04",abyss_04,
-	"Einbroch Dungeon 03",ein_dun03,
-	"Odin Temple Past",odin_past;
-
+//ep17_2_main >= 25
+//if (ep_illusion >= 35)
+	menu	ep_illusion >= 35 ? "Special border area OS" : "",sp_os,
+		ep_illusion >= 35 ? "Rudus F1" : ""	,sp_rudus,
+		ep_illusion >= 35 ? "Rudus F2" : ""	,sp_rudus2,
+		ep_illusion >= 35 ? "Rudus F3" : ""	,sp_rudus3,
+		ep17_2_main >= 25 ? "Varmundt's Mansion Garden" : ""	,ba_maison,
+		ep17_2_main >= 25 ? "Memory Corridor" : ""       ,ba_lib,
+		ep17_2_main >= 25 ? "Lost Farm Valley" : ""       ,ba_lost,
+		ep17_2_main >= 25 ? "Large Bath Meditathio" : ""       ,ba_bath,
+		"Abyss GlastHeim",gl_cas01_,
+		"Abyss Dungeon 04",abyss_04,
+		"Einbroch Dungeon 03",ein_dun03,
+		"Odin Temple Past",odin_past;
+/*else
+menu   // "Special border area OS",sp_os,
+       // "Rudus F1",sp_rudus,
+       // "Rudus F2",sp_rudus2,
+       // "Rudus F3",sp_rudus3,
+        "Abyss GlastHeim",gl_cas01_,
+        "Abyss Dungeon 04",abyss_04,
+        "Einbroch Dungeon 03",ein_dun03,
+        "Odin Temple Past",odin_past;
+*/
+ba_maison: Restrict("RE");
+        Go("ba_maison",197,249);
+ba_lib: Restrict("RE");
+        Go("ba_maison",197,102);
+ba_lost: Restrict("RE");
+        Go("ba_maison",311,203);
+ba_bath: Restrict("RE");
+        Go("ba_maison",197,275);
 sp_os: Restrict("RE");
-if (ep_illusion >= 35)
         Go("sp_os",260,348);
 sp_rudus: Restrict("RE");
-if (ep_illusion >= 35)
         Go("sp_rudus",200,377);
 sp_rudus2: Restrict("RE");
-if (ep_illusion >= 35)
         Go("sp_rudus2",267,106);
 sp_rudus3: Restrict("RE");
-if (ep_illusion >= 35)
         Go("sp_rudus3",366,205);
 gl_cas01_: Restrict("RE");
         Go("gl_cas01_",200,29);

@@ -2049,6 +2049,7 @@ OnMobDead:
 			
 			break;
 		case 23:
+			getitem 7929,10;
 			donpcevent instance_npcname("Fenrir#f")+"::OnDefeat";
 			donpcevent instance_npcname("Geffen Academy Master")+"::OnTalk4";
 			end;

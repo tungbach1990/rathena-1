@@ -28,7 +28,7 @@ prontera,144,171,5	script	Bao Công	4_M_GREATPO,{
 					end;
 				}
 				.rand = rand(1,10000);
-				if (.rand >= 2000) {
+				if (.rand >= 4000) {
 					mes "Ôi thôi ðôÌ kia ta laÌm mâìt rôÌi, ðêÌn buÌ cho ngýõi nheì";
 					getitem 7929,1;
 					end;
@@ -39,7 +39,7 @@ prontera,144,171,5	script	Bao Công	4_M_GREATPO,{
 					end;
 				}
 				.rand = rand(1,5);
-				if (.rand > 1) {
+				if (.rand > 5) {
 					.itemx = .exchange_item2[rand(0,getarraysize(.exchange_item2)-1)];
 					getitem .itemx,1;
 					announce "Bao Công chuìc mýÌng " + strcharinfo(0) + " ðaÞ ðôÒi ðýõòc " +  getitemname(.itemx),0;
@@ -62,8 +62,9 @@ prontera,144,171,5	script	Bao Công	4_M_GREATPO,{
 OnInit:
 	setarray .chance_ex[0],50,40,30,50;
 	setarray .exchange_require[0],7929;
-	setarray .exchange_item2[0],100023,100025;
-	setarray .exchange_item[0],
+	setarray .exchange_item2[0],100023,100025;	//,17474,12884;
+	setarray .exchange_item[0],17474,12884,		// Giant flywing 7day, concent
+				12885,12886,12887,	// Infinite Bersek and Fly Wing
 				100205,100206, // shadow class enchant
 				22171,18170,18164,28130,13485,28744,1847,26118,2048,21038,28764,28763,28039,32018,28630,28631,
 				26154,26155,32302,28257,28255,28256,28258,13345,500003,500004,570002,580002,590002,600004,560002,590003,610003,700003,550007,640004;

@@ -2021,7 +2021,7 @@ OnInstanceInit:
 	mes "Your time is finished here. You may look arround or go leave. What do you want to do?";
 	next;
 	if (select("Stop:Return to Dimensional Gap") == 2){
-		callfunc "getitemclone",7929,30;
+		//callfunc "getitemclone",7929,30;
 		warp "dali",85,62;
 	}
 	end;
@@ -2177,6 +2177,19 @@ OnT_s2:
 		.@time_txt$ = callfunc( "F_InsertPlural", .@time_s, "Second" );
 	else
 		.@time_txt$ = callfunc( "F_InsertPlural", .@time_m, "Minute" ) + " " + callfunc( "F_InsertPlural", .@time_s, "Second" );
+        if( getcharid(1) ) {
+                getpartymember( getcharid(1),2 );
+                getpartymember( getcharid(1),1 );
+                .@map_killer$ = strcharinfo(3);
+                .@chance = rand(10);
+                for( .@i = 0; .@i < $@partymembercount; .@i++ )
+                        if( isloggedin( $@partymemberaid[ .@i ],$@partymembercid[ .@i ] ) )
+                                if( !getmapxy( .@map$, .@x, .@y, BL_PC, rid2name( $@partymemberaid[ .@i ] ) ) && .@map$ == .@map_killer$ ) {
+                                        callfunc "getitemclone",7929,5,$@partymemberaid[ .@i ];// put ID bronze coin instead of 501
+                                        if( !.@chance )
+                                                callfunc "getitemclone",7929,5,$@partymemberaid[ .@i ];// put ID gold coin
+                                }
+        }
 	if (.@current_timer >= .@face_timer)
 		mapannounce 'map_name$, "A time of " + .@time_txt$ + " has been recorded on the board. But it did not beat the best record.",bc_map,"0xffff33";
 	else {

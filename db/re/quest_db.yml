@@ -7291,7 +7291,7 @@ Body:
     Title: Meeting Hugin
   - Id: 12317
     Title: Trace of Time Travel
-    TimeLimit: +23h
+    TimeLimit: +16h
   - Id: 12318
     Title: Corrupted Soul Hunt
     Targets:
@@ -7310,28 +7310,36 @@ Body:
     Title: Space Distortion
   - Id: 12325
     Title: Faceworm's Nest after-effects
-    TimeLimit: +23h
+    TimeLimit: +16h
   - Id: 12326
     Title: The owner of old ring
-    TimeLimit: +1d
+    TimeLimit: +16h
   - Id: 12327
     Title: The memory of old photo album
-    TimeLimit: +1d
+    TimeLimit: +16h
   - Id: 12328
     Title: Dol-Seoi's Sorrow
-    TimeLimit: +1d
+    TimeLimit: +16h
   - Id: 12329
     Title: Keaton's Bracelet
-    TimeLimit: +1d
+    TimeLimit: +16h
   - Id: 12330
     Title: Skull-faced Girl
   - Id: 12331
     Title: Trail of Toy Factory
-    TimeLimit: +23h
+    TimeLimit: +16h
+  - Id: 12332
+    Title: Unknown Quest
+  - Id: 12333
+    Title: Unknown Quest
   - Id: 12334
     Title: Trace of Time Travel
-    TimeLimit: +23h
+    TimeLimit: +16h
   - Id: 12335
+    Title: Unknown Quest
+  - Id: 12336
+    Title: Unknown Quest
+  - Id: 12337
     Title: Space Distortion
   - Id: 12338
     Title: Time Traveler
@@ -7359,7 +7367,7 @@ Body:
     Title: Strange Ancient Science
   - Id: 12347
     Title: Trace of Laboratory Access
-    TimeLimit: +23h
+    TimeLimit: +16h
   - Id: 12363
     Title: ?????? ?? ??
   - Id: 12368

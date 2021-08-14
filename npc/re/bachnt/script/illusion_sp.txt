@@ -1,6 +1,6 @@
 -	exbartershop	MSHOP1	-1,7619:9999:1000000-25723:0:500,23776:9999:100000-25723:0:10,23777:9999:100000-25723:0:20,23778:9999:100000-25723:0:50,23779:9999:100000-25723:0:10,23780:9999:100000-25723:0:20,23781:9999:100000-25723:0:50,15376:9999:100000-25723:0:50,15377:9999:100000-25723:0:50,20933:9999:100000-25723:0:50,20934:9999:100000-25723:0:50,22196:9999:100000-25723:0:50,22197:9999:100000-25723:0:50,32207:9999:100000-25723:0:50,32208:9999:100000-25723:0:50,32209:9999:100000-25723:0:50,32210:9999:100000-25723:0:50,450127:9999:1-15376:9:1-1000103:0:900,450128:9999:1-15377:9:1-1000103:0:900,480020:9999:1-20933:9:1-1000103:0:900,480021:9999:1-20934:9:1-1000103:0:900,470022:9999:1-22196:9:1-1000103:0:900,470023:9999:1-22197:9:1-1000103:0:900,490024:9999:1-32207:0:1-1000103:0:1500,490025:9999:1-32208:0:1-1000103:0:1500,490026:9999:1-32209:0:1-1000103:0:1500,490027:9999:1-32210:0:1-1000103:0:1500;
 
-
+-	exbartershop	HeadgearIllusion	-1,400022:1:10000000-25723:0:200-25669:0:200,400061:1:10000000-25723:0:200-25669:0:200,400054:1:10000000-25723:0:200-25669:0:200,400059:1:10000000-25723:0:200-25669:0:200,400049:1:10000000-25723:0:200-25669:0:200,400021:1:10000000-25723:0:200-25669:0:200,400044:1:10000000-25723:0:200-25669:0:200;
 prontera,164,174,4	script	Illusion OS	4_M_GUNSLINGER,{
 	mes " [ Illusion OS ]";
 	//dispbottom .array_blueprint[0];
@@ -11,6 +11,9 @@ prontera,164,174,4	script	Illusion OS	4_M_GUNSLINGER,{
 			callshop "MSHOP1";
 			break;
 		Case 2:
+			callshop "HeadgearIllusion";
+                        break;
+		Case 3:
 			next;
 			mes " [ Illusion OS ]";
 			mes "";
@@ -31,20 +34,21 @@ prontera,164,174,4	script	Illusion OS	4_M_GUNSLINGER,{
 				//dispbottom .rand%.chance_ex_module[.select_menu_blueprint - 1];
 				//dispbottom .rand + " " + .select_menu_blueprint + "  " + .chance_ex_module[.select_menu_blueprint - 1];
 				if (.rand <= 1 ) {
-					.arraysize = getarraysize(getd( ".array_blueprint" + .select_menu_blueprint ));
-					setarray .temp_array[0],0;
-					copyarray 	.temp_array[0],
-							getd( ".array_blueprint" + .select_menu_blueprint + "[0]"),.arraysize;
+					.@arraysize = 0;
+					.@arraysize = getarraysize(getd( ".array_blueprint" + .select_menu_blueprint ));
+					setarray .@temp_array[0],0;
+					copyarray 	.@temp_array[0],
+							getd( ".array_blueprint" + .select_menu_blueprint + "[0]"),.@arraysize;
 							
 					//.arraysize = getarraysize(getd( ".array_blueprint" + .select_menu_blueprint ));
-					.rand_module = rand(0,getarraysize(.temp_array)-1);
+					.rand_module = rand(0,getarraysize(.@temp_array)-1);
 					//dispbottom .rand_module + " " + .temp_array[.rand_module];
-					getitem .temp_array[rand(0,getarraysize(.temp_array)-1)],1;
+					getitem .@temp_array[rand(0,getarraysize(.@temp_array)-1)],1;
 					end;
 				}
 			}
 			break;
-		Case 3:
+		Case 4:
 			next;
 			mes " [ Illusion OS ]";
 			mes "All i need : ";
@@ -76,7 +80,7 @@ prontera,164,174,4	script	Illusion OS	4_M_GUNSLINGER,{
 					25693, 25694, 25695,25696,25697,25698,25699;
 		setarray 	getd( ".array_blueprint"+ .Aarray_blueprint[3] ), 
 					25700, 25701, 25702,25703,25704,25705;
-		.main_menu$ = "Buy Equipment:Craft Blueprint Module:Make OS-WEAPON";
+		.main_menu$ = "Illusion 17. Exchange:Illusion Os Headgear:Craft 17.1 Blueprint Module:Make 17.1 OS-WEAPON";
 		.blueprint_menu$ = 	"Common " + 		.chance_ex_module[0] +
 							"%:Rare " + 		.chance_ex_module[1] +
 							"%:Unique" + 		.chance_ex_module[2] +
