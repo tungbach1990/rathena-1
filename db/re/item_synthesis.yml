@@ -2778,13 +2778,183 @@ Body:
       - Item: C_Giant_White_Rabbit
     Reward: getgroupitem(IG_Costume_Exchange_Box);
 # Ancient Weapon and equipmentip
-  - Item: Crimson_Rose_Cube # 100404
+  - Item: Crimson_Rose_Cube # 100404 # 800002
     NeedRefineMin: 9
     SourceItem:
-      - Item: Crimson_Rose
-    Reward: getitem2(800002,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
-  - Item: Master_Soul_Rifle_Cube # 100405
+      - Item: Crimson_Rose # 32302
+    Reward: getitem3(800002,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Master_Soul_Rifle_Cube # 100405 # 810001
     NeedRefineMin: 9
     SourceItem:
-      - Item: 28255
-    Reward: getitem(810001,1);
+      - Item: Master_Soul_Rifle #28255
+    Reward: getitem3(810001,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Golden_Lord_Launcher_Cube #100406 # 
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Golden_L_Launcher # 28257
+    Reward: getitem3(840001,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);     
+  - Item: The_Black_Cube # 100407
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: The_Black_Gatling #28258
+    Reward: getitem3(830002,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Demon_Slayer_Shot_Cube #100408 # Demon_S_Shot_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Demon_S_Shot #28256
+    Reward: getitem3(820001,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: MeawFoxtail_Cube #100399 # MeawFoxtail_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: MeawFoxtail #26155
+    Reward: getitem3(550014,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Fog_Dew_Sword_Cube #100400 # Fog_Dew_Sword_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Fog_Dew_Sword #28764
+    Reward: getitem3(510022,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Humma_Clear_Cube # 100401 # Humma_Clear_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Humma_Clear # 13345
+    Reward: getitem3(650004,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Iron_Nail_K_Cube #100388 # Iron_Nail_K_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Iron_Nail_K #1847
+    Reward: getitem3(560008,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Ray_Knuckle_Cube #100390 # Ray_Knuckle_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Ray_Knuckle #560002
+    Reward: getitem3(560009,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Undine_Spear_K_Cube # 100393 # Undine_Spear_K_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Undine_Spear_K #32018
+    Reward: getitem3(530006,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Light_Blade_Cube #100394 # Light_Blade_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Light_Blade #500003
+    Reward: getitem3(500017,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Iron_Staff_Cube #100395 # Iron_Staff_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Aeon_Staff # 2048
+    Reward: getitem3(640011,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Blue_Crystal_Staff_Cube #100396 # Blue_Crystal_Staff_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Blue_Crystal_Staff #640004
+    Reward: getitem3(640012,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Demon_Hunt_Bible_Cube #100397 # Demon_Hunt_Bible_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Exoricists_Bible_ #28630
+    Reward: getitem3(540011,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Saint_Hall_Cube #100398 # Saint_Hall_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Saint_Hall #590003
+    Reward: getitem3(590012,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Royal_Bow_K_Cube #100376 # Royal_Bow_K_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Royal_Bow_K #18164
+    Reward: getitem3(700018,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Scalet_Dragon_L_Cube #100377 # Scalet_Dragon_L_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Scalet_Dragon_L_Bow #700003
+    Reward: getitem3(700019,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Shadow_Staff_K_Cube #100378 # Shadow_Staff_K_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Shadow_Staff_K #26118
+    Reward: getitem3(550012,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Freezing_Rod_Cube #100379 # Freezing_Rod_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Freezing_Rod #550007
+    Reward: getitem3(550013,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Avenger_Cube #100360 # Avenger_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Avenger #28130
+    Reward: getitem3(620004,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Meteor_Striker_Cube #100361 # Meteor_Striker_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Meteor_Striker #590002
+    Reward: getitem3(590011,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Magic_Sword_Cube #100362 # Magic_Sword_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Magic_Sword #28744
+    Reward: getitem3(510019,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Fatalist_Cube #100363 # Fatalist_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Fatalist #510006
+    Reward: getitem3(510020,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Sword_Of_Bluefire_Cube #100327 # Sword_Of_Bluefire_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Sword_Of_Bluefire #13485
+    Reward: getitem3(500013,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Slate_Sword_Cube #100328 # Slate_Sword_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Slate_Sword #500004
+    Reward: getitem3(500014,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Narcis_Bow_Cube #100329 # Narcis_Bow_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Narcis_Bow #18170
+    Reward: getitem3(700013,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Trumpet_Shell_K_Cube #100330 # Trumpet_Shell_K_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Trumpet_Shell_K #570002
+    Reward: getitem3(570009,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Barb_Wire_K_Cube #100331 # Barb_Wire_K_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Barb_Wire_K #580002
+    Reward: getitem3(580009,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Remodel_Hero_Boots #100273 # Remodel_Hero_Boots
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Ancient_Hero_Boots #22171
+    Reward: getitem3(22238,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Oriental_Sword_Cube #100274 # Oriental_Sword_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Oriental_Sword #21038
+    Reward: getitem3(600009,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Dragonic_Slayer_Cube #100275 # Dragonic_Slayer_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Dragonic_Slayer #600004
+    Reward: getitem3(21058,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Shiver_Katar_K_Cube #100276 # Shiver_Katar_K_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Katar_of_Shiver #28039
+    Reward: getitem3(610008,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Blade_Katar_Cube #100277 # Blade_Katar_Cube
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: Blade_Katar #610003
+    Reward: getitem3(610009,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Thousand_Sun_Cube #100402 # Patent_One_Sky_One_Sun
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: OneSkyOneSun #28631
+    Reward: getitem3(540010,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+  - Item: Spirit_Pendulum_Cube #100403 # Patent_Spirit_Pendulum
+    NeedRefineMin: 9
+    SourceItem:
+      - Item: SoulWeight #26154
+    Reward: getitem3(550015,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
