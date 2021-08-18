@@ -7218,7 +7218,7 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 				md.damage = 0;
 			break;
 		case SU_SV_ROOTTWIST_ATK:
-			md.damage = 100;
+			md.damage = 1000;
 			break;
 		case SP_SOULEXPLOSION:
 			md.damage = tstatus->hp * (20 + 10 * skill_lv) / 100;
