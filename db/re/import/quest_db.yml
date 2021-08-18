@@ -198,7 +198,7 @@ Body:
     Title: Overpower EL1_A17T
   - Id: 16377
     Title: Overpower EL1_A17T - Standby
-    TimeLimit: 1h
+    TimeLimit: 16h
   - Id: 17000
     Title: Refuse to Talk
   - Id: 17001

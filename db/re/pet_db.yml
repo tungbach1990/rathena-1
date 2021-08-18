@@ -829,17 +829,17 @@ Body:
       } else if (.@i >= PET_INTIMATE_CORDIAL) {
         bonus bAgi,3;
       }
-#    Evolution:
-#      - Target: WANDER_MAN_H
-#        ItemRequirements:
-#          - Item: Skull
-#            Amount: 500
-#          - Item: Sacred_Marks
-#            Amount: 50
-#          - Item: Transparent_Cloth
-#            Amount: 100
-#          - Item: Wander_Man_Card
-#            Amount: 1
+    Evolution:
+      - Target: WANDER_MAN_H
+        ItemRequirements:
+          - Item: Skull
+            Amount: 500
+          - Item: Sacred_Marks
+            Amount: 50
+          - Item: Transparent_Cloth
+            Amount: 100
+          - Item: Wander_Man_Card
+            Amount: 1
   - Mob: P_CHUNG_E
     EggItem: New_Year_Doll_Egg
     FoodItem: Mojji

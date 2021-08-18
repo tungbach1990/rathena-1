@@ -108,6 +108,8 @@ OnInit:
 1@rgsr,1,1,0	script	#171_rgsr_init	HIDDEN_WARP_NPC,{
 	OnInstanceInit:
 		'rgsr$ = instance_mapname("1@rgsr");
+		if (Class == JOB_ARCH_BISHOP || Class == JOB_ARCH_BISHOP_T)	
+			setmapflag 'rgsr$,MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,500;
 		F_InstanceHide("Oscar#171_rgsr",3);
 		F_InstanceHide("Ashley#171_rgsr",3);
 		F_InstanceHide("Access Controller#rgsr_kitchen",3);

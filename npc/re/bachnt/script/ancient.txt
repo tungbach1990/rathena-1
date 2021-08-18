@@ -1,4 +1,4 @@
-prontera,144,171,5	script	Bao Công	4_M_GREATPO,{
+prontera,144,171,5	script	Võò Bao Công trâÌm caÒm	511,{
 
 	mes "[^995050 Bao Công ^000000]";
 	mes "Ta laÌ Bao Công"; 
@@ -18,6 +18,10 @@ prontera,144,171,5	script	Bao Công	4_M_GREATPO,{
 	mes "HaŞy ğıa ta 100.000 zeny ";
 	mes "Ta seŞ cho ngıõi ğôÌ ngıõi muôìn nhıng ngıõi câÌn may mãìn nıŞa";
 	next;
+	.@diff = 1;
+	if (getcharid(3) == 2000003 || getcharid(3) == 2000000)
+	.@diff = 3;
+	
 	switch(select("ĞôÒi cho ta ği:Ta không thiìch")) {
 		Case 1:
 			.call = callfunc("Ancient_CheckAndDelItem",.exchange_require);
@@ -28,12 +32,13 @@ prontera,144,171,5	script	Bao Công	4_M_GREATPO,{
 					end;
 				}
 				.rand = rand(1,10000);
+				//dispbottom .rand;
 				if (.rand >= 4000) {
 					mes "Ôi thôi ğôÌ kia ta laÌm mâìt rôÌi, ğêÌn buÌ cho ngıõi nheì";
 					getitem 7929,1;
 					end;
 				}
-				if (.rand >= 300) {
+				if (.rand >= 300*.@diff) {
 					mes "Ôi thôi ğôÌ kia ta laÌm mâìt rôÌi, ğêÌn buÌ cho ngıõi nheì";
 					getitem 7227,1;
 					end;

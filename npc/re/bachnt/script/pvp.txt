@@ -1,8 +1,8 @@
 prontera,147,195,5	script	PvP Warper	474,{
-	if (BaseLevel >= 200) {
+	//if (BaseLevel >= 200) {
         announce "Hey, " + strcharinfo(0) + " ðaÞ vaÌo pvp",bc_blue|bc_all;
         warp "guild_vs3",0,0;
-	}
+	//}
         OnPCDieEvent:
                 @kill = 0;
         end;
@@ -13,9 +13,18 @@ prontera,147,195,5	script	PvP Warper	474,{
                 }
         end;
 	OnInit:
-		setbattleflag("pvp_mode", 1); 
+		setbattleflag("pk_mode", 1);
+		setmapflag "guild_vs3",mf_gvg,0;
+		setmapflag "guild_vs3",mf_gvg_noparty,0;
+		setmapflag "guild_vs3",mf_pvp,1;
+		setmapflag "guild_vs3",mf_pvp_noguild,1; 
 	end;
 }
 
 
 moscovia,221,212,5	duplicate(PvP Warper)	Pvp Warper:mos	474,0,0
+
+mapflag	guild_vs3	gvg	0
+mapflag guild_vs3	gvg_noparty	0
+mapflag guild_vs3	pvp	1
+mapflag guild_vs3	pvp_noguild	1

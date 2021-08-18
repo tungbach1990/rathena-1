@@ -40,7 +40,6 @@ sp_cor,113,130,3	script	Rebellion#cor_02	4_M_REBELLION3,{
 			
 		case 2:
 			erasequest 16377;
-			break;
 	}
 	switch(checkquest(16376)){
 		case -1:
@@ -1326,7 +1325,9 @@ OnSpawn:
 		end;
 	}
 	end;
-
+OnClock0000:
+      erasequest 16377;
+end;
 OnInstanceInit:
 	F_InstanceHide(strnpcinfo(0),3);
 	end;	

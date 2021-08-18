@@ -58,15 +58,15 @@ ma_dun01,147,10,5	script	Nurse#ma_dun01	4_F_NURSE,{
 				}
 				else if (malaya_bang == 31)
 					callsub S_Closed;
-				else if (malaya_bang > 39)
+				//else if (malaya_bang > 39)
 					callsub S_Enter, false;
-				else {
+				/*else {
 					mes "[Nurse Maenne]";
 					mes "..........";
 					close2;
 					cutin "",255;
 					end;
-				}
+				}*/
 			case 0:
 			case 1:
 				mes "[Nurse Maenne]";
@@ -101,20 +101,20 @@ ma_dun01,147,10,5	script	Nurse#ma_dun01	4_F_NURSE,{
 					end;
 				}
 				// isbegin_quest(11309) == 2, HUNTING == 0 or HUNTING == 1
-				if (malaya_bang > 39)
+				//if (malaya_bang > 39)
 					callsub S_Enter, true;
-				else {
+				/*else {
 					mes "[Nurse Maenne]";
 					mes ".......";
 					close2;
 					cutin "",255;
 					end;
-				}
+				}*/
 			}
 		case 1:
 			if (.@party_id == 0)
 				callsub S_NoParty;
-			if (malaya_bang < 40) {
+			//if (malaya_bang < 40) {
 				mes "[Nurse Maenne]";
 				mes ".....?";
 				mes "Now you can't go up";
@@ -122,7 +122,7 @@ ma_dun01,147,10,5	script	Nurse#ma_dun01	4_F_NURSE,{
 				close2;
 				cutin "",255;
 				end;
-			}
+			//}
 			if (checkquest(9222,HUNTING) == 0 || checkquest(9222,HUNTING) == 1) {
 				switch( checkquest(9224,PLAYTIME) ) {// Explore Hospital 2F
 				case -1:
@@ -186,15 +186,15 @@ ma_dun01,147,10,5	script	Nurse#ma_dun01	4_F_NURSE,{
 	case 2:
 		if (.@party_id == 0)
 			callsub S_NoParty;
-		else if (malaya_bang > 39)
+		//else if (malaya_bang > 39)
 			callsub S_Enter, true;
-		else {
+		/*else {
 			mes "[Nurse Maenne]";
 			mes ".......";
 			close2;
 			cutin "",255;
 			end;
-		}
+		}*/
 	}
 
 S_Closed:

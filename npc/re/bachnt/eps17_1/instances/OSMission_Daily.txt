@@ -342,8 +342,8 @@ OnMobSpawn:
 OnFirstSummon:
 	'first_summon = 1;
 	.@map$ = 'os_a_map$;
-	freeloop(true);
-	while('boss_alive){
+	//freeloop(true);
+	//while('boss_alive){
 		getunitdata 'boss_id,.@xy;
 		'x = .@xy[6];
 		'y = .@xy[7];
@@ -364,15 +364,17 @@ OnFirstSummon:
 			unitkill 'summon[2];
 		if(unitexists('summon[3]))
 			unitkill 'summon[3];
-	}
-	freeloop(false);
+	//}
+	//freeloop(false);
 	end;
 	
 OnSecondSummon:
 	'second_summon = 1;
 	.@map$ = 'os_a_map$;
+	/*
 	freeloop(true);
 	while('boss_alive){
+	*/
 		getunitdata 'boss_id,.@xy;
 		'x = .@xy[6];
 		'y = .@xy[7];
@@ -393,8 +395,10 @@ OnSecondSummon:
 			unitkill 'summon[6];
 		if(unitexists('summon[7]))
 			unitkill 'summon[7];
+	/*
 	}
 	freeloop(false);
+	*/
 	end;
 	
 OnEnd: end;

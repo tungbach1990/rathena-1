@@ -33,12 +33,13 @@ ma_scene01,174,179,4	script	Taho	541,{
 		mes "Hey. This is too dangerous a place for you. You cannot keep yourself safe. Get out of here and go to the village right now!";
 		close;
 	}
+	/*
 	if (malaya_bakona1 < 7 && malaya_bakona2 < 15) {
 		mes "[Taho]";
 		mes "We are gonna be killed all by that Bakonawa. Ah, we must slay him but unfortunately we are not prepared.";
 		close;
 	}
-
+	*/
 	set .@party_id,getcharid(1);
 	set .@md_name$, "Bakonawa Lake";
 
@@ -442,7 +443,7 @@ OnTimer420000:	callsub OnMobSpawn,40;
 OnTimer480000:	callsub OnMobSpawn,45;
 OnTimer540000:	callsub OnMobSpawn,50;
 OnTimer600000:
-	callfunc "getitemclone",7929,10;
+//	callfunc "getitemclone",7929,10;
 	killmonster instance_mapname("1@ma_b"),instance_npcname("#Bakonawan3-1")+"::OnMyMobDead";
 	stopnpctimer;
 	end;
@@ -493,6 +494,7 @@ OnMobSpawn:
 	mes "[Taho]";
 	mes "Then let's use to the rope to go up!";
 	close2;
+	callfunc "getitemclone",7929,10;
 	warp "ma_scene01",175,176;
 	end;
 OnInstanceInit:

@@ -73,6 +73,9 @@ ba_maison,120,321,5	script	#ep172_garden_rep	20698,3,3,{
 			erasequest 12498;
 			break;
 	}
+	OnClock0000:
+		 erasequest 12498;
+	end;
 	mes "[Flower Garden Manager]";
 	mes "You have been identified. You can enter the security area. How may I help you?";
 	next;
