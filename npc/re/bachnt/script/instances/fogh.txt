@@ -721,6 +721,95 @@ OnInit:
 end;
 }
 
+1@gl_prq,1,1,0	script	#gh_fall_control	-1,{
+	end;
+
+OnInstanceInit:
+	set_instance_var("map$",instance_mapname("1@gl_prq"));
+	.@type$ = instance_live_info(ILI_NAME);
+	instance_enable("#edda_fence_0",false);
+	instance_enable("#edda_warp_0",false);
+	instance_enable("Orb#edda_fall_0",false);
+	instance_enable("#gh_purification_ev_0",false);
+	instance_enable("#gh_purification_mob",false);
+	instance_enable("#gh_purification_boss",false);
+	instance_enable("#gh_purification_fire",false);
+	instance_enable("#schmidt_gh_purification",false);
+	
+	for(.@i = 0; .@i < 2; .@i++)
+		instance_enable("Heinrich#gh_fall_" + .@i,false);
+	for(.@i = 0; .@i < 3; .@i++){
+		instance_enable("Oscar#gh_fall_" + .@i,false);
+		instance_enable("#gh_fall_ev_" + .@i,false);
+	}
+	for(.@i = 0; .@i < 4; .@i++)
+		instance_enable("Varmundt#gh_fall_" + .@i,false);
+	for(.@i = 0; .@i < 5; .@i++){
+		instance_enable("Schmidt#gh_fall_" + .@i,false);
+		instance_enable("Oscar#gh_purification_" + .@i,false);
+	}
+	for(.@i = 0; .@i < 8; .@i++)
+		instance_enable("Knight Survivor#gh_fall_" + .@i,false);
+	for(.@i = 0; .@i < 16; .@i++)
+		instance_enable("Victim#gh_fall_" + .@i,false);
+	for(.@i = 0; .@i < 44; .@i++)
+		instance_enable("#schmidt_dummy_" + .@i,false);
+	
+	//= Fall of Glastheim
+	if(.@type$ == "Glastheim Fall"){
+		instance_enable("#gh_fall_ev_0",true);
+		for(.@i = 0; .@i < 4; .@i++){
+			instance_enable("Varmundt#gh_fall_" + .@i,true);
+			instance_hide("Varmundt#gh_fall_" + .@i,true);
+		}
+		for(.@i = 0; .@i < 5; .@i++){
+			instance_enable("Schmidt#gh_fall_" + .@i,true);
+			instance_hide("Schmidt#gh_fall_" + .@i,true);
+		}
+		for(.@i = 0; .@i < 2; .@i++){
+			instance_enable("Heinrich#gh_fall_" + .@i,true);
+			instance_hide("Heinrich#gh_fall_" + .@i,true);
+		}
+		for(.@i = 0; .@i < 6; .@i++){
+			instance_enable("#gh_fall_guard_" + .@i,true);
+			instance_hide("#gh_fall_guard_" + .@i,true);
+		}
+		for(.@i = 0; .@i < 3; .@i++){
+			instance_enable("Oscar#gh_fall_" + .@i,true);
+			instance_hide("Oscar#gh_fall_" + .@i,true);
+		}
+		for(.@i = 0; .@i < 44; .@i++){
+			instance_enable("#schmidt_dummy_" + .@i,true);
+			instance_hide("#schmidt_dummy_" + .@i,true);
+		}
+		end;
+	}
+	if(.@type$ == "Glastheim Purification"){	
+		set_instance_var("maid",20392);
+		set_instance_var("khalitzburg",20388);
+		set_instance_var("knight",20390);
+		set_instance_var("bloody",20394);
+		set_instance_var("schmidt",20386);
+		set_instance_var("hunt",12459);
+	} else {
+		set_instance_var("mode",1);
+		set_instance_var("maid",20392);
+		set_instance_var("khalitzburg",20389);
+		set_instance_var("knight",20391);
+		set_instance_var("bloody",20394);
+		set_instance_var("schmidt",20387);	
+		set_instance_var("hunt",12462);
+	}
+	instance_enable("#gh_purification_ev_0",true);
+	instance_enable("Oscar#gh_purification_0",true);
+	instance_enable("#gh_purification_mob",true);
+	instance_enable("#gh_purification_boss",true);
+	instance_enable("#gh_purification_fire",true);
+	instance_event("#gh_purification_mob","OnSpawn00",false);
+end;
+}
+
+
 1@gl_prq,299,17,0	script	#gh_fall_ev_0	HIDDEN_WARP_NPC,3,2,{
 	end;
 	
