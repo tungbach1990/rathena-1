@@ -720,3 +720,668 @@ OnInit:
 	setunittitle getnpcid(0),"[Exchange Machine]";
 end;
 }
+
+1@gl_prq,299,17,0	script	#gh_fall_ev_0	HIDDEN_WARP_NPC,3,2,{
+	end;
+	
+OnTouch:
+	.@var = get_instance_var("gh_fall");
+	set_instance_var("gh_fall",0);
+	if(.@var == 0){
+		set_instance_var("gh_fall",1);
+		instance_enable(strnpcinfo(0),false);
+		instance_hide("Varmundt#gh_fall_0",false);
+		specialeffect EF_YELLOBODY,AREA,instance_npcname("Varmundt#gh_fall_0");
+		specialeffect EF_WHITEBODY,AREA,instance_npcname("Varmundt#gh_fall_0");
+	}
+end;
+}
+
+1@gl_prq,299,30,4	script	Varmundt#gh_fall_0	4_M_BARMUND,5,4,{
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 2){
+		cutin "gl_barmund2",2;
+		mes "[ Varmundt's Illusion ]";
+		mes "Please go back. This place is changing into a place where living beings cannot enter.";
+		next;
+		cutin "schmidt02",0;
+		mes "[ Schmidt ]";
+		mes "Sage. What happened here?";
+		mes "I cancelled all my plans to come back here as soon as possible. Where is Heinrich?";
+		next;
+		cutin "gl_barmund2",2;
+		mes "[ Varmundt's Illusion ]";
+		mes "As you can see, the curse of Himmelmez is spreading throughout the castle. It's extremely dangerous to go inside now.";
+		next;
+		cutin "schmidt02",0;
+		mes "[ Schmidt ]";
+		mes "However, there are many people who have not evacuated yet.";
+		mes "Shouldn't we focus on that first?";
+		next;
+		cutin "gl_barmund2",2;
+		mes "[ Varmundt's Illusion ]";
+		mes "Lord Heinrich has already started.";
+		mes "What you should do now is remedy the situation after the evacuation, not recklessly dive into the castle.";
+		next;
+		cutin "schmidt03",0;
+		mes "[ Schmidt ]";
+		mes "You're right, but there are other reasons I want to go inside the castle.";
+		next;
+		cutin "schmidt02",0;
+		mes "[ Schmidt ]";
+		mes "I know a few things about this type of curse. Perhaps the catalyst is within the castle. If we don't destroy it...";
+		next;
+		cutin "gl_barmund2",2;
+		mes "[ Varmundt's Illusion ]";
+		mes "You mentioned the curse, but not the reason of it.";
+		next;
+		cutin "schmidt06",0;
+		mes "[ Schmidt ]";
+		mes "What is then? Do you know the energy source?!";
+		next;
+		cutin "gl_barmund2",2;
+		mes "[ Varmundt's Illusion ]";
+		mes "I'll explain more about it later.";
+		mes "Wouldn't you want to wait for me to be physically here?";
+		next;
+		cutin "schmidt02",0;
+		mes "[ Schmidt ]";
+		mes "You know it's not like that.";
+		mes "I am the king of this continent and the owner of this castle. It's my duty to amend the current situation.";
+		next;
+		cutin "gl_barmund2",2;
+		mes "[ Varmundt's Illusion ]";
+		mes "I know better than anyone, young king.";
+		mes "I know that there is no lie nor hesitation in your heart.";
+		next;
+		mes "[ Varmundt's Illusion ]";
+		mes "But your life is not only yours, it's the life of this continent itself, please go back.";
+		next;
+		cutin "schmidt03",0;
+		mes "[ Schmidt ]";
+		mes "Sage... I'm sorry, but I have to go.";
+		next;
+		cutin "schmidt02",0;
+		mes "[ Schmidt ]";
+		mes "Can you please tell me more about the situation?";
+		next;
+		cutin "gl_barmund2",2;
+		mes "[ Varmundt's Illusion ]";
+		mes "I want to tell you a little bit more, but since I'm pursuing Himmelmez, I can't afford to tell you right now.";
+		next;
+		mes "[ Varmundt's Illusion ]";
+		mes "I'll tell you one thing is for certain. If you go back now, you can have faith in my abilities and be at rest.";
+		next;
+		mes "[ Varmundt's Illusion ]";
+		mes "Of course, I cannot guarantee the lives of everyone in the castle, that cannot be helped.";
+		next;
+		cutin "schmidt06",0;
+		mes "[ Schmidt ]";
+		mes "My subordinates are my people. I want everyone to survive. I won't hear that story again!";
+		next;
+		cutin "schmidt02",0;
+		mes "[ Schmidt ]";
+		mes "I am going.";
+		next;
+		cutin "gl_barmund3",2;
+		mes "[ Varmundt's Illusion ]";
+		mes "Wait, young king! You must not go carelessly like that!";
+		close2;
+		cutin "",255;
+		.@var = get_instance_var("gh_fall");
+		if(.@var == 2){
+			set_instance_var("gh_fall",3);
+			.@mercenary = getmercinfo(8);
+			if(.@mercenary != 0){
+				if(unitexists(.@mercenary))
+					unitkill .@mercenary;
+			}
+			instance_hide("Schmidt#gh_fall_0",true);
+			instance_enable("Schmidt#gh_fall_0",false);
+			instance_hide("Oscar#gh_fall_0",false);
+			mercenary_create 20385,300000;
+		}
+		end;
+	}
+	if(.@var == 3){
+		cutin "gl_barmund3",2;
+		mes "[ Varmundt's Illusion ]";
+		mes "Wait, young king! You must not go carelessly like that!";
+		close3;
+	}
+	end;
+	
+OnTouch:
+	specialeffect EF_YELLOBODY;
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 1){
+		set_instance_var("gh_fall",2);
+		instance_hide("Schmidt#gh_fall_0",false);
+		npctalk "Stop right there, Schmidt. This is not a place for you to simply jump in at any moment.";	
+	}
+end;
+}
+
+1@gl_prq,299,25,0	script	Schmidt#gh_fall_0	4_ED_SCHMIDT,{
+	cutin "schmidt02",0;
+	mes "[ Schmidt ]";
+	mes "I'm talking to the sage. Please wait a moment...";
+	close3;
+}
+
+1@gl_prq,280,32,3	script	Oscar#gh_fall_0	4_ED_OSCAR,3,3,{
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 3){
+		cutin "oscar01",0;
+		mes "[ Oscar ]";
+		mes "What if someone sees me?";
+		mes "Don't worry. My body has a dimensional barrier so that only you can see me.";
+		next;
+		mes "[ Oscar ]";
+		mes "How about you? Do you think there's a way to change the course of history and bring these people out of a tragedy?";
+		next;
+		cutin "oscar05",0;
+		mes "[ Oscar ]";
+		mes "After all, the fate of these people are drastic.";
+		next;
+		mes "[ Oscar ]";
+		mes "It's a future without dreams nor hope. A painful, distorted story.";
+		mes "Wherever you look, there's not a glimpse of hope.";
+		next;
+		mes "[ Oscar ]";
+		mes "Of course, what I really wanted is a happy ending, so I actually tried to change my own destiny a few times.";
+		next;
+		cutin "oscar01",0;
+		mes "[ Oscar ]";
+		mes "What I said was a joke?!";
+		mes "You never take me too seriously aren't you?";
+		next;
+		cutin "oscar02",0;
+		mes "[ Oscar ]";
+		mes "Anyway. In my opinion, King Schmidt's military decision was left to be desired...";
+		next;
+		mes "[ Oscar ]";
+		mes "It was tactically correct, but it failed strategically.";
+		next;
+		mes "[ Oscar ]";
+		mes "You'll see it yourself anyway, but that's why Varmundt tried to prevent him from entering.";
+		next;
+		cutin "oscar05",0;
+		mes "[ Oscar ]";
+		mes "Poor Schmidt...";
+		next;
+		mes "[ Oscar ]";
+		mes "I always think about how different the story would have been if he had been a little more selfish.";
+		next;
+		cutin "oscar01",0;
+		mes "[ Oscar ]";
+		mes "I'm moving. There are still events to witness!";
+		close2;
+		cutin "",255;
+		set_instance_var("gh_fall",4);
+		instance_enable("#gh_fall_ev_1",true);
+		for(.@i = 0; .@i < 16; .@i++)
+			instance_enable("Victim#gh_fall_" + .@i,true);	
+		end;
+	}
+	cutin "oscar01",0;
+	mes "[ Oscar ]";
+	mes "I'm moving. There are still events to witness!";
+	close3;
+	
+OnTouch:
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 3)
+		npctalk "Oh~ Did you have a good conversation with Varmundt?";
+	if(.@var == 4)
+		npctalk "Go ahead. It shouldn't take much to see the following events.";
+end;
+}
+
+1@gl_prq,273,49,0	script	#gh_fall_ev_1	HIDDEN_WARP_NPC,4,3,{
+	end;
+	
+OnTouch:
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 4){
+		set_instance_var("gh_fall",5);
+		instance_hide(strnpcinfo(0),true);
+		instance_enable(strnpcinfo(0),false);
+		.@mercenary = getmercinfo(8);
+		if(.@mercenary != 0){
+			if(unitexists(.@mercenary))
+				unitkill .@mercenary;
+		}
+		instance_enable("Schmidt#gh_fall_1",true);
+		instance_hide("Schmidt#gh_fall_1",false);
+		npctalk "Wait. Aren't my soldiers in the front?",instance_npcname("Schmidt#gh_fall_1");
+	}
+end;
+}
+
+1@gl_prq,273,51,7	script	Schmidt#gh_fall_1	4_ED_SCHMIDT,{
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 5){
+		cutin "schmidt02",2;
+		mes "[ Schmidt ]";
+		mes "There seems to be people who haven't evacuated yet. I have to tell them to return outside.";
+		npctalk "Schmidt : You took your time. Aren't my soldiers the one ahead of me?";
+		next;
+		select("Please go back now.:You have orders.");
+		mes "[ Schmidt ]";
+		mes "No I can't. I won't go back...";
+		next;
+		mes "[ Schmidt ]";
+		mes "I'm sorry, but I need you to help me. I need your help on finding the rest of the survivors.";
+		next;
+		mes "[ Schmidt ]";
+		mes "There's a chance that they'll attack you if you're not with me. I think they've lost already half their sanity...";
+		next;
+		mes "[ Schmidt ]";
+		mes "I'll met you again when our path crosses.";
+		close2;
+		cutin "",255;
+		set_instance_var("gh_fall",6);
+		.@mercenary = getmercinfo(8);
+		if(.@mercenary != 0){
+			if(unitexists(.@mercenary))
+				unitkill .@mercenary;
+		}
+		instance_hide(strnpcinfo(0),true);
+		instance_enable(strnpcinfo(0),true);
+		instance_enable("#edda_fence_0",true);
+		mercenary_create 20385,300000;
+		for(.@i = 0; .@i < 8; .@i++)
+			instance_enable("Knight Survivor#gh_fall_" + .@i,true);
+	}
+	end;
+}
+
+1@gl_prq,283,54,3	script	Victim#gh_fall_0	4_TOWER_06,5,5,{
+	end;
+	
+OnTouch:
+	specialeffect EF_VENOMDUST;
+	instance_hide(strnpcinfo(0),true);
+	instance_enable(strnpcinfo(0),false);
+	getmapxy(.@map$,.@x,.@y,BL_NPC);
+	monster .@map$,.@x,.@y,"Maggot",2467,1;
+end;
+}
+
+1@gl_prq,287,78,4	duplicate(Victim#gh_fall_0)	Victim#gh_fall_1	4_TOWER_08,5,5
+1@gl_prq,294,94,2	duplicate(Victim#gh_fall_0)	Victim#gh_fall_2	4_TOWER_11,5,5
+1@gl_prq,291,132,5	duplicate(Victim#gh_fall_0)	Victim#gh_fall_3	4_TOWER_13,5,5
+1@gl_prq,295,149,4	duplicate(Victim#gh_fall_0)	Victim#gh_fall_4	4_TOWER_03,5,5
+1@gl_prq,283,152,2	duplicate(Victim#gh_fall_0)	Victim#gh_fall_5	4_TOWER_01,5,5
+1@gl_prq,278,146,3	duplicate(Victim#gh_fall_0)	Victim#gh_fall_6	4_TOWER_06,5,5
+1@gl_prq,289,167,6	duplicate(Victim#gh_fall_0)	Victim#gh_fall_7	4_TOWER_08,5,5
+1@gl_prq,284,176,8	duplicate(Victim#gh_fall_0)	Victim#gh_fall_8	4_TOWER_11,5,5
+1@gl_prq,287,201,7	duplicate(Victim#gh_fall_0)	Victim#gh_fall_9	4_TOWER_13,5,5
+1@gl_prq,297,209,1	duplicate(Victim#gh_fall_0)	Victim#gh_fall_10	4_TOWER_03,5,5
+1@gl_prq,280,210,5	duplicate(Victim#gh_fall_0)	Victim#gh_fall_11	4_TOWER_01,5,5
+1@gl_prq,299,267,7	duplicate(Victim#gh_fall_0)	Victim#gh_fall_12	4_TOWER_06,5,5
+1@gl_prq,292,283,8	duplicate(Victim#gh_fall_0)	Victim#gh_fall_13	4_TOWER_08,5,5
+1@gl_prq,285,294,8	duplicate(Victim#gh_fall_0)	Victim#gh_fall_14	4_TOWER_11,5,5
+1@gl_prq,297,297,8	duplicate(Victim#gh_fall_0)	Victim#gh_fall_15	4_TOWER_13,5,5
+
+1@gl_prq,290,51,7	script	Knight Survivor#gh_fall_0	4_F_KHALITZBURG,3,3,{
+	end;
+	
+OnTouch:
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 6){
+		.@id = atoi(replacestr(strnpcinfo(2),"gh_fall_",""));
+		unittalk getcharid(3),strcharinfo(0) + " : At the king's order. Please evacuate quickly.";
+		setpcblock PCBLOCK_ALL,true;
+		switch(.@id){
+			case 0:
+				.@mes$ = "Avoid the castle? Oh my king, you must not go inside. Please, avoid it.";
+				break;
+				
+			case 1:
+				.@mes$ = "A strange orb in the castle is sucking the life out of our people. All the people who came near it are turning undead.";
+				break;
+				
+			case 2:
+				.@mes$ = "The living are turning into undead. You have to avoid it. The knights are blocking the outer area, but it's the limit.";
+				break;
+				
+			case 3:
+				.@mes$ = "Ugh... I can feel my soul being eroded by the sound of the orb. Stay away from me.";
+				break;
+				
+			case 4:
+				.@mes$ = "It's not true that the knights inside the castle turned into monsters, right? I'm heading out.";
+				break;
+				
+			case 5:
+				.@mes$ = "Don't go in further, your highness! It's dangerous! Please come with me!";
+				break;
+				
+			case 6:
+				.@mes$ = "Leave me alone! Don't come near me!";
+				break;
+				
+			case 7:
+				.@mes$ = "I only take orders from his majesty, Schmidt!";
+				break;
+		}
+		npctalk .@mes$;
+		sleep2 3000;
+		setpcblock PCBLOCK_ALL,false;
+		instance_hide(strnpcinfo(0),true);
+		instance_enable(strnpcinfo(0),false);
+		set_instance_var("survivor",get_instance_var("survivor") + 1);
+		if(.@id >= 6){
+			getmapxy(.@map$,.@x,.@y,BL_NPC);
+			monster .@map$,.@x,.@y,"Unreasonable Person",20388,1,instance_npcname(strnpcinfo(0)) + "::OnMobDead";
+		}
+		end;
+	}
+	
+OnMobDead:
+end;
+}
+
+1@gl_prq,295,102,5	duplicate(Knight Survivor#gh_fall_0)	Knight Survivor#gh_fall_1	4_F_KHALITZBURG,3,3
+1@gl_prq,295,134,3	duplicate(Knight Survivor#gh_fall_0)	Knight Survivor#gh_fall_2	4_F_KHALITZBURG,3,3
+1@gl_prq,287,156,4	duplicate(Knight Survivor#gh_fall_0)	Knight Survivor#gh_fall_3	4_F_KHALITZBURG,3,3
+1@gl_prq,279,160,7	duplicate(Knight Survivor#gh_fall_0)	Knight Survivor#gh_fall_4	4_F_KHALITZBURG,3,3
+1@gl_prq,278,165,6	duplicate(Knight Survivor#gh_fall_0)	Knight Survivor#gh_fall_5	4_F_KHALITZBURG,3,3
+1@gl_prq,299,179,1	duplicate(Knight Survivor#gh_fall_0)	Knight Survivor#gh_fall_6	4_F_KHALITZBURG,3,3
+1@gl_prq,300,193,2	duplicate(Knight Survivor#gh_fall_0)	Knight Survivor#gh_fall_7	4_F_KHALITZBURG,3,3
+
+1@gl_prq,284,217,4	script	#edda_fence_0	4_ED_FENCE,{
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 6){
+		if(get_instance_var("survivor") < 8){
+			cutin "schmidt02",2;
+			mes "[ Schmidt ]";
+			mes "Adventurer. There seems to be more survivors nearby. Shouldn't we find them first?";
+			close3;
+		}
+		cutin "schmidt02",2;
+		mes "[ Schmidt ]";
+		mes "The door is already worn out, so we'd better just break it down. Stand back a little, I'll take care of it.";
+		close2;
+		cutin "",255;
+		set_instance_var("gh_fall",7);
+		specialeffect EF_LORD;
+		sleep2 3000;
+		instance_hide(strnpcinfo(0),true);
+		instance_enable("#edda_warp_0",true);
+		mercenary_create 20385,300000;
+	}
+	end;
+}
+
+1@gl_prq,284,217,4	script	#edda_warp_0	WARPNPC,3,3,{
+	end;
+	
+OnTouch:
+	.@map$ = get_instance_var("map$");
+	warp .@map$,284,229;
+end;
+}
+
+1@gl_prq,286,247,7	script	Schmidt#gh_fall_2	4_ED_SCHMIDT,3,3,{
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 8){
+		cutin "schmidt02",2;
+		mes "[ Schmidt ]";
+		mes "My vitality is slowly fading away as we get close. While we are standing here, this sinister energy is draining everyone's life and sanity away.";
+		next;
+		select("You must return now.");
+		mes "[ Schmidt ]";
+		mes "Going through the underground passage is difficult and the corridors above already collapsed. We don't have much time left.";
+		next;
+		mes "[ Schmidt ]";
+		mes "Let's continue, and hurry as much as possible.";
+		close2;
+		cutin "",255;
+		set_instance_var("gh_fall",9);
+		instance_hide(strnpcinfo(0),true);
+		mercenary_create 20385,300000;
+		end;
+	}
+	end;
+	
+OnTouch:
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 7){
+		.@mercenary = getmercinfo(8);
+		if(.@mercenary != 0){
+			if(unitexists(.@mercenary))
+				unitkill .@mercenary;
+		}
+		set_instance_var("gh_fall",8);
+		instance_hide(strnpcinfo(0),false);
+		npctalk "Schmidt : I have a bad feeling about this.";
+	}
+end;
+}
+
+1@gl_prq,297,294,5	script	Schmidt#gh_fall_3	4_ED_SCHMIDT,3,3,{
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 12){
+		cutin "schmidt04",0;
+		mes "[ Schmidt ]";
+		mes "Heinrich! Tell me where the orb is.";
+		next;
+		cutin "heinrich02",2;
+		mes "[ Heinrich ]";
+		mes "King Schmidt! Now is not the time for this.";
+		next;
+		cutin "schmidt01",0;
+		mes "[ Schmidt ]";
+		mes "Master is the only sage in this continent. I'm worried about his standing.";
+		next;
+		cutin "heinrich02",2;
+		mes "[ Heinrich ]";
+		mes "But you're the king! The only king in this continent!";
+		next;
+		cutin "schmidt02",0;
+		mes "[ Schmidt ]";
+		mes "The king can be suceeded by someone else, but nobody can replace the sage, not until many centuries.";
+		next;
+		cutin "schmidt06",0;
+		mes "[ Schmidt ]";
+		mes "Can you imagine what will happen to the state of the continent if the sage suddenly disappeared?";
+		mes "Who will bear the threats to this world and the threats from other dimensions?";
+		next;
+		cutin "schmidt02",0;
+		mes "[ Schmidt ]";
+		mes "This is my decision... guide me to where the sage went into, Heinrich. I'm sure you know the location.";
+		next;
+		cutin "heinrich02",2;
+		mes "[ Heinrich ]";
+		mes "It can't be helped.";
+		next;
+		cutin "heinrich_a02",2;
+		mes "[ Heinrich ]";
+		mes "I'll obey... your orders.";
+		close2;
+		cutin "",255;
+		specialeffect EF_REDBODY;
+		specialeffect EF_CLOAKING;
+		specialeffect EF_REDBODY,AREA,instance_npcname("Heinrich#gh_fall_0");
+		specialeffect EF_CLOAKING,AREA,instance_npcname("Heinrich#gh_fall_0");
+		for(.@i = 0; .@i < 6; .@i++){
+			instance_hide("#gh_fall_guard_" + .@i,true);
+			instance_enable("#gh_fall_guard_" + .@i,false);
+		}
+		sleep 200;
+		instance_hide("Oscar#gh_fall_1",false);
+		sleep 1000;
+		set_instance_var("gh_fall",13);
+		npctalk "Oscar : The story hasn't changed this time either.",instance_npcname("Oscar#gh_fall_1");
+		end;
+	}
+	if(.@var == 13){
+		mes "^0000CDIt seems that I'm not in sync with this time and space. Starting a conversation won't work.";
+		end;
+	}
+	end;
+	
+OnTouch:
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 9){
+		.@mercenary = getmercinfo(8);
+		if(.@mercenary != 0){
+			if(unitexists(.@mercenary))
+				unitkill .@mercenary;
+		}
+		for(.@i = 0; .@i < 6; .@i++)
+			instance_hide("#gh_fall_guard_" + .@i,false);
+		instance_hide("Heinrich#gh_fall_0",false);
+		instance_hide("Schmidt#gh_fall_3",false);
+		set_instance_var("gh_fall",10);
+		npctalk "Schmidt : Heinrich!",instance_npcname("Schmidt#gh_fall_3");
+	}
+end;
+}
+
+1@gl_prq,301,294,3	script	Heinrich#gh_fall_0	4_M_HEINRICH,{
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 10){
+		cutin "heinrich02",2;
+		mes "[ Heinrich ]";
+		mes "King Schmidt! I see that you've arrived.";
+		next;
+		cutin "schmidt02",0;
+		mes "[ Schmidt ]";
+		mes "Heinrich, I'm glad that you're safe!";
+		next;
+		cutin "heinrich02",2;
+		mes "[ Heinrich ]";
+		mes "I told the soldiers to take you outside when they meet you, but they didn't disobey my orders. You must be stubborn in order to come here your majesty...";
+		next;
+		cutin "schmidt05",0;
+		mes "[ Schmidt ]";
+		mes "Oh, it's been a while since we've last met and you're nagging me already Heinrich. It's nice to see you again.";
+		next;
+		cutin "heinrich02",2;
+		mes "[ Heinrich ]";
+		mes "King Schmidt, there's no time to spare. You must leave this place with me at once.";
+		next;
+		cutin "schmidt01",0;
+		mes "[ Schmidt ]";
+		mes "You're the same as the great sage, don't tell me to leave quickly. What is in the castle that's causing all of this?";
+		next;
+		cutin "heinrich02",2;
+		mes "[ Heinrich ]";
+		mes "...";
+		next;
+		cutin "schmidt02",0;
+		mes "[ Schmidt ]";
+		mes "Now, tell me. Heinrich, what's making you make me go as far as possible.";
+		next;
+		cutin "heinrich02",2;
+		mes "[ Heinrich ]";
+		mes "The cursed orb was located inside the castle, it's presumed to be a work of Himmelmez. I couldn't figure it out, but it's energy is getting stronger.";
+		next;
+		cutin "schmidt04",0;
+		mes "[ Schmidt ]";
+		mes "Right. I don't understand why you're asking me to evacuate.";
+		next;
+		cutin "schmidt01",0;
+		mes "[ Schmidt ]";
+		mes "But if the orb is the problem, I don't think it will be resolve by me evacuating, don't you think?";
+		next;
+		cutin "gl_barmund2",2;
+		mes "[ Varmundt's Illusion ]";
+		mes "Correct. It's meaningless to run away. It's a cursed object that endlessly drains the energy of the living.";
+		close2;
+		cutin "",255;
+		instance_hide("Varmundt#gh_fall_1",false);
+		npctalk "Heinrich : Varmundt!";
+		npctalk "Schmidt : Master!",instance_npcname("Schmidt#gh_fall_3");
+		set_instance_var("gh_fall",11);
+		end;
+	}
+	if(.@var < 13){
+		cutin "heinrich02",2;
+		mes "[ Heinrich ]";
+		mes "(We have to evacuate Schmidt no matter what.)";
+		close3;
+	}
+	mes "^0000CDIt seems that I'm not in sync with this time and space. Starting a conversation won't work.";
+	end;
+}
+
+1@gl_prq,299,297,4	script	Varmundt#gh_fall_1	4_M_BARMUND,{
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 11){
+		cutin "gl_barmund2",2;
+		mes "[ Varmundt ]";
+		mes "If I had chased a little more, I'd have caught up with him. I was worried about our king, I couldn't help but coming here myself.";
+		next;
+		cutin "schmidt04",0;
+		mes "[ Schmidt ]";
+		mes "Master...";
+		next;
+		cutin "gl_barmund3",2;
+		mes "[ Varmundt ]";
+		mes "What the hell are you doing Heinrich! I ordered you to ensure that the King wouldn't come here.";
+		next;
+		cutin "heinrich02",2;
+		mes "[ Heinrich ]";
+		mes "I'll evacuate Schmidt right away!";
+		next;
+		cutin "gl_barmund2",2;
+		mes "[ Varmundt ]";
+		mes "That's what I thought. I'll take care of the orb, so evacuate the castle immediately.";
+		close2;
+		cutin "",255;
+		instance_hide("Varmundt#gh_fall_1",true);
+		instance_enable("Varmundt#gh_fall_1",false);
+		set_instance_var("gh_fall",12);
+		end;
+	}
+	end;
+}
+
+1@gl_prq,299,297,4	script	Oscar#gh_fall_1	4_ED_OSCAR,{
+	.@map$ = get_instance_var("map$");
+	.@var = get_instance_var("gh_fall");
+	if(.@var == 13){
+		cutin "OSCAR01",2;
+		mes "[ Oscar ]";
+		mes "I think I've seen this happen about 824000 times.";
+		next;
+		mes "[ Oscar ]";
+		mes "Sometimes I fall into another area, but the dimensions that you are able to see now are nothing but history.";
+		next;
+		cutin "OSCAR03",2;
+		mes "[ Oscar ]";
+		mes "For the time being, we must break through the dimensions and observe Schmidt's story. The timeline from now on is very dangerous.";
+		next;
+		mes "[ Oscar ]";
+		mes "Schmidt nor Heinrich probably won't be able to detect you, even if Heinrich is a master of magic reconstruction.";
+		next;
+		mes "[ Oscar ]";
+		mes "So, are you going to follow Schmidt and see what happens next? If you are not interested, you can stop here.";
+		next;
+		if(select("Hang on.:I'll go") == 1){
+			mes "[ Oscar ]";
+			mes "Well, that's your decision. People's interest are different I guess.";
+			close3;
+		}
+		cutin "OSCAR01",2;
+		mes "[ Oscar ]";
+		mes "Good decision. Once you see it, you'll want to witness it until the end.";
+		close2;
+		cutin "",255;
+		instance_enable("#gh_fall_ev_2",true);
+		instance_enable("Orb#edda_fall_0",true);
+		instance_enable("Varmundt#gh_fall_2",true);
+		instance_hide("Varmundt#gh_fall_2",false);
+		set_instance_var("gh_fall",14);
+		warp .@map$,52,275;
+	}
+	end;
+}
+
+
+1@gl_prq	mapflag	noteleport	1
