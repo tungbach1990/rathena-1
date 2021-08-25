@@ -233,7 +233,7 @@ Body:
                 Rate: 800
                 Price: 100000
                 Material: HD_Carnium
-                DowngradeAmount: 1
+                #DowngradeAmount: 1
           - Level: 12
             Bonus: 2400
             BlacksmithBlessingAmount: 11
@@ -547,7 +547,7 @@ Body:
                 Rate: 1800
                 Price: 100000
                 Material: HD_Bradium
-                DowngradeAmount: 1
+                #DowngradeAmount: 1
           - Level: 12
             Bonus: 2400
             RandomBonus: 1500
@@ -872,7 +872,7 @@ Body:
                 Rate: 1800
                 Price: 100000
                 Material: HD_Bradium
-                DowngradeAmount: 1
+                #DowngradeAmount: 1
           - Level: 12
             Bonus: 3600
             RandomBonus: 3000
@@ -1201,7 +1201,7 @@ Body:
                 Rate: 1800
                 Price: 100000
                 Material: HD_Bradium
-                DowngradeAmount: 1
+                #DowngradeAmount: 1
           - Level: 12
             Bonus: 6000
             RandomBonus: 5600
@@ -1534,7 +1534,7 @@ Body:
                 Rate: 800
                 Price: 100000
                 Material: HD_Bradium
-                DowngradeAmount: 1
+                #DowngradeAmount: 1
           - Level: 12
             Bonus: 8400
             RandomBonus: 11200

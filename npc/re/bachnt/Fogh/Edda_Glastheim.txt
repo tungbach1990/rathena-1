@@ -2186,7 +2186,7 @@ end;
 	end;
 	
 OnSummon:
-	instance_event(strnpcinfo(0),"OnSummonLeft",false);
+	instance_event(strnpcinfo(0),"OnSummonLeft",true);
 end;
 
 OnSummonLeft:
@@ -2197,10 +2197,10 @@ OnSummonLeft:
 		if(!unitexists(.@gid))
 			end;
 		if(.@i == 10)
-			instance_event(strnpcinfo(0),"OnSummonRight",false);
+			instance_event(strnpcinfo(0),"OnSummonRight",true);
 		if(.@i == 55){
-			instance_event(strnpcinfo(0),"OnSummonTop",false);
-			instance_event(strnpcinfo(0),"OnSummonBottom",false);
+			instance_event(strnpcinfo(0),"OnSummonTop",true);
+			instance_event(strnpcinfo(0),"OnSummonBottom",true);
 		}
 		.@left[0] = monster(.@map$,.@i,248,"",20426,1,.@event$);
 		.@left[1] = monster(.@map$,.@i,251,"",20426,1,.@event$);
@@ -2304,7 +2304,7 @@ OnSummonTop:
 		if(!unitexists(.@gid))
 			end;	
 		if(.@i == 260)
-			instance_event(strnpcinfo(0),"OnSummonLeft",false);
+			instance_event(strnpcinfo(0),"OnSummonLeft",true);
 		.@bottom[0] = monster(.@map$,13,.@i,"",20426,1,.@event$);
 		.@bottom[1] = monster(.@map$,16,.@i,"",20426,1,.@event$);
 		.@bottom[2] = monster(.@map$,19,.@i,"",20426,1,.@event$);
@@ -2621,3 +2621,5 @@ end;
 OnDummy:
 end;
 }
+
+1@gl_prq	mapflag	noteleport	1

@@ -148,7 +148,7 @@ Body:
       - Item: Zelunium
         Amount: 10
       - Item: Token_of_OrcGeneral
-        Amount: 150
+        Amount: 5
     Reward: getitem(5375,1); # Orc Hero Hea﻿ddress
   - Item: Bs_Item_M_S_8
     SourceNeeded: 2
@@ -156,7 +156,7 @@ Body:
       - Item: Zelunium
         Amount: 10
       - Item: Valhalla_Flower
-        Amount: 150
+        Amount: 5
     Reward: getitem(5548,1); # Crimson Rose﻿
   - Item: Bs_Item_M_S_10
     SourceNeeded: 2
@@ -164,7 +164,7 @@ Body:
       - Item: Zelunium
         Amount: 10
       - Item: Broken_Crown
-        Amount: 150
+        Amount: 5
     Reward: getitem(5476,1); # Grand Peco﻿ Headdress﻿
   - Item: Bs_Item_M_S_11
     SourceNeeded: 2
@@ -172,7 +172,7 @@ Body:
       - Item: Zelunium
         Amount: 10
       - Item: Mother's_Nightmare
-        Amount: 150
+        Amount: 5
     Reward: getitem(5214,1); # Moonlight Flower Hat
   - Item: Bs_Item_M_S_34
     SourceNeeded: 2
@@ -180,7 +180,7 @@ Body:
       - Item: Zelunium
         Amount: 10
       - Item: Piece_Of_Bone_Armor
-        Amount: 150
+        Amount: 5
     Reward: getitem(5936,1); # 8 Forms Purgatory Wing
   - Item: Bs_Item_M_S_41
     SourceNeeded: 2
@@ -188,7 +188,7 @@ Body:
       - Item: Zelunium
         Amount: 10
       - Item: Mother's_Nightmare
-        Amount: 150
+        Amount: 5
     Reward: getitem(18528,1); # Tare Neko Cru [1]﻿
   - Item: Bs_Item_M_S_42
     SourceNeeded: 2
@@ -196,7 +196,7 @@ Body:
       - Item: Zelunium
         Amount: 10
       - Item: Shine_Spear_Blade
-        Amount: 50
+        Amount: 5
     Reward: getitem(5859,1); # Worldcup﻿ Hat of Honor﻿ [1]﻿
   - Item: Bs_Item_M_S_43
     SourceNeeded: 2
@@ -204,7 +204,7 @@ Body:
       - Item: Zelunium
         Amount: 10
       - Item: Osiris_Doll
-        Amount: 30
+        Amount: 5
     Reward: getitem(18522,1); # Evil Marching Hat [1﻿]
   - Item: Bs_Item_M_S_44
     SourceNeeded: 2
@@ -212,7 +212,7 @@ Body:
       - Item: Zelunium
         Amount: 10
       - Item: Fang_Of_Garm
-        Amount: 120
+        Amount: 5
     Reward: getitem(5498,1); # Vagabond Wolf﻿﻿ Hat [1]
   - Item: Bs_Sha_M_S_1
     SourceNeeded: 2
@@ -220,7 +220,7 @@ Body:
       - Item: Shadowdecon
         Amount: 10
       - Item: Pocket_Watch__
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_1);
   - Item: Bs_Sha_M_S_17
     SourceNeeded: 2
@@ -228,7 +228,7 @@ Body:
       - Item: Shadowdecon
         Amount: 10
       - Item: Osiris_Doll
-        Amount: 10
+        Amount: 1
     Reward: getgroupitem(IG_Bs_Sha_M_S_17);
   - Item: Bs_Sha_M_S_18
     SourceNeeded: 2
@@ -236,7 +236,7 @@ Body:
       - Item: Shadowdecon
         Amount: 10
       - Item: Baphomet_Doll
-        Amount: 10
+        Amount: 1
     Reward: getgroupitem(IG_Bs_Sha_M_S_18);
   - Item: Bs_Sha_M_S_19
     SourceNeeded: 2
@@ -244,7 +244,7 @@ Body:
       - Item: Shadowdecon
         Amount: 10
       - Item: Shine_Spear_Blade
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_19);
   - Item: Bs_Sha_M_S_20
     SourceNeeded: 2
@@ -252,7 +252,7 @@ Body:
       - Item: Shadowdecon
         Amount: 10
       - Item: Loki's_Whispers
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_20);
   - Item: Bs_Item_M_S_4
     SourceNeeded: 2
@@ -260,7 +260,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Baphomet_Doll
-        Amount: 30
+        Amount: 5
     Reward: getitem(19827,1); # 아미스트르캡(1)
   - Item: Bs_Item_M_S_6
     SourceNeeded: 2
@@ -268,7 +268,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Tiger_Footskin
-        Amount: 150
+        Amount: 5
     Reward: getitem(5497,1); # 호랑이 왕 인형모자(1)
   - Item: Bs_Item_M_S_7
     SourceNeeded: 2
@@ -276,7 +276,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: White_Snake_Tear
-        Amount: 150
+        Amount: 5
     Reward: getitem(5464,1); # 백소진 인형모자(1)
   - Item: Bs_Item_M_S_12
     SourceNeeded: 2
@@ -284,7 +284,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Gemstone
-        Amount: 150
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Item_M_S_12); # 획득 가능한 아이템
   - Item: Bs_Item_M_S_13
     SourceNeeded: 2
@@ -292,7 +292,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Young_Twig
-        Amount: 150
+        Amount: 5
     Reward: getitem(19264,1); # 황금 물고기 머리 모자(1)
   - Item: Bs_Item_M_S_15
     SourceNeeded: 2
@@ -300,7 +300,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Taegeuk_Plate
-        Amount: 150
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Item_M_S_15);
   - Item: Bs_Item_M_S_28
     SourceNeeded: 2
@@ -308,7 +308,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Ice_Scale
-        Amount: 150
+        Amount: 5
     Reward: getitem(19240,1); # 장난감 주사기
   - Item: Bs_Item_M_S_29
     SourceNeeded: 2
@@ -316,7 +316,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Gemstone
-        Amount: 150
+        Amount: 5
     Reward: getitem(19243,1); # 쪽빛 리어 리본
   - Item: Bs_Item_M_S_31
     SourceNeeded: 2
@@ -324,7 +324,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Dark_Red_Scale
-        Amount: 150
+        Amount: 5
     Reward: getitem(19241,1); # 매지컬 부스터(1)
   - Item: Bs_Item_M_S_32
     SourceNeeded: 2
@@ -332,7 +332,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Mother's_Nightmare
-        Amount: 150
+        Amount: 5
     Reward: getitem(19244,1); # 로자리오의 목걸이
   - Item: Bs_Item_M_S_33
     SourceNeeded: 2
@@ -340,7 +340,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Broken_Crown
-        Amount: 150
+        Amount: 5
     Reward: getitem(19177,1); # 정령의 왕관
   - Item: Bs_Item_M_S_36
     SourceNeeded: 2
@@ -348,7 +348,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Tiger_Footskin
-        Amount: 150
+        Amount: 5
     Reward: getitem(18878,1); # 근위병의 모자(1)
   - Item: Bs_Item_M_S_37
     SourceNeeded: 2
@@ -356,7 +356,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Loki's_Whispers
-        Amount: 150
+        Amount: 5
     Reward: getitem(5944,1); # 도적의 두건(1)
   - Item: Bs_Item_M_S_38
     SourceNeeded: 2
@@ -364,7 +364,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Pocket_Watch__
-        Amount: 150
+        Amount: 5
     Reward: getitem(19031,1); # 타천사의 축복(1)
   - Item: Bs_Item_M_S_39
     SourceNeeded: 2
@@ -372,7 +372,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Tutankhamen's_Mask
-        Amount: 150
+        Amount: 5
     Reward: getitem(19179,1); # 토끼 마술 모자(1)
   - Item: Bs_Item_M_S_40
     SourceNeeded: 2
@@ -380,7 +380,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Broken_Pharaoh_Symbol
-        Amount: 150
+        Amount: 5
     Reward: getitem(19180,1); # 아누비스 투구(1)
   - Item: Bs_Item_M_S_45
     SourceNeeded: 2
@@ -388,7 +388,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Dark_Red_Scale
-        Amount: 150
+        Amount: 5
     Reward: getitem(5658,1); # 임프 모자(1)
   - Item: Bs_Item_M_S_46
     SourceNeeded: 2
@@ -396,7 +396,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Scale_Of_Red_Dragon
-        Amount: 150
+        Amount: 5
     Reward: getitem(5654,1); # 빨간 마칭햇(1)
   - Item: Bs_Item_M_S_47
     SourceNeeded: 2
@@ -404,7 +404,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Konts_Letter
-        Amount: 150
+        Amount: 5
     Reward: getitem(5420, 1); # 이프리트 가면(1)
   - Item: Bs_Item_M_S_48
     SourceNeeded: 2
@@ -412,7 +412,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Osiris_Doll
-        Amount: 30
+        Amount: 5
     Reward: getitem(5671,1); # 늘어진 모로크의 현신(1)
   - Item: Bs_Item_M_S_49
     SourceNeeded: 2
@@ -420,7 +420,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Token_of_OrcGeneral
-        Amount: 150
+        Amount: 5
     Reward: getitem(5511,1); # 사만바이아(1)
   - Item: Bs_Item_M_S_50
     SourceNeeded: 2
@@ -428,7 +428,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Young_Twig
-        Amount: 150
+        Amount: 5
     Reward: getitem(19129,1); # 병아리 모자
   - Item: Bs_Item_M_S_51
     SourceNeeded: 2
@@ -436,7 +436,7 @@ Body:
       - Item: Zelunium
         Amount: 20
       - Item: Queen_Wing_Piece
-        Amount: 150
+        Amount: 5
     Reward: getitem(19134,1); # 휘케바인의 검은 고양이귀
   - Item: Bs_Sha_M_S_2
     SourceNeeded: 2
@@ -444,7 +444,7 @@ Body:
       - Item: Shadowdecon
         Amount: 20
       - Item: Scale_Of_Red_Dragon
-        Amount: 50
+        Amount: 5
     Reward: getitem(rand(24246,24319),1); /*getgroupitem(IG_Bs_Sha_M_S_2);*/ # TODO Class Shadow equipment: 24246-24255 or 24256-24319?
   - Item: Bs_Sha_M_S_5
     SourceNeeded: 2
@@ -452,7 +452,7 @@ Body:
       - Item: Shadowdecon
         Amount: 20
       - Item: Queen_Wing_Piece
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_5);
   - Item: Bs_Sha_M_S_6
     SourceNeeded: 2
@@ -460,7 +460,7 @@ Body:
       - Item: Shadowdecon
         Amount: 20
       - Item: Tiger_Footskin
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_6);
   - Item: Bs_Sha_M_S_7
     SourceNeeded: 2
@@ -468,7 +468,7 @@ Body:
       - Item: Shadowdecon
         Amount: 20
       - Item: Boroken_Shiled_Piece
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_7);
   - Item: Bs_Sha_M_S_8
     SourceNeeded: 2
@@ -476,7 +476,7 @@ Body:
       - Item: Shadowdecon
         Amount: 20
       - Item: Will_Of_Darkness_
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_8);
   - Item: Bs_Sha_M_S_13
     SourceNeeded: 2
@@ -484,7 +484,7 @@ Body:
       - Item: Shadowdecon
         Amount: 20
       - Item: Voucher_Of_Orcish_Hero
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_13);
   - Item: Bs_Sha_M_S_15
     SourceNeeded: 2
@@ -492,7 +492,7 @@ Body:
       - Item: Shadowdecon
         Amount: 20
       - Item: Token_of_OrcGeneral
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_15);
   - Item: Bs_Sha_M_S_16
     SourceNeeded: 2
@@ -500,7 +500,7 @@ Body:
       - Item: Shadowdecon
         Amount: 20
       - Item: Mother's_Nightmare
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_16);
   - Item: Bs_Sha_M_S_23
     SourceNeeded: 2
@@ -508,7 +508,7 @@ Body:
       - Item: Shadowdecon
         Amount: 20
       - Item: Broken_Horn
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_23);
   - Item: Bs_Item_M_S_5
     SourceNeeded: 2
@@ -516,7 +516,7 @@ Body:
       - Item: Zelunium
         Amount: 25
       - Item: Osiris_Doll
-        Amount: 30
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Item_M_S_5);
   - Item: Bs_Item_M_S_9
     SourceNeeded: 2
@@ -524,7 +524,7 @@ Body:
       - Item: Zelunium
         Amount: 25
       - Item: Valhalla_Flower
-        Amount: 150
+        Amount: 5
     Reward: getitem(2573,1); # 대천사의 날개(1)
   - Item: Bs_Item_M_S_14
     SourceNeeded: 2
@@ -532,7 +532,7 @@ Body:
       - Item: Zelunium
         Amount: 25
       - Item: Dark_Red_Scale
-        Amount: 150
+        Amount: 5
     Reward: getitem(19265,1); # 스모키의 변신 나뭇잎(1)
   - Item: Bs_Item_M_S_16
     SourceNeeded: 2
@@ -540,7 +540,7 @@ Body:
       - Item: Zelunium
         Amount: 25
       - Item: Will_Of_Darkness_
-        Amount: 150
+        Amount: 5
     Reward: getitem(19128,1); # 이프리트의 귀
   - Item: Bs_Item_M_S_17
     SourceNeeded: 2
@@ -548,7 +548,7 @@ Body:
       - Item: Zelunium
         Amount: 25
       - Item: Mother's_Nightmare
-        Amount: 150
+        Amount: 5
     Reward: getitem(18563,1); # 하트날개 헤어밴드(1)
   - Item: Bs_Item_M_S_19
     SourceNeeded: 2
@@ -556,7 +556,7 @@ Body:
       - Item: Zelunium
         Amount: 25
       - Item: Ice_Scale
-        Amount: 150
+        Amount: 5
     Reward: getitem(19085,1); # 사이그룬의 날개
   - Item: Bs_Item_M_S_27
     SourceNeeded: 2
@@ -564,7 +564,7 @@ Body:
       - Item: Zelunium
         Amount: 25
       - Item: Broken_Crown
-        Amount: 150
+        Amount: 5
     Reward: getitem(19242,1); # 새끼 고양이 헤드드레스(1)
   - Item: Bs_Item_M_S_35
     SourceNeeded: 2
@@ -572,7 +572,7 @@ Body:
       - Item: Zelunium
         Amount: 25
       - Item: Will_Of_Darkness_
-        Amount: 150
+        Amount: 5
     Reward: getitem(5985,1); # 귀족의 가면
   - Item: Bs_Sha_M_S_9
     SourceNeeded: 2
@@ -580,7 +580,7 @@ Body:
       - Item: Shadowdecon
         Amount: 25
       - Item: Young_Twig
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_9);
   - Item: Bs_Sha_M_S_10
     SourceNeeded: 2
@@ -588,7 +588,7 @@ Body:
       - Item: Shadowdecon
         Amount: 25
       - Item: Tiger_Footskin
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_10);
   - Item: Bs_Sha_M_S_11
     SourceNeeded: 2
@@ -596,7 +596,7 @@ Body:
       - Item: Shadowdecon
         Amount: 25
       - Item: Will_Of_Darkness_
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_11);
   - Item: Bs_Sha_M_S_21
     SourceNeeded: 2
@@ -604,7 +604,7 @@ Body:
       - Item: Shadowdecon
         Amount: 25
       - Item: Shine_Spear_Blade
-        Amount: 10
+        Amount: 1
     Reward: getgroupitem(IG_Bs_Sha_M_S_21);
   - Item: Bs_Sha_M_S_22
     SourceNeeded: 2
@@ -612,7 +612,7 @@ Body:
       - Item: Shadowdecon
         Amount: 25
       - Item: Fang_Of_Garm
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_22);
   - Item: Bs_Item_M_S_1
     SourceNeeded: 2
@@ -620,7 +620,7 @@ Body:
       - Item: Zelunium
         Amount: 30
       - Item: Valhalla_Flower
-        Amount: 300
+        Amount: 5
     Reward: getitem(2589,1); # 타락천사의 날개(1)
   - Item: Bs_Item_M_S_3
     SourceNeeded: 2
@@ -628,7 +628,7 @@ Body:
       - Item: Zelunium
         Amount: 30
       - Item: Broken_Crown
-        Amount: 150
+        Amount: 5
     Reward: getitem(2576,1); # 모험가 배낭(1)
   - Item: Bs_Item_M_S_18
     SourceNeeded: 2
@@ -636,7 +636,7 @@ Body:
       - Item: Zelunium
         Amount: 30
       - Item: Rojerta_Piece
-        Amount: 150
+        Amount: 5
     Reward: getitem(19249,1); # 스펠 서킷(1)
   - Item: Bs_Item_M_S_20
     SourceNeeded: 2
@@ -644,7 +644,7 @@ Body:
       - Item: Zelunium
         Amount: 30
       - Item: Loki's_Whispers
-        Amount: 200
+        Amount: 5
     Reward: getitem(19181,1); # 뉴웨이브 선글라스
   - Item: Bs_Item_M_S_21
     SourceNeeded: 2
@@ -652,7 +652,7 @@ Body:
       - Item: Zelunium
         Amount: 30
       - Item: Broken_Horn
-        Amount: 150
+        Amount: 5
     Reward: getitem(19268,1); # 거신뱀의 숨결
   - Item: Bs_Item_M_S_22
     SourceNeeded: 2
@@ -660,7 +660,7 @@ Body:
       - Item: Zelunium
         Amount: 30
       - Item: Taegeuk_Plate
-        Amount: 150
+        Amount: 5
     Reward: getitem(5371,1); # 판관모자(1)
   - Item: Bs_Item_M_S_23
     SourceNeeded: 2
@@ -668,7 +668,7 @@ Body:
       - Item: Zelunium
         Amount: 30
       - Item: Fang_Of_Garm
-        Amount: 150
+        Amount: 5
     Reward: getitem(19300,1); # 멍멍장교(1)
   - Item: Bs_Item_M_S_24
     SourceNeeded: 2
@@ -676,7 +676,7 @@ Body:
       - Item: Zelunium
         Amount: 30
       - Item: Gemstone
-        Amount: 150
+        Amount: 5
     Reward: getitem(19296,1); # 멋진 패더 햇(1)
   - Item: Bs_Item_M_S_25
     SourceNeeded: 2
@@ -684,7 +684,7 @@ Body:
       - Item: Zelunium
         Amount: 30
       - Item: Young_Twig
-        Amount: 150
+        Amount: 5
     Reward: getitem(19308,1); # 아미스트르 베레모(1)
   - Item: Bs_Item_M_S_26
     SourceNeeded: 2
@@ -692,7 +692,7 @@ Body:
       - Item: Zelunium
         Amount: 30
       - Item: Boroken_Shiled_Piece
-        Amount: 150
+        Amount: 5
     Reward: getitem(19263,1); # 장군의 투구(1)
   - Item: Bs_Item_M_S_30
     SourceNeeded: 2
@@ -700,7 +700,7 @@ Body:
       - Item: Zelunium
         Amount: 30
       - Item: Shine_Spear_Blade
-        Amount: 50
+        Amount: 5
     Reward: getitem(28942,1); # 저주받은 기사의 방패(1)
   - Item: Bs_Sha_M_S_3
     SourceNeeded: 2
@@ -708,7 +708,7 @@ Body:
       - Item: Shadowdecon
         Amount: 30
       - Item: Piece_Of_Bone_Armor
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_3);
   - Item: Bs_Sha_M_S_4
     SourceNeeded: 2
@@ -716,7 +716,7 @@ Body:
       - Item: Shadowdecon
         Amount: 30
       - Item: Konts_Letter
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_4);
   - Item: Bs_Sha_M_S_12
     SourceNeeded: 2
@@ -724,7 +724,7 @@ Body:
       - Item: Shadowdecon
         Amount: 30
       - Item: Taegeuk_Plate
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_12);
   - Item: Bs_Sha_M_S_14
     SourceNeeded: 2
@@ -732,7 +732,7 @@ Body:
       - Item: Shadowdecon
         Amount: 30
       - Item: Loki's_Whispers
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_14);
   - Item: Bs_Sha_M_S_24
     SourceNeeded: 2
@@ -740,7 +740,7 @@ Body:
       - Item: Shadowdecon
         Amount: 25
       - Item: Pocket_Watch__
-        Amount: 150
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_24);
   - Item: Bs_Sha_M_S_25
     SourceNeeded: 2
@@ -748,7 +748,7 @@ Body:
       - Item: Shadowdecon
         Amount: 25
       - Item: Gemstone
-        Amount: 150
+        Amount: 5
     Reward: getgroupitem(IG_Bs_Sha_M_S_25);
   - Item: PhysicalMagical_Mix
     SourceNeeded: 3
@@ -810,7 +810,7 @@ Body:
       - Item: Shadowdecon
         Amount: 20
       - Item: Will_Of_Darkness_
-        Amount: 50
+        Amount: 5
     Reward: getgroupitem(IG_Stability_Shadow_Box);
   - Item: Magical_Booster_Amplifier
     SourceItem:

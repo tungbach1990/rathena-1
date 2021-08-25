@@ -5,12 +5,25 @@ OnNPCKillEvent:
 	.@m$ = mapid2name(.@data[UMOB_MAPID]);
 	.@x = .@data[UMOB_X];
 	.@y = .@data[UMOB_Y];
+	
+	if (getcharid(3) == 2000003 || getcharid(3) == 2000000){
+                .chancegarment = 1000;
+                .chancecustomcostume = 200;
+                .chancecostume = 500;
+        }else {
+                .chancegarment = 100;
+                .chancecustomcostume = 10;
+                .chancecostume = 100;
+
+        }
+	
     if (getmonsterinfo(killedrid, MOB_MVPEXP)) {
 		.mvprand = rand( 10000 );
 		.count_garment = getarraysize(.garmentcostume);
 		if ( .mvprand < .chancegarment) {
 			getitem .garmentcostume[rand(.count_garment)], 1;
 			//makeitem .garmentcostume[rand(.count_garment)],1,.@m$,.@x,.@y;
+			announce "Chuc mung " +strcharinfo(0) + " tai " + .@m$ + " nhan duoc costume Garment",bc_all;	
 			end;
 		}
 	}
@@ -19,12 +32,12 @@ OnNPCKillEvent:
 	.normalrand = rand( 10000 );
 	.count_costume = getarraysize(.costume);
 	.count_customcostume = getarraysize(.customcostume);
-	if ( .normalrand < .chancecustomcostume ) {
+	if ( .normalrand < .chancecustomcostume*getmonsterinfo(killedrid,MOB_LV)/100 ) {
 		//getitem .customcostume[rand(.count_customcostume)], 1;
 		getitem .costume[rand(.count_costume)], 1;
 		end;
 	}
-	if ( .normalrand < .chancecostume ) {
+	if ( .normalrand < .chancecostume*getmonsterinfo(killedrid,MOB_LV)/100 ) {
 		getitem .costume[rand(.count_costume)], 1;
 		//makeitem .costume[rand(.count_costume)],1,.@m$,.@x,.@y;
 		end;
@@ -44,7 +57,9 @@ OnInit:
 	setarray .garmentcostume[0]	,20500,20502,20504,20506,20507,
 									20509,20510,20511,20514,
 									20516,20543,
-									20546,20570,20572,20574,20575,20576,20582,20584,20588,20592,20593,20594,20597,20598,20727,
+									20546,20570,20572,20574,20575,20576,20582,20584,20588,20592,20593,20594,20597,
+									//20598,
+									20727,
 									20737,20746,20761,20762,20764,20765;
 						//			50926,50928,50929,50930,50931,50932,50933,50934,50935,50936,50937,50938,50939,50940,
 						//			50941,50924,50942,50943,50944,50945;

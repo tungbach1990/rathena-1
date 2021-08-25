@@ -3915,12 +3915,12 @@ Body:
         }
   - Item: M_M_Fixed_Casting #25694 # M_M_Fixed_Casting Modification Module (Fixed Casting)
     TargetItem:
-      - Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
-      - Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      #- Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      #- Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
       #- Item: Illusion_Engine_A #20933 # Illusion_Engine_A
       #- Item: Illusion_Engine_B #20934 # Illusion_Engine_B
-      #- Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
-      #- Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
       #- Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
       #- Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
       #- Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
@@ -6151,7 +6151,7 @@ Body:
         } else {
             getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
             getitem .@itemid,1;
-        }     
+        }                
   - Item: EP17_2_EP37 # 1000188
     TargetItem:
       - Item: Auto_Armor_A # 450127

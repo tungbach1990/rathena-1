@@ -17,14 +17,14 @@
 prontera,141,182,5	script	OSC1052	2_VENDING_MACHINE1,{
 	callshop "FOGHSHOP";
 	OnInit:
-        	npcshopitem "FOGHSHOP","15388:99:10000000","25739:0:5","6607:0:10";
-        	bartershopadditem "FOGHSHOP","15389:99:10000000","25739:0:5","6607:0:10";
-		bartershopadditem "FOGHSHOP","32228:99:10000000","25740:0:5","6755:0:5";
-		bartershopadditem "FOGHSHOP","32229:99:10000000","25740:0:5","6755:0:5";
-		bartershopadditem "FOGHSHOP","32230:99:10000000","25740:0:5","6755:0:5";
-		bartershopadditem "FOGHSHOP","32231:99:10000000","25740:0:5","6755:0:5";
-		bartershopadditem "FOGHSHOP","32232:99:10000000","25740:0:5","6755:0:5";
-		bartershopadditem "FOGHSHOP","32233:99:10000000","25740:0:5","6755:0:5";
+        	npcshopitem "FOGHSHOP","15388:99:1000","25739:0:5","6607:0:10";
+        	bartershopadditem "FOGHSHOP","15389:99:1000","25739:0:5","6607:0:10";
+		bartershopadditem "FOGHSHOP","32228:99:1000","25740:0:5","6755:0:5";
+		bartershopadditem "FOGHSHOP","32229:99:1000","25740:0:5","6755:0:5";
+		bartershopadditem "FOGHSHOP","32230:99:1000","25740:0:5","6755:0:5";
+		bartershopadditem "FOGHSHOP","32231:99:1000","25740:0:5","6755:0:5";
+		bartershopadditem "FOGHSHOP","32232:99:1000","25740:0:5","6755:0:5";
+		bartershopadditem "FOGHSHOP","32233:99:1000","25740:0:5","6755:0:5";
 	end;
 
 }
@@ -136,7 +136,7 @@ prontera,139,181,5	script	OSC1127	2_SLOT_MACHINE,{
                                         }
 					
                                         if (.itemslot[1] == 0){
-						if (rand(1,100) > 5){
+						if (rand(1,100) > 30){
                                                 .@enchant_id = .enchant_acc_2nd[rand(getarraysize(.enchant_acc_2nd))];
                                            	 getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.@enchant_id,.itemslot[2],.itemslot[3]);
 						} else specialeffect EF_SUI_EXPLOSION;

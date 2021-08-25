@@ -1,4 +1,4 @@
-prontera,144,171,5	script	VıÚ Bao CÙng tr‚Ãm ca“m	511,{
+prontera,144,171,5	script	Bao CÙng F1	4_M_GREATPO,{
 
 	mes "[^995050 Bao CÙng ^000000]";
 	mes "Ta laÃ Bao CÙng"; 

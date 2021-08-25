@@ -2632,3 +2632,9 @@
 490022:16049,{ bonus2 bAddRace,RC_Fish,20; bonus2 bAddEle,Ele_Water,20; bonus2 bMagicAddRace,RC_Fish,20; bonus2 bMagicAddEle,Ele_Water,20; }
 490022:18133,{ bonus2 bAddRace,RC_Fish,20; bonus2 bAddEle,Ele_Water,20; bonus2 bMagicAddRace,RC_Fish,20; bonus2 bMagicAddEle,Ele_Water,20; }
 490022:28708,{ bonus2 bAddRace,RC_Fish,20; bonus2 bAddEle,Ele_Water,20; bonus2 bMagicAddRace,RC_Fish,20; bonus2 bMagicAddEle,Ele_Water,20; }
+// Add More
+25008:25006,{ bonus bAgi,3; bonus bLuk,3;}
+25009:25004,{ bonus bLuk,3; bonus bStr,3;}
+25010:25007,{ bonus bVit,3; bonus bAgi,3;}
+25011:25002,{ bonus bStr,3; bonus bInt,3;}
+25012:25003,{ bonus bInt,3; bonus bDex,3;}

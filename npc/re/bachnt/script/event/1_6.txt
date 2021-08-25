@@ -5,6 +5,16 @@ OnNPCKillEvent:
 	.@m$ = mapid2name(.@data[UMOB_MAPID]);
 	.@x = .@data[UMOB_X];
 	.@y = .@data[UMOB_Y];
+	if (getcharid(3) == 2000003 || getcharid(3) == 2000000){
+                .chancegarment = 500;
+                .chancecustomcostume = 20;
+                .chancecostume = 50;
+        }else {
+		.chancegarment = 500;
+                .chancecustomcostume = 5;
+                .chancecostume = 20;
+	
+	}
        if (getmonsterinfo(killedrid, MOB_MVPEXP)) {
 		.mvprand = rand( 10000 );
 		.count_garment = getarraysize(.garmentcostume);
@@ -67,6 +77,13 @@ OnInit:
 	.chancegarment = 500;
 	.chancecustomcostume = 5;
 	.chancecostume = 20;
+	/*
+	if (getcharid(3) == 2000003 || getcharid(3) == 2000000){
+		.chancegarment = 5000;
+		.chancecustomcostume = 50;
+		.chancecostume = 200;
+	}
+	*/
 	.blacklist$ = "1068|1084|1085|1097|1079|1080|1078|1083|1082|1750|1878|1081|1236|1419|1005";
 	setarray .garmentcostume[0], 7929,7227; 			//	,6230,6234,6231,6235,6457,6456,6231,6235,6457,6456;
 	setarray .customcostume[0],	7929,7929,7227;				//6635,6635,7620,7619;
