@@ -1473,4 +1473,57 @@ end;
 }
 
 
+1@gl_prq,303,296,3	duplicate(dummynpc2)	#gh_fall_guard_0	4_F_KHALITZBURG
+1@gl_prq,303,294,3	duplicate(dummynpc2)	#gh_fall_guard_1	4_F_KHALITZBURG
+1@gl_prq,303,292,3	duplicate(dummynpc2)	#gh_fall_guard_2	4_F_KHALITZBURG
+1@gl_prq,305,296,7	duplicate(dummynpc2)	#gh_fall_guard_3	4_F_KHALITZBURG
+1@gl_prq,305,294,6	duplicate(dummynpc2)	#gh_fall_guard_4	4_F_KHALITZBURG
+1@gl_prq,305,292,1	duplicate(dummynpc2)	#gh_fall_guard_5	4_F_KHALITZBURG
+
+1@gl_prq,52,282,4	duplicate(dummynpc2)	#schmidt_dummy_0	4_ED_SCHMIDT
+1@gl_prq,52,281,4	duplicate(dummynpc2)	#schmidt_dummy_1	4_ED_SCHMIDT
+1@gl_prq,52,280,4	duplicate(dummynpc2)	#schmidt_dummy_2	4_ED_SCHMIDT
+1@gl_prq,52,279,4	duplicate(dummynpc2)	#schmidt_dummy_3	4_ED_SCHMIDT
+1@gl_prq,52,278,4	duplicate(dummynpc2)	#schmidt_dummy_4	4_ED_SCHMIDT
+1@gl_prq,52,277,4	duplicate(dummynpc2)	#schmidt_dummy_5	4_ED_SCHMIDT
+1@gl_prq,52,276,4	duplicate(dummynpc2)	#schmidt_dummy_6	4_ED_SCHMIDT
+1@gl_prq,52,275,4	duplicate(dummynpc2)	#schmidt_dummy_7	4_ED_SCHMIDT
+1@gl_prq,52,274,4	duplicate(dummynpc2)	#schmidt_dummy_8	4_ED_SCHMIDT
+1@gl_prq,52,273,4	duplicate(dummynpc2)	#schmidt_dummy_9	4_ED_SCHMIDT
+1@gl_prq,52,272,4	duplicate(dummynpc2)	#schmidt_dummy_10	4_ED_SCHMIDT
+1@gl_prq,47,277,6	duplicate(dummynpc2)	#schmidt_dummy_11	4_ED_SCHMIDT
+1@gl_prq,48,277,6	duplicate(dummynpc2)	#schmidt_dummy_12	4_ED_SCHMIDT
+1@gl_prq,49,277,6	duplicate(dummynpc2)	#schmidt_dummy_13	4_ED_SCHMIDT
+1@gl_prq,50,277,6	duplicate(dummynpc2)	#schmidt_dummy_14	4_ED_SCHMIDT
+1@gl_prq,51,277,6	duplicate(dummynpc2)	#schmidt_dummy_15	4_ED_SCHMIDT
+1@gl_prq,52,277,6	duplicate(dummynpc2)	#schmidt_dummy_16	4_ED_SCHMIDT
+1@gl_prq,53,277,6	duplicate(dummynpc2)	#schmidt_dummy_17	4_ED_SCHMIDT
+1@gl_prq,54,277,6	duplicate(dummynpc2)	#schmidt_dummy_18	4_ED_SCHMIDT
+1@gl_prq,55,277,6	duplicate(dummynpc2)	#schmidt_dummy_19	4_ED_SCHMIDT
+1@gl_prq,56,277,6	duplicate(dummynpc2)	#schmidt_dummy_20	4_ED_SCHMIDT
+1@gl_prq,57,277,6	duplicate(dummynpc2)	#schmidt_dummy_21	4_ED_SCHMIDT
+1@gl_prq,52,272,8	duplicate(dummynpc2)	#schmidt_dummy_22	4_ED_SCHMIDT
+1@gl_prq,52,273,8	duplicate(dummynpc2)	#schmidt_dummy_23	4_ED_SCHMIDT
+1@gl_prq,52,274,8	duplicate(dummynpc2)	#schmidt_dummy_24	4_ED_SCHMIDT
+1@gl_prq,52,275,8	duplicate(dummynpc2)	#schmidt_dummy_25	4_ED_SCHMIDT
+1@gl_prq,52,276,8	duplicate(dummynpc2)	#schmidt_dummy_26	4_ED_SCHMIDT
+1@gl_prq,52,277,8	duplicate(dummynpc2)	#schmidt_dummy_27	4_ED_SCHMIDT
+1@gl_prq,52,278,8	duplicate(dummynpc2)	#schmidt_dummy_28	4_ED_SCHMIDT
+1@gl_prq,52,279,8	duplicate(dummynpc2)	#schmidt_dummy_29	4_ED_SCHMIDT
+1@gl_prq,52,280,8	duplicate(dummynpc2)	#schmidt_dummy_30	4_ED_SCHMIDT
+1@gl_prq,52,281,8	duplicate(dummynpc2)	#schmidt_dummy_31	4_ED_SCHMIDT
+1@gl_prq,52,282,8	duplicate(dummynpc2)	#schmidt_dummy_32	4_ED_SCHMIDT
+1@gl_prq,57,277,2	duplicate(dummynpc2)	#schmidt_dummy_33	4_ED_SCHMIDT
+1@gl_prq,56,277,2	duplicate(dummynpc2)	#schmidt_dummy_34	4_ED_SCHMIDT
+1@gl_prq,55,277,2	duplicate(dummynpc2)	#schmidt_dummy_35	4_ED_SCHMIDT
+1@gl_prq,54,277,2	duplicate(dummynpc2)	#schmidt_dummy_36	4_ED_SCHMIDT
+1@gl_prq,53,277,2	duplicate(dummynpc2)	#schmidt_dummy_37	4_ED_SCHMIDT
+1@gl_prq,52,277,2	duplicate(dummynpc2)	#schmidt_dummy_38	4_ED_SCHMIDT
+1@gl_prq,51,277,2	duplicate(dummynpc2)	#schmidt_dummy_39	4_ED_SCHMIDT
+1@gl_prq,50,277,2	duplicate(dummynpc2)	#schmidt_dummy_40	4_ED_SCHMIDT
+1@gl_prq,49,277,2	duplicate(dummynpc2)	#schmidt_dummy_41	4_ED_SCHMIDT
+1@gl_prq,48,277,2	duplicate(dummynpc2)	#schmidt_dummy_42	4_ED_SCHMIDT
+1@gl_prq,47,277,2	duplicate(dummynpc2)	#schmidt_dummy_43	4_ED_SCHMIDT
+
+
 1@gl_prq	mapflag	noteleport	1
