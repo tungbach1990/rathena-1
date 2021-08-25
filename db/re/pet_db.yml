@@ -872,6 +872,7 @@ Body:
     Fullness: 3
     IntimacyFed: 10
     CaptureRate: 500
+    AllowAutoFeed: true
     SpecialPerformance: false
     Script: >
       .@i = getpetinfo(PETINFO_INTIMATE);
@@ -993,17 +994,17 @@ Body:
       } else if (.@i >= PET_INTIMATE_CORDIAL) {
         bonus2 bResEff,Eff_Sleep,10000;
       }
-#    Evolution:
-#      - Target: NIGHTMARE_TERROR_H
-#        ItemRequirements:
-#          - Item: Burning_Horse_Shoe
-#            Amount: 500
-#          - Item: Blue_Herb
-#            Amount: 100
-#          - Item: Shell
-#            Amount: 100
-#          - Item: Nightmare_Card
-#            Amount: 1
+    Evolution:
+      - Target: NIGHTMARE_TERROR_H
+        ItemRequirements:
+          - Item: Burning_Horse_Shoe
+            Amount: 500
+          - Item: Blue_Herb
+            Amount: 100
+          - Item: Shell
+            Amount: 100
+          - Item: Nightmare_Card
+            Amount: 1
   - Mob: SHINOBI
     TameItem: Kuloren
     EggItem: Shinobi_Egg
@@ -1059,6 +1060,17 @@ Body:
         bonus bMaxSP,30;
         bonus bSPrecovRate,5;
       }
+    Evolution:
+      - Target: BACSOJIN2
+        ItemRequirements:
+          - Item: Powerful_Soul_Essence
+            Amount: 30
+          - Item: Civil_Servant_Card
+            Amount: 10
+          - Item: Li_Me_Mang_Ryang_Card
+            Amount: 10
+          - Item: Dancing_Dragon_Card
+            Amount: 10
   - Mob: STONE_SHOOTER
     TameItem: Oilpalm_Coconut
     EggItem: Stone_Shooter_Egg
@@ -1137,6 +1149,7 @@ Body:
     Fullness: 7
     IntimacyFed: 20
     CaptureRate: 200
+    AllowAutoFeed: true
     SpecialPerformance: false
     Script: >
       .@i = getpetinfo(PETINFO_INTIMATE);
@@ -2072,8 +2085,9 @@ Body:
   - Mob: BACSOJIN2
     EggItem: Bacsojin2_Egg_
     FoodItem: Luxurious_Pet_Food
-    Fullness: 7
+    Fullness: 2
     IntimacyFed: 10
+    HungryDelay: 120
     CaptureRate: 0
     SpecialPerformance: false
     AllowAutoFeed: true

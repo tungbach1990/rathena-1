@@ -1150,7 +1150,7 @@ OnInit:
 	OnSummonMVP:
 		monster "pay_d03_i",0,0,"Angry Nine Tail",3759,1,strnpcinfo(0)+"::OnSummonMVP";
 		$illusion_mvp += 1;
-		if($illusion_mvp == 500){
+		if($illusion_mvp >= 999){
 			mapannounce "pay_d03_i","Angry Moonlight Flower : Who dares bully us again? They're in a lot of trouble.",bc_map;
 			getmapxy(.@map$,.@x,.@y,BL_PC);
 			monster "pay_d03_i",.@x,.@y,"Angry Moonlight Flower",3758,1;
