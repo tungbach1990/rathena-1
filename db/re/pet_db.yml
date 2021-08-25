@@ -1584,17 +1584,17 @@ Body:
         bonus bAtk,10;
         bonus bDef,-3;
       }
-#    Evolution:
-#      - Target: ORK_HERO2
-#        ItemRequirements:
-#          - Item: Powerful_Soul_Essence
-#            Amount: 30
-#          - Item: Orc_Warrior_Card
-#            Amount: 10
-#          - Item: Orc_Baby_Card
-#            Amount: 10
-#          - Item: Voucher_Of_Orcish_Hero
-#            Amount: 10
+    Evolution:
+      - Target: ORK_HERO2
+        ItemRequirements:
+          - Item: Powerful_Soul_Essence
+            Amount: 30
+          - Item: Orc_Warrior_Card
+            Amount: 10
+          - Item: Orc_Baby_Card
+            Amount: 10
+          - Item: Voucher_Of_Orcish_Hero
+            Amount: 10
   - Mob: CHOCO
     EggItem: Choco_Egg
     FoodItem: Pet_Food
