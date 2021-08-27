@@ -1994,6 +1994,14 @@ Body:
     CaptureRate: 0
     SpecialPerformance: false
     AllowAutoFeed: true
+    SupportScript: >
+      .baseatk = readparam(bAtk,.charid);
+      .bonusatk = readparam(bAtk2,.charid);
+      .matk_min = readparam(matk_min,.charid);
+      .matk_max = readparam(matk_max,.charid);
+      .matk = (.matk_min + .matk_max)/2;
+      .calc_damage = (.baseatk + .bonusatk + .matk)*10;
+      petskillattack2 "RK_SONICWAVE",.calc_damage,3,10,10;
     Script: >
       .@i = getpetinfo(PETINFO_INTIMATE);
       
