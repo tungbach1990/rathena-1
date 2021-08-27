@@ -10526,7 +10526,7 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 		break;
 	case SR_FLASHCOMBO: {
 		const int combo[] = { SR_DRAGONCOMBO, SR_FALLENEMPIRE, SR_TIGERCANNON };
-		const int delay[] = { 0, 750, 1250 };
+		const int delay[] = { 200, 700, 1050 };
 
 		if (sd) // Disable attacking/acting/moving for skill's duration.
 			sd->ud.attackabletime = sd->canuseitem_tick = sd->ud.canact_tick = tick + delay[2];
