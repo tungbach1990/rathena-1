@@ -2342,7 +2342,7 @@ static int64 battle_calc_base_damage(struct block_list *src, struct status_data 
 	}
 	
 	// BachNT
-	if (sc && sce = sc->data[SC_ALMIGHTY]) 
+	if (sc && (sce = sc->data[SC_ALMIGHTY])) 
 		damage += sce->val1;
 
 	//Finally, add baseatk	
