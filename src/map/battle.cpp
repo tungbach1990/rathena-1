@@ -2253,7 +2253,7 @@ static int64 battle_calc_base_damage(struct block_list *src, struct status_data 
 	short type = 0;
 	int64 damage = 0;
 	struct map_session_data *sd = NULL;
-
+	struct status_change_entry *sce;
 	nullpo_retr(damage, src);
 
 	sd = BL_CAST(BL_PC, src);
@@ -2340,11 +2340,12 @@ static int64 battle_calc_base_damage(struct block_list *src, struct status_data 
 			}
 		}
 	}
-
-	//Finally, add baseatk
+	
+	// BachNT
 	if (sc && sce = sc->data[SC_ALMIGHTY]) 
 		damage += sce->val1;
-	
+
+	//Finally, add baseatk	
 	if(flag&4)
 		damage += status->matk_min;
 	else
