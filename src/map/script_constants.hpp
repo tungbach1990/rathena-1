@@ -565,7 +565,9 @@
 	export_parameter(PCDIECOUNTER_VAR, SP_PCDIECOUNTER);
 	export_parameter(COOKMASTERY_VAR, SP_COOKMASTERY);
 	export_parameter(ACHIEVEMENTLEVEL, SP_ACHIEVEMENT_LEVEL);
-
+	export_parameter("matk_min",SP_MATK1);
+	export_parameter("matk_max",SP_MATK2);
+	
 	export_constant2("bMaxHP",SP_MAXHP);
 	export_constant2("bMaxSP",SP_MAXSP);
 	export_constant2("bStr",SP_STR);
@@ -1528,6 +1530,7 @@
 	export_constant(SC_MAPLE_FALLS);
 	export_constant(SC_TIME_ACCESSORY);
 	export_constant(SC_MAGICAL_FEATHER);
+	export_constant(SC_ALMIGHTY);
 	export_constant(SC_GVG_GIANT);
 	export_constant(SC_GVG_GOLEM);
 	export_constant(SC_GVG_STUN);

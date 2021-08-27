@@ -1721,6 +1721,7 @@ void initChangeTables(void)
 	StatusIconChangeTable[SC_ADD_MATK_DAMAGE] = EFST_ADD_MATK_DAMAGE;
 	StatusIconChangeTable[SC_ENSEMBLEFATIGUE] = EFST_ENSEMBLEFATIGUE;
 	StatusIconChangeTable[SC_MISTY_FROST] = EFST_MISTY_FROST;
+	StatusIconChangeTable[SC_ALMIGHTY] = EFST_ALMIGHTY;
 
 	// Battleground Queue
 	StatusIconChangeTable[SC_ENTRY_QUEUE_APPLY_DELAY] = EFST_ENTRY_QUEUE_APPLY_DELAY;

@@ -8833,6 +8833,10 @@ int64 pc_readparam(struct map_session_data* sd,int64 type)
 			val = sd->battle_status.batk;
 #endif
 			break;
+		case SP_ATK1:			 val = sd->battle_status.batk; break;
+		case SP_ATK2:			 val = sd->battle_status.rhw.atk + sd->battle_status.lhw.atk; break;
+		case SP_MATK1:			 val = sd->battle_status.matk_min; break;
+		case SP_MATK2:			 val = sd->battle_status.matk_max; break;
 		case SP_DEF1:		     val = sd->battle_status.def; break;
 		case SP_DEF2:		     val = sd->battle_status.def2; break;
 		case SP_MDEF1:		     val = sd->battle_status.mdef; break;

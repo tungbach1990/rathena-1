@@ -2288,7 +2288,8 @@ static int64 battle_calc_base_damage(struct block_list *src, struct status_data 
 			}
 		}
 	}
-
+	
+	
 	if (sc && sc->data[SC_MAXIMIZEPOWER])
 		atkmin = atkmax;
 
@@ -2341,6 +2342,9 @@ static int64 battle_calc_base_damage(struct block_list *src, struct status_data 
 	}
 
 	//Finally, add baseatk
+	if (sc && sce = sc->data[SC_ALMIGHTY]) 
+		damage += sce->val1;
+	
 	if(flag&4)
 		damage += status->matk_min;
 	else
