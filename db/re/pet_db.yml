@@ -1494,6 +1494,26 @@ Body:
     SpecialPerformance: false
     AllowAutoFeed: true
     Script: >
+       .charid = getcharid(0,strcharinfo(0));
+      .atk = readparam(bAtk,.charid);
+      .atk2 = readparam(bAtk2,.charid);
+      .matk_min = readparam(matk_min,.charid);
+      .matk_max = readparam(matk_max,.charid);
+      .matk = (.matk_min + .matk_max)/2;
+      .maxhp = readparam(MaxHp,.charid);
+      .maxsp = readparam(MaxSp,.charid);
+      .def = readparam(bDef,.charid);
+      .def2 = readparam(bDef2,.charid);
+      .mdef = readparam(bMdef,.charid);
+      .mdef2 = readparam(bMdef2,.charid);
+      .hit = readparam(bHit,.charid);
+      .flee = readparam(bFlee,.charid);
+      .flee2 = readparam(bFlee2,.charid);
+      .crit = readparam(bCritical,.charid);
+      .calc_damage = 0;
+      .calc_damage = (.atk + .atk2 + .matk + .maxhp/1000 + .maxsp/100 + .def +.def2 + .mdef/2 + .mdef2 + .hit + .flee + .flee2 + .crit)*3;
+      petskillattack2 "AL_HOLYLIGHT",.calc_damage,3,10,0;
+      
       .@i = getpetinfo(PETINFO_INTIMATE);
       
       if (.@i >= PET_INTIMATE_LOYAL) {
@@ -1605,6 +1625,26 @@ Body:
     SpecialPerformance: false
     AllowAutoFeed: true
     Script: >
+      .charid = getcharid(0,strcharinfo(0));
+      .atk = readparam(bAtk,.charid);
+      .atk2 = readparam(bAtk2,.charid);
+      .matk_min = readparam(matk_min,.charid);
+      .matk_max = readparam(matk_max,.charid);
+      .matk = (.matk_min + .matk_max)/2;
+      .maxhp = readparam(MaxHp,.charid);
+      .maxsp = readparam(MaxSp,.charid);
+      .def = readparam(bDef,.charid);
+      .def2 = readparam(bDef2,.charid);
+      .mdef = readparam(bMdef,.charid);
+      .mdef2 = readparam(bMdef2,.charid);
+      .hit = readparam(bHit,.charid);
+      .flee = readparam(bFlee,.charid);
+      .flee2 = readparam(bFlee2,.charid);
+      .crit = readparam(bCritical,.charid);
+      .calc_damage = 0;
+      .calc_damage = (.atk + .atk2 + .matk + .maxhp/1000 + .maxsp/100 + .def +.def2 + .mdef/2 + .mdef2 + .hit + .flee + .flee2 + .crit)*3;
+      petskillattack2 "GC_CROSSIMPACT",.calc_damage,3,10,0;
+      
       .@i = getpetinfo(PETINFO_INTIMATE);
       
       if (.@i >= PET_INTIMATE_LOYAL) {
@@ -1970,6 +2010,26 @@ Body:
     SpecialPerformance: false
     AllowAutoFeed: true
     Script: >
+       .charid = getcharid(0,strcharinfo(0));
+      .atk = readparam(bAtk,.charid);
+      .atk2 = readparam(bAtk2,.charid);
+      .matk_min = readparam(matk_min,.charid);
+      .matk_max = readparam(matk_max,.charid);
+      .matk = (.matk_min + .matk_max)/2;
+      .maxhp = readparam(MaxHp,.charid);
+      .maxsp = readparam(MaxSp,.charid);
+      .def = readparam(bDef,.charid);
+      .def2 = readparam(bDef2,.charid);
+      .mdef = readparam(bMdef,.charid);
+      .mdef2 = readparam(bMdef2,.charid);
+      .hit = readparam(bHit,.charid);
+      .flee = readparam(bFlee,.charid);
+      .flee2 = readparam(bFlee2,.charid);
+      .crit = readparam(bCritical,.charid);
+      .calc_damage = 0;
+      .calc_damage = (.atk + .atk2 + .matk + .maxhp/1000 + .maxsp/100 + .def +.def2 + .mdef/2 + .mdef2 + .hit + .flee + .flee2 + .crit)*1;
+      petskillattack2 "WL_CRIMSONROCK",.calc_damage,3,10,0;
+      
       .@i = getpetinfo(PETINFO_INTIMATE);
       
       if (.@i >= PET_INTIMATE_LOYAL) {
@@ -1994,17 +2054,28 @@ Body:
     CaptureRate: 0
     SpecialPerformance: false
     AllowAutoFeed: true
-    SupportScript: >
-      .baseatk = readparam(bAtk,.charid);
-      .bonusatk = readparam(bAtk2,.charid);
+    Script: >
+      .charid = getcharid(0,strcharinfo(0));
+      .atk = readparam(bAtk,.charid);
+      .atk2 = readparam(bAtk2,.charid);
       .matk_min = readparam(matk_min,.charid);
       .matk_max = readparam(matk_max,.charid);
       .matk = (.matk_min + .matk_max)/2;
-      .calc_damage = (.baseatk + .bonusatk + .matk)*10;
-      petskillattack2 "RK_SONICWAVE",.calc_damage,3,10,10;
-    Script: >
-      .@i = getpetinfo(PETINFO_INTIMATE);
+      .maxhp = readparam(MaxHp,.charid);
+      .maxsp = readparam(MaxSp,.charid);
+      .def = readparam(bDef,.charid);
+      .def2 = readparam(bDef2,.charid);
+      .mdef = readparam(bMdef,.charid);
+      .mdef2 = readparam(bMdef2,.charid);
+      .hit = readparam(bHit,.charid);
+      .flee = readparam(bFlee,.charid);
+      .flee2 = readparam(bFlee2,.charid);
+      .crit = readparam(bCritical,.charid);
+      .calc_damage = 0;
+      .calc_damage = (.atk + .atk2 + .matk + .maxhp/1000 + .maxsp/100 + .def +.def2 + .mdef/2 + .mdef2 + .hit + .flee + .flee2 + .crit)*3;
+      petskillattack2 "RK_SONICWAVE",.calc_damage,3,10,0;
       
+      .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus bAgi,4;
         bonus bCritical,3;
@@ -2100,6 +2171,26 @@ Body:
     SpecialPerformance: false
     AllowAutoFeed: true
     Script: >
+      .charid = getcharid(0,strcharinfo(0));
+      .atk = readparam(bAtk,.charid);
+      .atk2 = readparam(bAtk2,.charid);
+      .matk_min = readparam(matk_min,.charid);
+      .matk_max = readparam(matk_max,.charid);
+      .matk = (.matk_min + .matk_max)/2;
+      .maxhp = readparam(MaxHp,.charid);
+      .maxsp = readparam(MaxSp,.charid);
+      .def = readparam(bDef,.charid);
+      .def2 = readparam(bDef2,.charid);
+      .mdef = readparam(bMdef,.charid);
+      .mdef2 = readparam(bMdef2,.charid);
+      .hit = readparam(bHit,.charid);
+      .flee = readparam(bFlee,.charid);
+      .flee2 = readparam(bFlee2,.charid);
+      .crit = readparam(bCritical,.charid);
+      .calc_damage = 0;
+      .calc_damage = (.atk + .atk2 + .matk + .maxhp/1000 + .maxsp/100 + .def +.def2 + .mdef/2 + .mdef2 + .hit + .flee + .flee2 + .crit)*3;
+      petskillattack2 "AB_JUDEX",.calc_damage,3,10,0;
+      
       .@i = getpetinfo(PETINFO_INTIMATE);
       
       if (.@i >= PET_INTIMATE_LOYAL) {
@@ -2124,6 +2215,26 @@ Body:
     SpecialPerformance: false
     AllowAutoFeed: true
     Script: >
+       .charid = getcharid(0,strcharinfo(0));
+      .atk = readparam(bAtk,.charid);
+      .atk2 = readparam(bAtk2,.charid);
+      .matk_min = readparam(matk_min,.charid);
+      .matk_max = readparam(matk_max,.charid);
+      .matk = (.matk_min + .matk_max)/2;
+      .maxhp = readparam(MaxHp,.charid);
+      .maxsp = readparam(MaxSp,.charid);
+      .def = readparam(bDef,.charid);
+      .def2 = readparam(bDef2,.charid);
+      .mdef = readparam(bMdef,.charid);
+      .mdef2 = readparam(bMdef2,.charid);
+      .hit = readparam(bHit,.charid);
+      .flee = readparam(bFlee,.charid);
+      .flee2 = readparam(bFlee2,.charid);
+      .crit = readparam(bCritical,.charid);
+      .calc_damage = 0;
+      .calc_damage = (.atk + .atk2 + .matk + .maxhp/1000 + .maxsp/100 + .def +.def2 + .mdef/2 + .mdef2 + .hit + .flee + .flee2 + .crit)*1;
+      petskillattack2 "RK_IGNITIONBREAK",.calc_damage,3,10,0;
+      
       .@i = getpetinfo(PETINFO_INTIMATE);
       
       if (.@i >= PET_INTIMATE_LOYAL) {
@@ -2144,6 +2255,26 @@ Body:
     Fullness: 2
     IntimacyFed: 20
     Script: >
+       .charid = getcharid(0,strcharinfo(0));
+      .atk = readparam(bAtk,.charid);
+      .atk2 = readparam(bAtk2,.charid);
+      .matk_min = readparam(matk_min,.charid);
+      .matk_max = readparam(matk_max,.charid);
+      .matk = (.matk_min + .matk_max)/2;
+      .maxhp = readparam(MaxHp,.charid);
+      .maxsp = readparam(MaxSp,.charid);
+      .def = readparam(bDef,.charid);
+      .def2 = readparam(bDef2,.charid);
+      .mdef = readparam(bMdef,.charid);
+      .mdef2 = readparam(bMdef2,.charid);
+      .hit = readparam(bHit,.charid);
+      .flee = readparam(bFlee,.charid);
+      .flee2 = readparam(bFlee2,.charid);
+      .crit = readparam(bCritical,.charid);
+      .calc_damage = 0;
+      .calc_damage = (.atk + .atk2 + .matk + .maxhp/1000 + .maxsp/100 + .def +.def2 + .mdef/2 + .mdef2 + .hit + .flee + .flee2 + .crit)*1;
+      petskillattack2 "SO_VARETYR_SPEAR",.calc_damage,3,10,0;
+      
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus bMatk,40;
