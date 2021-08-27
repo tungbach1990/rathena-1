@@ -3,5 +3,11 @@ dicastes01,210,195,5	script	Hair Style	4_F_KAFRA1,{
         message strcharinfo(0),"Charid: "+.charid;
         .atk = readparam(bAtk,.charid);
         message strcharinfo(0),"ATK: "+.atk;
+	.atk = readparam(bAtk2,.charid);
+        message strcharinfo(0),"ATK: "+.atk;
+	.atk = readparam(matk_min,.charid);
+        message strcharinfo(0),"ATK: "+.atk;
+	.atk = readparam(matk_max,.charid);
+        message strcharinfo(0),"ATK: "+.atk;
 }
 
