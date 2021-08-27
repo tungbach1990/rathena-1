@@ -1,39 +1,7 @@
 dicastes01,210,195,5	script	Hair Style	4_F_KAFRA1,{
-	cutin "hairstyle_"+Sex, 3;
-	mes "Change Hairstyle?";
-	switch(select("Yes.", "No.") == 1) {
-		input .@style, 0, .max_hairstyle[Sex];
-		setlook LOOK_HAIR, .@style;
-	}
-	close2;
-	cutin "", 255;
-	end;
-	
-	OnInit:
-		//setbattleflag("min_hair_style", 0);
-		//setbattleflag("max_hair_style", 99);
-		//setarray .max_hairstyle, 99, 84;
-		.totaldamage = 0;
-		
-		
-		attachnpctimer "GameMaster";
-		initnpctimer;
-		end;
-	end;
-	OnPCAttackEvent:
-//		dispbottom "You've dealt "+.totaldamage+" to target with GID "+@damagegid+" and RID "+@damagerid;
-		if (@damagerid == 2411) {
-			 dispbottom "You've dealt "+.totaldamage+" to target with GID "+@damagegid+" and RID "+@damagerid;
-			.totaldamage = .totaldamage + @damage;
-		}
-	end;
-		OnTimer5000:
-                if (.totaldamage > 0){
-                npctalk "Timer You've dealt "+.totaldamage/5 + "DPS";
-                //initnpctimer;
-		.totaldamage = 0;
-                }
-		initnpctimer;
-
-	end;
+.charid = getcharid(0,strcharinfo(0));
+        message strcharinfo(0),"Charid: "+.charid;
+        .atk = readparam(bAtk,.charid);
+        message strcharinfo(0),"ATK: "+.atk;
 }
+

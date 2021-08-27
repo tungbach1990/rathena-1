@@ -1591,7 +1591,7 @@ Body:
             Amount: 30
           - Item: Orc_Warrior_Card
             Amount: 10
-          - Item: Orc_Baby_Card
+          - Item: Orc_Baby_Card_Card
             Amount: 10
           - Item: Voucher_Of_Orcish_Hero
             Amount: 10

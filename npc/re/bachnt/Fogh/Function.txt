@@ -25,27 +25,27 @@ function	script	getnpc_arrindex	{
 //= instance_hide(<NPC NAME>,<BOOL>);
 function	script	instance_hide	{
 	if(getarg(1))
-		hideonnpc instance_npcname(getarg(0));
+		hideonnpc instance_npcname(getarg(0),instance_id());
 	else
-		hideoffnpc instance_npcname(getarg(0));
+		hideoffnpc instance_npcname(getarg(0),instance_id());
 	return;
 }
 
 //= instance_enable(<NPC NAME>,<BOOL>);
 function	script	instance_enable	{
 	if(getarg(1))
-		enablenpc instance_npcname(getarg(0));
+		enablenpc instance_npcname(getarg(0),instance_id());
 	else
-		disablenpc instance_npcname(getarg(0));
+		disablenpc instance_npcname(getarg(0),instance_id());
 	return;
 }
 
 //= instance_event(<NPC NAME>,<EVENT NAME>,<BOOL>);
 function	script	instance_event	{
 	if(getarg(2))
-		doevent instance_npcname(getarg(0)) + "::" + getarg(1);
+		doevent instance_npcname(getarg(0),instance_id()) + "::" + getarg(1);
 	else
-		donpcevent instance_npcname(getarg(0)) + "::" + getarg(1);
+		donpcevent instance_npcname(getarg(0),instance_id()) + "::" + getarg(1);
 	return;
 }
 

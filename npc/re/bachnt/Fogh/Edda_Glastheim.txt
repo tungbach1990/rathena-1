@@ -183,7 +183,7 @@ glast_01,241,290,5	script	Oscar#gh_fall	4_ED_OSCAR,{
 						end;
 						
 					case IE_OK:
-						mapannounce "glast_01", strcharinfo(0) + " of the party, "+ .@party_name$ +", is entering the " + .@md_name$ + ".", bc_map, "0x00FF99";
+						mapannounce "glast_01", strcharinfo(0) + " of the party, "+ strcharinfo(1) +", is entering the " + .@md_name$ + ".", bc_map, "0x00FF99";
 						end;
 				}			
 		}
@@ -279,7 +279,8 @@ glast_01,241,290,5	script	Oscar#gh_fall	4_ED_OSCAR,{
 			erasequest 12460;
 			.@normal = true;
 			break;
-	}
+	
+				}
 	switch(checkquest(12461,PLAYTIME)){
 		case -1:
 			.@hard = true;
@@ -333,13 +334,15 @@ glast_01,241,290,5	script	Oscar#gh_fall	4_ED_OSCAR,{
 					close3;
 					
 				case IE_OK:
-					mapannounce "glast_01", strcharinfo(0) + " of the party, "+ .@party_name$ +", is entering the " + .@md_name$ + ".", bc_map, "0x00FF99";
+					
+					mapannounce "glast_01", strcharinfo(0) + " of the party, "+ getpartyname( getcharid(1)) + " "+ .@cooldown +" , is entering the " + .@md_name$ + ".", bc_map, 0x00FF99;
 					if(isbegin_quest(.@hunt))
 						erasequest .@hunt;
 					setquest .@hunt;
 					setquest .@cooldown;
 					end;
-			}	
+			}
+			break;	
 			
 		case 2:
 			.@party_id = getcharid(1);
@@ -376,7 +379,7 @@ glast_01,241,290,5	script	Oscar#gh_fall	4_ED_OSCAR,{
 					mes "We succesfully created the dimensional gap. Talk to me again to enter the dimensional gap.";
 					close3;
 			}
-			
+			break;
 		case 3:
 			.@party_id = getcharid(1);
 			if(!.@party_id){
@@ -411,7 +414,8 @@ glast_01,241,290,5	script	Oscar#gh_fall	4_ED_OSCAR,{
 					mes "[ Oscar ]";
 					mes "We succesfully created the dimensional gap. Talk to me again to enter the dimensional gap.";
 					close3;
-			}		
+			}
+						
 	}
 }
 
@@ -2173,6 +2177,9 @@ OnSummon:
 	.@boss = get_instance_var("schmidt");
 	.@map$ = get_instance_var("map$");
 	.@gid = monster(.@map$,52,277,"Cursed King Schmidt",.@boss,1,instance_npcname(strnpcinfo(0)) + "::OnBossKill");
+	 //mapannounce .@map$,"BachNT Test OnSummon Boss",bc_map,0xFFFF00;
+	//instance_event("#gh_purification_fire","OnSummonLeft",false); //BachNT
+	'newgid = .@gid;
 	set_instance_var("gid",.@gid);
 	set_instance_var("boss_alive",1);
 end;
@@ -2186,22 +2193,26 @@ end;
 	end;
 	
 OnSummon:
-	instance_event(strnpcinfo(0),"OnSummonLeft",true);
+	//mapannounce "1@gl_prq","BachNT Test OnSummon",bc_map,0xFFFF00;
+	instance_event(strnpcinfo(0),"OnSummonLeft",false);
 end;
 
 OnSummonLeft:
 	.@map$ = get_instance_var("map$");
-	.@event$ = instance_npcname(strnpcinfo(0)) + "::OnLeftFireDead";
+	.@event$ = instance_npcname(strnpcinfo(0),instance_id()) + "::OnLeftFireDead";
 	.@gid = get_instance_var("gid");
+	//mapannounce .@map$,"BachNT Test OnSummonLeft " +.@gid + " " + 'newgid,bc_map,0xFFFF00;
+	//sleep 10000;
 	for(.@i = 10; .@i < 96; .@i++){
-		if(!unitexists(.@gid))
-			end;
+		//if(!unitexists(.@gid))
+		//	end;
 		if(.@i == 10)
-			instance_event(strnpcinfo(0),"OnSummonRight",true);
+			instance_event(strnpcinfo(0),"OnSummonRight",false);
 		if(.@i == 55){
-			instance_event(strnpcinfo(0),"OnSummonTop",true);
-			instance_event(strnpcinfo(0),"OnSummonBottom",true);
+			instance_event(strnpcinfo(0),"OnSummonTop",false);
+			instance_event(strnpcinfo(0),"OnSummonBottom",false);
 		}
+		/*
 		.@left[0] = monster(.@map$,.@i,248,"",20426,1,.@event$);
 		.@left[1] = monster(.@map$,.@i,251,"",20426,1,.@event$);
 		.@left[2] = monster(.@map$,.@i,254,"",20426,1,.@event$);
@@ -2220,6 +2231,44 @@ OnSummonLeft:
 		.@left[15] = monster(.@map$,.@i,302,"",20426,1,.@event$);
 		.@left[16] = monster(.@map$,.@i,305,"",20426,1,.@event$);
 		.@left[17] = monster(.@map$,.@i,308,"",20426,1,.@event$);
+		*/
+		 monster(.@map$,.@i,248,"",20426,1,.@event$);
+		 monster(.@map$,.@i,251,"",20426,1,.@event$);
+		 monster(.@map$,.@i,254,"",20426,1,.@event$);
+		 monster(.@map$,.@i,257,"",20426,1,.@event$);
+		 monster(.@map$,.@i,260,"",20426,1,.@event$);
+		 monster(.@map$,.@i,263,"",20426,1,.@event$);
+		 monster(.@map$,.@i,266,"",20426,1,.@event$);
+	  	 monster(.@map$,.@i,269,"",20426,1,.@event$);
+		 monster(.@map$,.@i,281,"",20426,1,.@event$);
+		 monster(.@map$,.@i,284,"",20426,1,.@event$);
+		 monster(.@map$,.@i,287,"",20426,1,.@event$);
+		 monster(.@map$,.@i,290,"",20426,1,.@event$);
+		 monster(.@map$,.@i,293,"",20426,1,.@event$);
+		 monster(.@map$,.@i,296,"",20426,1,.@event$);
+		 monster(.@map$,.@i,299,"",20426,1,.@event$);
+		 monster(.@map$,.@i,302,"",20426,1,.@event$);
+		 monster(.@map$,.@i,305,"",20426,1,.@event$);
+		 monster(.@map$,.@i,308,"",20426,1,.@event$);
+
+                 monster(.@map$,.@i,248,"",20426,1,.@event$);
+                 monster(.@map$,.@i,251,"",20426,1,.@event$);
+                 monster(.@map$,.@i,254,"",20426,1,.@event$);
+                 monster(.@map$,.@i,257,"",20426,1,.@event$);
+                 monster(.@map$,.@i,260,"",20426,1,.@event$);
+                 monster(.@map$,.@i,263,"",20426,1,.@event$);
+                 monster(.@map$,.@i,266,"",20426,1,.@event$);
+                 monster(.@map$,.@i,269,"",20426,1,.@event$);
+                 monster(.@map$,.@i,281,"",20426,1,.@event$);
+                 monster(.@map$,.@i,284,"",20426,1,.@event$);
+                 monster(.@map$,.@i,287,"",20426,1,.@event$);
+                 monster(.@map$,.@i,290,"",20426,1,.@event$);
+                 monster(.@map$,.@i,293,"",20426,1,.@event$);
+                 monster(.@map$,.@i,296,"",20426,1,.@event$);
+                 monster(.@map$,.@i,299,"",20426,1,.@event$);
+                 monster(.@map$,.@i,302,"",20426,1,.@event$);
+                 monster(.@map$,.@i,305,"",20426,1,.@event$);
+                 monster(.@map$,.@i,308,"",20426,1,.@event$);
 		sleep 300;
 		killmonster .@map$,.@event$;
 	}
@@ -2231,8 +2280,9 @@ OnSummonRight:
 	.@event$ = instance_npcname(strnpcinfo(0)) + "::OnRightFireDead";
 	.@gid = get_instance_var("gid");
 	for(.@i = 95; .@i > 10; .@i--){
-		if(!unitexists(.@gid))
-			end;
+		//if(!unitexists(.@gid))
+		//	end;
+		/*
 		.@right[0] = monster(.@map$,.@i,248,"",20426,1,.@event$);
 		.@right[1] = monster(.@map$,.@i,251,"",20426,1,.@event$);
 		.@right[2] = monster(.@map$,.@i,254,"",20426,1,.@event$);
@@ -2252,6 +2302,46 @@ OnSummonRight:
 		.@right[16] = monster(.@map$,.@i,302,"",20426,1,.@event$);
 		.@right[17] = monster(.@map$,.@i,305,"",20426,1,.@event$);
 		.@right[18] = monster(.@map$,.@i,308,"",20426,1,.@event$);
+		*/
+		monster(.@map$,.@i,248,"",20426,1,.@event$);
+                monster(.@map$,.@i,251,"",20426,1,.@event$);
+                monster(.@map$,.@i,254,"",20426,1,.@event$);
+                monster(.@map$,.@i,257,"",20426,1,.@event$);
+                monster(.@map$,.@i,260,"",20426,1,.@event$);
+                monster(.@map$,.@i,263,"",20426,1,.@event$);
+                monster(.@map$,.@i,266,"",20426,1,.@event$);
+                monster(.@map$,.@i,269,"",20426,1,.@event$);
+                monster(.@map$,.@i,272,"",20426,1,.@event$);
+                monster(.@map$,.@i,275,"",20426,1,.@event$);
+                monster(.@map$,.@i,278,"",20426,1,.@event$);
+                monster(.@map$,.@i,287,"",20426,1,.@event$);
+                monster(.@map$,.@i,290,"",20426,1,.@event$);
+                monster(.@map$,.@i,293,"",20426,1,.@event$);
+                monster(.@map$,.@i,296,"",20426,1,.@event$);
+                monster(.@map$,.@i,299,"",20426,1,.@event$);
+                monster(.@map$,.@i,302,"",20426,1,.@event$);
+                monster(.@map$,.@i,305,"",20426,1,.@event$);
+                monster(.@map$,.@i,308,"",20426,1,.@event$);
+
+                monster(.@map$,.@i,248,"",20426,1,.@event$);
+                monster(.@map$,.@i,251,"",20426,1,.@event$);
+                monster(.@map$,.@i,254,"",20426,1,.@event$);
+                monster(.@map$,.@i,257,"",20426,1,.@event$);
+                monster(.@map$,.@i,260,"",20426,1,.@event$);
+                monster(.@map$,.@i,263,"",20426,1,.@event$);
+                monster(.@map$,.@i,266,"",20426,1,.@event$);
+                monster(.@map$,.@i,269,"",20426,1,.@event$);
+                monster(.@map$,.@i,272,"",20426,1,.@event$);
+                monster(.@map$,.@i,275,"",20426,1,.@event$);
+                monster(.@map$,.@i,278,"",20426,1,.@event$);
+                monster(.@map$,.@i,287,"",20426,1,.@event$);
+                monster(.@map$,.@i,290,"",20426,1,.@event$);
+                monster(.@map$,.@i,293,"",20426,1,.@event$);
+                monster(.@map$,.@i,296,"",20426,1,.@event$);
+                monster(.@map$,.@i,299,"",20426,1,.@event$);
+                monster(.@map$,.@i,302,"",20426,1,.@event$);
+                monster(.@map$,.@i,305,"",20426,1,.@event$);
+                monster(.@map$,.@i,308,"",20426,1,.@event$);
 		sleep 300;
 		killmonster .@map$,.@event$;
 	}
@@ -2263,8 +2353,9 @@ OnSummonBottom:
 	.@event$ = instance_npcname(strnpcinfo(0)) + "::OnBottomFireDead";
 	.@gid = get_instance_var("gid");
 	for(.@i = 248; .@i < 309; .@i++){
-		if(!unitexists(.@gid))
-			end;
+		//if(!unitexists(.@gid))
+		//	end;
+		/*
 		.@bottom[0] = monster(.@map$,12,.@i,"",20426,1,.@event$);
 		.@bottom[1] = monster(.@map$,15,.@i,"",20426,1,.@event$);
 		.@bottom[2] = monster(.@map$,18,.@i,"",20426,1,.@event$);
@@ -2290,6 +2381,58 @@ OnSummonBottom:
 		.@bottom[22] = monster(.@map$,88,.@i,"",20426,1,.@event$);
 		.@bottom[23] = monster(.@map$,91,.@i,"",20426,1,.@event$);
 		.@bottom[24] = monster(.@map$,94,.@i,"",20426,1,.@event$);
+		*/
+		monster(.@map$,12,.@i,"",20426,1,.@event$);
+		monster(.@map$,15,.@i,"",20426,1,.@event$);
+		monster(.@map$,18,.@i,"",20426,1,.@event$);
+		monster(.@map$,21,.@i,"",20426,1,.@event$);
+		monster(.@map$,24,.@i,"",20426,1,.@event$);
+		monster(.@map$,27,.@i,"",20426,1,.@event$);
+		monster(.@map$,30,.@i,"",20426,1,.@event$);
+		monster(.@map$,33,.@i,"",20426,1,.@event$);
+		monster(.@map$,36,.@i,"",20426,1,.@event$);
+		monster(.@map$,49,.@i,"",20426,1,.@event$);
+		monster(.@map$,52,.@i,"",20426,1,.@event$);
+		monster(.@map$,55,.@i,"",20426,1,.@event$);
+		monster(.@map$,58,.@i,"",20426,1,.@event$);
+		monster(.@map$,61,.@i,"",20426,1,.@event$);
+		monster(.@map$,64,.@i,"",20426,1,.@event$);
+		monster(.@map$,67,.@i,"",20426,1,.@event$);
+		monster(.@map$,70,.@i,"",20426,1,.@event$);
+		monster(.@map$,73,.@i,"",20426,1,.@event$);
+		monster(.@map$,76,.@i,"",20426,1,.@event$);
+		monster(.@map$,79,.@i,"",20426,1,.@event$);
+		monster(.@map$,82,.@i,"",20426,1,.@event$);
+		monster(.@map$,85,.@i,"",20426,1,.@event$);
+		monster(.@map$,88,.@i,"",20426,1,.@event$);
+		monster(.@map$,91,.@i,"",20426,1,.@event$);
+		monster(.@map$,94,.@i,"",20426,1,.@event$);
+
+                monster(.@map$,12,.@i,"",20426,1,.@event$);
+                monster(.@map$,15,.@i,"",20426,1,.@event$);
+                monster(.@map$,18,.@i,"",20426,1,.@event$);
+                monster(.@map$,21,.@i,"",20426,1,.@event$);
+                monster(.@map$,24,.@i,"",20426,1,.@event$);
+                monster(.@map$,27,.@i,"",20426,1,.@event$);
+                monster(.@map$,30,.@i,"",20426,1,.@event$);
+                monster(.@map$,33,.@i,"",20426,1,.@event$);
+                monster(.@map$,36,.@i,"",20426,1,.@event$);
+                monster(.@map$,49,.@i,"",20426,1,.@event$);
+                monster(.@map$,52,.@i,"",20426,1,.@event$);
+                monster(.@map$,55,.@i,"",20426,1,.@event$);
+                monster(.@map$,58,.@i,"",20426,1,.@event$);
+                monster(.@map$,61,.@i,"",20426,1,.@event$);
+                monster(.@map$,64,.@i,"",20426,1,.@event$);
+                monster(.@map$,67,.@i,"",20426,1,.@event$);
+                monster(.@map$,70,.@i,"",20426,1,.@event$);
+                monster(.@map$,73,.@i,"",20426,1,.@event$);
+                monster(.@map$,76,.@i,"",20426,1,.@event$);
+                monster(.@map$,79,.@i,"",20426,1,.@event$);
+                monster(.@map$,82,.@i,"",20426,1,.@event$);
+                monster(.@map$,85,.@i,"",20426,1,.@event$);
+                monster(.@map$,88,.@i,"",20426,1,.@event$);
+                monster(.@map$,91,.@i,"",20426,1,.@event$);
+                monster(.@map$,94,.@i,"",20426,1,.@event$);
 		sleep 300;
 		killmonster .@map$,.@event$;
 	}
@@ -2301,10 +2444,11 @@ OnSummonTop:
 	.@event$ = instance_npcname(strnpcinfo(0)) + "::OnTopFireDead";
 	.@gid = get_instance_var("gid");
 	for(.@i = 308; .@i > 247; .@i--){
-		if(!unitexists(.@gid))
-			end;	
+		//if(!unitexists(.@gid))
+		//	end;	
 		if(.@i == 260)
-			instance_event(strnpcinfo(0),"OnSummonLeft",true);
+			instance_event(strnpcinfo(0),"OnSummonLeft",false);
+		/*
 		.@bottom[0] = monster(.@map$,13,.@i,"",20426,1,.@event$);
 		.@bottom[1] = monster(.@map$,16,.@i,"",20426,1,.@event$);
 		.@bottom[2] = monster(.@map$,19,.@i,"",20426,1,.@event$);
@@ -2330,6 +2474,58 @@ OnSummonTop:
 		.@bottom[22] = monster(.@map$,88,.@i,"",20426,1,.@event$);
 		.@bottom[23] = monster(.@map$,91,.@i,"",20426,1,.@event$);
 		.@bottom[24] = monster(.@map$,94,.@i,"",20426,1,.@event$);
+		*/
+		monster(.@map$,13,.@i,"",20426,1,.@event$);
+		monster(.@map$,16,.@i,"",20426,1,.@event$);
+		monster(.@map$,19,.@i,"",20426,1,.@event$);
+		monster(.@map$,22,.@i,"",20426,1,.@event$);
+		monster(.@map$,25,.@i,"",20426,1,.@event$);
+		monster(.@map$,28,.@i,"",20426,1,.@event$);
+		monster(.@map$,31,.@i,"",20426,1,.@event$);
+		monster(.@map$,34,.@i,"",20426,1,.@event$);
+		monster(.@map$,37,.@i,"",20426,1,.@event$);
+		monster(.@map$,40,.@i,"",20426,1,.@event$);
+		monster(.@map$,43,.@i,"",20426,1,.@event$);
+		monster(.@map$,46,.@i,"",20426,1,.@event$);
+		monster(.@map$,49,.@i,"",20426,1,.@event$);
+		monster(.@map$,52,.@i,"",20426,1,.@event$);
+		monster(.@map$,55,.@i,"",20426,1,.@event$);
+		monster(.@map$,58,.@i,"",20426,1,.@event$);
+		monster(.@map$,70,.@i,"",20426,1,.@event$);
+		monster(.@map$,73,.@i,"",20426,1,.@event$);
+		monster(.@map$,76,.@i,"",20426,1,.@event$);
+		monster(.@map$,79,.@i,"",20426,1,.@event$);
+		monster(.@map$,82,.@i,"",20426,1,.@event$);
+		monster(.@map$,85,.@i,"",20426,1,.@event$);
+		monster(.@map$,88,.@i,"",20426,1,.@event$);
+		monster(.@map$,91,.@i,"",20426,1,.@event$);
+		monster(.@map$,94,.@i,"",20426,1,.@event$);
+
+                monster(.@map$,13,.@i,"",20426,1,.@event$);
+                monster(.@map$,16,.@i,"",20426,1,.@event$);
+                monster(.@map$,19,.@i,"",20426,1,.@event$);
+                monster(.@map$,22,.@i,"",20426,1,.@event$);
+                monster(.@map$,25,.@i,"",20426,1,.@event$);
+                monster(.@map$,28,.@i,"",20426,1,.@event$);
+                monster(.@map$,31,.@i,"",20426,1,.@event$);
+                monster(.@map$,34,.@i,"",20426,1,.@event$);
+                monster(.@map$,37,.@i,"",20426,1,.@event$);
+                monster(.@map$,40,.@i,"",20426,1,.@event$);
+                monster(.@map$,43,.@i,"",20426,1,.@event$);
+                monster(.@map$,46,.@i,"",20426,1,.@event$);
+                monster(.@map$,49,.@i,"",20426,1,.@event$);
+                monster(.@map$,52,.@i,"",20426,1,.@event$);
+                monster(.@map$,55,.@i,"",20426,1,.@event$);
+                monster(.@map$,58,.@i,"",20426,1,.@event$);
+                monster(.@map$,70,.@i,"",20426,1,.@event$);
+                monster(.@map$,73,.@i,"",20426,1,.@event$);
+                monster(.@map$,76,.@i,"",20426,1,.@event$);
+                monster(.@map$,79,.@i,"",20426,1,.@event$);
+                monster(.@map$,82,.@i,"",20426,1,.@event$);
+                monster(.@map$,85,.@i,"",20426,1,.@event$);
+                monster(.@map$,88,.@i,"",20426,1,.@event$);
+                monster(.@map$,91,.@i,"",20426,1,.@event$);
+                monster(.@map$,94,.@i,"",20426,1,.@event$);
 		sleep 300;
 		killmonster .@map$,.@event$;
 	}

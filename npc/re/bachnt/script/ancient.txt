@@ -15,7 +15,7 @@ prontera,144,171,5	script	Bao Công F1	4_M_GREATPO,{
 	
 	next;
 	mes "[^995050 Bao Công ^000000]";
-	mes "HaŞy ğıa ta 100.000 zeny ";
+	mes "HaŞy ğıa ta 500.000 zeny ";
 	mes "Ta seŞ cho ngıõi ğôÌ ngıõi muôìn nhıng ngıõi câÌn may mãìn nıŞa";
 	next;
 	.@diff = 1;
@@ -33,14 +33,22 @@ prontera,144,171,5	script	Bao Công F1	4_M_GREATPO,{
 				}
 				.rand = rand(1,10000);
 				//dispbottom .rand;
-				if (.rand >= 4000) {
+				if (.rand >= 5000) {
 					mes "Ôi thôi ğôÌ kia ta laÌm mâìt rôÌi, ğêÌn buÌ cho ngıõi nheì";
-					getitem 7929,1;
+					//getitem 7929,1
+					if (rand(1,2) == 1) getitem callfunc("F_Rand",100023,100025),1; else getitem 7929,5;
 					end;
 				}
+				if (.rand >= 4000) {
+                                        mes "Ôi thôi ğôÌ kia ta laÌm mâìt rôÌi, ğêÌn buÌ cho ngıõi nheì";
+                                        if (rand(1,2) == 1) getitem callfunc("F_Rand",14535,23307,12461),1; else getitem 7929,5;
+                                        //getitem 7227,1;
+                                        end;
+                                }
 				if (.rand >= 300*.@diff) {
 					mes "Ôi thôi ğôÌ kia ta laÌm mâìt rôÌi, ğêÌn buÌ cho ngıõi nheì";
-					getitem 7227,1;
+					//getitem callfunc("F_Rand",7929,100023,100025),1;
+					getitem 7227,rand(1,10);
 					end;
 				}
 				.rand = rand(1,5);
@@ -55,6 +63,9 @@ prontera,144,171,5	script	Bao Công F1	4_M_GREATPO,{
 				.itemx = .exchange_item[rand(0,getarraysize(.exchange_item)-1)];
 				getitem .itemx,1;
 				announce "Bao Công chuìc mıÌng " + strcharinfo(0) + " ğaŞ ğôÒi ğıõòc " +  getitemname(.itemx),0;
+				.itemx = .exchange_item[rand(0,getarraysize(.exchange_item)-1)];
+                                getitem .itemx,1;
+                                announce "Bao Công chuìc mıÌng " + strcharinfo(0) + " ğaŞ ğôÒi ğıõòc " +  getitemname(.itemx),0;
 				end;
 					
 				
@@ -87,7 +98,7 @@ function	script	Ancient_CheckAndDelItem	{
 		break;
 		}
 	}
-	if (Zeny < 100000) .temp++;
+	if (Zeny < 500000) .temp++;
 	if (.temp > 0){
 		mes "You dont enough materials !";
 		close;
@@ -96,7 +107,7 @@ function	script	Ancient_CheckAndDelItem	{
 		for (.@i = 0; .@i < .@size; .@i += 2) {
 			delitem .array[.@i],.array[.@i+1];
 		}
-		Zeny = Zeny - 100000;
+		Zeny = Zeny - 500000;
 		return 1;
 	}
 	
