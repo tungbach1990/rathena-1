@@ -32,10 +32,12 @@ uint64 ItemUpgradeDatabase::parseBodyNode(const YAML::Node &node) {
 	if (!this->asString(node, "Item", upgrade_item_name))
 		return 0;
 	
+	item_data *item;
+	
 	if (atoi(upgrade_item_name.c_str()) > 0)
-		item_data *item = itemdb_exists(atoi(upgrade_item_name.c_str()));
+		item = itemdb_exists(atoi(upgrade_item_name.c_str()));
 	else
-		item_data *item = itemdb_search_aegisname(upgrade_item_name.c_str());
+		item = itemdb_search_aegisname(upgrade_item_name.c_str());
 
 	if (item == nullptr) {
 		this->invalidWarning(node["Item"], "Item name for Upgrade Box %s does not exist.\n", upgrade_item_name.c_str());
@@ -84,11 +86,11 @@ uint64 ItemUpgradeDatabase::parseBodyNode(const YAML::Node &node) {
 		for (const YAML::Node &target : targetNode) {
 			if (!this->asString(target, "Item", target_item_name))
 				continue;
-			
+			item_data *target_item;
 			if (atoi(target_item_name.c_str()) > 0)
-				item_data *target_item = itemdb_exists(atoi(target_item_name.c_str()));
+				target_item = itemdb_exists(atoi(target_item_name.c_str()));
 			else
-				item_data *target_item = itemdb_search_aegisname(target_item_name.c_str());
+				target_item = itemdb_search_aegisname(target_item_name.c_str());
 
 			if (target_item == nullptr) {
 				this->invalidWarning(node["TargetItem"], "Target item name %s does not exist, skipping.\n", target_item_name.c_str());
