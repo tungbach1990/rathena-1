@@ -8512,16 +8512,16 @@ Body:
         }   
   - Item: Card_Removing_Matrix # 40915
     TargetItem:
-      - Item: Auto_Armor_A # 450127
-      - Item: Auto_Armor_B # 450128
-      - Item: Auto_Engine_A # 480020
-      - Item: Auto_Engine_B # 480021
-      - Item: Auto_Leg_B # 470023
-      - Item: Auto_Leg_A # 470022
-      - Item: Auto_B_R # 490024
-      - Item: Auto_B_L # 490025
-      - Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: 450127 #Auto_Armor_A # 450127
+      - Item: 450128 #Auto_Armor_B # 450128
+      - Item: 480020 #Auto_Engine_A # 480020
+      - Item: 480021 #Auto_Engine_B # 480021
+      - Item: 470023 #Auto_Leg_B # 470023
+      - Item: 470022 #Auto_Leg_A # 470022
+      - Item: 490024 #Auto_B_R # 490024
+      - Item: 490025 #Auto_B_L # 490025
+      - Item: 490026 #Auto_BC_R # 490026
+      - Item: 490027 #Auto_BC_L $ 490027
       - Item: Royal_Bow_K
       - Item: Narcis_Bow
       - Item: Shadow_Staff_K
