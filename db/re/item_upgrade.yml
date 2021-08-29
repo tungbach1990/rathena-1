@@ -1941,7 +1941,7 @@ Body:
     Result: |
       callfunc("F_Lapine_Uniform_Repair_Kits", .@opts[0], .@vals[0], .@opts[1], .@vals[1]);
       .@params[0] = 0;
-      getitem3(@last_lapine_id,1,1,0,0,0,0,0,0,.@opts,.@vals,.@params);
+       getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
   - Item: Shadow_Random_Mix
     NeedRefineMin: 7
     TargetItem:
@@ -7004,7 +7004,7 @@ Body:
     Result: |
         .@itemid = 1000113;
         .@enchant_id = 310090;
-        .@max_enchant = 3;
+        .@max_enchant = 2;
         .@count_enchant = 0;
         if (@last_lapine_card1 == .@enchant_id) {
             .@count_enchant++;
@@ -7043,7 +7043,397 @@ Body:
     Result: |
         .@itemid = 1000114;
         .@enchant_id = 310091;
-        .@max_enchant = 3;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }        
+  - Item: EP17_2_RA3 # 1000115
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      - Item: Auto_B_R # 490024
+      - Item: Auto_B_L # 490025
+      - Item: Auto_BC_R # 490026
+      - Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000115;
+        .@enchant_id = 310092;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }         
+  - Item: EP17_2_RA4 # 1000116
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      - Item: Auto_B_R # 490024
+      - Item: Auto_B_L # 490025
+      - Item: Auto_BC_R # 490026
+      - Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000116;
+        .@enchant_id = 310093;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }             
+  - Item: EP17_2_RA5 # 1000117
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      - Item: Auto_B_R # 490024
+      - Item: Auto_B_L # 490025
+      - Item: Auto_BC_R # 490026
+      - Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000117;
+        .@enchant_id = 310094;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }     
+  - Item: EP17_2_RA6 # 1000118
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      - Item: Auto_B_R # 490024
+      - Item: Auto_B_L # 490025
+      - Item: Auto_BC_R # 490026
+      - Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000118;
+        .@enchant_id = 310095;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }             
+  - Item: EP17_2_RA7 # 1000119
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000119;
+        .@enchant_id = 310096;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }       
+  - Item: EP17_2_RA8 # 1000120
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000120;
+        .@enchant_id = 310097;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }            
+  - Item: EP17_2_RA9 # 1000121
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000121;
+        .@enchant_id = 310098;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }       
+  - Item: EP17_2_RA10 # 1000122
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000122;
+        .@enchant_id = 310099;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }            
+  - Item: EP17_2_RA11 # 1000123
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000123;
+        .@enchant_id = 310100;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }        
+  - Item: EP17_2_RA12 # 1000124
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000124;
+        .@enchant_id = 310101;
+        .@max_enchant = 2;
         .@count_enchant = 0;
         if (@last_lapine_card1 == .@enchant_id) {
             .@count_enchant++;
@@ -7067,3 +7457,1225 @@ Body:
             getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
             getitem .@itemid,1;
         }           
+  - Item: EP17_2_RA13 # 1000125
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      - Item: Auto_Engine_A # 480020
+      - Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000125;
+        .@enchant_id = 310102;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }           
+  - Item: EP17_2_RA14 # 1000126
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      - Item: Auto_Engine_A # 480020
+      - Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000126;
+        .@enchant_id = 310103;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }           
+  - Item: EP17_2_RA15 # 1000127
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      - Item: Auto_Engine_A # 480020
+      - Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000127;
+        .@enchant_id = 310104;
+        .@max_enchant = 2;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }           
+  - Item: EP17_2_RA16 # 1000128
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000128;
+        .@enchant_id = 310105;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }            
+  - Item: EP17_2_RA17 # 1000129
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000129;
+        .@enchant_id = 310106;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }            
+  - Item: EP17_2_RA18 # 1000130
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000130;
+        .@enchant_id = 310107;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }               
+  - Item: EP17_2_RA19 # 1000131
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000131;
+        .@enchant_id = 310108;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }               
+  - Item: EP17_2_RA20 # 1000132
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000132;
+        .@enchant_id = 310109;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }            
+  - Item: EP17_2_RA21 # 1000207
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000207;
+        .@enchant_id = 310178;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }          
+  - Item: EP17_2_UQ1 # 1000133
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000133;
+        .@enchant_id = 310110;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }          
+  - Item: EP17_2_UQ2 # 1000134
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000134;
+        .@enchant_id = 310111;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }       
+  - Item: EP17_2_UQ3 # 1000135
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      - Item: Auto_Engine_A # 480020
+      - Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000135;
+        .@enchant_id = 310112;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }      
+  - Item: EP17_2_UQ4 # 1000136
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      - Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      - Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000136;
+        .@enchant_id = 310113;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }           
+  - Item: EP17_2_UQ5 # 1000137
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      - Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      - Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000137;
+        .@enchant_id = 310114;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }      
+  - Item: EP17_2_UQ6 # 1000138
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      - Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      - Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000138;
+        .@enchant_id = 310115;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }            
+  - Item: EP17_2_UQ7 # 1000139
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      - Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      - Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000139;
+        .@enchant_id = 310116;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }       
+  - Item: EP17_2_UQ8 # 1000140
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000140;
+        .@enchant_id = 310117;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }          
+  - Item: EP17_2_UQ9 # 1000141
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000141;
+        .@enchant_id = 310118;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }       
+  - Item: EP17_2_UQ10 # 1000142
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      - Item: Auto_Engine_A # 480020
+      - Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000142;
+        .@enchant_id = 310119;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }     
+  - Item: EP17_2_UQ11 # 1000143
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      - Item: Auto_B_R # 490024
+      - Item: Auto_B_L # 490025
+      - Item: Auto_BC_R # 490026
+      - Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000143;
+        .@enchant_id = 310120;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }       
+  - Item: EP17_2_UQ12 # 1000208
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      #- Item: Auto_Leg_B # 470023
+      #- Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000208;
+        .@enchant_id = 310179;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }         
+  - Item: EP17_2_LE1 # 1000144
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000144;
+        .@enchant_id = 310121;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }       
+  - Item: EP17_2_LE2 # 1000145
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000145;
+        .@enchant_id = 310122;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }    
+  - Item: EP17_2_LE3 # 1000146
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000146;
+        .@enchant_id = 310123;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }        
+  - Item: EP17_2_LE4 # 1000147
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000147;
+        .@enchant_id = 310124;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }      
+  - Item: EP17_2_LE5 # 1000148
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000148;
+        .@enchant_id = 310125;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }         
+  - Item: EP17_2_LE6 # 1000149
+    TargetItem:
+      #- Item: Auto_Armor_A # 450127
+      #- Item: Auto_Armor_B # 450128
+      #- Item: Auto_Engine_A # 480020
+      #- Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      #- Item: Auto_B_R # 490024
+      #- Item: Auto_B_L # 490025
+      #- Item: Auto_BC_R # 490026
+      #- Item: Auto_BC_L $ 490027
+    Result: |
+        .@itemid = 1000149;
+        .@enchant_id = 310126;
+        .@max_enchant = 1;
+        .@count_enchant = 0;
+        if (@last_lapine_card1 == .@enchant_id) {
+            .@count_enchant++;
+        } 
+        if (@last_lapine_card2 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card3 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == .@enchant_id) {
+            .@count_enchant++;
+        }
+        if (@last_lapine_card4 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,.@enchant_id);
+        } else if (@last_lapine_card3 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,.@enchant_id,@last_lapine_card4);
+        } else if (@last_lapine_card2 == 0 && .@count_enchant < .@max_enchant) {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,.@enchant_id,@last_lapine_card3,@last_lapine_card4);
+        } else {
+            getitem2(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4);
+            getitem .@itemid,1;
+        }   
+  - Item: Card_Removing_Matrix # 40915
+    TargetItem:
+      - Item: Auto_Armor_A # 450127
+      - Item: Auto_Armor_B # 450128
+      - Item: Auto_Engine_A # 480020
+      - Item: Auto_Engine_B # 480021
+      - Item: Auto_Leg_B # 470023
+      - Item: Auto_Leg_A # 470022
+      - Item: Auto_B_R # 490024
+      - Item: Auto_B_L # 490025
+      - Item: Auto_BC_R # 490026
+      - Item: Auto_BC_L $ 490027
+      - Item: Royal_Bow_K
+      - Item: Narcis_Bow
+      - Item: Shadow_Staff_K
+      - Item: Iron_Nail_K
+      - Item: Magic_Sword
+      - Item: Sword_Of_Bluefire
+      - Item: Avenger
+      - Item: Iron_Staff
+      - Item: Oriental_Sword
+      - Item: Undine_Spear_K
+      - Item: Demon_Hunting_Bible_K
+      - Item: Shiver_Katar_K
+      - Item: OneSkyOneSun
+      - Item: SoulWeight
+      - Item: MeawFoxtail
+      - Item: Crimson_Rose
+      - Item: Master_Soul_Rifle
+      - Item: Demon_S_Shot
+      - Item: Golden_L_Launcher
+      - Item: The_Black_Gatling
+      - Item: Sharp_Wind_Sword
+      - Item: Fog_Dew_Sword
+      - Item: Humma_Clear
+      - Item: Dragonic_Slayer
+      - Item: Light_Blade
+      - Item: Slate_Sword
+      - Item: Trumpet_Shell_K
+      - Item: Barb_Wire_K
+      - Item: Meteor_Striker
+      - Item: Blade_Katar
+      - Item: Scalet_Dragon_L_Bow
+      - Item: Fatalist
+      - Item: Ray_Knuckle
+      - Item: Saint_Hall
+      - Item: Blue_Crystal_Staff
+      - Item: Freezing_Rod
+      - Item: Up_Oriental_Sword
+      - Item: Up_Dragonic_Slayer
+      - Item: Up_Shiver_Katar_K
+      - Item: Up_Blade_Katar
+      - Item: Up_Sword_Of_Bluefire
+      - Item: Up_Slate_Sword
+      - Item: Up_Narcis_Bow
+      - Item: Up_Trumpet_Shell_K
+      - Item: Up_Barb_Wire_K
+      - Item: Up_Avenger
+      - Item: Up_Magic_Sword
+      - Item: Up_Fatalist
+      - Item: Up_Meteor_Striker
+      - Item: Up_Royal_Bow_K
+      - Item: Up_Scalet_Dragon_L_Bow
+      - Item: Up_Shadow_Staff_K
+      - Item: Up_Freezing_Rod
+      - Item: Up_Iron_Nail_K
+      - Item: Up_Ray_Knuckle
+      - Item: Up_Undine_Spear_K
+      - Item: Up_Light_Blade
+      - Item: Up_Iron_Staff
+      - Item: Up_Blue_Crystal_Staff
+      - Item: Up_Demon_Hunting_Bible
+      - Item: Up_Saint_Hall
+      - Item: Up_MeawFoxtail
+      - Item: Up_Fog_Dew_Sword
+      - Item: Up_Humma_Clear
+      - Item: Up_Master_Soul_Rifle
+      - Item: Up_Golden_L_Launcher
+      - Item: Up_The_Black_Gatling
+      - Item: Up_Demon_S_Shot
+      - Item: Up_Crimson_Rose
+      - Item: Up_OneSkyOneSun
+      - Item: Up_SoulWeight     
+      - Item: Ep172_1h_Sword
+      - Item: Ep172_1h_Sword2
+      - Item: Ep172_1h_Wand
+      - Item: Ep172_1h_Book
+      - Item: Ep172_1h_Axe
+      - Item: Ep172_1h_Sword2
+      - Item: Ep172_Bh_Bow
+      - Item: Ep172_Bh_Bow2
+      - Item: Ep172_Bh_knuck
+      - Item: Ep172_1h_Spear
+      - Item: Ep172_Bh_Spear
+      - Item: Ep172_1h_Dagger
+      - Item: Ep172_Bh_Katar
+      - Item: Ep172_Bh_Staff
+      - Item: Ep172_1h_Book2
+      - Item: Ep172_1h_Dagger2
+      - Item: Ep172_1h_Whip
+      - Item: Ep172_1h_Inst
+      - Item: Ep172_Bh_Bow3
+      - Item: Ep172_Bh_Huuma
+      - Item: Ep172_1h_Hammer
+      - Item: Ep172_1h_Foxtail
+      - Item: Ep172_1h_Rifle
+      - Item: Ep172_1h_Shotgun
+      - Item: Ep172_1h_Gatling
+      - Item: Ep172_1h_Grenade    
+      - Item: Ein_BHSWORD
+      - Item: Ein_BHSTAFF
+      - Item: Ein_BHHuuma
+      - Item: Ein_BHKATAR
+      - Item: Ein_BHAXE
+      - Item: Ein_BHBOW
+      - Item: Ein_1HKNUCK
+      - Item: Ein_1HHAMMER
+      - Item: Ein_1HWAND
+      - Item: Ein_1HWHIP
+      - Item: Ein_1HBOOK
+      - Item: Ein_1HDAGGER
+      - Item: Ein_1HMAGGER
+      - Item: Ein_1HSPEAR
+      - Item: Ein_1HLUTE
+      - Item: Ein_1HSWORD
+      - Item: Ein_1HGUN
+      - Item: Ein_1H_Foxtail     
+      - Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
+      - Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
+      - Item: Illusion_Engine_A #20933 # Illusion_Engine_A
+      - Item: Illusion_Engine_B #20934 # Illusion_Engine_B
+      - Item: Illusion_Leg_A    #22196 # Illusion_Leg_A
+      - Item: Illusion_Leg_B    #22197 # Illusion_Leg_B
+      - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
+      - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
+      - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L     
+      - Item: Schmidt_Insignia_Power # 32228
+      - Item: Schmidt_Insignia_Divine_Power # 32229
+      - Item: Schmidt_Insignia_Hundred_Lucks # 32230
+      - Item: Schmidt_Insignia_Rigid_Body # 32231
+      - Item: Schmidt_Insignia_Flash # 32232
+      - Item: Schmidt_Insignia_Celestial # 32233  
+      - Item: 22006 # Temporal_Str_Boots_
+      - Item: 22007 # Temporal_Vit_Boots_
+      - Item: 22008 # Temporal_Dex_Boots_
+      - Item: 22009 # Temporal_Int_Boots_
+      - Item: 22010 # Temporal_Agi_Boots_
+      - Item: 22011 # Temporal_Luk_Boots_
+      - Item: 20963 # Temporal_M_Str
+      - Item: 20964 # Temporal_M_Agi
+      - Item: 20965 # Temporal_M_Vit
+      - Item: 20966 # Temporal_M_Int
+      - Item: 20967 # Temporal_M_Dex
+      - Item: 20968 # Temporal_M_Luk 
+    Result: |
+        .@itemid = 40915;
+        message "GameMaster",@last_lapine_id;
+        message "GameMaster",@last_lapine_idx;
+        if (@last_lapine_card1) {
+            getitem3(@last_lapine_id,1,1,.@refine,0,0,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param); 
+            getitem .@itemid,1;
+            getitem @last_lapine_card1,1;
+        } else {
+            getitem3(@last_lapine_id,1,1,.@refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
+            getitem .@itemid,1;
+        }
+        
+        
