@@ -8668,7 +8668,7 @@ Body:
     Result: |
         .@itemid = 40915;
         message "GameMaster",@last_lapine_id;
-        message "GameMaster",@last_lapine_idx;
+        message "GameMaster",@last_lapine_sourceid;
         if (@last_lapine_card1) {
             getitem3(@last_lapine_id,1,1,.@refine,0,0,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param); 
             getitem .@itemid,1;

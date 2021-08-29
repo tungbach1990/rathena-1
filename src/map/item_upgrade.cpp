@@ -192,6 +192,7 @@ e_item_upgrade_result item_upgrade_submit(map_session_data *sd, t_itemid source_
 		return LAPINE_UPRAGDE_FAILURE;
 
 	info->setPlayerInfo(sd, target_index, it);
+	pc_setreg(sd, add_str("@last_lapine_sourceid"), source_itemid);
 
 	if (info->delete_target_onsuccess)
 		pc_delitem(sd, target_index, 1, 0, 0, LOG_TYPE_OTHER);
