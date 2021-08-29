@@ -31,7 +31,7 @@ struct s_item_upgrade_db {
 
 	bool targetExists(t_itemid target_id);
 	bool checkRequirement(item *it, item_data *id);
-	void setPlayerInfo(map_session_data *sd, uint16 target_index, item *it);
+	void setPlayerInfo(map_session_data *sd,uint16 source_itemid, uint16 target_index, item *it);
 };
 
 class ItemUpgradeDatabase : public TypesafeYamlDatabase<t_itemid, s_item_upgrade_db> {

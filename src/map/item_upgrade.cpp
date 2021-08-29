@@ -191,8 +191,8 @@ e_item_upgrade_result item_upgrade_submit(map_session_data *sd, t_itemid source_
 	if (!info || !info->targetExists(it->nameid) || !info->checkRequirement(it, sd->inventory_data[target_index]))
 		return LAPINE_UPRAGDE_FAILURE;
 
-	info->setPlayerInfo(sd, target_index, it);
-	pc_setreg(sd, add_str("@last_lapine_sourceid"), source_itemid);
+	info->setPlayerInfo(sd,source_itemid, target_index, it);
+	
 
 	if (info->delete_target_onsuccess)
 		pc_delitem(sd, target_index, 1, 0, 0, LOG_TYPE_OTHER);
@@ -313,8 +313,9 @@ bool s_item_upgrade_db::checkRequirement(item *it, item_data *id)
  * @param target_index: Index of player's inventory items as upgrade target
  * @param it: Latest item data
  */
-void s_item_upgrade_db::setPlayerInfo(map_session_data * sd, uint16 target_index, item *it)
+void s_item_upgrade_db::setPlayerInfo(map_session_data * sd,uint16 source_itemid, uint16 target_index, item *it)
 {
+	pc_setreg(sd, add_str("@last_lapine_sourceid"), source_itemid);
 	pc_setreg(sd, add_str("@last_lapine_id"), it->nameid);
 	pc_setreg(sd, add_str("@last_lapine_idx"), target_index);
 	pc_setreg(sd, add_str("@last_lapine_refine"), it->refine);
@@ -324,6 +325,7 @@ void s_item_upgrade_db::setPlayerInfo(map_session_data * sd, uint16 target_index
 	pc_setreg(sd, add_str("@last_lapine_card3"), it->card[2]);
 	pc_setreg(sd, add_str("@last_lapine_card4"), it->card[3]);
 	pc_setreg(sd, add_str("@last_lapine_bound"), it->bound);
+	
 
 	char unique_id[23];
 	memset(unique_id, '\0', sizeof(unique_id));
