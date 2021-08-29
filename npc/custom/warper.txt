@@ -31,7 +31,7 @@ menu	"Last Warp ^777777["+lastwarp$+"]^000000",-,
 		" ~ Illusion Dungeon",ILL_Dungeons,
 	//	" ~ Farmmmmmmmm",Farm_zone,
     	" ~ Guild Castles",Castles,
-    	//" ~ Guild Dungeons",Guild_Dungeons,
+    	" ~ Guild Dungeons",Guild_Dungeons,
     	" ~ Instances",Instances,
     	" ~ Special Areas",Special;
 
@@ -438,9 +438,9 @@ C8: Restrict("RE");
 // --------------------------------------------------
 	Guild_Dungeons:
 // --------------------------------------------------
-menu	"Baldur",G1, "Luina",G2, "Valkyrie",G3, "Britoniah",G4,
-    	"Arunafeltz",G5, "Schwarzwald",G6, "Kafragarten",G7,
-		"Gloria",G8;
+menu	"Baldur",G1, "Luina",G2, "Valkyrie",G3, "Britoniah",G4;
+    	//"Arunafeltz",G5, "Schwarzwald",G6, "Kafragarten",G7,
+	//	"Gloria",G8;
 
 G1: Restrict("RE",2,3);
 	setarray @c[2],119,93,119,93,120,130;

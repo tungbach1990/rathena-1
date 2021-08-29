@@ -30,31 +30,31 @@
 		.@value = rand(3,20);
 	} else if (.@r < 2800) { // To Water Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_WATER_TARGET;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 3700) { // To Earth Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_GROUND_TARGET;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 4600) { // To Fire Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_FIRE_TARGET;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 5500) { // To Wind Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_WIND_TARGET;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 6400) { // To Poison Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_POISON_TARGET;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 7300) { // To Holy Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_SAINT_TARGET;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 8200) { // To Shadow Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_DARKNESS_TARGET;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 9100) { // To Ghost Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_TELEKINESIS_TARGET;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else { // To Undead Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_UNDEAD_TARGET;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	}
 
 	set getarg(0), .@option;
@@ -79,25 +79,25 @@
 		.@value = rand(3,20);
 	} else if (.@r < 4300) { // To Plant Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_PLANT;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 5200) { // To Insect Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_INSECT;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 6100) { // To Fish Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_FISHS;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 7000) { // To Demon Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_DEVIL;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 7900) { // To Demi-Human Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_HUMAN;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 8800) { // To Angel Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_ANGEL;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 9700) { // To Dragon Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_DRAGON;
-		.@value = rand(5,30);
+		.@value = rand(5,20);
 	} else if (.@r < 9800) { // Increase damage to normal class 1~10%
 		.@option = RDMOPT_CLASS_DAMAGE_NORMAL_TARGET;
 		.@value = rand(1,10);

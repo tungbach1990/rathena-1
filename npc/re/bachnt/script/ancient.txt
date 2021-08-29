@@ -87,6 +87,87 @@ OnInit:
 	end;
 }
 
+-	shop	ancientwp_trader_shop	-1,909:-1
+-	exbartershop	PatentShop	-1,100437:99:1000000-7929:0:1000-7960:0:6
+prontera,141,174,5	script	Patent Exchange	520,{
+	switch(select("Exchange Patent Cube","Exchange Ancient Silver Coin","Cancel")){
+	Case 1:
+		callshop "PatentShop";
+	break;
+	Case 2:
+		mes "Trade Ancient Weapon for Ancient Silver Coin";
+	        mes "-----------------------------------";
+		callshop "ancientwp_trader_shop",2;
+                npcshopattach "ancientwp_trader_shop";
+	break;
+	Case 3:
+	break;
+
+	}
+end;
+OnSellItem:
+        for(set .@i,0; .@i<getarraysize(@sold_nameid); set .@i,.@i+1)
+        {
+                set .@class1, compare("," + .class1$ + "," ,"," + @sold_nameid[.@i] + ",");
+                mes ((.@class2 || .@class3 || .@class4)?"  ^FF0000":"  ^777777")+@sold_quantity[.@i]+"x "+getitemname(@sold_nameid[.@i])+"^000000";
+                .@class = -1;
+                if(.@class1) { .@class=0; }
+                if(.@class != -1)
+                {
+                        set .@costume_total, .@costume_total+ ( @sold_quantity[.@i]* .Points[.@class] );
+                        set .@costume_nameid[getarraysize(.@costume_nameid)], @sold_nameid[.@i];
+                        set .@costume_quantity[getarraysize(.@costume_quantity)], @sold_quantity[.@i];
+			set .@costume_refine[getarraysize(.@costume_refine)], @sold_refine[.@i];
+                        set .@costume_attribute[getarraysize(.@costume_attribute)], @sold_attribute[.@i];
+			set .@costume_identify[getarraysize(.@costume_identify)], @sold_identify[.@i];
+                        set .@costume_card1[getarraysize(.@costume_card1)], @sold_card1[.@i];
+			set .@costume_card2[getarraysize(.@costume_card2)], @sold_card2[.@i];
+                        set .@costume_card3[getarraysize(.@costume_card3)], @sold_card3[.@i];
+			set .@costume_card4[getarraysize(.@costume_card4)], @sold_card4[.@i];
+                       
+                }
+        }
+        deletearray @sold_nameid[0], getarraysize(@sold_nameid);
+        deletearray @sold_quantity[0], getarraysize(@sold_quantity);
+	deletearray @sold_refine[0], getarraysize(@sold_refine);
+        deletearray @sold_attribute[0], getarraysize(@sold_attribute);
+	deletearray @sold_identify[0], getarraysize(@sold_identify);
+        deletearray @sold_card1[0], getarraysize(@sold_card1);
+	deletearray @sold_card2[0], getarraysize(@sold_card2);
+        deletearray @sold_card3[0], getarraysize(@sold_card3);
+	deletearray @sold_card4[0], getarraysize(@sold_card4);
+        if (!.@costume_nameid) {
+                mes "  ^777777(none)^000000";
+        //      emotion e_swt;
+                close;
+        }
+        mes " ";
+        mes "---------- Total: ^0055FF"+.@costume_total+" pt.^000000 -------";
+        next;
+        if(select(" > ^0055FFComplete trade...^000000: > ^777777Cancel^000000") == 2) {
+                mes "Trader]";
+                mes "Oh, okay...";
+        //      emotion e_hmm;
+                close;
+        }
+        for(set .@i,0; .@i<getarraysize(.@costume_nameid); set .@i,.@i+1)
+                delitem2 .@costume_nameid[.@i],.@costume_quantity[.@i],.@costume_identify[.@i],.@costume_refine[.@i],.@costume_attribute[.@i],.@costume_card1[.@i],.@costume_card2[.@i],.@costume_card3[.@i],.@costume_card4[.@i];
+        getitem 7960,.@costume_total;
+        mes "[Trader]";
+        mes "All done!";
+//      emotion e_ho;
+        close;
+end;
+OnInit:
+        set .Points$,"#Card_Points";    // Variable to store points.
+        setarray .Shop[0],              // Costume Shop items: <ID>,<point cost>
+          22653,10;
+
+        setarray .Points[0],1,2,10,10;  // Points per <Class 1>,<Class 2>,<Class 3>,<Class 4>
+
+	 set .class1$,"22171,18170,18164,28130,13485,28744,1847,26118,2048,21038,28764,28763,28039,32018,28630,28631,26154,26155,32302,28257,28255,28256,28258,13345,500003,500004,570002,580002,590002,600004,560002,590003,610003,700003,550007,640004";
+end;	
+}
 
 function	script	Ancient_CheckAndDelItem	{
 	.@size = getarraysize(getarg(0));

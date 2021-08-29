@@ -12,3 +12,4 @@ ba_bath,0,0	monster	Boiled Water Phen	20643,70,5000
 ba_bath,0,0	monster	Boiled Water Marc	20644,50,5000
 ba_bath,0,0	monster	Boiled Water Swordfish	20645,50,5000
 ba_bath,0,0	monster	Boiled Water Piranha	20646,70,5000
+ba_bath,0,0	monster	Bath Manager Cleaning Robot	20635,20,3600000
