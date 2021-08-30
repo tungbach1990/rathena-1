@@ -30,31 +30,31 @@
 		.@value = rand(3,20);
 	} else if (.@r < 2800) { // To Water Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_WATER_TARGET;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 3700) { // To Earth Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_GROUND_TARGET;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 4600) { // To Fire Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_FIRE_TARGET;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 5500) { // To Wind Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_WIND_TARGET;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 6400) { // To Poison Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_POISON_TARGET;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 7300) { // To Holy Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_SAINT_TARGET;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 8200) { // To Shadow Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_DARKNESS_TARGET;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 9100) { // To Ghost Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_TELEKINESIS_TARGET;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else { // To Undead Element Damage +3~20%
 		.@option = RDMOPT_DAMAGE_PROPERTY_UNDEAD_TARGET;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	}
 
 	set getarg(0), .@option;
@@ -79,25 +79,25 @@
 		.@value = rand(3,20);
 	} else if (.@r < 4300) { // To Plant Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_PLANT;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 5200) { // To Insect Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_INSECT;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 6100) { // To Fish Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_FISHS;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 7000) { // To Demon Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_DEVIL;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 7900) { // To Demi-Human Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_HUMAN;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 8800) { // To Angel Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_ANGEL;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 9700) { // To Dragon Race Damage +3~20%
 		.@option = RDMOPT_RACE_DAMAGE_DRAGON;
-		.@value = rand(5,20);
+		.@value = rand(3,20);
 	} else if (.@r < 9800) { // Increase damage to normal class 1~10%
 		.@option = RDMOPT_CLASS_DAMAGE_NORMAL_TARGET;
 		.@value = rand(1,10);
@@ -2946,3 +2946,202 @@ function	script	F_Lapine_Auto_Enhance_Cube	{
 	return;
 }
 
+
+ function	script	F_Lapine_Greate_Hero_Bravery	{
+	// Option: 1
+	DMOPT_MELEE_ATTACK_DAMAGE_TARGET
+	.@r = rand(10000);
+	if (.@r < 300) { // ATK +5 ~ 40
+		.@option = RDMOPT_VAR_ATTPOWER;
+		.@value = rand(5,40);
+	} else if (.@r < 500) { // MELEE Physical Damage +3-12%
+		.@option = RDMOPT_MELEE_ATTACK_DAMAGE_TARGET;
+		.@value = rand(3,12);
+	} else if (.@r < 625) { // ASPD +1~2
+		.@option = RDMOPT_VAR_PLUSASPD;
+		.@value = rand(1,2);
+	} else if (.@r < 875) { // ASPD +3~12%
+		.@option = RDMOPT_VAR_PLUSASPDPERCENT;
+		.@value = rand(3,12);
+	} else if (.@r < 1000) { // Ranged Physical Damage +3-12%
+		.@option = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET;
+		.@value = rand(3,12);
+	} else if (.@r < 1900) { // To Neutral Element Damage +3~25%
+		.@option = RDMOPT_DAMAGE_PROPERTY_NOTHING_TARGET;
+		.@value = rand(3,25);
+	} else if (.@r < 2800) { // To Water Element Damage +3~25%
+		.@option = RDMOPT_DAMAGE_PROPERTY_WATER_TARGET;
+		.@value = rand(3,25);
+	} else if (.@r < 3700) { // To Earth Element Damage +3~25%
+		.@option = RDMOPT_DAMAGE_PROPERTY_GROUND_TARGET;
+		.@value = rand(3,25);
+	} else if (.@r < 4600) { // To Fire Element Damage +3~25%
+		.@option = RDMOPT_DAMAGE_PROPERTY_FIRE_TARGET;
+		.@value = rand(3,25);
+	} else if (.@r < 5500) { // To Wind Element Damage +3~25%
+		.@option = RDMOPT_DAMAGE_PROPERTY_WIND_TARGET;
+		.@value = rand(3,25);
+	} else if (.@r < 6400) { // To Poison Element Damage +3~25%
+		.@option = RDMOPT_DAMAGE_PROPERTY_POISON_TARGET;
+		.@value = rand(3,25);
+	} else if (.@r < 7300) { // To Holy Element Damage +3~25%
+		.@option = RDMOPT_DAMAGE_PROPERTY_SAINT_TARGET;
+		.@value = rand(3,25);
+	} else if (.@r < 8200) { // To Shadow Element Damage +3~25%
+		.@option = RDMOPT_DAMAGE_PROPERTY_DARKNESS_TARGET;
+		.@value = rand(3,25);
+	} else if (.@r < 9100) { // To Ghost Element Damage +3~25%
+		.@option = RDMOPT_DAMAGE_PROPERTY_TELEKINESIS_TARGET;
+		.@value = rand(3,25);
+	} else { // To Undead Element Damage +3~25%
+		.@option = RDMOPT_DAMAGE_PROPERTY_UNDEAD_TARGET;
+		.@value = rand(3,25);
+	}
+
+	set getarg(0), .@option;
+	set getarg(1), .@value;
+
+	// Option:2
+	.@r = rand(10000);
+	if (.@r < 100) { // ATK +1~7%
+		.@option = RDMOPT_VAR_ATKPERCENT;
+		.@value = rand(1,7);
+	} else if (.@r < 700) { // Critical Damage +3~12%
+		.@option = RDMOPT_DAMAGE_CRI_TARGET;
+		.@value = rand(3,12);
+	} else if (.@r < 1600) { // To Formless Damage +3~25%
+		.@option = RDMOPT_RACE_DAMAGE_NOTHING;
+		.@value = rand(3,25);
+	} else if (.@r < 2500) { // To Undead Race damage +3~25%
+		.@option = RDMOPT_RACE_DAMAGE_UNDEAD;
+		.@value = rand(3,25);
+	} else if (.@r < 3400) { // To Beast Race Damage +3~25%
+		.@option = RDMOPT_RACE_DAMAGE_ANIMAL;
+		.@value = rand(3,25);
+	} else if (.@r < 4300) { // To Plant Race Damage +3~25%
+		.@option = RDMOPT_RACE_DAMAGE_PLANT;
+		.@value = rand(3,25);
+	} else if (.@r < 5200) { // To Insect Race Damage +3~25%
+		.@option = RDMOPT_RACE_DAMAGE_INSECT;
+		.@value = rand(3,25);
+	} else if (.@r < 6100) { // To Fish Race Damage +3~25%
+		.@option = RDMOPT_RACE_DAMAGE_FISHS;
+		.@value = rand(3,25);
+	} else if (.@r < 7000) { // To Demon Race Damage +3~25%
+		.@option = RDMOPT_RACE_DAMAGE_DEVIL;
+		.@value = rand(3,25);
+	} else if (.@r < 7900) { // To Demi-Human Race Damage +3~25%
+		.@option = RDMOPT_RACE_DAMAGE_HUMAN;
+		.@value = rand(3,25);
+	} else if (.@r < 8800) { // To Angel Race Damage +3~25%
+		.@option = RDMOPT_RACE_DAMAGE_ANGEL;
+		.@value = rand(3,25);
+	} else if (.@r < 9700) { // To Dragon Race Damage +3~25%
+		.@option = RDMOPT_RACE_DAMAGE_DRAGON;
+		.@value = rand(3,25);
+	} else if (.@r < 9800) { // Increase damage to normal class 3~12%
+		.@option = RDMOPT_CLASS_DAMAGE_NORMAL_TARGET;
+		.@value = rand(3,12);
+	} else if (.@r < 9900) { // Increase damage to boss class 3~12%
+		.@option = RDMOPT_CLASS_DAMAGE_BOSS_TARGET;
+		.@value = rand(3,12);
+	} else { // Indestructible
+		.@option = RDMOPT_WEAPON_INDESTRUCTIBLE;
+		.@value = 1;
+	}
+
+	set getarg(2), .@option;
+	set getarg(3), .@value;
+
+	return;
+}
+
+/**
+ * Possible random options from Ancient Hero Wisdom
+ */
+function	script	F_Lapine_Greate_Hero_Wisdom	{
+	// Option: 1
+	
+	setarray .@randomopt[0],	
+				RDMOPT_VAR_MATTPOWER,5,40,
+				RDMOPT_HEAL_VALUE,3,25,
+				RDMOPT_DEC_SPELL_CAST_TIME,3,12,
+				RDMOPT_DEC_SPELL_DELAY_TIME,1,5,
+				RDMOPT_ADDSKILLMDAMAGE_NOTHING,3,12,
+                RDMOPT_ADDSKILLMDAMAGE_WATER,3,12,
+                RDMOPT_ADDSKILLMDAMAGE_GROUND,3,12,
+                RDMOPT_ADDSKILLMDAMAGE_FIRE,3,12,
+                RDMOPT_ADDSKILLMDAMAGE_WIND,3,12,
+                RDMOPT_ADDSKILLMDAMAGE_POISON,3,12,
+                RDMOPT_ADDSKILLMDAMAGE_SAINT,3,12,
+                RDMOPT_ADDSKILLMDAMAGE_DARKNESS,3,12,
+                RDMOPT_ADDSKILLMDAMAGE_TELEKINESIS,3,12
+				RDMOPT_MDAMAGE_PROPERTY_NOTHING_TARGET,3,25,
+				RDMOPT_MDAMAGE_PROPERTY_WATER_TARGET,3,25,
+				RDMOPT_MDAMAGE_PROPERTY_GROUND_TARGET,3,25,
+				RDMOPT_MDAMAGE_PROPERTY_FIRE_TARGET,3,25,
+				RDMOPT_MDAMAGE_PROPERTY_WIND_TARGET,3,25,
+				RDMOPT_MDAMAGE_PROPERTY_POISON_TARGET,3,25,
+				RDMOPT_MDAMAGE_PROPERTY_SAINT_TARGET,3,25,
+				RDMOPT_MDAMAGE_PROPERTY_DARKNESS_TARGET,3,25,
+				RDMOPT_MDAMAGE_PROPERTY_TELEKINESIS_TARGET,3,25,
+				RDMOPT_MDAMAGE_PROPERTY_UNDEAD_TARGET,3,25;				
+	.@r = rand(getarraysize(.@randomopt)/3);
+	.@option = .@randomopt(.@r*3);
+	.@value = .@randomopt(rand(.@r*3+1,.@r*3+2));
+	
+
+	set getarg(0), .@option;
+	set getarg(1), .@value;
+
+	// Option: 2
+	.@r = rand(10000);
+	if (.@r < 500) { // Reduce variable cast time 3~12%
+		.@option = RDMOPT_DEC_SPELL_CAST_TIME;
+		.@value = rand(3,12);
+	} else if (.@r < 700) { // MATK 1~7%
+		.@option = RDMOPT_VAR_MAGICATKPERCENT;
+		.@value = rand(1,7);
+	} else if (.@r < 1600) { // Increase magic damage to formless race 3~25%
+		.@option = RDMOPT_RACE_MDAMAGE_NOTHING;
+		.@value = rand(3,25);
+	} else if (.@r < 2500) { // Increase magic damage to undead race 3~25%
+		.@option = RDMOPT_RACE_MDAMAGE_UNDEAD;
+		.@value = rand(3,25);
+	} else if (.@r < 3400) { // Increase magic damage to beast race 3~25%
+		.@option = RDMOPT_RACE_MDAMAGE_ANIMAL;
+		.@value = rand(3,25);
+	} else if (.@r < 4300) { // Increase magic damage to plant race 3~25%
+		.@option = RDMOPT_RACE_MDAMAGE_PLANT;
+		.@value = rand(3,25);
+	} else if (.@r < 5200) { // Increase magic damage to insect race 3~25%
+		.@option = RDMOPT_RACE_MDAMAGE_INSECT;
+		.@value = rand(3,25);
+	} else if (.@r < 6100) { // Increase magic damage to fish race 3~25%
+		.@option = RDMOPT_RACE_MDAMAGE_FISHS;
+		.@value = rand(3,25);
+	} else if (.@r < 7000) { // Increase magic damage to demon race 3~25%
+		.@option = RDMOPT_RACE_MDAMAGE_DEVIL;
+		.@value = rand(3,25);
+	} else if (.@r < 7900) { // Increase magic damage to demi-human race 3~25%
+		.@option = RDMOPT_RACE_MDAMAGE_HUMAN;
+		.@value = rand(3,25);
+	} else if (.@r < 8800) { // Increase magic damage to angel race 3~25%
+		.@option = RDMOPT_RACE_MDAMAGE_ANGEL;
+		.@value = rand(3,25);
+	} else if (.@r < 9700) { // Increase magic damage to dragon race 3~25%
+		.@option = RDMOPT_RACE_MDAMAGE_DRAGON;
+		.@value = rand(3,25);
+	} else if (.@r < 9850) { // Increase damage to normal class 3~12%
+		.@option = RDMOPT_CLASS_MDAMAGE_NORMAL;
+		.@value = rand(3,12);
+	} else { // Increase damage to boss class 3~12%
+		.@option = RDMOPT_CLASS_MDAMAGE_BOSS;
+		.@value = rand(3,12);
+	}
+
+	set getarg(2), .@option;
+	set getarg(3), .@value;
+
+	return;
+}

@@ -28,6 +28,7 @@
 #include "map.hpp"
 #include "mercenary.hpp"
 #include "mob.hpp"
+#include "npc.hpp"
 #include "party.hpp"
 #include "path.hpp"
 #include "pc.hpp"
@@ -38,6 +39,27 @@ int attr_fix_table[MAX_ELE_LEVEL][ELE_MAX][ELE_MAX];
 
 struct Battle_Config battle_config;
 static struct eri *delay_damage_ers; //For battle delay damage structures.
+
+void do_battle_events(struct block_list *src, struct block_list *target, int64 damage) {
+	struct map_session_data *sd; 
+	struct mob_data *md; 
+	sd = BL_CAST(BL_PC, src);
+	md = BL_CAST(BL_MOB, target);
+	nullpo_retv(src);
+	nullpo_retv(target);
+	// Damage event
+	if(sd) {
+		pc_setreg( sd, add_str( "@damage" ), damage );
+		pc_setreg( sd, add_str( "@damagegid" ),  target->id);
+		if(md) 
+			pc_setreg( sd, add_str( "@damagerid" ), md->mob_id );
+		else 
+			pc_setreg( sd, add_str( "@damagerid" ), 0 );
+		
+		npc_script_event( sd, NPCE_PCATK );
+	}
+}
+
 
 /**
  * Returns the current/list skill used by the bl
@@ -5564,6 +5586,7 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 				wd->damage=battle_calc_gvg_damage(src,target,wd->damage,skill_id,wd->flag);
 			else if( mapdata->flag[MF_BATTLEGROUND] )
 				wd->damage=battle_calc_bg_damage(src,target,wd->damage,skill_id,wd->flag);
+			do_battle_events(src, target, wd->damage); //	OnPcAttackEvent [BachNT]
 		}
 		else if(!wd->damage) {
 			wd->damage2 = battle_calc_damage(src,target,wd,wd->damage2,skill_id,skill_lv);
@@ -5571,6 +5594,7 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 				wd->damage2 = battle_calc_gvg_damage(src,target,wd->damage2,skill_id,wd->flag);
 			else if( mapdata->flag[MF_BATTLEGROUND] )
 				wd->damage2 = battle_calc_bg_damage(src,target,wd->damage2,skill_id,wd->flag);
+			do_battle_events(src, target, wd->damage2); //	OnPcAttackEvent [BachNT]
 		}
 		else {
 			int64 d1 = wd->damage + wd->damage2,d2 = wd->damage2;
@@ -5582,6 +5606,7 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 			wd->damage2 = (int64)d2*100/d1 * wd->damage/100;
 			if(wd->damage > 1 && wd->damage2 < 1) wd->damage2 = 1;
 			wd->damage-=wd->damage2;
+			do_battle_events(src, target, wd->damage); //	OnPcAttackEvent [BachNT]
 		}
 	}
 }
@@ -6959,7 +6984,8 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 	// Skill damage adjustment
 	if ((skill_damage = battle_skill_damage(src,target,skill_id)) != 0)
 		MATK_ADDRATE(skill_damage);
-
+	
+	do_battle_events(src, target, ad.damage);
 	battle_absorb_damage(target, &ad);
 
 	//battle_do_reflect(BF_MAGIC,&ad, src, target, skill_id, skill_lv); //WIP [lighta] Magic skill has own handler at skill_attack
@@ -7341,6 +7367,7 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 
 	battle_absorb_damage(target, &md);
 
+	do_battle_events(src, target, md.damage);
 	battle_do_reflect(BF_MISC,&md, src, target, skill_id, skill_lv); //WIP [lighta]
 
 	return md;

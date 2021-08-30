@@ -8512,6 +8512,7 @@ Body:
         }   
   - Item: Card_Removing_Matrix # 40915
     TargetItem:
+      # 17.2 equipment
       - Item: 450127 #Auto_Armor_A # 450127
       - Item: 450128 #Auto_Armor_B # 450128
       - Item: 480020 #Auto_Engine_A # 480020
@@ -8522,6 +8523,7 @@ Body:
       - Item: 490025 #Auto_B_L # 490025
       - Item: 490026 #Auto_BC_R # 490026
       - Item: 490027 #Auto_BC_L $ 490027
+      # Ancient weapon
       - Item: Royal_Bow_K
       - Item: Narcis_Bow
       - Item: Shadow_Staff_K
@@ -8592,7 +8594,8 @@ Body:
       - Item: Up_Demon_S_Shot
       - Item: Up_Crimson_Rose
       - Item: Up_OneSkyOneSun
-      - Item: Up_SoulWeight     
+      - Item: Up_SoulWeight   
+      # 17.2 weapon      
       - Item: Ep172_1h_Sword
       - Item: Ep172_1h_Sword2
       - Item: Ep172_1h_Wand
@@ -8618,7 +8621,8 @@ Body:
       - Item: Ep172_1h_Rifle
       - Item: Ep172_1h_Shotgun
       - Item: Ep172_1h_Gatling
-      - Item: Ep172_1h_Grenade    
+      - Item: Ep172_1h_Grenade 
+      # Eindun weapon
       - Item: Ein_BHSWORD
       - Item: Ein_BHSTAFF
       - Item: Ein_BHHuuma
@@ -8637,6 +8641,7 @@ Body:
       - Item: Ein_1HSWORD
       - Item: Ein_1HGUN
       - Item: Ein_1H_Foxtail     
+      # 17.1 item 
       - Item: Illusion_Armor_A  #15376 # Illusion_Armor_A
       - Item: Illusion_Armor_B  #15377 # Illusion_Armor_B
       - Item: Illusion_Engine_A #20933 # Illusion_Engine_A
@@ -8646,13 +8651,15 @@ Body:
       - Item: Illusion_B_R  #32207 #Illusion_B_R ,Illusion Booster R,
       - Item: Illusion_B_L  #32208 #Illusion_B_L ,Illusion Booster L
       - Item: Illusion_BC_R #32209 #Illusion_BC_R ,Illusion Battle chip R
-      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L     
+      - Item: Illusion_BC_L #32210 #Illusion_BC_L ,Illusion Battle chip L 
+      # Fogh item      
       - Item: Schmidt_Insignia_Power # 32228
       - Item: Schmidt_Insignia_Divine_Power # 32229
       - Item: Schmidt_Insignia_Hundred_Lucks # 32230
       - Item: Schmidt_Insignia_Rigid_Body # 32231
       - Item: Schmidt_Insignia_Flash # 32232
       - Item: Schmidt_Insignia_Celestial # 32233  
+      # Temporal item
       - Item: 22006 # Temporal_Str_Boots_
       - Item: 22007 # Temporal_Vit_Boots_
       - Item: 22008 # Temporal_Dex_Boots_
@@ -8665,46 +8672,48 @@ Body:
       - Item: 20966 # Temporal_M_Int
       - Item: 20967 # Temporal_M_Dex
       - Item: 20968 # Temporal_M_Luk 
+      # Cashshop item
       - Item: 32237 # Celine_Brooch_K
       - Item: 28424 # PlumpyWormCharm
-      - Item: 21051
-      - Item: 21052
-      - Item: 32023
-      - Item: 1333
-      - Item: 16092
-      - Item: 28138
-      - Item: 28765
-      - Item: 28044
-      - Item: 28042
-      - Item: 26158
-      - Item: 2055
-      - Item: 2056
-      - Item: 26161
-      - Item: 2057
-      - Item: 16095
-      - Item: 18185
-      - Item: 18187
-      - Item: 18186
-      - Item: 32350
-      - Item: 32024
-      - Item: 32025
-      - Item: 32351
-      - Item: 16093
-      - Item: 16094
-      - Item: 28767
-      - Item: 28768
-      - Item: 18184
-      - Item: 28633
-      - Item: 26159
-      - Item: 26160
-      - Item: 1865
-      - Item: 1866
-      - Item: 16096
-      - Item: 18188
-      - Item: 26212
-      - Item: 26213
-      - Item: 32107
-      - Item: 32108
+      # Edda weapon
+      - Item: 21051 # Volar
+      - Item: 21052 # Vernan
+      - Item: 32023 # Argen_Blanco
+      - Item: 1333  # Golden_Wrench
+      - Item: 16092 # Engine_Pilebuncker
+      - Item: 28138 # Maxi_Spanner
+      - Item: 28765 # Judgement_Slasher
+      - Item: 28044 # Agudo_Filo
+      - Item: 28042 # Ripper_Cross
+      - Item: 26158 # Crimson_Rose_Stick
+      - Item: 2055  # Staff_of_Miracle
+      - Item: 2056  # Gravitation_Staff
+      - Item: 26161 # Penitentia
+      - Item: 2057  # Adorare_Staff
+      - Item: 16095 # Lucis_Flail
+      - Item: 18185 # Sharp_Star_Bow
+      - Item: 18187 # Falken_Shooter
+      - Item: 18186 # Aiming_Bow
+      - Item: 32350 # Farthezan
+      - Item: 32024 # Harve
+      - Item: 32025 # Fortridge
+      - Item: 32351 # Estal
+      - Item: 16093 # Coolant_Injection
+      - Item: 16094 # Gene_Rod
+      - Item: 28767 # Jack_The_Knife
+      - Item: 28768 # Platinum_Dagger
+      - Item: 18184 # Rapid_Fire
+      - Item: 28633 # Boltijin
+      - Item: 26159 # Psychic_Spear_Rod
+      - Item: 26160 # Dust_Grave
+      - Item: 1865  # Raging_Dragon_Fist
+      - Item: 1866  # Dedicated_Bandage
+      - Item: 16096 # Bright_Pendulum
+      - Item: 18188 # Wind_Gale
+      - Item: 26212 # Heart_Whip
+      - Item: 26213 # Scarlet_Ribbon
+      - Item: 32107 # Black_Circle
+      - Item: 32108 # Antique_Cello
     Result: |
         if (@last_lapine_card1) {
             getitem3(@last_lapine_id,1,1,.@refine,0,0,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param); 
@@ -8712,6 +8721,86 @@ Body:
         } else {
             getitem3(@last_lapine_id,1,1,.@refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
         }
-        getitem @last_lapine_sourceid,1;
-        
-        
+        getitem @last_lapine_sourceid,1;       
+  - Item: 100412 # Great_Hero_Bravery # 100412
+    TargetItem:
+      - Item: Up_Oriental_Sword
+      - Item: Up_Dragonic_Slayer
+      - Item: Up_Shiver_Katar_K
+      - Item: Up_Blade_Katar
+      - Item: Up_Sword_Of_Bluefire
+      - Item: Up_Slate_Sword
+      - Item: Up_Narcis_Bow
+      - Item: Up_Trumpet_Shell_K
+      - Item: Up_Barb_Wire_K
+      - Item: Up_Avenger
+      - Item: Up_Magic_Sword
+      - Item: Up_Fatalist
+      - Item: Up_Meteor_Striker
+      - Item: Up_Royal_Bow_K
+      - Item: Up_Scalet_Dragon_L_Bow
+      - Item: Up_Shadow_Staff_K
+      - Item: Up_Freezing_Rod
+      - Item: Up_Iron_Nail_K
+      - Item: Up_Ray_Knuckle
+      - Item: Up_Undine_Spear_K
+      - Item: Up_Light_Blade
+      - Item: Up_Iron_Staff
+      - Item: Up_Blue_Crystal_Staff
+      - Item: Up_Demon_Hunting_Bible
+      - Item: Up_Saint_Hall
+      - Item: Up_MeawFoxtail
+      - Item: Up_Fog_Dew_Sword
+      - Item: Up_Humma_Clear
+      - Item: Up_Master_Soul_Rifle
+      - Item: Up_Golden_L_Launcher
+      - Item: Up_The_Black_Gatling
+      - Item: Up_Demon_S_Shot
+      - Item: Up_Crimson_Rose
+      - Item: Up_OneSkyOneSun
+      - Item: Up_SoulWeight       
+    Result: |
+      callfunc("F_Lapine_Greate_Hero_Bravery", .@opts[0], .@vals[0], .@opts[1], .@vals[1]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
+  - Item: 100413 # Great_Hero_Wisdom # 100413
+    TargetItem:
+      - Item: Up_Oriental_Sword
+      - Item: Up_Dragonic_Slayer
+      - Item: Up_Shiver_Katar_K
+      - Item: Up_Blade_Katar
+      - Item: Up_Sword_Of_Bluefire
+      - Item: Up_Slate_Sword
+      - Item: Up_Narcis_Bow
+      - Item: Up_Trumpet_Shell_K
+      - Item: Up_Barb_Wire_K
+      - Item: Up_Avenger
+      - Item: Up_Magic_Sword
+      - Item: Up_Fatalist
+      - Item: Up_Meteor_Striker
+      - Item: Up_Royal_Bow_K
+      - Item: Up_Scalet_Dragon_L_Bow
+      - Item: Up_Shadow_Staff_K
+      - Item: Up_Freezing_Rod
+      - Item: Up_Iron_Nail_K
+      - Item: Up_Ray_Knuckle
+      - Item: Up_Undine_Spear_K
+      - Item: Up_Light_Blade
+      - Item: Up_Iron_Staff
+      - Item: Up_Blue_Crystal_Staff
+      - Item: Up_Demon_Hunting_Bible
+      - Item: Up_Saint_Hall
+      - Item: Up_MeawFoxtail
+      - Item: Up_Fog_Dew_Sword
+      - Item: Up_Humma_Clear
+      - Item: Up_Master_Soul_Rifle
+      - Item: Up_Golden_L_Launcher
+      - Item: Up_The_Black_Gatling
+      - Item: Up_Demon_S_Shot
+      - Item: Up_Crimson_Rose
+      - Item: Up_OneSkyOneSun
+      - Item: Up_SoulWeight          
+    Result: |
+      callfunc("F_Lapine_Greate_Hero_Wisdom", .@opts[0], .@vals[0], .@opts[1], .@vals[1]);
+      .@params[0] = 0;
+      getitem3(@last_lapine_id,1,1,@last_lapine_refine,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,.@opts,.@vals,.@params);
