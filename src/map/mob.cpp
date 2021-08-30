@@ -2955,7 +2955,8 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 							ditem = mob_setdropitem(&mobdrop, 1, md->mob_id);
 							mob_item_drop(md, dlist, ditem, 0, battle_config.finding_ore_rate/10, homkillonly || merckillonly);
 						}
-
+						if (it->type == IT_CARD)
+							drop_rate_mapflag = 100;
 						if(sd) {
 							// process script-granted extra drop bonuses
 							t_itemid dropid = 0;
@@ -2978,7 +2979,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 									else
 										//it's positive, then it goes as it is
 										drop_rate = it.rate;
-									drop_rate = (it->type != IT_CARD) ? drop_rate * drop_rate_mapflag / 100 : drop_rate;
+									drop_rate = drop_rate_mapflag / 100;
 									if (drop_rate >= 10000) drop_rate = 10000;
 									if (rnd()%10000 >= drop_rate)
 										continue;
@@ -3097,7 +3098,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 					pet_create_egg(mvp_sd, md->db->dropitem[i].nameid);
 					continue;
 				}
-
+				
 				ditem = mob_setdropitem(&md->db->dropitem[i], 1, md->mob_id);
 
 				//A Rare Drop Global Announce by Lupus
@@ -3121,7 +3122,8 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				ditem = mob_setdropitem(&mobdrop, 1, md->mob_id);
 				mob_item_drop(md, dlist, ditem, 0, battle_config.finding_ore_rate/10, homkillonly || merckillonly);
 			}
-
+			if (it->type == IT_CARD)
+				drop_rate_mapflag = 100;
 			if(sd) {
 				// process script-granted extra drop bonuses
 				t_itemid dropid = 0;
@@ -3144,7 +3146,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 						else
 							//it's positive, then it goes as it is
 							drop_rate = it.rate;
-						drop_rate = (it->type != IT_CARD) ? drop_rate * drop_rate_mapflag / 100 : drop_rate;
+						drop_rate = drop_rate * drop_rate_mapflag / 100;
 						if (drop_rate >= 10000) drop_rate = 10000;
 						if (rnd()%10000 >= drop_rate)
 							continue;
