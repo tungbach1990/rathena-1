@@ -8665,6 +8665,46 @@ Body:
       - Item: 20966 # Temporal_M_Int
       - Item: 20967 # Temporal_M_Dex
       - Item: 20968 # Temporal_M_Luk 
+      - Item: 32237 # Celine_Brooch_K
+      - Item: 28424 # PlumpyWormCharm
+      - Item: 21051
+      - Item: 21052
+      - Item: 32023
+      - Item: 1333
+      - Item: 16092
+      - Item: 28138
+      - Item: 28765
+      - Item: 28044
+      - Item: 28042
+      - Item: 26158
+      - Item: 2055
+      - Item: 2056
+      - Item: 26161
+      - Item: 2057
+      - Item: 16095
+      - Item: 18185
+      - Item: 18187
+      - Item: 18186
+      - Item: 32350
+      - Item: 32024
+      - Item: 32025
+      - Item: 32351
+      - Item: 16093
+      - Item: 16094
+      - Item: 28767
+      - Item: 28768
+      - Item: 18184
+      - Item: 28633
+      - Item: 26159
+      - Item: 26160
+      - Item: 1865
+      - Item: 1866
+      - Item: 16096
+      - Item: 18188
+      - Item: 26212
+      - Item: 26213
+      - Item: 32107
+      - Item: 32108
     Result: |
         if (@last_lapine_card1) {
             getitem3(@last_lapine_id,1,1,.@refine,0,0,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param); 
