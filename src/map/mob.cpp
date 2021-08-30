@@ -2978,7 +2978,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 									else
 										//it's positive, then it goes as it is
 										drop_rate = it.rate;
-									drop_rate = drop_rate * drop_rate_mapflag / 100 ;
+									drop_rate = (it->type != IT_CARD) ? drop_rate * drop_rate_mapflag / 100 : drop_rate;
 									if (drop_rate >= 10000) drop_rate = 10000;
 									if (rnd()%10000 >= drop_rate)
 										continue;
@@ -3144,7 +3144,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 						else
 							//it's positive, then it goes as it is
 							drop_rate = it.rate;
-						drop_rate = drop_rate * drop_rate_mapflag / 100 ;
+						drop_rate = (it->type != IT_CARD) ? drop_rate * drop_rate_mapflag / 100 : drop_rate;
 						if (drop_rate >= 10000) drop_rate = 10000;
 						if (rnd()%10000 >= drop_rate)
 							continue;
