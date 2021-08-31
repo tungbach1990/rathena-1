@@ -83,8 +83,8 @@ int finddanger(block_list * bl, va_list ap)
 		ud2 = unit_bl2ud(&sd2->bl);
 	int i;
 	for (const auto su : ud2->skillunits) {
-		if (ud2->skillunit[i]->skill_id == MG_FIREWALL)
-			if (((abs(ud2->skillunits->unit->bl.x - ((sd2->bl.x + bl->x) / 2)) < 3) && (abs(ud2->skillunits->unit->bl.y - ((sd2->bl.y + bl->y) / 2)) < 3))) return 0;
+		if (su->skill_id == MG_FIREWALL)
+			if (((abs(su->unit->bl.x - ((sd2->bl.x + bl->x) / 2)) < 3) && (abs(su->unit->bl.y - ((sd2->bl.y + bl->y) / 2)) < 3))) return 0;
 		}
 	}
 
