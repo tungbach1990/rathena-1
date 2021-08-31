@@ -5,7 +5,7 @@ prontera,164,171,4	script	Odin Past Enchanter	4_M_CRU_HEAD,{
 	mes "";
 	mes "I can enchant Odin Equipment !!";
 	//mes "But now i only work with Soutane armor !!!!";
-	mes "I need <ITEM>"+getitemname(25767)+"<INFO>"+25767+"</INFO></ITEM> x 10 to work !";
+	mes "I need <ITEM>"+getitemname(25767)+"<INFO>"+25767+"</INFO></ITEM> x 5 to work !";
 	next;
 	mes "[ Odin Past Enchanter ] ";
 	mes "";
@@ -43,7 +43,7 @@ prontera,164,171,4	script	Odin Past Enchanter	4_M_CRU_HEAD,{
 		break;
 		Case 2:
 			mes "[ Odin Past Enchanter ] ";
-			mes "I need <ITEM>"+getitemname(6417)+"<INFO>"+6417+"</INFO></ITEM> x 4 to work !";
+			mes "I need <ITEM>"+getitemname(6417)+"<INFO>"+6417+"</INFO></ITEM> x 2 to work !";
 			next;
 			menu (compare( "|"+.listSoutane$+"|","|"+getequipid(EQI_ARMOR)+"|" )) ? getitemname(getequipid(EQI_ARMOR)):"",ResetEnchantA,
 				(compare( "|"+.listSoutane$+"|","|"+getequipid(EQI_SHOES)+"|" )) ? getitemname(getequipid(EQI_SHOES)):"",ResetEnchantS,
@@ -207,9 +207,9 @@ prontera,164,171,4	script	Odin Past Enchanter	4_M_CRU_HEAD,{
 	OnInit:
 		.main_menu$ = "Enchant Odin Equipment:Reset Enchant Odin Equipment:Quit";
 		.listSoutane$ = "15397|15398|15399|15400|15401|15402|20947|22209";
-		setarray .price_normal[0],25767,10;
-		setarray .price_extend[0],25767,10,6417,3;
-		setarray .price_reset[0],6417,4;
+		setarray .price_normal[0],25767,5;
+		setarray .price_extend[0],25767,0,6417,3;
+		setarray .price_reset[0],6417,2;
 		setarray .normal_enchant[0],4705,4706,4707, // Str 6-8
 									4715,4716,4717, // INT 6-8
 									4725,4726,4727, // DEX 6-8

@@ -1,6 +1,6 @@
-dicastes01,210,195,5	script	Hair Style	4_F_KAFRA1,{
+dicastes01,210,195,5	script	Test#1	844,{
 .charid = getcharid(0,strcharinfo(0));
-        message strcharinfo(0),"Charid: "+.charid;
+        //message strcharinfo(0),"Charid: "+.charid;
         .atk = readparam(bAtk,.charid);
         message strcharinfo(0),"ATK: "+.atk;
 	.atk = readparam(bAtk2,.charid);
@@ -9,5 +9,42 @@ dicastes01,210,195,5	script	Hair Style	4_F_KAFRA1,{
         message strcharinfo(0),"ATK: "+.atk;
 	.atk = readparam(matk_max,.charid);
         message strcharinfo(0),"ATK: "+.atk;
+
+OnPCAttackEvent:
+		//dispbottom "You've dealt "+@totaldamage+" to target with GID "+@damagegid+" and RID "+ .gid[.dupid];
+		if (@damagegid == .gid[.dupid]) {
+				attachnpctimer;
+		                initnpctimer;	
+
+			 //dispbottom "You've dealt "+@totaldamage+" to target with GID "+@damagegid+" and RID "+@damagerid;
+			@totaldamage = @totaldamage + @damage;
+		
+		//attachnpctimer;
+		//initnpctimer;
+		}
+	end;
+
+OnTimer5000:
+	stopnpctimer;
+	 npctalk strcharinfo(0) + " dealt "+@totaldamage+" trong 5s";
+	@totaldamage = 0;
+	//stopnpctimer;
+end;
+OnInit:
+	getunitdata(getnpcid(0), .@d);
+	monster strnpcinfo(4),.@d[UNPC_X],.@d[UNPC_Y],"Punching Bag",2411,1,strnpcinfo(0)+"::OnMyMobDead";
+	.dupid = atoi(strnpcinfo(2));
+	.gid[.dupid] = $@mobid[0];
+	.mhp[.dupid] = strmobinfo(4,2411);
+	setunitdata .gid[.dupid],UMOB_MODE,.@d[UMOB_MODE]|0x4000000|0x0200000; // Set MD_STATUS_IMMUNE (0x4000000) because EDP/burn/%MHP based status can skew the DPS counter so much.
+end;
+OnMyMobDead:
+	getunitdata(getnpcid(0), .@d);
+        monster strnpcinfo(4),.@d[UNPC_X],.@d[UNPC_Y],"Punching Bag",2411,1,strnpcinfo(0)+"::OnMyMobDead";
+        .dupid = atoi(strnpcinfo(2));
+        .gid[.dupid] = $@mobid[0];
+        .mhp[.dupid] = strmobinfo(4,2411);
+        setunitdata .gid[.dupid],UMOB_MODE,.@d[UMOB_MODE]|0x4000000|0x0200000; // Set MD_STATUS_IMMUNE (0x4000000) because EDP/burn/%MHP based status can skew the DPS counter so much.
+end;
 }
 

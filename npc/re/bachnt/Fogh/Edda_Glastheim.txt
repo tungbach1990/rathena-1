@@ -2179,6 +2179,7 @@ OnSummon:
 	.@gid = monster(.@map$,52,277,"Cursed King Schmidt",.@boss,1,instance_npcname(strnpcinfo(0)) + "::OnBossKill");
 	 //mapannounce .@map$,"BachNT Test OnSummon Boss",bc_map,0xFFFF00;
 	//instance_event("#gh_purification_fire","OnSummonLeft",false); //BachNT
+	.@gid = $@mobid[0];
 	'newgid = .@gid;
 	set_instance_var("gid",.@gid);
 	set_instance_var("boss_alive",1);
@@ -2204,8 +2205,8 @@ OnSummonLeft:
 	//mapannounce .@map$,"BachNT Test OnSummonLeft " +.@gid + " " + 'newgid,bc_map,0xFFFF00;
 	//sleep 10000;
 	for(.@i = 10; .@i < 96; .@i++){
-		//if(!unitexists(.@gid))
-		//	end;
+		if(!unitexists(.@gid))
+			end;
 		if(.@i == 10)
 			instance_event(strnpcinfo(0),"OnSummonRight",false);
 		if(.@i == 55){
@@ -2280,8 +2281,8 @@ OnSummonRight:
 	.@event$ = instance_npcname(strnpcinfo(0)) + "::OnRightFireDead";
 	.@gid = get_instance_var("gid");
 	for(.@i = 95; .@i > 10; .@i--){
-		//if(!unitexists(.@gid))
-		//	end;
+		if(!unitexists(.@gid))
+			end;
 		/*
 		.@right[0] = monster(.@map$,.@i,248,"",20426,1,.@event$);
 		.@right[1] = monster(.@map$,.@i,251,"",20426,1,.@event$);
@@ -2353,8 +2354,8 @@ OnSummonBottom:
 	.@event$ = instance_npcname(strnpcinfo(0)) + "::OnBottomFireDead";
 	.@gid = get_instance_var("gid");
 	for(.@i = 248; .@i < 309; .@i++){
-		//if(!unitexists(.@gid))
-		//	end;
+		if(!unitexists(.@gid))
+			end;
 		/*
 		.@bottom[0] = monster(.@map$,12,.@i,"",20426,1,.@event$);
 		.@bottom[1] = monster(.@map$,15,.@i,"",20426,1,.@event$);
@@ -2444,8 +2445,8 @@ OnSummonTop:
 	.@event$ = instance_npcname(strnpcinfo(0)) + "::OnTopFireDead";
 	.@gid = get_instance_var("gid");
 	for(.@i = 308; .@i > 247; .@i--){
-		//if(!unitexists(.@gid))
-		//	end;	
+		if(!unitexists(.@gid))
+			end;	
 		if(.@i == 260)
 			instance_event(strnpcinfo(0),"OnSummonLeft",false);
 		/*
@@ -2549,8 +2550,10 @@ OnSpawn00:
 	19,62,
 	31,50;
 	for(.@i = 0; .@i < getarraysize(.@bone_xy); .@i += 2){
-		.@bone = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
-		.@flame = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
+		monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
+		.@bone = $@mobid[0]; 
+		monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
+		.@flame = $@mobid[0];
 		getunitdata .@bone,.@mode;
 		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACKIMMUNE|MD_DETECTOR);
 		setunitdata .@flame,UMOB_DMGIMMUNE,true;
@@ -2616,8 +2619,10 @@ OnSpawn01:
 	148,56,
 	139,66;
 	for(.@i = 0; .@i < getarraysize(.@bone_xy); .@i += 2){
-		.@bone = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
-		.@flame = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
+		monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
+		.@bone = $@mobid[0];	
+		monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
+		.@flame = $@mobid[0];
 		getunitdata .@bone,.@mode;
 		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACKIMMUNE|MD_DETECTOR);
 		setunitdata .@flame,UMOB_DMGIMMUNE,true;
@@ -2690,8 +2695,10 @@ OnSpawn02:
 	149,146,
 	143,120;
 	for(.@i = 0; .@i < getarraysize(.@bone_xy); .@i += 2){
-		.@bone = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
-		.@flame = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
+		monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
+		.@bone = $@mobid[0];
+		monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
+		.@flame = $@mobid[0];
 		getunitdata .@bone,.@mode;
 		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACKIMMUNE|MD_DETECTOR);
 		setunitdata .@flame,UMOB_DMGIMMUNE,true;
@@ -2769,8 +2776,10 @@ OnSpawn03:
 	46,128,
 	56,164;
 	for(.@i = 0; .@i < getarraysize(.@bone_xy); .@i += 2){
-		.@bone = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
-		.@flame = monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
+		monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"Flaming Thorn",1960,1,.@event2$);
+		.@bone = $@mobid[0];
+		monster(.@map$,.@bone_xy[.@i],.@bone_xy[.@i+1],"",20426,1,.@event2$);
+		.@flame = $@mobid[0];
 		getunitdata .@bone,.@mode;
 		setunitdata .@bone,UMOB_MODE,(.@mode[UMOB_MODE]|MD_IGNOREMELEE|MD_IGNOREMAGIC|MD_IGNORERANGED|MD_IGNOREMISC|MD_KNOCKBACKIMMUNE|MD_DETECTOR);
 		setunitdata .@flame,UMOB_DMGIMMUNE,true;

@@ -2949,7 +2949,7 @@ function	script	F_Lapine_Auto_Enhance_Cube	{
 
  function	script	F_Lapine_Greate_Hero_Bravery	{
 	// Option: 1
-	DMOPT_MELEE_ATTACK_DAMAGE_TARGET
+	//DMOPT_MELEE_ATTACK_DAMAGE_TARGET
 	.@r = rand(10000);
 	if (.@r < 300) { // ATK +5 ~ 40
 		.@option = RDMOPT_VAR_ATTPOWER;
@@ -3075,7 +3075,7 @@ function	script	F_Lapine_Greate_Hero_Wisdom	{
                 RDMOPT_ADDSKILLMDAMAGE_POISON,3,12,
                 RDMOPT_ADDSKILLMDAMAGE_SAINT,3,12,
                 RDMOPT_ADDSKILLMDAMAGE_DARKNESS,3,12,
-                RDMOPT_ADDSKILLMDAMAGE_TELEKINESIS,3,12
+                RDMOPT_ADDSKILLMDAMAGE_TELEKINESIS,3,12,
 				RDMOPT_MDAMAGE_PROPERTY_NOTHING_TARGET,3,25,
 				RDMOPT_MDAMAGE_PROPERTY_WATER_TARGET,3,25,
 				RDMOPT_MDAMAGE_PROPERTY_GROUND_TARGET,3,25,
@@ -3087,8 +3087,8 @@ function	script	F_Lapine_Greate_Hero_Wisdom	{
 				RDMOPT_MDAMAGE_PROPERTY_TELEKINESIS_TARGET,3,25,
 				RDMOPT_MDAMAGE_PROPERTY_UNDEAD_TARGET,3,25;				
 	.@r = rand(getarraysize(.@randomopt)/3);
-	.@option = .@randomopt(.@r*3);
-	.@value = .@randomopt(rand(.@r*3+1,.@r*3+2));
+	.@option = .@randomopt[.@r*3];
+	.@value = .@randomopt[rand(.@r*3+1,.@r*3+2)];
 	
 
 	set getarg(0), .@option;

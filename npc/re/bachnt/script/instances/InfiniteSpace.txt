@@ -844,7 +844,7 @@ OnTimer10000:
 	end;	
 }
 1@infi	mapflag	nowarpto	1
-1@infi  mapflag noteleport	1
+1@infi	mapflag	noteleport	1
 1@infi	mapflag	nowarp	1
 1@infi,29,31,5	warp	iswarp#1	2,2,1@infi,29,36
 1@infi,29,63,5	warp	iswarp#2	2,2,1@infi,29,68
