@@ -1,0 +1,39 @@
+-	exbartershop	randomshop	-1,7776:99:10000-7929:0:1
+
+hugel,95,141,5	script	RandomShop	4_M_RACHOLD1,{
+        callshop "randomshop";
+end;
+OnInit:
+        npcshopitem "randomshop","19195:99:10000000","7929:0:300";
+	initnpctimer;
+OnTimer120000:
+	.newegg = callfunc("F_Rand",rand(9001,9063),rand(9065,9080),rand(9087,9109),rand(9011,9113),rand(9115,9124));
+	.newreward = callfunc("F_Rand",7929,7227,6635,7620,7619,6240,6241,100536, // normal item
+					//20504, // garment
+                                        12883,12884,12885,12886,12887, // almighty and infinite
+					14545,12412,12210, // gum and x3
+					18813,25375,17162,18563,16771); //TCG Shop
+	npcshopitem "randomshop",.newreward+":1:100000",.newegg + ":0:1";
+	message "GameMaster",.newegg;
+	.newrequire = rand(4001,4610); // alot of card
+	.newreward = callfunc("F_Rand",7929,7227,6635,7620,7619,6240,6241,100536, // normal item
+                                        //20504, // garment
+                                        12883,12884,12885,12886,12887, // almighty and infinite
+                                        14545,12412,12210, // gum and x3
+                                        18813,25375,17162,18563,16771); //TCG Shop
+	bartershopadditem "randomshop",.newreward +":1:100000",.newrequire+":0:1";
+	message "GameMaster",.newrequire;
+	.newrequire = callfunc("F_Rand",rand(901,926),rand(934,976),rand(978,1099));
+	.newreward = callfunc("F_Rand",7929,7227,6635,7620,7619,6240,6241,100536, // normal item
+                                        12883,12884,12885,12886,12887, // almighty and infinite
+                                        14545,12412,12210, // gum and x3
+                                        18813,25375,17162,18563,16771); //TCG Shop
+	bartershopadditem "randomshop",.newreward +":1:1000000",.newrequire+":0:50";
+	 message "GameMaster",.newrequire;
+	stopnpctimer;
+	initnpctimer;
+end;
+       // bartershopadditem "GoldCoinShop2","19196:99:10000000","7929:0:300";
+end;
+}
+

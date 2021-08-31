@@ -2841,7 +2841,7 @@ Body:
   - Item: Iron_Staff_Cube #100395 # Iron_Staff_Cube
     NeedRefineMin: 9
     SourceItem:
-      - Item: Aeon_Staff # 2048
+      - Item: Iron_Staff # 2048
     Reward: getitem3(640011,1,1,7,0,@last_lapine_card1,@last_lapine_card2,@last_lapine_card3,@last_lapine_card4,@last_lapine_option_id,@last_lapine_option_value,@last_lapine_option_param);
   - Item: Blue_Crystal_Staff_Cube #100396 # Blue_Crystal_Staff_Cube
     NeedRefineMin: 9
