@@ -32,12 +32,10 @@ uint64 ItemSynthesisDatabase::parseBodyNode(const YAML::Node &node) {
 	if (!this->asString(node, "Item", synthesis_item_name))
 		return 0;
 
-	item_data *item;
-	
-	if (atoi(synthesis_item_name.c_str()) > 0)
-		item = itemdb_exists(atoi(synthesis_item_name.c_str()));
-	else
-		item = item_db.search_aegisname(synthesis_item_name.c_str());
+	std::shared_ptr<item_data> item = item_db.search_aegisname(synthesis_item_name.c_str());
+	if (item == nullptr){
+		item = item_db.find( strtoul( synthesis_item_name.c_str(), nullptr, 10 ) );
+	}
 	
 	if (item == nullptr) {
 		this->invalidWarning(node["Item"], "Item name for Synthesis Box %s does not exist.\n", synthesis_item_name.c_str());
@@ -88,11 +86,10 @@ uint64 ItemSynthesisDatabase::parseBodyNode(const YAML::Node &node) {
 			if (!this->asString(source, "Item", source_item_name))
 				continue;
 
-			item_data *source_it;
-			if (atoi(source_item_name.c_str()) > 0)
-				source_it = itemdb_exists(atoi(source_item_name.c_str()));
-			else
-				source_it = item_db.search_aegisname(source_item_name.c_str());
+			std::shared_ptr<item_data> source_it = item_db.search_aegisname(source_item_name.c_str());
+			if (source_it == nullptr){
+				source_it = item_db.find( strtoul( source_item_name.c_str(), nullptr, 10 ) );
+			}
 
 			if (source_it == nullptr) {
 				this->invalidWarning(node["SourceItem"], "Source item name %s does not exist, skipping.\n", source_item_name.c_str());
