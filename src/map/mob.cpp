@@ -2913,7 +2913,8 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 						sd = ptt->data[mn].sd;
 						struct item_drop *ditem;
 						struct item_data* it = NULL;
-							int drop_rate, drop_modifier = 100;			
+						int drop_rate, drop_modifier = 100;		
+						struct item_drop_list *dlist = ers_alloc(item_drop_list_ers, struct item_drop_list);
 						// Start drop item in party
 						
 #ifdef RENEWAL_DROP
