@@ -20354,34 +20354,36 @@ bool skill_produce_mix(struct map_session_data *sd, uint16 skill_id, t_itemid na
  */
 bool skill_arrow_create(struct map_session_data *sd, t_itemid nameid)
 {
-	short i, j, idx = -1;
-	struct item tmp_item;
-
 	nullpo_ret(sd);
 
-	if (!nameid || !itemdb_exists(nameid) || !skill_arrow_count)
+	if (!nameid || !item_db.exists(nameid) || skill_arrow_db.empty())
 		return false;
 
-	for (i = 0; i < MAX_SKILL_ARROW_DB;i++) {
-		if (nameid == skill_arrow_db[i].nameid) {
-			idx = i;
+	std::shared_ptr<s_skill_arrow_db> arrow = nullptr;
+
+	for (const auto &it : skill_arrow_db) {
+		if (nameid == it.second->nameid) {
+			arrow = it.second;
 			break;
 		}
 	}
+	short j;
 
-	if (idx < 0 || (j = pc_search_inventory(sd,nameid)) < 0)
+	if (arrow == nullptr || (j = pc_search_inventory(sd,nameid)) < 0 || arrow->created.empty())
 		return false;
 
 	pc_delitem(sd,j,1,0,0,LOG_TYPE_PRODUCE);
-	for (i = 0; i < MAX_ARROW_RESULT; i++) {
+
+	for (const auto &it : arrow->created) {
 		char flag = 0;
 
-		if (skill_arrow_db[idx].cre_id[i] == 0 || !itemdb_exists(skill_arrow_db[idx].cre_id[i]) || skill_arrow_db[idx].cre_amount[i] == 0)
+		if (it.first == 0 || !item_db.exists(it.first) || it.second == 0)
 			continue;
-		memset(&tmp_item,0,sizeof(tmp_item));
+
+		struct item tmp_item = { 0 };
 		tmp_item.identify = 1;
-		tmp_item.nameid = skill_arrow_db[idx].cre_id[i];
-		tmp_item.amount = skill_arrow_db[idx].cre_amount[i];
+		tmp_item.nameid = it.first;
+		tmp_item.amount = it.second;
 		if (battle_config.produce_item_name_input&0x4) {
 			tmp_item.card[0] = CARD0_CREATE;
 			tmp_item.card[1] = 0;
@@ -22729,8 +22731,14 @@ static bool skill_parse_row_producedb(char* split[], int columns, int current)
 	return true;
 }
 
-/** Reads create arrow db
- * Sturcture: SourceID,MakeID1,MakeAmount1,...,MakeID5,MakeAmount5
+const std::string SkillArrowDatabase::getDefaultLocation() {
+	return std::string(db_path) + "/create_arrow_db.yml";
+}
+
+/**
+ * Reads and parses an entry from the create_arrow_db.
+ * @param node: YAML node containing the entry.
+ * @return count of successfully parsed rows
  */
 uint64 SkillArrowDatabase::parseBodyNode(const YAML::Node &node) {
 	std::string source_name;
@@ -22740,16 +22748,19 @@ uint64 SkillArrowDatabase::parseBodyNode(const YAML::Node &node) {
 
 	std::shared_ptr<item_data> item = item_db.search_aegisname( source_name.c_str() );
 
-	if (!(itemdb_exists(material_id))) {
-		ShowError("skill_parse_row_createarrowdb: Invalid item %u.\n", material_id);
-		return false;
+	if (item == nullptr) {
+		this->invalidWarning(node["Source"], "Item %s does not exist.\n", source_name.c_str());
+		return 0;
 	}
 
-	//search if we override something, (if not i=last idx)
-	ARR_FIND(0, skill_arrow_count, i, skill_arrow_db[i].nameid == material_id);
-	if (i >= ARRAYLENGTH(skill_arrow_db)) {
-		ShowError("skill_parse_row_createarrowdb: Maximum db entries reached.\n");
-		return false;
+	t_itemid nameid = item->nameid;
+
+	std::shared_ptr<s_skill_arrow_db> arrow = this->find(nameid);
+	bool exists = arrow != nullptr;
+
+	if (!exists) {
+		arrow = std::make_shared<s_skill_arrow_db>();
+		arrow->nameid = nameid;
 	}
 
 	const YAML::Node &MakeNode = node["Make"];
@@ -22785,15 +22796,10 @@ uint64 SkillArrowDatabase::parseBodyNode(const YAML::Node &node) {
 		arrow->created[item->nameid] = amount;
 	}
 
-	skill_arrow_db[i].nameid = material_id;
-	for (x = 1, y = 0; x+1 < columns && split[x] && split[x+1] && y < MAX_ARROW_RESULT; x += 2, y++) {
-		skill_arrow_db[i].cre_id[y] = strtoul(split[x], nullptr, 10);
-		skill_arrow_db[i].cre_amount[y] = atoi(split[x+1]);
-	}
-	if (i == skill_arrow_count)
-		skill_arrow_count++;
+	if (!exists)
+		this->put(nameid, arrow);
 
-	return true;
+	return 1;
 }
 
 const std::string AbraDatabase::getDefaultLocation() {
@@ -23015,9 +23021,8 @@ static void skill_readdb(void)
 	};
 
 	memset(skill_produce_db,0,sizeof(skill_produce_db));
-	memset(skill_arrow_db,0,sizeof(skill_arrow_db));
 	memset(skill_changematerial_db,0,sizeof(skill_changematerial_db));
-	skill_produce_count = skill_arrow_count = skill_changematerial_count = 0;
+	skill_produce_count = skill_changematerial_count = 0;
 
 	skill_db.load();
 
@@ -23037,7 +23042,6 @@ static void skill_readdb(void)
 		sv_readdb(dbsubpath2, "skill_nocast_db.txt"   , ',',   2,  2, -1, skill_parse_row_nocastdb, i > 0);
 
 		sv_readdb(dbsubpath2, "produce_db.txt"        , ',',   5,  5+2*MAX_PRODUCE_RESOURCE, MAX_SKILL_PRODUCE_DB, skill_parse_row_producedb, i > 0);
-		sv_readdb(dbsubpath1, "create_arrow_db.txt"   , ',', 1+2,  1+2*MAX_ARROW_RESULT, MAX_SKILL_ARROW_DB, skill_parse_row_createarrowdb, i > 0);
 		sv_readdb(dbsubpath1, "skill_changematerial_db.txt" , ',',   5,  5+2*MAX_SKILL_CHANGEMATERIAL_SET, MAX_SKILL_CHANGEMATERIAL_DB, skill_parse_row_changematerialdb, i > 0);
 		sv_readdb(dbsubpath1, "skill_damage_db.txt"         , ',',   4,  3+SKILLDMG_MAX, -1, skill_parse_row_skilldamage, i > 0);
 
@@ -23048,6 +23052,7 @@ static void skill_readdb(void)
 	abra_db.load();
 	magic_mushroom_db.load();
 	reading_spellbook_db.load();
+	skill_arrow_db.load();
 
 	skill_init_unit_layout();
 	skill_init_nounit_layout();
@@ -23058,6 +23063,8 @@ void skill_reload (void) {
 	abra_db.clear();
 	magic_mushroom_db.clear();
 	reading_spellbook_db.clear();
+	skill_arrow_db.clear();
+
 	skill_readdb();
 	initChangeTables(); // Re-init Status Change tables
 
