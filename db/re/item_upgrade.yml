@@ -6688,7 +6688,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000105;
         .@enchant_id = 310082;
@@ -6727,7 +6727,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000106;
         .@enchant_id = 310083;
@@ -6766,7 +6766,7 @@ Body:
       - Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000107;
         .@enchant_id = 310084;
@@ -6805,7 +6805,7 @@ Body:
       - Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000108;
         .@enchant_id = 310085;
@@ -6844,7 +6844,7 @@ Body:
       - Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000109;
         .@enchant_id = 310086;
@@ -6883,7 +6883,7 @@ Body:
       - Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000110;
         .@enchant_id = 310087;
@@ -6922,7 +6922,7 @@ Body:
       #- Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000111;
         .@enchant_id = 310088;
@@ -6961,7 +6961,7 @@ Body:
       #- Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000112;
         .@enchant_id = 310089;
@@ -7000,7 +7000,7 @@ Body:
       - Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000113;
         .@enchant_id = 310090;
@@ -7039,7 +7039,7 @@ Body:
       #- Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000114;
         .@enchant_id = 310091;
@@ -8522,7 +8522,7 @@ Body:
       - Item: 490024 #Auto_B_R # 490024
       - Item: 490025 #Auto_B_L # 490025
       - Item: 490026 #Auto_BC_R # 490026
-      - Item: 490027 #Auto_BC_L $ 490027
+      - Item: 490027 #Auto_BC_L # 490027
       # Ancient weapon
       - Item: Royal_Bow_K
       - Item: Narcis_Bow
