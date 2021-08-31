@@ -83,12 +83,10 @@ struct skill_usave {
 struct s_skill_produce_db skill_produce_db[MAX_SKILL_PRODUCE_DB];
 static unsigned short skill_produce_count;
 
-struct s_skill_arrow_db skill_arrow_db[MAX_SKILL_ARROW_DB];
-static unsigned short skill_arrow_count;
-
 AbraDatabase abra_db;
 
 ReadingSpellbookDatabase reading_spellbook_db;
+SkillArrowDatabase skill_arrow_db;
 
 #define MAX_SKILL_CHANGEMATERIAL_DB 75
 #define MAX_SKILL_CHANGEMATERIAL_SET 3
@@ -17865,10 +17863,10 @@ int skill_attack_area(struct block_list *bl, va_list ap)
 
 /**
  * Clear skill unit group
- * @param bl
- * @param flag &1
+ * @param bl: Unit to check
+ * @param flag: Skill group to clear
  */
-int skill_clear_group(struct block_list *bl, int flag)
+int skill_clear_group(block_list *bl, uint8 flag)
 {
 	nullpo_ret(bl);
 
@@ -17878,8 +17876,10 @@ int skill_clear_group(struct block_list *bl, int flag)
 		return 0;
 
 	size_t count = 0;
+	bool deleted;
 
-	for (auto it = ud->skillunits.begin(); it != ud->skillunits.end(); it++) {
+	// The after loop statement might look stupid, but this prevents iteration problems, if an entry was deleted
+	for (auto it = ud->skillunits.begin(); it != ud->skillunits.end(); (deleted ? it = ud->skillunits.begin() : it++), deleted = false) {
 		switch ((*it)->skill_id) {
 			case SA_DELUGE:
 			case SA_VOLCANO:
@@ -17893,6 +17893,7 @@ int skill_clear_group(struct block_list *bl, int flag)
 				if (flag & 1) {
 					skill_delunitgroup(*it);
 					count++;
+					deleted = true;
 				}
 				break;
 			case SO_CLOUD_KILL:
@@ -17900,18 +17901,21 @@ int skill_clear_group(struct block_list *bl, int flag)
 				if (flag & 4) {
 					skill_delunitgroup(*it);
 					count++;
+					deleted = true;
 				}
 				break;
 			case SO_WARMER:
 				if (flag & 8) {
 					skill_delunitgroup(*it);
 					count++;
+					deleted = true;
 				}
 				break;
 			default:
 				if (flag & 2 && skill_get_inf2((*it)->skill_id, INF2_ISTRAP)) {
 					skill_delunitgroup(*it);
 					count++;
+					deleted = true;
 				}
 				break;
 		}
