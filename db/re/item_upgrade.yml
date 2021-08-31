@@ -7078,7 +7078,7 @@ Body:
       - Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000115;
         .@enchant_id = 310092;
@@ -7117,7 +7117,7 @@ Body:
       - Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000116;
         .@enchant_id = 310093;
@@ -7156,7 +7156,7 @@ Body:
       - Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000117;
         .@enchant_id = 310094;
@@ -7195,7 +7195,7 @@ Body:
       - Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000118;
         .@enchant_id = 310095;
@@ -7234,7 +7234,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000119;
         .@enchant_id = 310096;
@@ -7273,7 +7273,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000120;
         .@enchant_id = 310097;
@@ -7312,7 +7312,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000121;
         .@enchant_id = 310098;
@@ -7351,7 +7351,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000122;
         .@enchant_id = 310099;
@@ -7390,7 +7390,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000123;
         .@enchant_id = 310100;
@@ -7429,7 +7429,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000124;
         .@enchant_id = 310101;
@@ -7468,7 +7468,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000125;
         .@enchant_id = 310102;
@@ -7507,7 +7507,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000126;
         .@enchant_id = 310103;
@@ -7546,7 +7546,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000127;
         .@enchant_id = 310104;
@@ -7585,7 +7585,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000128;
         .@enchant_id = 310105;
@@ -7624,7 +7624,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000129;
         .@enchant_id = 310106;
@@ -7663,7 +7663,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000130;
         .@enchant_id = 310107;
@@ -7702,7 +7702,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000131;
         .@enchant_id = 310108;
@@ -7741,7 +7741,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000132;
         .@enchant_id = 310109;
@@ -7780,7 +7780,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000207;
         .@enchant_id = 310178;
@@ -7819,7 +7819,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000133;
         .@enchant_id = 310110;
@@ -7858,7 +7858,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000134;
         .@enchant_id = 310111;
@@ -7897,7 +7897,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000135;
         .@enchant_id = 310112;
@@ -7936,7 +7936,7 @@ Body:
       - Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000136;
         .@enchant_id = 310113;
@@ -7975,7 +7975,7 @@ Body:
       #- Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000137;
         .@enchant_id = 310114;
@@ -8014,7 +8014,7 @@ Body:
       - Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000138;
         .@enchant_id = 310115;
@@ -8053,7 +8053,7 @@ Body:
       #- Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000139;
         .@enchant_id = 310116;
@@ -8092,7 +8092,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000140;
         .@enchant_id = 310117;
@@ -8131,7 +8131,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000141;
         .@enchant_id = 310118;
@@ -8170,7 +8170,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000142;
         .@enchant_id = 310119;
@@ -8209,7 +8209,7 @@ Body:
       - Item: Auto_B_R # 490024
       - Item: Auto_B_L # 490025
       - Item: Auto_BC_R # 490026
-      - Item: Auto_BC_L $ 490027
+      - Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000143;
         .@enchant_id = 310120;
@@ -8248,7 +8248,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000208;
         .@enchant_id = 310179;
@@ -8287,7 +8287,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000144;
         .@enchant_id = 310121;
@@ -8326,7 +8326,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000145;
         .@enchant_id = 310122;
@@ -8365,7 +8365,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000146;
         .@enchant_id = 310123;
@@ -8404,7 +8404,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000147;
         .@enchant_id = 310124;
@@ -8443,7 +8443,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000148;
         .@enchant_id = 310125;
@@ -8482,7 +8482,7 @@ Body:
       #- Item: Auto_B_R # 490024
       #- Item: Auto_B_L # 490025
       #- Item: Auto_BC_R # 490026
-      #- Item: Auto_BC_L $ 490027
+      #- Item: Auto_BC_L # 490027
     Result: |
         .@itemid = 1000149;
         .@enchant_id = 310126;

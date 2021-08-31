@@ -2501,7 +2501,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 	t_tick tick = gettick();
 	bool rebirth, homkillonly, merckillonly;
 	// BachNT Add MapFlag Droprate modify start
-	int drop_rate_mapflag;
+	int drop_rate_mapflag = 100;
 	if (map_getmapflag(m, MF_DROPRATE5)) {
 		drop_rate_mapflag = 5;
 	} else if (map_getmapflag(m, MF_DROPRATE10)) {
@@ -2534,8 +2534,6 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		drop_rate_mapflag = 175;
 	}else if (map_getmapflag(m, MF_DROPRATE200)) {
 		drop_rate_mapflag = 200;
-	}else {
-		drop_rate_mapflag = 100;
 	}
 	// BachNT Add MapFlag Droprate modify end
 	status = &md->status;
@@ -2955,8 +2953,8 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 							ditem = mob_setdropitem(&mobdrop, 1, md->mob_id);
 							mob_item_drop(md, dlist, ditem, 0, battle_config.finding_ore_rate/10, homkillonly || merckillonly);
 						}
-						if (it->type == IT_CARD)
-							drop_rate_mapflag = 100;
+						//if (it->type == IT_CARD)
+						//	drop_rate_mapflag = 100;
 						if(sd) {
 							// process script-granted extra drop bonuses
 							t_itemid dropid = 0;
@@ -2979,7 +2977,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 									else
 										//it's positive, then it goes as it is
 										drop_rate = it.rate;
-									drop_rate = drop_rate_mapflag / 100;
+									drop_rate = drop_rate * drop_rate_mapflag / 100;
 									if (drop_rate >= 10000) drop_rate = 10000;
 									if (rnd()%10000 >= drop_rate)
 										continue;
@@ -3122,8 +3120,8 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				ditem = mob_setdropitem(&mobdrop, 1, md->mob_id);
 				mob_item_drop(md, dlist, ditem, 0, battle_config.finding_ore_rate/10, homkillonly || merckillonly);
 			}
-			if (it->type == IT_CARD)
-				drop_rate_mapflag = 100;
+			//if (it->type == IT_CARD)
+			//	drop_rate_mapflag = 100;
 			if(sd) {
 				// process script-granted extra drop bonuses
 				t_itemid dropid = 0;
