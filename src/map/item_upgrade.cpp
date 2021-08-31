@@ -32,7 +32,7 @@ uint64 ItemUpgradeDatabase::parseBodyNode(const YAML::Node &node) {
 	if (!this->asString(node, "Item", upgrade_item_name))
 		return 0;
 	
-	std::shared_ptr<item_data> item;
+	item_data *item;
 	
 	if (atoi(upgrade_item_name.c_str()) > 0)
 		item = itemdb_exists(atoi(upgrade_item_name.c_str()));
@@ -86,7 +86,7 @@ uint64 ItemUpgradeDatabase::parseBodyNode(const YAML::Node &node) {
 		for (const YAML::Node &target : targetNode) {
 			if (!this->asString(target, "Item", target_item_name))
 				continue;
-			std::shared_ptr<item_data> target_item;
+			item_data *target_item;
 			if (atoi(target_item_name.c_str()) > 0)
 				target_item = itemdb_exists(atoi(target_item_name.c_str()));
 			else

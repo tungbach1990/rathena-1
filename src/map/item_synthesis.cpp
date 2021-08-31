@@ -32,7 +32,7 @@ uint64 ItemSynthesisDatabase::parseBodyNode(const YAML::Node &node) {
 	if (!this->asString(node, "Item", synthesis_item_name))
 		return 0;
 
-	std::shared_ptr<item_data> item;
+	item_data *item;
 	
 	if (atoi(synthesis_item_name.c_str()) > 0)
 		item = itemdb_exists(atoi(synthesis_item_name.c_str()));
@@ -88,7 +88,7 @@ uint64 ItemSynthesisDatabase::parseBodyNode(const YAML::Node &node) {
 			if (!this->asString(source, "Item", source_item_name))
 				continue;
 
-			std::shared_ptr<item_data> source_it;
+			item_data *source_it;
 			if (atoi(source_item_name.c_str()) > 0)
 				source_it = itemdb_exists(atoi(source_item_name.c_str()));
 			else
@@ -290,7 +290,7 @@ bool s_item_synthesis_db::checkRequirement(map_session_data *sd, const std::vect
 		return false;
 
 	item *item = nullptr;
-	std::shared_ptr<item_data> id = nullptr;
+	item_data *id = nullptr;
 	std::vector<int> indexes(this->source_needed);
 
 	for (auto &it : items) {
