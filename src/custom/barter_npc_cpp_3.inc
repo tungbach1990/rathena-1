@@ -49,7 +49,9 @@ static enum e_CASHSHOP_ACK npc_barter_process_payment(struct npc_data *nd, int c
 				z = (double)nd->u.shop.shop_item[j].value*amount;
 				if( pc_payzeny(sd, (int)z, LOG_TYPE_NPC, NULL) )
 					return ERROR_TYPE_MONEY;
-				//ShowWarning("Pass phase payzeny: \n");
+				nd->u.shop.shop_item[j].qty -= amount;
+				//ShowWarning("item trong shop %u \n",nd->u.shop.shop_item[j].value2);
+				//ShowWarning("item trong shop %u \n",nd->u.shop.shop_item[j].qty);
 				//ShowWarning("Currency Count: %u\n",amount);
 				for(int c = 0; c < nd->u.shop.shop_item[j].value2; c++){
 					nameidtrade = nd->u.shop.shop_item[j].currency[c].nameid;
