@@ -1,4 +1,4 @@
-dicastes01,210,195,5	script	Test#1	844,{
+hugel,90,143,0	script	Test#0	844,{
 .charid = getcharid(0,strcharinfo(0));
         //message strcharinfo(0),"Charid: "+.charid;
         .atk = readparam(bAtk,.charid);
@@ -11,26 +11,34 @@ dicastes01,210,195,5	script	Test#1	844,{
         message strcharinfo(0),"ATK: "+.atk;
 
 OnPCAttackEvent:
-		//dispbottom "You've dealt "+@totaldamage+" to target with GID "+@damagegid+" and RID "+ .gid[.dupid];
-		if (@damagegid == .gid[.dupid]) {
-				attachnpctimer;
-		                initnpctimer;	
-
-			 //dispbottom "You've dealt "+@totaldamage+" to target with GID "+@damagegid+" and RID "+@damagerid;
-			@totaldamage = @totaldamage + @damage;
-		
-		//attachnpctimer;
-		//initnpctimer;
+		if (@damagerid == 2411){
+			.dupid = atoi(strnpcinfo(2));
+			if (@damagegid == .gid[.dupid]) {
+				//attachnpctimer;
+			        startnpctimer "Test#"+.dupid;	
+				//initnpctimer;
+				.correct = .dupid;
+				//message "GameMaster", .dupid;
+				.name$[.correct] = strcharinfo(0);
+				setd(".totaldamage" + strcharinfo(0) + "["+.correct+"]",getd(".totaldamage" + strcharinfo(0) + "["+.correct+"]") + @damage);
+			}
 		}
 	end;
 
 OnTimer5000:
-	stopnpctimer;
-	 npctalk strcharinfo(0) + " dealt "+@totaldamage+" trong 5s";
-	@totaldamage = 0;
-	//stopnpctimer;
+	//getnpctimer(0,"Test#"+.dupid);
+	//if (strcharinfo(0) == .name$[atoi(strnpcinfo(2))]){
+	.gid = getcharid(3,.name$[atoi(strnpcinfo(2))]);
+	npctalk .name$[atoi(strnpcinfo(2))] + " dealt "+getd(".totaldamage" + .name$[atoi(strnpcinfo(2))] + "["+ atoi(strnpcinfo(2)) +"]") +" trong 5s " + atoi(strnpcinfo(2));
+	//@totaldamage[atoi(strnpcinfo(2))] = 0;
+	setd(".totaldamage" + .name$[atoi(strnpcinfo(2))] + "[" + atoi(strnpcinfo(2)) + "]",0);
+	initnpctimer "Test#"+atoi(strnpcinfo(2));
+        stopnpctimer "Test#"+atoi(strnpcinfo(2));
+	//}
 end;
 OnInit:
+	initnpctimer strnpcinfo(0);
+	stopnpctimer strnpcinfo(0);
 	getunitdata(getnpcid(0), .@d);
 	monster strnpcinfo(4),.@d[UNPC_X],.@d[UNPC_Y],"Punching Bag",2411,1,strnpcinfo(0)+"::OnMyMobDead";
 	.dupid = atoi(strnpcinfo(2));
@@ -48,3 +56,4 @@ OnMyMobDead:
 end;
 }
 
+hugel,92,139,0	duplicate(Test#0)	Test#1	844
