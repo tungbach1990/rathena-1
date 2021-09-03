@@ -1,3 +1,4 @@
+//dicastes01,181,203,5	script	Bao Công F1	4_M_GREATPO,{
 prontera,144,171,5	script	Bao Công F1	4_M_GREATPO,{
 
 	mes "[^995050 Bao Công ^000000]";
@@ -22,7 +23,9 @@ prontera,144,171,5	script	Bao Công F1	4_M_GREATPO,{
 	if (getcharid(3) == 2000003 || getcharid(3) == 2000000)
 	.@diff = 3;
 	
-	switch(select("ĞôÒi cho ta ği:Ta không thiìch")) {
+	//mes "HaŞy choòn sôì lâÌn muôìn ğôÒi bên ta";
+	//input .@times,0,100;
+	switch(select("ĞôÒi cho ta ği:ĞôÒi haÌng loaòt:Ta không thiìch")) {
 		Case 1:
 			.call = callfunc("Ancient_CheckAndDelItem",.exchange_require);
 			if (.call > 0){
@@ -60,7 +63,10 @@ prontera,144,171,5	script	Bao Công F1	4_M_GREATPO,{
 					end;
 					
 				}
+				
 				.itemx = .exchange_item[rand(0,getarraysize(.exchange_item)-1)];
+				//if (.@diff == 3)
+				//	.itemx = 12887;
 				getitem .itemx,1;
 				announce "Bao Công chuìc mıÌng " + strcharinfo(0) + " ğaŞ ğôÒi ğıõòc " +  getitemname(.itemx),0;
 				.itemx = .exchange_item[rand(0,getarraysize(.exchange_item)-1)];
@@ -72,6 +78,70 @@ prontera,144,171,5	script	Bao Công F1	4_M_GREATPO,{
 			}
 			break;
 		Case 2:
+			mes "HaŞy choòn sôì lâÌn muôìn ğôÒi bên ta";
+		        input .times,0,10;
+			if (.times > 0){
+			for( .@i11 = 0; .@i11 < .times; .@i11++ ){
+				.call = callfunc("Ancient_CheckAndDelItem",.exchange_require);
+                        if (.call > 0){
+                                if (rand(1,4) > 1){
+                                        mes "Râìt tiêìc nhıng ğôÌ cuÒa ngıõi ta laÌm mâìt rôÌi";
+                                       // close;
+                                        //end;
+					continue;
+                                }
+                                .rand = rand(1,10000);
+                                //dispbottom .rand;
+                                if (.rand >= 5000) {
+                                        mes "Ôi thôi ğôÌ kia ta laÌm mâìt rôÌi, ğêÌn buÌ cho ngıõi nheì";
+                                        //getitem 7929,1
+                                        if (rand(1,2) == 1) getitem callfunc("F_Rand",100023,100025),1; else getitem 7929,5;
+                                        //end;
+					continue;
+                                }
+                                if (.rand >= 4000) {
+                                        mes "Ôi thôi ğôÌ kia ta laÌm mâìt rôÌi, ğêÌn buÌ cho ngıõi nheì";
+                                        if (rand(1,2) == 1) getitem callfunc("F_Rand",14535,23307,12461),1; else getitem 7929,5;
+                                        //getitem 7227,1;
+                                        //end;
+					continue;
+                                }
+                                if (.rand >= 300*.@diff) {
+                                        mes "Ôi thôi ğôÌ kia ta laÌm mâìt rôÌi, ğêÌn buÌ cho ngıõi nheì";
+                                        //getitem callfunc("F_Rand",7929,100023,100025),1;
+                                        getitem 7227,rand(1,10);
+                                        //end;
+					continue;
+                                }
+                                .rand = rand(1,5);
+                                if (.rand > 5) {
+                                        .itemx = .exchange_item2[rand(0,getarraysize(.exchange_item2)-1)];
+                                        getitem .itemx,1;
+                                        announce "Bao Công chuìc mıÌng " + strcharinfo(0) + " ğaŞ ğôÒi ğıõòc " +  getitemname(.itemx),0;
+					continue;
+                                        //end;
+
+                                }
+
+                                .itemx = .exchange_item[rand(0,getarraysize(.exchange_item)-1)];
+                                //if (.@diff == 3)
+                                //      .itemx = 12887;
+                                getitem .itemx,1;
+                                announce "Bao Công chuìc mıÌng " + strcharinfo(0) + " ğaŞ ğôÒi ğıõòc " +  getitemname(.itemx),0;
+                                .itemx = .exchange_item[rand(0,getarraysize(.exchange_item)-1)];
+                                getitem .itemx,1;
+                                announce "Bao Công chuìc mıÌng " + strcharinfo(0) + " ğaŞ ğôÒi ğıõòc " +  getitemname(.itemx),0;
+                                //end;
+
+
+                        }
+			}
+
+			}
+			close;
+			end;
+		break;
+		Case 3:
 			break;
 	}
 	end;

@@ -1785,6 +1785,7 @@ Body:
                 Material: Enriched_Elunium
                 BreakingRate: 10000
           - Level: 8
+            BlacksmithBlessingAmount: 1
             Chances:
               - Type: Normal
                 Rate: 2000
@@ -1802,6 +1803,7 @@ Body:
                 Material: Enriched_Elunium
                 BreakingRate: 10000
           - Level: 9
+            BlacksmithBlessingAmount: 2
             Chances:
               - Type: Normal
                 Rate: 2000
@@ -1819,6 +1821,7 @@ Body:
                 Material: Enriched_Elunium
                 BreakingRate: 10000
           - Level: 10
+            BlacksmithBlessingAmount: 4
             Chances:
               - Type: Normal
                 Rate: 900
@@ -1947,6 +1950,7 @@ Body:
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
           - Level: 8
+            BlacksmithBlessingAmount: 1
             Chances:
               - Type: Normal
                 Rate: 2000
@@ -1964,6 +1968,7 @@ Body:
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
           - Level: 9
+            BlacksmithBlessingAmount: 2
             Chances:
               - Type: Normal
                 Rate: 2000
@@ -1981,6 +1986,7 @@ Body:
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
           - Level: 10
+            BlacksmithBlessingAmount: 4
             Chances:
               - Type: Normal
                 Rate: 900
