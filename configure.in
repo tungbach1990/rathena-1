@@ -1301,7 +1301,6 @@ AC_SUBST([PCRE_VERSION])
 AC_SUBST([PCRE_LIBS])
 AC_SUBST([PCRE_CFLAGS])
 
-
 #
 # Host specific stuff
 #
@@ -1356,7 +1355,7 @@ AC_MSG_NOTICE([CFLAGS_AR= $CFLAGS_AR])
 AC_MSG_NOTICE([LDFLAGS= $LDFLAGS])
 #AC_MSG_NOTICE([PROD_WARN= $PROD_WARN])
 #AC_MSG_NOTICE([EXTRA_WARN= $EXTRA_WARN])
-AC_MSG_NOTICE([output name =  $output_login, $output_char, $output_map])
+AC_MSG_NOTICE([output name =  $output_login, $output_char, $output_map, $output_web])
 
 ###############################################################################
 AC_OUTPUT

@@ -68,10 +68,6 @@ needs_mysql:
 	@echo "MySQL not found or disabled by the configure script"
 	@exit 1
 
-skip:
-	@echo "Skipping web-service build, not requested"
-	@exit 0
-
 # object directories
 
 obj:

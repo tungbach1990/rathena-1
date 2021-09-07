@@ -34,10 +34,6 @@ help:
 
 #####################################################################
 
-skip:
-	@echo "Skipping web-service build, not requested"
-	@exit 0
-
 obj:
 	@echo "	MKDIR	obj"
 	@mkdir -p obj
