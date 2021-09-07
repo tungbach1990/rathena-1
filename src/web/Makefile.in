@@ -35,7 +35,7 @@ endif
 
 ALL_DEPENDS=server
 
-
+@SET_MAKE@
 
 #####################################################################
 .PHONY :all server clean help
@@ -46,7 +46,7 @@ server: $(SERVER_DEPENDS)
 
 clean:
 	@echo "	CLEAN	web"
-	@rm -rf *.o obj ../../web-server
+	@rm -rf *.o obj ../../@OWEB@@EXEEXT@
 
 help:
 	@echo "possible targets are 'server' 'all' 'clean' 'help'"
@@ -70,14 +70,14 @@ obj:
 #executables
 
 web-server: obj $(WEB_DIR_OBJ) $(COMMON_AR) $(LIBCONFIG_AR) $(YAML_CPP_AR) $(HTTPLIB_AR)
-	@echo "	LD	web-server"
-	@g++  -L/usr/lib -o ../../web-server $(WEB_DIR_OBJ) $(COMMON_AR) $(LIBCONFIG_AR) $(YAML_CPP_AR) $(HTTPLIB_AR) -lpcre -lpthread -lz  -ldl -L/usr/lib64/ -lmariadb
+	@echo "	LD	@OWEB@@EXEEXT@"
+	@@CXX@ @LDFLAGS@ -o ../../@OWEB@@EXEEXT@ $(WEB_DIR_OBJ) $(COMMON_AR) $(LIBCONFIG_AR) $(YAML_CPP_AR) $(HTTPLIB_AR) @LIBS@ @MYSQL_LIBS@
 
 # web object files
 
 obj/%.o: %.cpp $(WEB_H) $(COMMON_H) $(LIBCONFIG_H) $(HTTPLIB_H)
 	@echo "	CXX	$<"
-	@g++ -g -O2 -std=c++11 $(COMMON_INCLUDE) $(LIBCONFIG_INCLUDE) $(HTTPLIB_INCLUDE) -DWITH_SQL -I/usr/include/mysql -I/usr/include/mysql/mysql  -I../common -DHAS_TLS -fno-strict-aliasing -DHAVE_SETRLIMIT -DHAVE_STRNLEN  -I/usr/include -DHAVE_MONOTONIC_CLOCK -c $(OUTPUT_OPTION) $<
+	@@CXX@ @CXXFLAGS@ $(COMMON_INCLUDE) $(LIBCONFIG_INCLUDE) $(HTTPLIB_INCLUDE) -DWITH_SQL @MYSQL_CFLAGS@ @CPPFLAGS@ -c $(OUTPUT_OPTION) $<
 
 # missing object files
 $(COMMON_AR):
