@@ -106,7 +106,7 @@ OnSellItem:
 	close;
  
 OnBuyItem:
-	.zenyperpoint = 10000;
+	.zenyperpoint = 50000;
 	.@costzeny = 0;
 	for(set .@i,0; .@i<getarraysize(@bought_nameid); set .@i,.@i+1)
 		for(set .@j,0; .@j<getarraysize(.Shop); set .@j,.@j+2)

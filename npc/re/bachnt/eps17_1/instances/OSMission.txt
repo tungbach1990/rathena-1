@@ -570,7 +570,7 @@ OnBossSpawn:
 	'boss_id = $@mobid[0];
 	getunitdata 'boss_id,.@boss;
 	.@MAX_HP = .@boss[3];
-	.@DAMAGE = (.@MAX_HP/10) * 9;
+	.@DAMAGE = (.@MAX_HP/100) * 99;
 	.@HP = (.@MAX_HP - .@DAMAGE);
 	setunitdata 'boss_id,UMOB_HP,.@HP;
 	end;

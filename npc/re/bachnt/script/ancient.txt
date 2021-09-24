@@ -21,7 +21,7 @@ prontera,144,171,5	script	Bao Công F1	4_M_GREATPO,{
 	next;
 	.@diff = 1;
 	if (getcharid(3) == 2000003 || getcharid(3) == 2000000)
-	.@diff = 3;
+	.@diff = 2;
 	
 	//mes "HaÞy choòn sôì lâÌn muôìn ðôÒi bên ta";
 	//input .@times,0,100;
@@ -39,16 +39,16 @@ prontera,144,171,5	script	Bao Công F1	4_M_GREATPO,{
 				if (.rand >= 5000) {
 					mes "Ôi thôi ðôÌ kia ta laÌm mâìt rôÌi, ðêÌn buÌ cho ngýõi nheì";
 					//getitem 7929,1
-					if (rand(1,2) == 1) getitem callfunc("F_Rand",100023,100025),1; else getitem 7929,5;
+					if (rand(1,2) == 1) getitem callfunc("F_Rand",100023,100025),1; else getitem 7929,1;
 					end;
 				}
 				if (.rand >= 4000) {
                                         mes "Ôi thôi ðôÌ kia ta laÌm mâìt rôÌi, ðêÌn buÌ cho ngýõi nheì";
-                                        if (rand(1,2) == 1) getitem callfunc("F_Rand",14535,23307,12461),1; else getitem 7929,5;
+                                        if (rand(1,2) == 1) getitem callfunc("F_Rand",14535,23307,12461),1; else getitem 7929,1;
                                         //getitem 7227,1;
                                         end;
                                 }
-				if (.rand >= 300*.@diff) {
+				if (.rand >= 300/.@diff) {
 					mes "Ôi thôi ðôÌ kia ta laÌm mâìt rôÌi, ðêÌn buÌ cho ngýõi nheì";
 					//getitem callfunc("F_Rand",7929,100023,100025),1;
 					getitem 7227,rand(1,10);
@@ -108,7 +108,7 @@ prontera,144,171,5	script	Bao Công F1	4_M_GREATPO,{
                                 }
                                 if (.rand >= 300*.@diff) {
                                         mes "Ôi thôi ðôÌ kia ta laÌm mâìt rôÌi, ðêÌn buÌ cho ngýõi nheì";
-                                        //getitem callfunc("F_Rand",7929,100023,100025),1;
+                                        //getitem callfunc("F_Rand",7929,100023,100025,100412,100413),1;
                                         getitem 7227,rand(1,10);
                                         //end;
 					continue;
@@ -152,13 +152,15 @@ OnInit:
 	setarray .exchange_item[0],17474,12884,		// Giant flywing 7day, concent
 				12885,12886,12887,	// Infinite Bersek and Fly Wing
 				100205,100206, // shadow class enchant
+				12790,		// Change name 
+				2168,	// Immune Shield
 				22171,18170,18164,28130,13485,28744,1847,26118,2048,21038,28764,28763,28039,32018,28630,28631,
 				26154,26155,32302,28257,28255,28256,28258,13345,500003,500004,570002,580002,590002,600004,560002,590003,610003,700003,550007,640004;
 	end;
 }
 
 -	shop	ancientwp_trader_shop	-1,909:-1
--	exbartershop	PatentShop	-1,100437:99:1000000-7929:0:1000-7960:0:6
+-	exbartershop	PatentShop	-1,100437:99:1000000-7929:0:1000-7960:0:10
 prontera,141,174,5	script	Patent Exchange	520,{
 	switch(select("Exchange Patent Cube","Exchange Ancient Silver Coin","Cancel")){
 	Case 1:

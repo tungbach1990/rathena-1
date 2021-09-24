@@ -1,4 +1,4 @@
-hugel,90,143,0	script	Test#0	844,{
+prontera,140,170,0	script	Test#0	844,{
 .charid = getcharid(0,strcharinfo(0));
         //message strcharinfo(0),"Charid: "+.charid;
         .atk = readparam(bAtk,.charid);
@@ -14,27 +14,18 @@ OnPCAttackEvent:
 		if (@damagerid == 2411){
 			.dupid = atoi(strnpcinfo(2));
 			if (@damagegid == .gid[.dupid]) {
-				//attachnpctimer;
-			        startnpctimer "Test#"+.dupid;	
-				//initnpctimer;
-				.correct = .dupid;
-				//message "GameMaster", .dupid;
-				.name$[.correct] = strcharinfo(0);
-				setd(".totaldamage" + strcharinfo(0) + "["+.correct+"]",getd(".totaldamage" + strcharinfo(0) + "["+.correct+"]") + @damage);
+				attachnpctimer;
+			        startnpctimer;	
+				initnpctimer;
+				@totaldamage +=  @damage;
 			}
 		}
 	end;
 
 OnTimer5000:
-	//getnpctimer(0,"Test#"+.dupid);
-	//if (strcharinfo(0) == .name$[atoi(strnpcinfo(2))]){
-	.gid = getcharid(3,.name$[atoi(strnpcinfo(2))]);
-	npctalk .name$[atoi(strnpcinfo(2))] + " dealt "+getd(".totaldamage" + .name$[atoi(strnpcinfo(2))] + "["+ atoi(strnpcinfo(2)) +"]") +" trong 5s " + atoi(strnpcinfo(2));
-	//@totaldamage[atoi(strnpcinfo(2))] = 0;
-	setd(".totaldamage" + .name$[atoi(strnpcinfo(2))] + "[" + atoi(strnpcinfo(2)) + "]",0);
-	initnpctimer "Test#"+atoi(strnpcinfo(2));
-        stopnpctimer "Test#"+atoi(strnpcinfo(2));
-	//}
+	npctalk strcharinfo(0) + " dealt " + @totaldamage + " in 5s";
+	@totaldamage = 0;	
+	stopnpctimer;
 end;
 OnInit:
 	initnpctimer strnpcinfo(0);
@@ -43,17 +34,68 @@ OnInit:
 	monster strnpcinfo(4),.@d[UNPC_X],.@d[UNPC_Y],"Punching Bag",2411,1,strnpcinfo(0)+"::OnMyMobDead";
 	.dupid = atoi(strnpcinfo(2));
 	.gid[.dupid] = $@mobid[0];
-	.mhp[.dupid] = strmobinfo(4,2411);
+	.mhp[.dupid] = strmobinfo(4,2411)*10;
 	setunitdata .gid[.dupid],UMOB_MODE,.@d[UMOB_MODE]|0x4000000|0x0200000; // Set MD_STATUS_IMMUNE (0x4000000) because EDP/burn/%MHP based status can skew the DPS counter so much.
+	setunitdata .gid[.dupid],UMOB_MAXHP,.mhp[.dupid];
 end;
 OnMyMobDead:
 	getunitdata(getnpcid(0), .@d);
         monster strnpcinfo(4),.@d[UNPC_X],.@d[UNPC_Y],"Punching Bag",2411,1,strnpcinfo(0)+"::OnMyMobDead";
         .dupid = atoi(strnpcinfo(2));
         .gid[.dupid] = $@mobid[0];
-        .mhp[.dupid] = strmobinfo(4,2411);
+        .mhp[.dupid] = strmobinfo(4,2411)*10;
         setunitdata .gid[.dupid],UMOB_MODE,.@d[UMOB_MODE]|0x4000000|0x0200000; // Set MD_STATUS_IMMUNE (0x4000000) because EDP/burn/%MHP based status can skew the DPS counter so much.
+	 setunitdata .gid[.dupid],UMOB_MAXHP,.mhp[.dupid];
 end;
 }
 
-hugel,92,139,0	duplicate(Test#0)	Test#1	844
+prontera,140,160,0	script	Test#1	844,{
+.charid = getcharid(0,strcharinfo(0));
+        //message strcharinfo(0),"Charid: "+.charid;
+        .atk = readparam(bAtk,.charid);
+        message strcharinfo(0),"ATK: "+.atk;
+        .atk = readparam(bAtk2,.charid);
+        message strcharinfo(0),"ATK: "+.atk;
+        .atk = readparam(matk_min,.charid);
+        message strcharinfo(0),"ATK: "+.atk;
+        .atk = readparam(matk_max,.charid);
+        message strcharinfo(0),"ATK: "+.atk;
+
+OnPCAttackEvent:
+                if (@damagerid == 2411){
+                        .dupid = atoi(strnpcinfo(2));
+                        if (@damagegid == .gid[.dupid]) {
+                                attachnpctimer;
+                                startnpctimer;
+                                initnpctimer;
+                                @totaldamage +=  @damage;
+                        }
+                }
+        end;
+
+OnTimer5000:
+        npctalk strcharinfo(0) + " dealt " + @totaldamage + " in 5s";
+        @totaldamage = 0;
+        stopnpctimer;
+end;
+OnInit:
+        initnpctimer strnpcinfo(0);
+        stopnpctimer strnpcinfo(0);
+        getunitdata(getnpcid(0), .@d);
+        monster strnpcinfo(4),.@d[UNPC_X],.@d[UNPC_Y],"Punching Bag",2411,1,strnpcinfo(0)+"::OnMyMobDead";
+        .dupid = atoi(strnpcinfo(2));
+        .gid[.dupid] = $@mobid[0];
+        .mhp[.dupid] = strmobinfo(4,2411)*10;
+        setunitdata .gid[.dupid],UMOB_MODE,.@d[UMOB_MODE]|0x4000000|0x0200000; // Set MD_STATUS_IMMUNE (0x4000000) because EDP/burn/%MHP based status can skew the DPS counter so much.
+        setunitdata .gid[.dupid],UMOB_MAXHP,.mhp[.dupid];
+end;
+OnMyMobDead:
+        getunitdata(getnpcid(0), .@d);
+        monster strnpcinfo(4),.@d[UNPC_X],.@d[UNPC_Y],"Punching Bag",2411,1,strnpcinfo(0)+"::OnMyMobDead";
+        .dupid = atoi(strnpcinfo(2));
+        .gid[.dupid] = $@mobid[0];
+        .mhp[.dupid] = strmobinfo(4,2411)*10;
+        setunitdata .gid[.dupid],UMOB_MODE,.@d[UMOB_MODE]|0x4000000|0x0200000; // Set MD_STATUS_IMMUNE (0x4000000) because EDP/burn/%MHP based status can skew the DPS counter so much.
+         setunitdata .gid[.dupid],UMOB_MAXHP,.mhp[.dupid];
+end;
+}

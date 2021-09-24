@@ -67,16 +67,16 @@ switch(select("- Craft Excellion:- Craft Blueprint:- Nevermind")) {
 	case 2:
 	mes .n$;
 	mes "I will produce any blueprint (enchantment) at random, but the process can also fail completely too.";
-	mes "For that I require 10x "+getitemname(6962)+".";
+	mes "For that I require 5x "+getitemname(6962)+".";
 	if(select("- Proceed:- Leave") - 1) break;
 	next;
 	mes .n$;
-	if(countitem(6962) < 10) {
+	if(countitem(6962) < 5) {
 		mes "It looks like you don't have the required materials.";
 		mes "Please come back, when you have them.";
 		close;
 	}
-	if(rand(100) < 20) { // 1/5 chance
+	if(rand(100) < 35) { // 1/5 chance
 		set .@b,rand(600);
 		if(.@b < 75) getitem 6965,1; // Fire Properity Blueprint
 		else if(.@b < 100) getitem 6966,1; // Water Properity Blueprint
@@ -104,7 +104,7 @@ switch(select("- Craft Excellion:- Craft Blueprint:- Nevermind")) {
 		mes "Here is your blueprint.";
 	} else 
 		mes "The process failed, I'm terrible sorry.";
-	delitem 6962,10;
+	delitem 6962,5;
 	break;
 	
 	case 3:

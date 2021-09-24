@@ -1,10 +1,21 @@
 function	script	auto_module_box	{
 	.@type = getarg(0);
 	if(.@type == 1){
-		for(.@i = 1000105; .@i < 1000150; .@i++)
-			.@module[getarraysize(.@module)] = .@i;
-		.@module[getarraysize(.@module)] = 1000207;
-		.@module[getarraysize(.@module)] = 1000208;
+		for(.@repeat = 1; .@repeat < 5; .@repeat++)
+			for(.@i = 1000105; .@i < 1000113; .@i++)
+				.@module[getarraysize(.@module)] = .@i;
+		for(.@repeat = 1; .@repeat < 4; .@repeat++)
+			for(.@i = 1000113; .@i < 1000133; .@i++)
+        	                .@module[getarraysize(.@module)] = .@i;
+		for(.@repeat = 1; .@repeat < 3; .@repeat++)
+			for(.@i = 1000133; .@i < 1000144; .@i++)
+        	                .@module[getarraysize(.@module)] = .@i;
+		for(.@i = 1000144; .@i < 1000150; .@i++)
+       	                .@module[getarraysize(.@module)] = .@i;
+		for(.@repeat = 1; .@repeat < 4; .@repeat++)
+			.@module[getarraysize(.@module)] = 1000207;
+		for(.@repeat = 1; .@repeat < 3; .@repeat++)
+			.@module[getarraysize(.@module)] = 1000208;
 		.@module_id = .@module[rand(getarraysize(.@module))];
 		.@item_id = 100160;
 	} else {

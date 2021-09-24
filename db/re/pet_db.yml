@@ -464,6 +464,7 @@ Body:
     Fullness: 3
     IntimacyFed: 20
     CaptureRate: 500
+    AllowAutoFeed: true
     SpecialPerformance: false
     Script: >
       .@i = getpetinfo(PETINFO_INTIMATE);
@@ -2322,6 +2323,7 @@ Body:
     FoodItem: Luxurious_Pet_Food
     Fullness: 2
     IntimacyFed: 20
+    AllowAutoFeed: true
     Script: >
       .charid = getcharid(0,strcharinfo(0));
       .atk = readparam(bAtk,.charid);

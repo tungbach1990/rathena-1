@@ -1225,6 +1225,14 @@ OnTouch_:
 	if (is_party_leader() == true) {
 	if (getvariableofinstance('openboss,instance_id()) == 1) {
 		hideonnpc instance_npcname("BossBlock#1",instance_id());
+		/*
+		setcell 'mapname2$,50,44,50,44,cell_walkable,0; // Left To Right
+                setcell 'mapname2$,50,44,50,44,cell_shootable,0; // TL
+                setcell 'mapname2$,51,44,51,44,cell_walkable,0; // Left To Right
+                setcell 'mapname2$,51,44,51,44,cell_shootable,0; // TL
+		setcell 'mapname2$,52,44,52,44,cell_walkable,0; // Left To Right
+                setcell 'mapname2$,52,44,52,44,cell_shootable,0; // TL
+		*/
 		//if (checkwall("BlockBoss") == true)
 			//delwall "BlockBoss";
 	}
@@ -1270,6 +1278,12 @@ end;
 		set getvariableofinstance('openboss,instance_id()),0;
 		hideonnpc instance_npcname(strnpcinfo(0));
 		initnpctimer;
+		 setcell 'mapname2$,50,44,50,44,cell_walkable,0; // Left To Right
+                setcell 'mapname2$,50,44,50,44,cell_shootable,0; // TL
+                setcell 'mapname2$,51,44,51,44,cell_walkable,0; // Left To Right
+                setcell 'mapname2$,51,44,51,44,cell_shootable,0; // TL
+                setcell 'mapname2$,52,44,52,44,cell_walkable,0; // Left To Right
+                setcell 'mapname2$,52,44,52,44,cell_shootable,0; // TL
 	    }
 	} else {
 		mes "Thank you !!!!!!";

@@ -1,0 +1,292 @@
+//===== rAthena Script =======================================
+//= Event têìt
+//===== By: ==================================================
+//= BACHNT
+//= Event têìt
+//===== Current Version: =====================================
+//= 1.0 
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Event 02/09/2021
+//============================================================
+-	script	EventQuocKhanh	-1,{
+	OnPCLoginEvent:
+		dispbottom " ### Event running ###",0xEB4034;
+		dispbottom " Trung thu laÌ têìt thiêìu nhi...";
+		dispbottom " ...";
+		dispbottom " Nam thanh nýÞ tuì laòi ði chõi nhiêÌu ";
+		dispbottom " Chõi nhiêÌu rôÌi thiìch laÌm liêÌu ";
+		dispbottom " LaÌm liêÌu ðêÒ coì thêm nhiêÌu thiêìu nhi ",0xEB4034;
+		dispbottom " ... ",0xEB4034;
+		dispbottom " LaÌm baình trung thu xong maÌ biò luÞ giaìn ãn trôòm hêìt caÒ :( ",0xEB4034;
+		dispbottom " Coì 4 loaòi baình, môòt loaòi thiÌ ðaìm munak võìi bongun coì, 3 loaòi coÌn laòi chãìc phaÒi tiÌm õÒ luÞ giaìn ",0xEB4034;
+		dispbottom " CuÌng ði tiÌm luÞ giaìn naÌo",0xEB4034;
+		dispbottom " Coì ngýõÌi thâìy chuìng xuâìt hiêòn õÒ: pay_dun00,pay_dun01,pay_dun02,gef_dun00,gef_dun01,orcsdun01,orcsdun02",0xEB4034;
+		
+	end;
+	
+	OnTimer15000:
+		.map$ = "pay_dun00";
+		setarray .@idmob[0],2634,1053,1054,1051;
+		setarray .@slmob[0],3,4,5,6;
+		if ((mobcount(.map$,strnpcinfo(3) + "::OnChuotGiaDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotTruDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotCongDead") == 0 ) &&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotNhatDead") == 0) ){
+			monster .map$,0,0,.namemob$[0],.@idmob[0],.@slmob[0],strnpcinfo(3) + "::OnChuotGiaDead",2;
+			monster .map$,0,0,.namemob$[1],.@idmob[1],.@slmob[1],strnpcinfo(3) + "::OnChuotTruDead",1;
+			monster .map$,0,0,.namemob$[2],.@idmob[2],.@slmob[2],strnpcinfo(3) + "::OnChuotCongDead",1;
+			monster .map$,0,0,.namemob$[3],.@idmob[3],.@slmob[3],strnpcinfo(3) + "::OnChuotNhatDead",0;
+                }
+		
+
+		.map$ = "pay_dun01";
+                setarray .@idmob[0],2634,1053,1054,1051;
+                setarray .@slmob[0],1,2,3,6;
+                if ((mobcount(.map$,strnpcinfo(3) + "::OnChuotGiaDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotTruDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotCongDead") == 0 ) &&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotNhatDead") == 0) ){
+                        monster .map$,0,0,.namemob$[0],.@idmob[0],.@slmob[0],strnpcinfo(3) + "::OnChuotGiaDead",2;
+                        monster .map$,0,0,.namemob$[1],.@idmob[1],.@slmob[1],strnpcinfo(3) + "::OnChuotTruDead",1;
+                        monster .map$,0,0,.namemob$[2],.@idmob[2],.@slmob[2],strnpcinfo(3) + "::OnChuotCongDead",1;
+                        monster .map$,0,0,.namemob$[3],.@idmob[3],.@slmob[3],strnpcinfo(3) + "::OnChuotNhatDead",0;
+                }
+
+		.map$ = "pay_dun02";
+                setarray .@idmob[0],2634,1053,1054,1051;
+                setarray .@slmob[0],1,2,3,6;
+                if ((mobcount(.map$,strnpcinfo(3) + "::OnChuotGiaDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotTruDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotCongDead") == 0 ) &&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotNhatDead") == 0) ){
+                        monster .map$,0,0,.namemob$[0],.@idmob[0],.@slmob[0],strnpcinfo(3) + "::OnChuotGiaDead",2;
+                        monster .map$,0,0,.namemob$[1],.@idmob[1],.@slmob[1],strnpcinfo(3) + "::OnChuotTruDead",1;
+                        monster .map$,0,0,.namemob$[2],.@idmob[2],.@slmob[2],strnpcinfo(3) + "::OnChuotCongDead",1;
+                        monster .map$,0,0,.namemob$[3],.@idmob[3],.@slmob[3],strnpcinfo(3) + "::OnChuotNhatDead",0;
+                }
+
+		.map$ = "gef_dun00";
+                setarray .@idmob[0],2634,1053,1054,1051;
+                setarray .@slmob[0],1,2,3,6;
+                if ((mobcount(.map$,strnpcinfo(3) + "::OnChuotGiaDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotTruDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotCongDead") == 0 ) &&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotNhatDead") == 0) ){
+                        monster .map$,0,0,.namemob$[0],.@idmob[0],.@slmob[0],strnpcinfo(3) + "::OnChuotGiaDead",2;
+                        monster .map$,0,0,.namemob$[1],.@idmob[1],.@slmob[1],strnpcinfo(3) + "::OnChuotTruDead",1;
+                        monster .map$,0,0,.namemob$[2],.@idmob[2],.@slmob[2],strnpcinfo(3) + "::OnChuotCongDead",1;
+                        monster .map$,0,0,.namemob$[3],.@idmob[3],.@slmob[3],strnpcinfo(3) + "::OnChuotNhatDead",0;
+                }
+
+		.map$ = "gef_dun01";
+                setarray .@idmob[0],2634,1053,1054,1051;
+                setarray .@slmob[0],1,2,3,6;
+                if ((mobcount(.map$,strnpcinfo(3) + "::OnChuotGiaDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotTruDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotCongDead") == 0 ) &&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotNhatDead") == 0) ){
+                        monster .map$,0,0,.namemob$[0],.@idmob[0],.@slmob[0],strnpcinfo(3) + "::OnChuotGiaDead",2;
+                        monster .map$,0,0,.namemob$[1],.@idmob[1],.@slmob[1],strnpcinfo(3) + "::OnChuotTruDead",1;
+                        monster .map$,0,0,.namemob$[2],.@idmob[2],.@slmob[2],strnpcinfo(3) + "::OnChuotCongDead",1;
+                        monster .map$,0,0,.namemob$[3],.@idmob[3],.@slmob[3],strnpcinfo(3) + "::OnChuotNhatDead",0;
+                }
+
+
+		 .map$ = "orcsdun01";
+                setarray .@idmob[0],2634,1053,1054,1051;
+                setarray .@slmob[0],1,2,3,6;
+                if ((mobcount(.map$,strnpcinfo(3) + "::OnChuotGiaDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotTruDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotCongDead") == 0 ) &&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotNhatDead") == 0) ){
+                        monster .map$,0,0,.namemob$[0],.@idmob[0],.@slmob[0],strnpcinfo(3) + "::OnChuotGiaDead",2;
+                        monster .map$,0,0,.namemob$[1],.@idmob[1],.@slmob[1],strnpcinfo(3) + "::OnChuotTruDead",1;
+                        monster .map$,0,0,.namemob$[2],.@idmob[2],.@slmob[2],strnpcinfo(3) + "::OnChuotCongDead",1;
+                        monster .map$,0,0,.namemob$[3],.@idmob[3],.@slmob[3],strnpcinfo(3) + "::OnChuotNhatDead",0;
+                }
+
+
+		 .map$ = "orcsdun02";
+                setarray .@idmob[0],2634,1053,1054,1051;
+                setarray .@slmob[0],1,2,3,6;
+                if ((mobcount(.map$,strnpcinfo(3) + "::OnChuotGiaDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotTruDead") == 0 )&&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotCongDead") == 0 ) &&
+                (mobcount(.map$,strnpcinfo(3) + "::OnChuotNhatDead") == 0) ){
+                        monster .map$,0,0,.namemob$[0],.@idmob[0],.@slmob[0],strnpcinfo(3) + "::OnChuotGiaDead",2;
+                        monster .map$,0,0,.namemob$[1],.@idmob[1],.@slmob[1],strnpcinfo(3) + "::OnChuotTruDead",1;
+                        monster .map$,0,0,.namemob$[2],.@idmob[2],.@slmob[2],strnpcinfo(3) + "::OnChuotCongDead",1;
+                        monster .map$,0,0,.namemob$[3],.@idmob[3],.@slmob[3],strnpcinfo(3) + "::OnChuotNhatDead",0;
+                }
+		initnpctimer;
+	end;	
+	
+	OnChuotGiaDead:
+		if (rand(10000) < 5000)
+		getitem .listitemdrop[0],1;
+		if (convertpcinfo(strcharinfo(0), CPC_ACCOUNT)%2 == 1)
+			getitem .listitemdrop[1],1;
+		else 
+			getitem .listitemdrop[2],1;
+	end;
+	
+	OnChuotTruDead:
+		if (rand(10000) < 1000)
+		getitem .listitemdrop[0],1;
+		//if (rand(10000) < 9000)
+		if (convertpcinfo(strcharinfo(0), CPC_ACCOUNT)%2 == 1)
+			getitem .listitemdrop[1],1;
+		else 
+			getitem .listitemdrop[2],1;
+	end;
+
+
+	OnChuotCongDead:
+		if (rand(10000) < 100)
+		getitem .listitemdrop[0],1;
+		//if (rand(10000) < 8000)
+		if (convertpcinfo(strcharinfo(0), CPC_ACCOUNT)%2 == 1)
+			getitem .listitemdrop[1],1;
+		else 
+			getitem .listitemdrop[2],1;
+	
+	end;
+
+	OnChuotNhatDead:
+		if (rand(10000) < 50)
+		getitem .listitemdrop[0],1;
+		//if (rand(10000) < 7000)
+		if (convertpcinfo(strcharinfo(0), CPC_ACCOUNT)%2 == 1)
+			getitem .listitemdrop[1],1;
+		else 
+			getitem .listitemdrop[2],1;
+	
+	end;
+	
+	OnInit:
+		setarray .namemob$[0],"Giaìn truÌm","Giaìn caìi","Giaìn ðýòc","Giaìn con";
+		setmapflag "pay_dun00",MF_SKILL_DAMAGE,BL_PC,SKILLDMG_PC,-99;
+		setarray .listitemdrop[0],6065,6066,6067;
+		initnpctimer;
+		setarray .Maps$[0],"pay_dun00";
+		set .NoFarm,1;            // End script for repeated kills? (1:yes / 0:no)
+		set .Item, 7593;            // 0 to disable
+		set .Cash$, "#CASHPOINTS";    // "" to disable
+		set .Count,15;
+	end;
+	OnPCKillEvent:
+   		if (killedrid == getcharid(3)) end;
+		   for(set .@i,0; .@i<getarraysize(.maps$); set .@i,.@i+1)
+		       if (strcharinfo(3)==.Maps$[.@i]) {
+				//if (rid2name(killedrid) == "Yoshi") {
+                                 //       getitem 100023, 1;
+                                  //      announce "" + strcharinfo(0) + " ðýõòc Bao Công tãòng thýõÒng viÌ giêìt keÒ cuôÌng saìt Yoshi 1x " + getitemname(100023),bc_all,"0xFFCE00";
+                                //}
+		           if (.NoFarm) {
+		               if (killedrid == @last_kill) end;
+				@count = @count + 1;
+		               set @last_kill, killedrid; }
+		           if (.Item && @count >= .Count) {getitem .Item, 1;announce "" + strcharinfo(0) + " thâòt khaìt maìu, Diêm Výõng laÞo gia ban thýõÒng " + getitemname(.Item),bc_all,"0xFFCE00"; @count = 0;}
+		           break; }
+	  end;
+end;
+}
+
+-	exbartershop	randomshop	-1,7776:99:10000-7929:0:1
+
+//hugel,165,165,5	script	abc	501,{
+prontera,156,176,5	script	LaÞo GiaÌ	4_M_RACHOLD1,{
+        callshop "randomshop";
+end;
+OnInit:
+        npcshopitem "randomshop","19195:99:10000000","7929:0:300";
+        initnpctimer;
+OnTimer5000:
+	delwaitingroom;
+	waitingroom "25s",0;
+end;
+OnTimer10000:
+	delwaitingroom;
+        waitingroom "20s",0;
+end;
+OnTimer15000:
+	delwaitingroom;
+        waitingroom "15s",0;
+end;
+OnTimer20000:
+	delwaitingroom;
+        waitingroom "10s",0;
+end;
+OnTimer25000:
+	delwaitingroom;
+        waitingroom "5s",0;
+end;
+OnTimer26000:
+	delwaitingroom;
+        waitingroom "4s",0;
+end;
+OnTimer27000:
+	delwaitingroom;
+        waitingroom "3s",0;
+end;
+OnTimer28000:
+	delwaitingroom;
+        waitingroom "2s",0;
+end;
+OnTimer29000:
+	delwaitingroom;
+        waitingroom "1s",0;
+end;
+OnTimer30000:
+	
+	.newreward = callfunc("F_Rand",7929,7227,6635,7620,7619,6240,6241,100536, // normal item
+                                        //20504, // garment
+                                        12883,12884,12885,12886,12887, // almighty and infinite
+                                        14545,12412,12210, // gum and x3
+                                        18813,25375,17162,18563,16771); //TCG Shop
+	 npcshopitem "randomshop",.newreward+":"+ rand(5,20) +":100000", "7593:0:"+rand(1,3);
+	bartershopadditem "randomshop","7593:"+ rand(5,20) +":100000","6065:0:"+rand(1,10),"6066:0:"+rand(5,10),"6067:0:"+rand(5,10);
+	switch(rand(1,3)){
+		Case 1:
+			.newrequire = callfunc("F_Rand",6066,6067,23228);
+			.newreward = callfunc("F_Rand",7929,7227,7620,7619,6240,6241,100536, // normal item
+                                        //20504, // garment
+                                        12883,12884,12885,12886, // almighty and infinite
+                                        14545,12412,12210); // gum and x3
+                                        //18813,25375,17162,18563,16771); //TCG Shop
+			
+			bartershopadditem "randomshop",.newreward +":"+ rand(1,20) +":100000",.newrequire+":0:"+rand(20,100);	
+		break;
+		Case 2:
+			.newrequire1 = callfunc("F_Rand",6066,6067,23228);
+			.newrequire2 = callfunc("F_Rand",6066,6067,23228);
+                        .newreward = callfunc("F_Rand",7929,7227,6635,7620,7619,6240,6241,100536, // normal item
+                                        //20504, // garment
+                                        12883,12884,12885,12886, // almighty and infinite
+                                        14545,12412,12210, // gum and x3
+                                        18813,25375,17162,18563,16771); //TCG Shop
+
+                        bartershopadditem "randomshop",.newreward +":"+ rand(1,20) +":1000000",.newrequire1 + ":0:"+rand(10,50),.newrequire2 + ":0:"+rand(10,50);
+		break;
+		Case 3:
+                        .newrequire1 = callfunc("F_Rand",6066,6067,23228);
+                        .newrequire2 = callfunc("F_Rand",6066,6067,23228);
+			.newrequire3 = callfunc("F_Rand",6066,6067,23228);
+                        .newreward = callfunc("F_Rand",7929,7227,6635,7620,7619,6240,6241,100536, // normal item
+                                        //20504, // garment
+                                        12883,12884,12885,12886, // almighty and infinite
+                                        14545,12412,12210, // gum and x3
+                                        18813,25375,17162,18563,16771); //TCG Shop
+
+                        bartershopadditem "randomshop",.newreward +":"+ rand(1,20) +":1000000",.newrequire1 + ":0:"+rand(10,50),.newrequire2 + ":0:"+rand(10,50),.newrequire3 + ":0:"+rand(10,50);
+                break;
+	}
+      
+        stopnpctimer;
+        initnpctimer;
+end;
+       // bartershopadditem "GoldCoinShop2","19196:99:10000000","7929:0:300";
+end;
+}

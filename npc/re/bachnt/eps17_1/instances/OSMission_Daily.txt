@@ -342,15 +342,19 @@ OnMobSpawn:
 OnFirstSummon:
 	'first_summon = 1;
 	.@map$ = 'os_a_map$;
-	//freeloop(true);
-	//while('boss_alive){
+	freeloop(true);
+	while('boss_alive){
 		getunitdata 'boss_id,.@xy;
 		'x = .@xy[6];
 		'y = .@xy[7];
 		'summon[0] = monster(.@map$,'x+7,'y,"",20351,1,instance_npcname(strnpcinfo(0))+"::OnEnd");
+		'summon[0] = $@mobid[0];
 		'summon[1] = monster(.@map$,'x-7,'y,"",20351,1,instance_npcname(strnpcinfo(0))+"::OnEnd");
+		'summon[1] = $@mobid[0];
 		'summon[2] = monster(.@map$,'x,'y+7,"",20351,1,instance_npcname(strnpcinfo(0))+"::OnEnd");
+		'summon[2] = $@mobid[0];
 		'summon[3] = monster(.@map$,'x,'y-7,"",20351,1,instance_npcname(strnpcinfo(0))+"::OnEnd");
+		'summon[3] = $@mobid[0];
 		setunitdata 'summon[0],UMOB_DMGIMMUNE,1;
 		setunitdata 'summon[1],UMOB_DMGIMMUNE,1;
 		setunitdata 'summon[2],UMOB_DMGIMMUNE,1;
@@ -364,24 +368,28 @@ OnFirstSummon:
 			unitkill 'summon[2];
 		if(unitexists('summon[3]))
 			unitkill 'summon[3];
-	//}
-	//freeloop(false);
+	}
+	freeloop(false);
 	end;
 	
 OnSecondSummon:
 	'second_summon = 1;
 	.@map$ = 'os_a_map$;
-	/*
+	
 	freeloop(true);
 	while('boss_alive){
-	*/
+	
 		getunitdata 'boss_id,.@xy;
 		'x = .@xy[6];
 		'y = .@xy[7];
 		'summon[4] = monster(.@map$,'x+5,'y+5,"",20351,1,instance_npcname(strnpcinfo(0))+"::OnEnd");
+		'summon[4] = $@mobid[0];
 		'summon[5] = monster(.@map$,'x+5,'y-5,"",20351,1,instance_npcname(strnpcinfo(0))+"::OnEnd");
+		'summon[5] = $@mobid[0];
 		'summon[6] = monster(.@map$,'x-5,'y+5,"",20351,1,instance_npcname(strnpcinfo(0))+"::OnEnd");
+		'summon[6] = $@mobid[0];
 		'summon[7] = monster(.@map$,'x-5,'y-5,"",20351,1,instance_npcname(strnpcinfo(0))+"::OnEnd");
+		'summon[7] = $@mobid[0];
 		setunitdata 'summon[4],UMOB_DMGIMMUNE,1;
 		setunitdata 'summon[5],UMOB_DMGIMMUNE,1;
 		setunitdata 'summon[6],UMOB_DMGIMMUNE,1;
@@ -395,10 +403,10 @@ OnSecondSummon:
 			unitkill 'summon[6];
 		if(unitexists('summon[7]))
 			unitkill 'summon[7];
-	/*
+	
 	}
 	freeloop(false);
-	*/
+	
 	end;
 	
 OnEnd: end;

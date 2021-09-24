@@ -43,6 +43,7 @@ OnStart:
 	mes "^0055FF[ "+.instance_name$+" ]^000000";
 	mes "believe me, it won't be a pleasure to meet those.";
 	mes "Are you ready for that?";
+	close;
 	next;
 	switch( select( 
 		(( .@party_id && .@is_leader && !.@has_instance )?"Create " + .instance_name$:""),
@@ -116,8 +117,8 @@ OnStart:
 				mes "^0000FF"+ .instance_name$ +" ^000000 - Reservation Failed!";
 				close;
 			}
-			mes "^0055FF[ "+.instance_name$+" ]^000000";
-			mes "^0000FF"+.instance_name$+" ^000000 - Reserved";
+			//mes "^0055FF[ "+.instance_name$+" ]^000000";
+			//mes "^0000FF"+.instance_name$+" ^000000 - Reserved";
 			set .@gettimetick, gettimetick(2);
 			getpartymember .@party_id,2;
 			for( set .@i, 0; .@i < $@partymembercount; set .@i, .@i+1 )

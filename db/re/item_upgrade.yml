@@ -52,7 +52,7 @@ Body:
       - Item: Oriental_Sword
       - Item: Undine_Spear_K
       - Item: Demon_Hunting_Bible_K
-      - Item: Shiver_Katar_K
+      - Item: Katar_of_Shiver
       - Item: OneSkyOneSun
       - Item: SoulWeight
       - Item: MeawFoxtail
@@ -129,7 +129,7 @@ Body:
       - Item: Oriental_Sword
       - Item: Undine_Spear_K
       - Item: Demon_Hunting_Bible_K
-      - Item: Shiver_Katar_K
+      - Item: Katar_of_Shiver
       - Item: OneSkyOneSun
       - Item: SoulWeight
       - Item: MeawFoxtail
@@ -8535,7 +8535,7 @@ Body:
       - Item: Oriental_Sword
       - Item: Undine_Spear_K
       - Item: Demon_Hunting_Bible_K
-      - Item: Shiver_Katar_K
+      - Item: Katar_of_Shiver
       - Item: OneSkyOneSun
       - Item: SoulWeight
       - Item: MeawFoxtail

@@ -1,5 +1,6 @@
 //prontera,172,182
 prontera,172,182,4	script	Costumer#cs_0	646,{
+	disable_items;
 	switch(select("Top:Mid:Low")){
 	Case 1:
 		.@loc = EQI_COSTUME_HEAD_TOP;
@@ -8,7 +9,7 @@ prontera,172,182,4	script	Costumer#cs_0	646,{
                  copyarray  .@listenchant[0],.effect_topid[0],getarraysize(.effect_topid);
                 .@item_id = getequipid(.@loc);
                 .@equip_refine = getequiprefinerycnt(.@loc);
-                setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+                setarray .@itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
                 if (.itemslot[3] == 0)
                 if (.@item_id > 0){
                         //dispbottom "a";
@@ -26,7 +27,7 @@ prontera,172,182,4	script	Costumer#cs_0	646,{
                                         dispbottom .@enchant_id;
                                         delequip EQI_COSTUME_HEAD_TOP;
                                         delitem .@enchant_id,1;
-                                        getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.@enchant_id);
+                                        getitem2(.@item_id,1,1,.@equip_refine,0,.@itemslot[0],.@itemslot[1],.@itemslot[2],.@enchant_id);
                                 }
                         }
                 }
@@ -39,7 +40,7 @@ prontera,172,182,4	script	Costumer#cs_0	646,{
 		 copyarray  .@listenchant[0],.effect_midid[0],getarraysize(.effect_midid);
                 .@item_id = getequipid(.@loc);
                 .@equip_refine = getequiprefinerycnt(.@loc);
-                setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+                setarray .@itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
 		if (.itemslot[3] == 0)
                 if (.@item_id > 0){
                        // dispbottom "a";
@@ -57,7 +58,7 @@ prontera,172,182,4	script	Costumer#cs_0	646,{
 					dispbottom .@enchant_id;
         	        	        delequip EQI_COSTUME_HEAD_MID;
                 	        	delitem .@enchant_id,1;
-	                	        getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.@enchant_id);
+	                	        getitem2(.@item_id,1,1,.@equip_refine,0,.@itemslot[0],.@itemslot[1],.@itemslot[2],.@enchant_id);
 				}	
 			}
                 }
@@ -70,7 +71,7 @@ prontera,172,182,4	script	Costumer#cs_0	646,{
                  copyarray  .@listenchant[0],.effect_lowid[0],getarraysize(.effect_lowid);
                 .@item_id = getequipid(.@loc);
                 .@equip_refine = getequiprefinerycnt(.@loc);
-                setarray .itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
+                setarray .@itemslot[0],getequipcardid(.@loc,0),getequipcardid(.@loc,1),getequipcardid(.@loc,2),getequipcardid(.@loc,3);
                 if (.itemslot[3] == 0)
                 if (.@item_id > 0){
                         //dispbottom "a";
@@ -88,7 +89,7 @@ prontera,172,182,4	script	Costumer#cs_0	646,{
                                         dispbottom .@enchant_id;
                                         delequip EQI_COSTUME_HEAD_LOW;
                                         delitem .@enchant_id,1;
-                                        getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.itemslot[1],.itemslot[2],.@enchant_id);
+                                        getitem2(.@item_id,1,1,.@equip_refine,0,.@itemslot[0],.@itemslot[1],.@itemslot[2],.@enchant_id);
                                 }
                         }
                 }

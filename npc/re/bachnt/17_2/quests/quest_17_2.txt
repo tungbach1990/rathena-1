@@ -10711,7 +10711,7 @@ OnInit:
 		.module[getarraysize(.module)] = .@i;
 	end;
 }
-
+/*
 ba_in01,87,370,3	script	Lisa#ep172_merchant	20698,{
 	disable_items;
 	mes "[Lisa]";
@@ -10938,7 +10938,7 @@ function	enchant_check	{
 }
 
 }
-
+*/
 -	shop	ep172cubeshop00	-1,no,100251:10000000,100252:30000000
 ba_in01,87,376,3	script	Cube Lane#ep172cube	4_EP17_GUARD_B,{
 	disable_items;
@@ -10949,7 +10949,7 @@ ba_in01,87,376,3	script	Cube Lane#ep172cube	4_EP17_GUARD_B,{
 	callshop "ep172cubeshop00";
 	end;
 }
-
+/*
 -	shop	172epicmodule	-1,no,501:-1
 ba_in01,87,373,3	script	Spiera#ep172_soapstone	20698,{
 	disable_items;
@@ -10988,7 +10988,8 @@ OnInit:
 	npcshopadditem "172epicmodule",.item[.@i],.price[.@i];
 	end;
 }
-
+*/
+/*
 ba_in01,87,383,3	script	Yeoncheong#jh172	4_EP17_CLEANER_W,{
 	if(ep17_2_main < 6){
 		cutin "ep172_omega.bmp", 2;
@@ -11132,7 +11133,7 @@ OnInit:
 		490027,32210,"1000103,1500";
 	end;
 }
-
+*/
 //Restaurant Static NPC
 ba_in01,28,389,4	script	Mary#rba_in01	4_EP17_BASIC_B,{
 	if(ep17_2_main < 9){

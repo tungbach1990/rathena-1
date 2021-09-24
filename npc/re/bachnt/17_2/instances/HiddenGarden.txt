@@ -1958,10 +1958,10 @@ end;
 	if(.@var == 12){
 		if(.@type){
 			.@quest = 12500;
-			.@amount = 4;
+			.@amount = 15;
 		} else {
 			.@quest = 12499;
-			.@amount = 2;
+			.@amount = 5;
 		}
 		if(checkquest(.@quest,HUNTING) == 2){
 			mes "[Sigma]";
@@ -2020,7 +2020,7 @@ OnSummon:
 	.@map$ = get_instance_var("map$");
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnBossKill";
 	.@boss_id = monster(.@map$,168,79,"Kappa",20620,1,.@event$);
-	set_instance_var("boss_id",.@boss_id);
+	set_instance_var("boss_id",$@mobid[0]);
 	mapannounce .@map$,"SYSTEM : Summoning the guardian parts to consumes them as materials for the administrator's energy shield.",bc_map|bc_yellow;
 	instance_event(strnpcinfo(0),"OnSummonPart0",false);
 	instance_event(strnpcinfo(0),"OnSummonPart1",false);
@@ -2030,6 +2030,27 @@ OnSummon:
 end;
 
 OnBossKill:
+	
+	if( getcharid(1) ) {
+		getpartymember( getcharid(1),2 );
+		getpartymember( getcharid(1),1 );
+		.@map_killer$ = strcharinfo(3);
+		//.@chance = rand(100);
+		for( .@i = 0; .@i < $@partymembercount; .@i++ )
+			if( isloggedin( $@partymemberaid[ .@i ],$@partymembercid[ .@i ] ) )
+				if( !getmapxy( .@map$, .@x, .@y, BL_PC, rid2name( $@partymemberaid[ .@i ] ) ) && .@map$ == .@map_killer$ ) {
+					callfunc "getitemclone",7929,10,$@partymemberaid[ .@i ];
+					.@chance = rand(10);
+					if(!.@chance )
+						callfunc "getitemclone",100160,1,$@partymemberaid[ .@i ];
+				/*	if (0 < .@chance < 30)
+						callfunc "getitemclone",1000104,rand(1,5),$@partymemberaid[ .@i ];
+					else
+						callfunc "getitemclone",100160,1,$@partymemberaid[ .@i ];
+				*/
+				}
+			}	
+	
 	set_instance_var("security_zone",12);
 	.@map$ = get_instance_var("map$");
 	set_instance_var("boss_id",0);
@@ -2186,7 +2207,7 @@ OnSummon:
 	.@map$ = get_instance_var("map$");
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnBossKill";
 	.@boss_id = monster(.@map$,275,80,"Lambda",20621,1,.@event$);
-	set_instance_var("boss_id",.@boss_id);
+	set_instance_var("boss_id",$@mobid[0]);
 	mapannounce .@map$,"SYSTEM : Summoning the guardian parts to consumes them as materials for the administrator's energy shield.",bc_map|bc_yellow;
 	instance_event(strnpcinfo(0),"OnSummonPart0",false);
 	instance_event(strnpcinfo(0),"OnSummonPart1",false);
@@ -2196,6 +2217,27 @@ OnSummon:
 end;
 
 OnBossKill:
+	if( getcharid(1) ) {
+                getpartymember( getcharid(1),2 );
+                getpartymember( getcharid(1),1 );
+                .@map_killer$ = strcharinfo(3);
+                //.@chance = rand(100);
+                for( .@i = 0; .@i < $@partymembercount; .@i++ )
+                        if( isloggedin( $@partymemberaid[ .@i ],$@partymembercid[ .@i ] ) )
+                                if( !getmapxy( .@map$, .@x, .@y, BL_PC, rid2name( $@partymemberaid[ .@i ] ) ) && .@map$ == .@map_killer$ ) {
+                                        callfunc "getitemclone",7929,20,$@partymemberaid[ .@i ];
+                                        .@chance = rand(100);
+                                        if(!.@chance )
+                                                callfunc "getitemclone",100161,1,$@partymemberaid[ .@i ];
+                                        if (0 < .@chance < 30)
+                                                callfunc "getitemclone",1000104,rand(1,5),$@partymemberaid[ .@i ];
+                                        else 
+					{
+                                                callfunc "getitemclone",100160,1,$@partymemberaid[ .@i ];
+						callfunc "getitemclone",1000103,10,$@partymemberaid[ .@i ];
+					}
+                                }
+                        }
 	set_instance_var("security_zone",12);
 	.@map$ = get_instance_var("map$");
 	stopnpctimer;

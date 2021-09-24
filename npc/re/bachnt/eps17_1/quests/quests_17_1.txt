@@ -8012,7 +8012,7 @@ OnInit:
 	setarray .weapon,1862,13493,16088,16089,18178,18179,18180,21047,26151,26164,28038,28136,28253,28629,28755,32019;
 	end;	
 }
-
+/*
 sp_cor,106,136,3	script	RS26#illusion_enchant	4_SYS_MSG,{
 	disable_items;
 	mes "[ RS26 ]";
@@ -8268,7 +8268,7 @@ OnInit:
 	setarray .enchant_acce$,"3:25672~4742,25673~4752,25674~4702,25675~4732,25676~4712,25677~4722","2:25678~29529,25679~29532","1:25680~4826,25681~4881,25682~4866,25683~4836,25696~29543,25697~29544,25698~29545,25699~29546";
 	end;
 }
-
+*/
 //= < Other NPC >
 pub_cat,51,29,1	script	Tired Guest#171_pub	4_M_REPAIR,{
 	npctalk "I just want to drink two glasses. But if I drink two, I'll want to order a third one.","",bc_self;

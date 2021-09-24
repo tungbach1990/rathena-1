@@ -7,8 +7,8 @@ OnNPCKillEvent:
 	.@y = .@data[UMOB_Y];
 	if (getcharid(3) == 2000003 || getcharid(3) == 2000000){
                 .chancegarment = 500;
-                .chancecustomcostume = 20;
-                .chancecostume = 50;
+                .chancecustomcostume = 5;
+                .chancecostume = 20;
         }else {
 		.chancegarment = 500;
                 .chancecustomcostume = 5;
