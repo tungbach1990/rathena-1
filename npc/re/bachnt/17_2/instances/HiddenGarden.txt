@@ -2229,8 +2229,10 @@ OnBossKill:
                                         .@chance = rand(100);
                                         if(!.@chance )
                                                 callfunc "getitemclone",100161,1,$@partymemberaid[ .@i ];
-                                        if (0 < .@chance < 30)
+                                        if (.@chance > 0 && .@chance < 30)
+					{
                                                 callfunc "getitemclone",1000104,rand(1,5),$@partymemberaid[ .@i ];
+					}
                                         else 
 					{
                                                 callfunc "getitemclone",100160,1,$@partymemberaid[ .@i ];
