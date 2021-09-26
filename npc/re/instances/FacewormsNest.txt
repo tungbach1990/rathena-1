@@ -2051,7 +2051,7 @@ OnTouch_:
 	initnpctimer;
 	end;
 OnTimer45000:
-	enablenpc instance_npcname(strnpcinfo(0));
+	enablenpc();
 	stopnpctimer;
 	end;
 OnMyMobDead:
@@ -2139,7 +2139,7 @@ OnTouch_:
 	initnpctimer;
 	end;
 OnTimer15000:
-	enablenpc instance_npcname(strnpcinfo(0));
+	enablenpc();
 	stopnpctimer;
 	end;
 OnMyMobDead:
