@@ -2227,6 +2227,7 @@ OnBossKill:
                                 if( !getmapxy( .@map$, .@x, .@y, BL_PC, rid2name( $@partymemberaid[ .@i ] ) ) && .@map$ == .@map_killer$ ) {
                                         callfunc "getitemclone",7929,20,$@partymemberaid[ .@i ];
                                         .@chance = rand(100);
+					//message "Dusk",.@chance;
                                         if(!.@chance )
                                                 callfunc "getitemclone",100161,1,$@partymemberaid[ .@i ];
                                         if (.@chance > 0 && .@chance < 30)
