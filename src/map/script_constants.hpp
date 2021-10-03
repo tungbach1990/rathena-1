@@ -495,6 +495,7 @@
 	export_constant(MF_DROPRATE150);
 	export_constant(MF_DROPRATE175);
 	export_constant(MF_DROPRATE200);
+	export_constant(MF_NOCASHSHOP);
 
 	/* setcell types */
 	export_constant(CELL_WALKABLE);
