@@ -1004,7 +1004,7 @@ Body:
             Amount: 100
           - Item: Shell
             Amount: 100
-          - Item: Nightmare_Card
+          - Item: Nightmare_Terror_Card
             Amount: 1
   - Mob: SHINOBI
     TameItem: Kuloren

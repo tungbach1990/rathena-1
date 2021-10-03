@@ -13,8 +13,8 @@ OnNPCKillEvent:
 
         }else {
                 .chancegarment = 75;
-                .chancecustomcostume = 20;
-                .chancecostume = 100;
+                .chancecustomcostume = 40;
+                .chancecostume = 150;
 
         }
 	

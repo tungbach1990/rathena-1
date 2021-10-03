@@ -379,8 +379,8 @@ D33: setarray @c[2],140,11,32,21,8,149,204,218,150,9;
 RR1: Restrict("RE");
         Go("rockmi1",245,21);
 D34: Restrict("RE");
-	 setarray @c[2],364,44,101,141;
-	 Disp("Scaraba Hole",1,2); Pick("dic_dun");
+	 setarray @c[2],364,44,101,141,101,141;
+	 Disp("Scaraba Hole",1,3); Pick("dic_dun");
 D35: setarray @c[2],288,9,149,81,210,54,10,222,100,99;
 	 Disp("Sphinx",1,5); Pick("","in_sphinx1","in_sphinx2","in_sphinx3","in_sphinx4","in_sphinx5");
 D36: setarray @c[2],69,24,102,27;
@@ -517,6 +517,7 @@ Anexus: Restrict("RE");
 		ep17_2_main >= 25 ? "Memory Corridor" : ""       ,ba_lib,
 		ep17_2_main >= 25 ? "Lost Farm Valley" : ""       ,ba_lost,
 		ep17_2_main >= 25 ? "Large Bath Meditathio" : ""       ,ba_bath,
+		ep17_2_main >= 25 ? "2nd Power Plant" : ""       ,ba_pw03,
 		"Abyss GlastHeim",gl_cas01_,
 		"Abyss Dungeon 04",abyss_04,
 		"Einbroch Dungeon 03",ein_dun03,
@@ -531,6 +532,8 @@ menu   // "Special border area OS",sp_os,
         "Einbroch Dungeon 03",ein_dun03,
         "Odin Temple Past",odin_past;
 */
+ba_pw03: Restrict("RE");
+        Go("ba_maison",88,268);
 ba_maison: Restrict("RE");
         Go("ba_maison",197,249);
 ba_lib: Restrict("RE");

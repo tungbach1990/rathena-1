@@ -2465,6 +2465,70 @@ function	script	F_Lapine_Ein_Ddbox	{
 
 //! TODO
 function	script	F_Lapine_Ein_Ddbox2	{
+	setarray .@randomopt[0],
+                                RDMOPT_VAR_MATTPOWER,5,45,
+                                RDMOPT_VAR_MAGICATKPERCENT,1,10;
+        .@r = rand(getarraysize(.@randomopt)/3);
+        .@option = .@randomopt[.@r*3];
+        .@value = .@randomopt[rand(.@r*3+1,.@r*3+2)];
+        set getarg(0), .@option;
+        set getarg(1), .@value;	
+
+	setarray .@randomopt[0],
+                                RDMOPT_HEAL_VALUE,3,25,
+				RDMOPT_VAR_AVOIDSUCCESSVALUE,7,35,
+				RDMOPT_MDAMAGE_PROPERTY_NOTHING_TARGET,3,20,
+				RDMOPT_MDAMAGE_PROPERTY_WATER_TARGET,3,20,
+				RDMOPT_MDAMAGE_PROPERTY_FIRE_TARGET,3,20,
+				RDMOPT_MDAMAGE_PROPERTY_EARTH_TARGET,3,20,
+				RDMOPT_MDAMAGE_PROPERTY_WIND_TARGET,3,20,
+				RDMOPT_MDAMAGE_PROPERTY_POISON_TARGET,3,20,
+				RDMOPT_MDAMAGE_PROPERTY_SAINT_TARGET,3,20,
+				RDMOPT_MDAMAGE_PROPERTY_DARKNESS_TARGET,3,20,
+				RDMOPT_MDAMAGE_PROPERTY_UNDEAD_TARGET,3,20,
+				RDMOPT_MDAMAGE_PROPERTY_TELEKINESIS_TARGET,3,20,
+				RDMOPT_DEC_SPELL_CAST_TIME,5,10;
+
+        .@r = rand(getarraysize(.@randomopt)/3);
+        .@option = .@randomopt[.@r*3];
+        .@value = .@randomopt[rand(.@r*3+1,.@r*3+2)];
+        set getarg(2), .@option;
+        set getarg(3), .@value;
+
+
+	setarray .@randomopt[0],
+                        	RDMOPT_RACE_MDAMAGE_NOTHING,3,20,
+				RDMOPT_RACE_MDAMAGE_UNDEAD,3,20,
+				RDMOPT_RACE_MDAMAGE_ANIMAL,3,20,
+				RDMOPT_RACE_MDAMAGE_PLANT,3,20,
+				RDMOPT_RACE_MDAMAGE_INSECT,3,20,
+				RDMOPT_RACE_MDAMAGE_FISHS,3,20,
+				RDMOPT_RACE_MDAMAGE_HUMAN,3,20,
+				RDMOPT_RACE_MDAMAGE_ANGEL,3,20,
+				RDMOPT_RACE_MDAMAGE_DEVIL,3,20,
+				RDMOPT_RACE_MDAMAGE_DRAGON,3,20,
+				RDMOPT_CLASS_MDAMAGE_NORMAL_TARGET,3,18,
+				RDMOPT_CLASS_MDAMAGE_BOSS_TARGET,3,18,
+				RDMOPT_RACE_IGNORE_MDEF_PERCENT_NOTHING,3,25,
+				RDMOPT_RACE_IGNORE_MDEF_PERCENT_UNDEAD,3,25,
+				RDMOPT_RACE_IGNORE_MDEF_PERCENT_ANIMAL,3,25,
+				RDMOPT_RACE_IGNORE_MDEF_PERCENT_PLANT,3,25,
+				RDMOPT_RACE_IGNORE_MDEF_PERCENT_INSECT,3,25,
+				RDMOPT_RACE_IGNORE_MDEF_PERCENT_FISHS,3,25,
+				RDMOPT_RACE_IGNORE_MDEF_PERCENT_HUMAN,3,25,
+				RDMOPT_RACE_IGNORE_MDEF_PERCENT_DEVIL,3,25,
+				RDMOPT_RACE_IGNORE_MDEF_PERCENT_ANGEL,3,25,
+				RDMOPT_RACE_IGNORE_MDEF_PERCENT_DRAGON,3,25,
+				RDMOPT_CLASS_IGNORE_MDEF_PERCENT_NORMAL,3,18,
+				RDMOPT_DEC_SPELL_CAST_TIME,5,10,
+				RDMOPT_HEAL_VALUE,5,10;
+        .@r = rand(getarraysize(.@randomopt)/3);
+        .@option = .@randomopt[.@r*3];
+        .@value = .@randomopt[rand(.@r*3+1,.@r*3+2)];
+        set getarg(4), .@option;
+        set getarg(5), .@value;
+	return;
+/*
 
 	.@r = rand(99); //! TODO: Official Rates info
 		 if (.@r < 50) { set getarg(0), RDMOPT_VAR_MAGICATKPERCENT; set getarg(1), rand(1,10);}
@@ -2484,7 +2548,7 @@ function	script	F_Lapine_Ein_Ddbox2	{
 	else if (.@r < 110) { set getarg(2), RDMOPT_MDAMAGE_PROPERTY_UNDEAD_TARGET; set getarg(3), rand(3,20); }
 	else if (.@r < 120) { set getarg(2), RDMOPT_MDAMAGE_PROPERTY_TELEKINESIS_TARGET; set getarg(3), rand(3,20); }
 	else if (.@r < 130) { set getarg(2), RDMOPT_DEC_SPELL_CAST_TIME; set getarg(3), rand(5,10); }
-	.@r = rand(229); //! TODO: Official Rates info
+	.@r = rand(249); //! TODO: Official Rates info
 		 if (.@r < 10) { set getarg(4), RDMOPT_RACE_MDAMAGE_NOTHING; set getarg(5), rand(3,20); }
 	else if (.@r < 20) { set getarg(4), RDMOPT_RACE_MDAMAGE_UNDEAD; set getarg(5), rand(3,20); }
 	else if (.@r < 30) { set getarg(4), RDMOPT_RACE_MDAMAGE_ANIMAL; set getarg(5), rand(3,20); }
@@ -2511,6 +2575,7 @@ function	script	F_Lapine_Ein_Ddbox2	{
 	else if (.@r < 240) { set getarg(4), RDMOPT_DEC_SPELL_CAST_TIME; set getarg(5), rand(5,10); }
 	else if (.@r < 250) { set getarg(4), RDMOPT_HEAL_VALUE; set getarg(5), rand(5,10); }
 	return;
+*/
 }
 
 //! TODO

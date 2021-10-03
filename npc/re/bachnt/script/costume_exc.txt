@@ -24,7 +24,7 @@ prontera,172,182,4	script	Costumer#cs_0	646,{
                          //       dispbottom .@enchant_id;
                                 if (countitem(.@enchant_id) > 0){
 
-                                        dispbottom .@enchant_id;
+                                        //dispbottom .@enchant_id;
                                         delequip EQI_COSTUME_HEAD_TOP;
                                         delitem .@enchant_id,1;
                                         getitem2(.@item_id,1,1,.@equip_refine,0,.@itemslot[0],.@itemslot[1],.@itemslot[2],.@enchant_id);
@@ -55,7 +55,7 @@ prontera,172,182,4	script	Costumer#cs_0	646,{
 			//	dispbottom .@enchant_id;
 				if (countitem(.@enchant_id) > 0){
 					
-					dispbottom .@enchant_id;
+					//dispbottom .@enchant_id;
         	        	        delequip EQI_COSTUME_HEAD_MID;
                 	        	delitem .@enchant_id,1;
 	                	        getitem2(.@item_id,1,1,.@equip_refine,0,.@itemslot[0],.@itemslot[1],.@itemslot[2],.@enchant_id);

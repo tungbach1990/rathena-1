@@ -79,7 +79,7 @@ prontera,144,171,5	script	Bao Công F1	4_M_GREATPO,{
 			break;
 		Case 2:
 			mes "HaÞy choòn sôì lâÌn muôìn ðôÒi bên ta";
-		        input .times,0,10;
+		        input .times,0,50;
 			if (.times > 0){
 			for( .@i11 = 0; .@i11 < .times; .@i11++ ){
 				.call = callfunc("Ancient_CheckAndDelItem",.exchange_require);
@@ -160,7 +160,7 @@ OnInit:
 }
 
 -	shop	ancientwp_trader_shop	-1,909:-1
--	exbartershop	PatentShop	-1,100437:99:1000000-7929:0:1000-7960:0:10
+-	exbartershop	PatentShop	-1,100437:9999:1000000-7929:0:1000-7960:0:10,100412:9999:1000000-7960:0:1,100413:9999:1000000-7960:0:1
 prontera,141,174,5	script	Patent Exchange	520,{
 	switch(select("Exchange Patent Cube","Exchange Ancient Silver Coin","Cancel")){
 	Case 1:

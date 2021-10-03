@@ -25868,23 +25868,23 @@ Body:
             Announced: true
           - Item: S_Booster_Armor
             Rate: 1
-            Duration: 10080
+            #Duration: 10080
             Announced: true
           - Item: S_Booster_Shield
             Rate: 1
-            Duration: 10080
+            #Duration: 10080
             Announced: true
           - Item: S_Booster_Shoes
             Rate: 1
-            Duration: 10080
+            #Duration: 10080
             Announced: true
           - Item: S_Booster_Earing
             Rate: 1
-            Duration: 10080
+            #Duration: 10080
             Announced: true
           - Item: S_Booster_Pandent
             Rate: 1
-            Duration: 10080
+            #Duration: 10080
             Announced: true
           - Item: S_RK_B_Weapon
             Rate: 1
