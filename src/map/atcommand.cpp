@@ -2374,7 +2374,9 @@ ACMD_FUNC(refine)
 			clif_additem(sd, i, 1, 0);
 			pc_equipitem(sd, i, current_position);
 			clif_misceffect(&sd->bl, 3);
-			achievement_update_objective(sd, AG_ENCHANT_SUCCESS, 2, sd->inventory_data[i]->wlv, sd->inventory.u.items_inventory[i].refine);
+			if( sd->inventory_data[i]->type == IT_WEAPON ){
+				achievement_update_objective(sd, AG_ENCHANT_SUCCESS, 2, sd->inventory_data[i]->weapon_level, sd->inventory.u.items_inventory[i].refine);
+			}
 			count++;
 		}
 	}
@@ -4097,10 +4099,10 @@ ACMD_FUNC(reload) {
 		clif_displaymessage(fd, msg_txt(sd, 795)); // Attendance database has been reloaded.
 	} else if (strstr(command, "synthesisdb") || strncmp(message, "synthesisdb", 6) == 0) {
 		item_synthesis_db_reload();
-		clif_displaymessage(fd, msg_txt(sd, 796)); // Item Synthesis database has been reloaded.
+		clif_displaymessage(fd, msg_txt(sd, 898)); // Item Synthesis database has been reloaded.
 	} else if (strstr(command, "upgradedb") || strncmp(message, "upgradedb", 6) == 0) {
 		item_upgrade_db_reload();
-		clif_displaymessage(fd, msg_txt(sd, 797)); // Item Upgrade database has been reloaded.
+		clif_displaymessage(fd, msg_txt(sd, 899)); // Item Upgrade database has been reloaded.
 	}
 
 	return 0;

@@ -45880,7 +45880,8 @@ Body:
         StealProtected: true
   - Id: 2166
     AegisName: I_HORN_SCARABA_EGG
-    Name: Gold One-Horn Scaraba Egg
+#   Name: Gold One-Horn Scaraba Egg
+    Name: Gold One-Horn Scaraba E
     Level: 125
     Hp: 126000
     BaseExp: 6000
@@ -45915,7 +45916,8 @@ Body:
         Rate: 5
   - Id: 2167
     AegisName: I_HORN_SCARABA2_EGG
-    Name: Gold Two-Horn Scaraba Egg
+#   Name: Gold Two-Horn Scaraba Egg
+    Name: Gold Two-Horn Scaraba Eg
     Level: 126
     Hp: 132000
     BaseExp: 6000
@@ -52957,7 +52959,8 @@ Body:
       Detector: true
   - Id: 2360
     AegisName: N_ANCIENT_MUMMY
-    Name: Ancient Mummy (Nightmare)
+#   Name: Ancient Mummy (Nightmare)
+    Name: Ancient Mummy (Nightmare
     JapaneseName: Nightmare Ancient Mummy
     Level: 141
     Hp: 90157
@@ -53007,7 +53010,8 @@ Body:
         StealProtected: true
   - Id: 2361
     AegisName: G_N_ANCIENT_MUMMY
-    Name: Ancient Mummy (Nightmare)
+#   Name: Ancient Mummy (Nightmare)
+    Name: Ancient Mummy (Nightmare
     JapaneseName: Nightmare Ancient Mummy
     Level: 141
     Hp: 90157
@@ -56186,7 +56190,8 @@ Body:
         Rate: 500
   - Id: 2466
     AegisName: MG_GHOUL
-    Name: Grand Chamberlain in pain
+#   Name: Grand Chamberlain in pain
+    Name: Grand Chamberlain in pai
     Level: 132
     Hp: 208100
     BaseExp: 7111
@@ -56357,7 +56362,8 @@ Body:
   - Id: 2470
     AegisName: MG_KNIGHT_OF_ABYSS
     Name: Corrupted Abysmal Knight
-    JapaneseName: Corrupted Knight of Abyss
+#   JapaneseName: Corrupted Knight of Abyss
+    JapaneseName: Corrupted Knight of Abys
     Level: 142
     Hp: 225789
     BaseExp: 9292
@@ -56485,7 +56491,8 @@ Body:
         Rate: 100
   - Id: 2473
     AegisName: MG_M_UNDEAD_KNIGHT
-    Name: 1st Commander of Destruction
+#   Name: 1st Commander of Destruction
+    Name: 1st Commander of Destruc
     Level: 145
     Hp: 950033
     BaseExp: 80009
@@ -56531,7 +56538,8 @@ Body:
         StealProtected: true
   - Id: 2474
     AegisName: MG_F_UNDEAD_KNIGHT
-    Name: 2nd Commander of Destruction
+#   Name: 2nd Commander of Destruction
+    Name: 2nd Commander of Destruc
     Level: 145
     Hp: 848011
     BaseExp: 79836
@@ -60786,7 +60794,8 @@ Body:
         StealProtected: true
   - Id: 2648
     AegisName: C3_SOLDIER_SKELETON
-    Name: Soldier Skeleton Ringleader
+#   Name: Soldier Skeleton Ringleader
+    Name: Soldier Skeleton Ringlea
     Level: 34
     Hp: 4020
     BaseExp: 1420
@@ -61263,7 +61272,8 @@ Body:
         StealProtected: true
   - Id: 2658
     AegisName: C3_SKELETON_GENERAL
-    Name: Skeleton General Ringleader
+#   Name: Skeleton General Ringleader
+    Name: Skeleton General Ringlea
     Level: 139
     Hp: 900650
     BaseExp: 53070
@@ -61592,7 +61602,8 @@ Body:
         StealProtected: true
   - Id: 2665
     AegisName: C5_SHELTER
-    Name: Elusive Mistress of Shelter
+#   Name: Elusive Mistress of Shelter
+    Name: Elusive Mistress of Shel
     Level: 125
     Hp: 135000
     BaseExp: 15715
@@ -62430,7 +62441,8 @@ Body:
         StealProtected: true
   - Id: 2683
     AegisName: C3_RICE_CAKE_BOY
-    Name: Dumpling Child Ringleader
+#   Name: Dumpling Child Ringleader
+    Name: Dumpling Child Ringleade
     Level: 60
     Hp: 10490
     BaseExp: 2605
@@ -62475,7 +62487,8 @@ Body:
         StealProtected: true
   - Id: 2684
     AegisName: C4_RETRIBUTION
-    Name: Furious Baroness of Retribution
+#   Name: Furious Baroness of Retribution
+    Name: Furious Baroness of Retr
     Level: 121
     Hp: 110760
     BaseExp: 15235
@@ -62524,7 +62537,8 @@ Body:
         StealProtected: true
   - Id: 2685
     AegisName: C5_RETRIBUTION
-    Name: Elusive Baroness of Retribution
+#   Name: Elusive Baroness of Retribution
+    Name: Elusive Baroness of Retr
     Level: 121
     Hp: 110760
     BaseExp: 15235
@@ -62573,7 +62587,8 @@ Body:
         StealProtected: true
   - Id: 2686
     AegisName: C1_RETRIBUTION
-    Name: Swift Baroness of Retribution
+#   Name: Swift Baroness of Retribution
+    Name: Swift Baroness of Retrib
     Level: 121
     Hp: 110760
     BaseExp: 15235
@@ -62857,7 +62872,8 @@ Body:
         StealProtected: true
   - Id: 2692
     AegisName: C3_RAWREL
-    Name: Laurell Weinder Ringleader
+#   Name: Laurell Weinder Ringleader
+    Name: Laurell Weinder Ringlead
     Level: 133
     Hp: 201410
     BaseExp: 14625
@@ -64433,7 +64449,8 @@ Body:
         StealProtected: true
   - Id: 2726
     AegisName: C3_OBSERVATION
-    Name: Dame of Sentinel Ringleader
+#   Name: Dame of Sentinel Ringleader
+    Name: Dame of Sentinel Ringlea
     Level: 127
     Hp: 172690
     BaseExp: 18320
@@ -64733,7 +64750,8 @@ Body:
         StealProtected: true
   - Id: 2733
     AegisName: C5_NG_WRAITH_DEAD
-    Name: Elusive Wraith Dead (Nightmare)
+#   Name: Elusive Wraith Dead (Nightmare)
+    Name: Elusive Wraith Dead (Nig
     Level: 110
     Hp: 77895
     BaseExp: 10490
@@ -64775,7 +64793,8 @@ Body:
         Rate: 50
   - Id: 2734
     AegisName: C1_NG_WANDER_MAN
-    Name: Furious Wanderer (Nightmare)
+#   Name: Furious Wanderer (Nightmare)
+    Name: Furious Wanderer (Nightm
     Level: 151
     Hp: 653410
     BaseExp: 49535
@@ -65144,7 +65163,8 @@ Body:
         StealProtected: true
   - Id: 2742
     AegisName: C4_MOROCC_1
-    Name: Furious Incarnation of Morocc
+#   Name: Furious Incarnation of Morocc
+    Name: Furious Incarnation of M
     Level: 132
     Hp: 319500
     BaseExp: 14275
@@ -65189,7 +65209,8 @@ Body:
         Rate: 50
   - Id: 2743
     AegisName: C5_MOROCC_1
-    Name: Elusive Incarnation of Morocc
+#   Name: Elusive Incarnation of Morocc
+    Name: Elusive Incarnation of M
     Level: 132
     Hp: 319500
     BaseExp: 14275
@@ -65234,7 +65255,8 @@ Body:
         Rate: 50
   - Id: 2744
     AegisName: C1_MOROCC_1
-    Name: Swift Incarnation of Morocc
+#   Name: Swift Incarnation of Morocc
+    Name: Swift Incarnation of Mor
     Level: 132
     Hp: 319500
     BaseExp: 14275
@@ -66669,7 +66691,8 @@ Body:
         StealProtected: true
   - Id: 2775
     AegisName: C2_LIVE_PEACH_TREE
-    Name: Solid Enchanted Peach Tree
+#   Name: Solid Enchanted Peach Tree
+    Name: Solid Enchanted Peach Tr
     Level: 92
     Hp: 87770
     BaseExp: 6495
@@ -68607,7 +68630,8 @@ Body:
         StealProtected: true
   - Id: 2817
     AegisName: C4_GLD_KOBOLD_2
-    Name: Furious Dark Hammer Kobold
+#   Name: Furious Dark Hammer Kobold
+    Name: Furious Dark Hammer Kobo
     Level: 142
     Hp: 906700
     BaseExp: 51800
@@ -68651,7 +68675,8 @@ Body:
         Rate: 10
   - Id: 2818
     AegisName: C5_GLD_KOBOLD_2
-    Name: Elusive Dark Hammer Kobold
+#   Name: Elusive Dark Hammer Kobold
+    Name: Elusive Dark Hammer Kobo
     Level: 142
     Hp: 906700
     BaseExp: 51800
@@ -70362,7 +70387,8 @@ Body:
         StealProtected: true
   - Id: 2855
     AegisName: C3_DESERT_WOLF_B
-    Name: Baby Desert Wolf Ringleader
+#   Name: Baby Desert Wolf Ringleader
+    Name: Baby Desert Wolf Ringlea
     Level: 14
     Hp: 700
     BaseExp: 820
@@ -74777,7 +74803,8 @@ Body:
         StealProtected: true
   - Id: 2988
     AegisName: XM_ANTONIO
-    Name: Wicked Vice Plant Manager
+#   Name: Wicked Vice Plant Manager
+    Name: Wicked Vice Plant Manage
     Level: 149
     Hp: 44
     Attack: 66
@@ -76344,7 +76371,8 @@ Body:
       IgnoreRanged: true
   - Id: 3039
     AegisName: B_MOROCC_1
-    Name: Blazing Morocc Reincarnation
+#   Name: Blazing Morocc Reincarnation
+    Name: Blazing Morocc Reincarna
     Level: 149
     Hp: 8000000
     BaseExp: 2855
@@ -76376,7 +76404,8 @@ Body:
       CanMove: true
   - Id: 3040
     AegisName: B_MOROCC_2
-    Name: Distorted Morocc Reincarnation
+#   Name: Distorted Morocc Reincarnation
+    Name: Distorted Morocc Reincar
     Level: 149
     Hp: 6400000
     BaseExp: 3311
@@ -76408,7 +76437,8 @@ Body:
       CanMove: true
   - Id: 3041
     AegisName: B_MOROCC_4
-    Name: Freezing Morocc Reincarnation
+#   Name: Freezing Morocc Reincarnation
+    Name: Freezing Morocc Reincarn
     Level: 149
     Hp: 7700000
     BaseExp: 2995
@@ -82289,6 +82319,49 @@ Body:
     Dex: 165
     Luk: 42
     AttackRange: 14
+    WalkSpeed: 150
+    AttackDelay: 1960
+    AttackMotion: 576
+    DamageMotion: 420
+    Ai: 09
+    Drops:
+      - Item: Sinister_Staff
+        Rate: 20
+        RandomOptionGroup: AS_WEAPON_1
+      - Item: Sinister_Rod
+        Rate: 20
+        RandomOptionGroup: AS_WEAPON_1
+      - Item: Sinister_Revolver
+        Rate: 20
+        RandomOptionGroup: AS_WEAPON_2
+      - Item: Sinister_Wire
+        Rate: 20
+        RandomOptionGroup: AS_WEAPON_2
+      - Item: Sinister_Viollin
+        Rate: 20
+        RandomOptionGroup: AS_WEAPON_2
+      - Item: Sinister_Bow
+        Rate: 20
+        RandomOptionGroup: AS_WEAPON_2
+  - Id: 3481
+    AegisName: AS_EVIL_SHADOW1
+#   Name: Immortal Nightmare Shadow
+    Name: Immortal Nightmare Shado
+    Level: 160
+    Hp: 423330
+    BaseExp: 14059
+    JobExp: 15100
+    Attack: 2446
+    Attack2: 498
+    Defense: 34
+    MagicDefense: 34
+    Str: 102
+    Agi: 61
+    Vit: 102
+    Int: 24
+    Dex: 132
+    Luk: 51
+    AttackRange: 1
     SkillRange: 10
     ChaseRange: 12
     Size: Medium
