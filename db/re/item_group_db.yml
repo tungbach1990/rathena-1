@@ -7388,6 +7388,8 @@ Body:
             Rate: 16
           - Item: ElectricEffect_Middle
             Rate: 17
+          - Item: ElectricEffect_Top
+            Rate: 17
           - Item: WaterFieldEffect_Bottom
             Rate: 17
           - Item: EXPStone_Bottom
@@ -26114,6 +26116,62 @@ Body:
           - Item: S_FullPene_Earring
             Rate: 1
             Announced: true
+          - Item: S_FullTemp_Earring
+            Rate: 2
+            Announced: true
+          - Item: S_FullTemp_Shoes
+            Rate: 2
+            Announced: true
+          - Item: S_FullTemp_Armor
+            Rate: 2
+            Announced: true
+          - Item: S_FullTemp_Pendant
+            Rate: 2
+            Announced: true
+#          - Item: S_Mammoth_Armor 
+#            Rate: 1
+#            Announced: true
+#          - Item: S_Mammoth_Shoes
+#            Rate: 1
+#            Announced: true
+#          - Item: S_Mammoth_Pendant
+#            Rate: 1
+#            Announced: true
+#          - Item: S_Mammoth_Earring
+#            Rate: 1
+#            Announced: true
+#          - Item: S_Mammoth_Weapon
+#            Rate: 1
+#            Announced: true
+#          - Item: S_Mammoth_Shield
+#            Rate: 1
+#            Announced: true
+          - Item: S_TrueGem_Armor
+            Rate: 1
+            Announced: true
+          - Item: S_TrueGem_Shoes
+            Rate: 1
+            Announced: true
+          - Item: S_TrueGem_Earring
+            Rate: 1
+            Announced: true
+          - Item: S_TrueGem_Pendant
+            Rate: 1
+            Announced: true
+#          - Item: S_M_Mammoth_Armor
+#            Rate: 1
+#            Announced: true
+#          - Item: S_M_Mammoth_Shoes
+#            Rate: 1
+#            Announced: true
+#          - Item: S_M_Mammoth_Earring
+#            Rate: 1
+#            Announced: true
+#          - Item: S_M_Mammoth_Pendant
+#            Rate: 1
+#            Announced: true
+
+
   - Group: STONE_EXCHANGE_BOX
     SubGroups:
       - SubGroup: 1

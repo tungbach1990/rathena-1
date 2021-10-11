@@ -55,7 +55,7 @@ OnInit:
 	bartershopadditem "TGCardShop","28942:99:100000000","7227:0:10";
 	bartershopadditem "TGCardShop","14192:99:10000000","7227:0:10";
 	bartershopadditem "TGCardShop","400002:99:50000000","7227:0:50";
-	bartershopadditem "TGCardShop","100009:99:2000000","7227:0:1";
+	bartershopadditem "TGCardShop","100009:9999:2000000","7227:0:1";
 	bartershopadditem "TGCardShop","16771:99:10000000","7227:0:5";
 	end;
 }

@@ -148,4 +148,24 @@ function	script	getitemclone	{
 	return;        
 }
 
+function	script	getitemclone2	{
+        getpartymember getcharid(1), 2;
+        copyarray .@partymemberaid, $@partymemberaid, $@partymembercount;
+        set @iparray$,getcharip(getcharid(3));
+        set @clone,0;
+        for ( .@i = 0; .@i < $@partymembercount; .@i++ ){
+        //      if (getcharid(3) != .@partymemberaid[.@i]){
+                        if (@iparray$ == getcharip(.@partymemberaid[.@i])){
+                                //dispbottom "here";
+                                 @clone = @clone + 1;
+                        }
+        //      }
+        }
+        if (@clone > 2){
+                dispbottom "Không nhâòn ğıõòc quaÌ do coì clone";
 
+        }else {
+             getitem getarg(0),getarg(1,1),getarg(2,getcharid(3));
+        }
+        return;
+}

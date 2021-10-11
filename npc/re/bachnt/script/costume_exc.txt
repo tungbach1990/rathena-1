@@ -96,7 +96,7 @@ prontera,172,182,4	script	Costumer#cs_0	646,{
 	break;
 	}
 OnInit:
-	setarray .effect_topid[0],25058,25178;
+	setarray .effect_topid[0],25058,25178,25206;
 	setarray .effect_midid[0],25059,25138,25136,25176,25224;
 	setarray .effect_lowid[0],25226,25205,25137;
 end;
