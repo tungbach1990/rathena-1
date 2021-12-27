@@ -4874,7 +4874,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 	pc_delautobonus(*sd, sd->autobonus2, true);
 	pc_delautobonus(*sd, sd->autobonus3, true);
 	
-	// Parse Charm
+	// Parse Charm BachNT
 	for (i = 0; i < MAX_INVENTORY; i++)
 	{ //dh
 		if (!sd->inventory_data[i] || sd->inventory_data[i]->type != IT_CHARM)
