@@ -13598,15 +13598,9 @@ void PlayerStatPointDatabase::loadingFinished(){
 		if( battle_config.use_statpoint_table ){
 			ShowError( "Missing status points for Level 1\n" );
 		}
-<<<<<<< HEAD
 
 		level_one = std::make_shared<s_statpoint_entry>();
 
-=======
-
-		level_one = std::make_shared<s_statpoint_entry>();
-
->>>>>>> bdf568979dd53702494d3a6b3b9d35054c44594a
 		level_one->level = 1;
 		level_one->statpoints = start_status_points;
 		level_one->traitpoints = 0;
@@ -13631,7 +13625,6 @@ void PlayerStatPointDatabase::loadingFinished(){
 			entry = std::make_shared<s_statpoint_entry>();
 			entry->level = level;
 			this->put( level, entry );
-<<<<<<< HEAD
 		}
 
 		if( !battle_config.use_statpoint_table || !exists ){
@@ -13645,23 +13638,7 @@ void PlayerStatPointDatabase::loadingFinished(){
 				entry->statpoints = last_level->statpoints;
 			}
 		}
-
-=======
-		}
-
-		if( !battle_config.use_statpoint_table || !exists ){
-			if( battle_config.use_statpoint_table ){
-				ShowError("Missing status points for Level %hu\n", level);
-			}
-
-			if( level <= trait_start_level ){
-				entry->statpoints = last_level->statpoints + ( ( level - 1 + 15 ) / 5 );
-			}else{
-				entry->statpoints = last_level->statpoints;
-			}
-		}
-
->>>>>>> bdf568979dd53702494d3a6b3b9d35054c44594a
+		
 		if( !battle_config.use_traitpoint_table || !exists ){
 			if( battle_config.use_traitpoint_table && level > trait_start_level ){
 				ShowError( "Missing trait points for Level %hu\n", level );
