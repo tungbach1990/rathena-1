@@ -1448,7 +1448,7 @@ static bool pc_job_can_use_item( struct map_session_data* sd, struct item_data* 
  *------------------------------------------*/
 static bool pc_isItemClass (struct map_session_data *sd, struct item_data* item) {
 	while (1) {
-		if (item->class_upper&ITEMJ_NORMAL && !(sd->class_&(JOBL_UPPER|JOBL_THIRD|JOBL_BABY)))	//normal classes (no upper, no baby, no third)
+		if (item->class_upper&ITEMJ_NORMAL && !(sd->class_&(JOBL_UPPER|JOBL_BABY|JOBL_THIRD|JOBL_FOURTH)))	//normal classes (no upper, no baby, no third, no fourth)
 			break;
 #ifndef RENEWAL
 		//allow third classes to use trans. class items
@@ -1468,14 +1468,14 @@ static bool pc_isItemClass (struct map_session_data *sd, struct item_data* item)
 		//baby classes (exl. third-baby)
 		if (item->class_upper&ITEMJ_BABY && sd->class_&JOBL_BABY && !(sd->class_&JOBL_THIRD))
 			break;
-		//third classes (exl. third-trans. and baby-third)
-		if (item->class_upper&ITEMJ_THIRD && sd->class_&JOBL_THIRD && !(sd->class_&(JOBL_UPPER|JOBL_BABY)))
+		//third classes (exl. third-trans. and baby-third and fourth)
+		if (item->class_upper&ITEMJ_THIRD && sd->class_&JOBL_THIRD && !(sd->class_&(JOBL_UPPER|JOBL_BABY)) && !(sd->class_&JOBL_FOURTH))
 			break;
-		//trans-third classes
-		if (item->class_upper&ITEMJ_THIRD_UPPER && sd->class_&JOBL_THIRD && sd->class_&JOBL_UPPER)
+		//trans-third classes (exl. fourth)
+		if (item->class_upper&ITEMJ_THIRD_UPPER && sd->class_&JOBL_THIRD && sd->class_&JOBL_UPPER && !(sd->class_&JOBL_FOURTH))
 			break;
-		//third-baby classes
-		if (item->class_upper&ITEMJ_THIRD_BABY && sd->class_&JOBL_THIRD && sd->class_&JOBL_BABY)
+		//third-baby classes (exl. fourth)
+		if (item->class_upper&ITEMJ_THIRD_BABY && sd->class_&JOBL_THIRD && sd->class_&JOBL_BABY && !(sd->class_&JOBL_FOURTH))
 			break;
 		//fourth classes
 		if (item->class_upper&ITEMJ_FOURTH && sd->class_&JOBL_FOURTH)
@@ -6300,6 +6300,9 @@ enum e_setpos pc_setpos(struct map_session_data* sd, unsigned short mapindex, in
 		}
 		if (battle_config.clear_unit_onwarp&BL_PC)
 			skill_clear_unitgroup(&sd->bl);
+		if( battle_config.loose_ap_on_map && mapdata_flag_vs( mapdata ) ){
+			status_percent_damage( nullptr, &sd->bl, 0, 0, 100, 0 );
+		}
 		party_send_dot_remove(sd); //minimap dot fix [Kevin]
 		guild_send_dot_remove(sd);
 		bg_send_dot_remove(sd);
@@ -9105,7 +9108,7 @@ int pc_dead(struct map_session_data *sd,struct block_list *src)
 	pc_setparam(sd, SP_KILLERRID, src?src->id:0);
 
 	if (battle_config.loose_ap_on_death == 1)
-		status_percent_damage(0, &sd->bl, 0, 0, 100, 0);
+		status_percent_damage( nullptr, &sd->bl, 0, 0, 100, 0 );
 
 	//Reset menu skills/item skills
 	if ((sd->skillitem) != 0)
@@ -13595,9 +13598,15 @@ void PlayerStatPointDatabase::loadingFinished(){
 		if( battle_config.use_statpoint_table ){
 			ShowError( "Missing status points for Level 1\n" );
 		}
+<<<<<<< HEAD
 
 		level_one = std::make_shared<s_statpoint_entry>();
 
+=======
+
+		level_one = std::make_shared<s_statpoint_entry>();
+
+>>>>>>> bdf568979dd53702494d3a6b3b9d35054c44594a
 		level_one->level = 1;
 		level_one->statpoints = start_status_points;
 		level_one->traitpoints = 0;
@@ -13622,6 +13631,7 @@ void PlayerStatPointDatabase::loadingFinished(){
 			entry = std::make_shared<s_statpoint_entry>();
 			entry->level = level;
 			this->put( level, entry );
+<<<<<<< HEAD
 		}
 
 		if( !battle_config.use_statpoint_table || !exists ){
@@ -13636,6 +13646,22 @@ void PlayerStatPointDatabase::loadingFinished(){
 			}
 		}
 
+=======
+		}
+
+		if( !battle_config.use_statpoint_table || !exists ){
+			if( battle_config.use_statpoint_table ){
+				ShowError("Missing status points for Level %hu\n", level);
+			}
+
+			if( level <= trait_start_level ){
+				entry->statpoints = last_level->statpoints + ( ( level - 1 + 15 ) / 5 );
+			}else{
+				entry->statpoints = last_level->statpoints;
+			}
+		}
+
+>>>>>>> bdf568979dd53702494d3a6b3b9d35054c44594a
 		if( !battle_config.use_traitpoint_table || !exists ){
 			if( battle_config.use_traitpoint_table && level > trait_start_level ){
 				ShowError( "Missing trait points for Level %hu\n", level );
