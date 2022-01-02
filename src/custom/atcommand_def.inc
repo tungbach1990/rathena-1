@@ -11,3 +11,5 @@
 //ACMD_DEF(newcommand),
 // Define command autoattack Bachnt
 ACMD_DEF(autoattack),
+ACMD_DEFR(synthesisui, ATCMD_NOCONSOLE | ATCMD_NOAUTOTRADE),
+ACMD_DEFR(upgradeui, ATCMD_NOCONSOLE | ATCMD_NOAUTOTRADE),

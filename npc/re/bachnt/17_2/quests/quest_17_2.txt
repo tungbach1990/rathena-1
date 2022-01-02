@@ -10464,6 +10464,7 @@ ba_maison,311,206,3	script	Luina#greeen	4_EP17_BASKET,{
 									}
 							}
 						case 1:
+							erasequest 8588;
 							end;
 					}
 				case 0:
@@ -10700,7 +10701,7 @@ ba_in01,87,380,3	script	Yecheon#ep172module_trader	4_EP17_CLEANER_W,{
 	
 OnInit:
 	setarray .physical,100164,50,100165,30,100166,20;
-	setarray .magical,100167,50,100167,30,100167,20;
+	setarray .magical,100167,50,100168,30,100169,20;
 	for(.@i = 0; .@i < getarraysize(.physical); .@i += 2){
 		for(.@x = 0; .@x < .physical[.@i+1]; .@x++){
 			.p_rand[getarraysize(.p_rand)] = .physical[.@i];

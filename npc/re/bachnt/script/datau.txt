@@ -20,8 +20,8 @@ prontera,144,174,5	script	Racing Cap Hat	4_M_RACHOLD1,{
         callshop "GoldCoinShop2";
 end;
 OnInit:
-        npcshopitem "GoldCoinShop2","19195:99:10000000","7929:0:300";
-        bartershopadditem "GoldCoinShop2","19196:99:10000000","7929:0:300";
+    npcshopitem "GoldCoinShop2","19195:99:10000000","7929:0:300";
+    bartershopadditem "GoldCoinShop2","19196:99:10000000","7929:0:300";
 	bartershopadditem "GoldCoinShop2","19197:99:10000000","7929:0:300";
 	bartershopadditem "GoldCoinShop2","19189:99:10000000","7929:0:300";
 	bartershopadditem "GoldCoinShop2","19190:99:10000000","7929:0:300";	
@@ -114,9 +114,8 @@ OnInit:
 	bartershopadditem "DragonShop","22208:99:1000000","1035:0:30","1036:0:60","1037:0:40","25765:0:1","25766:0:8","5452:0:1";
 	end;
 }
-/*
 
-prontera,155,174,5	script	DaÞ TâÒu	4_M_RACHOLD1,{
+prontera,147,156,5	script	DaÞ TâÒu	4_M_RACHOLD1,{
 
 	mes "[^995050 DaÞ TâÒu ^000000]";
 	mes "Ta laÌ DaÞ TâÒu"; 
@@ -455,7 +454,7 @@ OnCompleteDT:
                      
 			}
 		}
-/* 
+
 		switch (.@countcomplete) {
 		Case 5:
 			announce "Chuìc mýÌng ðaòo hýÞu " + strcharinfo(0) + " ðaÞ hoaÌn thaÌnh nhiêòm vuò DaÞ tâÒu 5 lâÌn liên tiêìp, thýõÒng  "+ .rewardtimes[1]+"x" + getitemname(.rewardtimes[0]),bc_all,"0xFFCE00";
@@ -491,8 +490,8 @@ OnCompleteDT:
 			break;
 	}
 
-*/ 
-/*
+
+
 		.@reward = 1;
 		.@reward$ = "Zeny ";
 	}
@@ -653,14 +652,11 @@ end;
 }
 	if (getcharid(1) == 0 && @nhannvu == 1){
 		//query_sql( "SELECT mobname,id,progress,questtype FROM `datau_doing` WHERE `name` = '" + strcharinfo(0) + "' AND `complete` = 0 AND `questtype` = 'm'",.@mobname$,.@qid,.@progress,.@qt$ );
-		/*
 		if ((.@qt$ == "m") && compare(strtolower(getmonsterinfo(killedrid, MOB_NAME)),strtolower(.@mobname$))) {
                 	.@progress = .@progress + 1;
                 	dispbottom "Baòn ðaÞ giêìt ðýõòc " + .@progress + " Quaìi vâòt coì " + .@mobname$ + " trong tên";
                 	query_sql( "UPDATE `datau_doing` SET `progress`="+.@progress +" WHERE `id`= '" + .@qid +"'" );
         	}
-		*/
-/*
 		if ((@id != killedgid) && compare(strtolower(getmonsterinfo(killedrid, MOB_NAME)),strtolower(@tenquai$))){
 			
 			@tinhtrang = @tinhtrang + 1;
@@ -680,18 +676,15 @@ end;
 		if ( isloggedin( .@raid[.@i], .@rcid[.@i] ) == 1 ) {
 			attachrid(.@raid[.@i]);
 
-/*
 			query_sql( "SELECT mobname,id,progress,questtype FROM `datau_doing` WHERE `name` = '" + strcharinfo(0) + "' AND `complete` = 0 AND `questtype` = 'm'",.@mobname$,.@qid,.@progress,.@qt$ );
                 	if ((.@qt$ == "m") && compare(.killmobname$,strtolower(.@mobname$))) {
                         	.@progressn = .@progress + 1;
                         	dispbottom "Baòn ðaÞ giêìt ðýõòc " + .@progressn + " Quaìi vâòt coì " + .@mobname$ + " trong tên";
                   	      	query_sql( "UPDATE `datau_doing` SET `progress`="+.@progressn +" WHERE `id`= '" + .@qid +"'" );
                 	} 
-*/
 			//dispbottom "Party baòn ðaÞ giêìt ðýõòc " + @tinhtrang + "/" + @soluong + " Quaìi vâòt coì " + @tenquai$ + " trong tên";
 			//break;
 			//end;
-/*
 			if ((@nhannvu == 1) && (@id != .newkillgedid) && compare(.killmobname$,strtolower(@tenquai$))){
 	                        @tinhtrang = @tinhtrang + 1;
                         	dispbottom "Party baòn ðaÞ giêìt ðýõòc " + @tinhtrang + "/" + @soluong + " Quaìi vâòt coì " + @tenquai$ + " trong tên";
@@ -935,7 +928,6 @@ OnInit:
 	
 	end;
 }
-*/
 
 payon,166,110,5	duplicate(DaÞ TâÒu)	DaÞ TâÒu#1	4_M_RACHOLD1
 morocc,149,97,5	duplicate(DaÞ TâÒu)	DaÞ TâÒu#2	4_M_RACHOLD1

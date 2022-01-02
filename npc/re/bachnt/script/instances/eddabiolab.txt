@@ -175,14 +175,14 @@ OnSetMapFlag:
 		setmapflag instance_mapname("1@gol2"),mf_droprate150,1;
 		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-25;
 	} else if (.@md_name$ == .instances_name4$){
-		setmapflag instance_mapname("1@gol1"),mf_droprate200,1;
+		setmapflag instance_mapname("1@gol1"),mf_droprate175,1;
 		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-50;
-		setmapflag instance_mapname("1@gol2"),mf_droprate200,1;
+		setmapflag instance_mapname("1@gol2"),mf_droprate175,1;
 		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-50;
 	} else if (.@md_name$ == .instances_name5$){
-		setmapflag instance_mapname("1@gol1"),mf_droprate300,1;
+		setmapflag instance_mapname("1@gol1"),mf_droprate200,1;
 		setmapflag instance_mapname("1@gol1"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-90;
-		setmapflag instance_mapname("1@gol2"),mf_droprate300,1;
+		setmapflag instance_mapname("1@gol2"),mf_droprate200,1;
 		setmapflag instance_mapname("1@gol2"),MF_SKILL_DAMAGE,BL_PC,SKILLDMG_MOB,-90;
 		
 	}
@@ -481,7 +481,7 @@ end;
 	.@num2 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv7Dead" );
 	.@num3 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv8Dead" );
 	.@num4 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv9Dead" );
-	if ((getvariableofinstance('doneTR,instance_id()) + getvariableofinstance('doneBL,instance_id()) + getvariableofinstance('doneTL,instance_id()) + getvariableofinstance('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
+	if ((getinstancevar('doneTR,instance_id()) + getinstancevar('doneBL,instance_id()) + getinstancevar('doneTL,instance_id()) + getinstancevar('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
 		warp 'mapname$,168,108;
 	}
 end;
@@ -584,7 +584,7 @@ Onlv6Dead:
 	.@num2 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv7Dead" );
 	.@num3 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv8Dead" );
 	.@num4 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv9Dead" );
-	if ((getvariableofinstance('doneTR,instance_id()) + getvariableofinstance('doneBL,instance_id()) + getvariableofinstance('doneTL,instance_id()) + getvariableofinstance('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
+	if ((getinstancevar('doneTR,instance_id()) + getinstancevar('doneBL,instance_id()) + getinstancevar('doneTL,instance_id()) + getinstancevar('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
 		warpparty 'mapname$,168,108,.@party_id;
 	}
 end;
@@ -743,7 +743,7 @@ Onlv7Dead:
 	.@num2 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv7Dead" );
 	.@num3 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv8Dead" );
 	.@num4 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv9Dead" );
-	if ((getvariableofinstance('doneTR,instance_id()) + getvariableofinstance('doneBL,instance_id()) + getvariableofinstance('doneTL,instance_id()) + getvariableofinstance('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
+	if ((getinstancevar('doneTR,instance_id()) + getinstancevar('doneBL,instance_id()) + getinstancevar('doneTL,instance_id()) + getinstancevar('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
 		warpparty 'mapname$,168,108,.@party_id;
 	}
 end;
@@ -878,7 +878,7 @@ Onlv8Dead:
 	.@num2 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv7Dead" );
 	.@num3 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv8Dead" );
 	.@num4 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv9Dead" );
-	if ((getvariableofinstance('doneTR,instance_id()) + getvariableofinstance('doneBL,instance_id()) + getvariableofinstance('doneTL,instance_id()) + getvariableofinstance('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
+	if ((getinstancevar('doneTR,instance_id()) + getinstancevar('doneBL,instance_id()) + getinstancevar('doneTL,instance_id()) + getinstancevar('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
 		warpparty 'mapname$,168,108,.@party_id;
 	}
 end;
@@ -1038,7 +1038,7 @@ Onlv9Dead:
 	.@num2 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv7Dead" );
 	.@num3 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv8Dead" );
 	.@num4 = mobcount('mapname$,instance_npcname( strnpcinfo(0), instance_id() )+"::Onlv9Dead" );
-	if ((getvariableofinstance('doneTR,instance_id()) + getvariableofinstance('doneBL,instance_id()) + getvariableofinstance('doneTL,instance_id()) + getvariableofinstance('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
+	if ((getinstancevar('doneTR,instance_id()) + getinstancevar('doneBL,instance_id()) + getinstancevar('doneTL,instance_id()) + getinstancevar('doneBR,instance_id()) == 4) && (.@num1 + .@num2 + .@num3 + .@num4 == 0)) {
 		warpparty 'mapname$,168,108,.@party_id;
 	}
 end;
@@ -1223,7 +1223,7 @@ OnTouch_:
 	mes "I locked her in this room";
 	mes "Help her";
 	if (is_party_leader() == true) {
-	if (getvariableofinstance('openboss,instance_id()) == 1) {
+	if (getinstancevar('openboss,instance_id()) == 1) {
 		hideonnpc instance_npcname("BossBlock#1",instance_id());
 		/*
 		setcell 'mapname2$,50,44,50,44,cell_walkable,0; // Left To Right
@@ -1265,7 +1265,7 @@ end;
 
 1@gol2,52,67,4	script	Sierra#Boss2	4_F_SCIENCE,{
 	mes "[Sierra]";	
-	if (getvariableofinstance('openboss,instance_id()) == 1) {
+	if (getinstancevar('openboss,instance_id()) == 1) {
 	    if (is_party_leader() == true) {
 		mes "Hmm maybe we cant calm her down";
 		next;
@@ -1275,7 +1275,7 @@ end;
 		hideoffnpc instance_npcname("BossBlock#1",instance_id());
 		setwall 'mapname2$,52,44,4,2,0,"BlockBoss";
 		areamonster 'mapname2$,49,66,49,66,"Nameless Swordsman",20536,1,strnpcinfo(3) + "::OnBossDead"; 
-		set getvariableofinstance('openboss,instance_id()),0;
+		set getinstancevar('openboss,instance_id()),0;
 		hideonnpc instance_npcname(strnpcinfo(0));
 		initnpctimer;
 		 setcell 'mapname2$,50,44,50,44,cell_walkable,0; // Left To Right

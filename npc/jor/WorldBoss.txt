@@ -1,0 +1,12 @@
+guild_vs4,50,55,4	script	Test#WBMap	624,{
+	npcskilleffect 21,10,47,52;
+	end;
+}
+prontera,167,190,4	script	WorldBoss Entrance	624,{
+	set .@c, rand(0,3);
+	warp "guild_vs4",.CorMap[.@c*2],.CorMap[.@c*2 + 1];
+	end;
+OnInit:
+	setarray .CorMap[0],50,8,8,50,90,50,50,90;
+	end;
+}

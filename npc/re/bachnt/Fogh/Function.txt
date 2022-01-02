@@ -63,12 +63,12 @@ function	script	set_instance_var	{
 
 //= getd_instance_var(<VAR>); (For non-instance NPC)
 function	script	getd_instance_var	{
-	return getvariableofinstance("'" + getarg(0), getarg(1));
+	return getinstancevar("'" + getarg(0), getarg(1));
 }
 
 //= setd_instance_var(<VAR>,<VALUE>); (For non-instance NPC)
 function	script	setd_instance_var	{
-	set getvariableofinstance("'" + getarg(0), getarg(2)), getarg(1);
+	set getinstancevar("'" + getarg(0), getarg(2)), getarg(1);
 	return;
 }
 

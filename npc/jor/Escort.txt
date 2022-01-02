@@ -1,0 +1,5 @@
+prontera,164,156,4	script	Escort System	911,{
+	mes "Start";
+	showscript "Nice!!!";
+	end;
+}

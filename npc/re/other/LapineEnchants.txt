@@ -2466,11 +2466,13 @@ function	script	F_Lapine_Ein_Ddbox	{
 //! TODO
 function	script	F_Lapine_Ein_Ddbox2	{
 	setarray .@randomopt[0],
-                                RDMOPT_VAR_MATTPOWER,5,45,
+                                RDMOPT_VAR_ATTMPOWER,5,45,
                                 RDMOPT_VAR_MAGICATKPERCENT,1,10;
+	//message "test123",getarraysize(.@randomopt)/3;
         .@r = rand(getarraysize(.@randomopt)/3);
         .@option = .@randomopt[.@r*3];
         .@value = .@randomopt[rand(.@r*3+1,.@r*3+2)];
+	//message "test123",.@r + " " + .@option + " " + .@value; 
         set getarg(0), .@option;
         set getarg(1), .@value;	
 
@@ -2480,7 +2482,7 @@ function	script	F_Lapine_Ein_Ddbox2	{
 				RDMOPT_MDAMAGE_PROPERTY_NOTHING_TARGET,3,20,
 				RDMOPT_MDAMAGE_PROPERTY_WATER_TARGET,3,20,
 				RDMOPT_MDAMAGE_PROPERTY_FIRE_TARGET,3,20,
-				RDMOPT_MDAMAGE_PROPERTY_EARTH_TARGET,3,20,
+				RDMOPT_MDAMAGE_PROPERTY_GROUND_TARGET,3,20,
 				RDMOPT_MDAMAGE_PROPERTY_WIND_TARGET,3,20,
 				RDMOPT_MDAMAGE_PROPERTY_POISON_TARGET,3,20,
 				RDMOPT_MDAMAGE_PROPERTY_SAINT_TARGET,3,20,
@@ -2495,6 +2497,8 @@ function	script	F_Lapine_Ein_Ddbox2	{
         set getarg(2), .@option;
         set getarg(3), .@value;
 
+	//message "GameMaster",.@r + " " + .@option + " " + .@value;
+
 
 	setarray .@randomopt[0],
                         	RDMOPT_RACE_MDAMAGE_NOTHING,3,20,
@@ -2507,8 +2511,8 @@ function	script	F_Lapine_Ein_Ddbox2	{
 				RDMOPT_RACE_MDAMAGE_ANGEL,3,20,
 				RDMOPT_RACE_MDAMAGE_DEVIL,3,20,
 				RDMOPT_RACE_MDAMAGE_DRAGON,3,20,
-				RDMOPT_CLASS_MDAMAGE_NORMAL_TARGET,3,18,
-				RDMOPT_CLASS_MDAMAGE_BOSS_TARGET,3,18,
+				RDMOPT_CLASS_MDAMAGE_NORMAL,3,18,
+				RDMOPT_CLASS_MDAMAGE_BOSS,3,18,
 				RDMOPT_RACE_IGNORE_MDEF_PERCENT_NOTHING,3,25,
 				RDMOPT_RACE_IGNORE_MDEF_PERCENT_UNDEAD,3,25,
 				RDMOPT_RACE_IGNORE_MDEF_PERCENT_ANIMAL,3,25,
@@ -2527,6 +2531,7 @@ function	script	F_Lapine_Ein_Ddbox2	{
         .@value = .@randomopt[rand(.@r*3+1,.@r*3+2)];
         set getarg(4), .@option;
         set getarg(5), .@value;
+	//message "GameMaster",.@r + " " + .@option + " " + .@value;
 	return;
 /*
 

@@ -91,14 +91,14 @@ function	script	setd_instance_var	{
 	.@var_name$ = getarg(0);
 	.@var = getarg(1);
 	.@id = getarg(2);
-	set getvariableofinstance("'" + .@var_name$, .@id), .@var;
+	set getinstancevar("'" + .@var_name$, .@id), .@var;
 	return;
 }
 
 function	script	getd_instance_var	{
 	.@var_name$ = getarg(0);
 	.@id = getarg(1);
-	return getvariableofinstance("'" + .@var_name$, .@id);
+	return getinstancevar("'" + .@var_name$, .@id);
 }
 
 -	script	dummynpc2	-1,{ end; }

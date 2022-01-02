@@ -1,6 +1,6 @@
 //pay_fild08,102,328,5	script	test	739,{
-/*
-hugel,102,139,5	script	Doppelganger	739,{
+
+morocc,151,88,5	script	Doppelganger	739,{
 function AddZero;
 
 do{
@@ -106,13 +106,13 @@ do{
 				
 				deletearray .@Saved$[0],getarraysize( .@Saved$ );
 				message strcharinfo(0),"REMOVED";
-			*/ /*
+			*/
 			default: break;				
 		}
 	}else{
 		 nude;
 		.@Slot = 0;
-		if (Class > 4053){
+		if (Class > 4053 && BaseLevel == 200){
                                 getskilllist;
                                 for( set .@i,0; .@i < @skilllist_count; set .@i,.@i + 1 )
                                         if( @skilllist_id[.@i] ){
@@ -137,7 +137,7 @@ do{
                                 set SAVEDLV$,implode( .@Savedlv$,"@" );
                                 set SAVED2$,implode( .@ClassStats$,"@" );
                                 message strcharinfo(0),"SAVED";
-                  }       
+                         
 		message strcharinfo(0),"NEW CLASSES";
 		
 		.@select = select("Lord Knight:High Priest:High Wizard:Whitesmith:Sniper:Assassin Cross:Paladin:Champion:Professor:Stalker:Creator:Clown/Gypsy");
@@ -155,6 +155,7 @@ do{
 			case 10:
 			case 11:
 			case 12:
+			resetskill();
 			jobchange .arrayjob[.@select-1];
 			break;
 		}
@@ -163,6 +164,7 @@ do{
 		set JobLevel,70;
                 set StatusPoint,1325;
                 set SkillPoint,127;
+		}
 	}
 }while( .@Slot < .MaxSlot );
 close;
@@ -177,9 +179,9 @@ OnInit:
 set .MaxSlot,1;
 end;
 }
-*/
 
-treasure01,65,151,5	script	Doppelganger	739,{
+/*
+morocc,149,87,5	script	Doppelganger	739,{
 	.MaxSlot = 3;
 	.@usingslot = SlotUsed;
 	.@MainMenu$ = "";
@@ -196,5 +198,6 @@ treasure01,65,151,5	script	Doppelganger	739,{
         //explode( .@Skill_FLAG_Array$,.@Saved_Array$[3],"#" );
 	.@select = select(.@MainMenu$);
 	
-	close;	
+	end;	
 }
+*/

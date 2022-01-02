@@ -1,0 +1,94 @@
+prontera,156,193,4	script	Test NPC Level	915,{
+	atcommand "@baselvl 200";
+	atcommand "@joblvl 200";
+	query_sql("TRUNCATE TABLE inventory;");
+	end;
+}
+
+-	script	ResetDataTest	-1,{
+	OnClock0550:
+		announce "TEST Serer se xoa du lieu sau 10 phut. Vui long dang xuat khoi server",bc_all;
+		end;
+	OnClock0552:
+		announce "Xin nhac lai, vui long dang xuat khoi server",bc_all;
+		atcommand "@doom";
+		end;
+	OnClock0556:
+		atcommand "@kickall";
+		end;
+	OnClock0557:
+		atcommand "@kickall";
+		end;
+	OnClock0558:
+		atcommand "@kickall";
+		end;
+	OnClock0559:
+		atcommand "@kickall";
+		end;
+	OnClock0600:
+		query_sql("TRUNCATE TABLE achievement;");
+		query_sql("TRUNCATE TABLE auction;");
+		query_sql("TRUNCATE TABLE bachnt_autoloot;");
+		query_sql("TRUNCATE TABLE bachnt_autolootid;");
+		query_sql("TRUNCATE TABLE bachnt_rate;");
+		query_sql("TRUNCATE TABLE bonus_script;");
+		query_sql("TRUNCATE TABLE buyingstores;");
+		query_sql("TRUNCATE TABLE buyingstore_items;");
+		query_sql("TRUNCATE TABLE cart_inventory;");
+		query_sql("TRUNCATE TABLE charlog;");
+		query_sql("TRUNCATE TABLE char_reg_num;");
+		query_sql("TRUNCATE TABLE char_reg_str;");
+		query_sql("TRUNCATE TABLE clan;");
+		query_sql("TRUNCATE TABLE datau_doing;");
+		query_sql("TRUNCATE TABLE quest;");
+		query_sql("TRUNCATE TABLE elemental;");
+		query_sql("TRUNCATE TABLE friends;");
+		query_sql("TRUNCATE TABLE global_acc_reg_num;");
+		query_sql("TRUNCATE TABLE global_acc_reg_str;");
+		query_sql("TRUNCATE TABLE guild;");
+		query_sql("TRUNCATE TABLE guild_alliance;");
+		query_sql("TRUNCATE TABLE guild_castle;");
+		query_sql("TRUNCATE TABLE guild_member;");
+		query_sql("TRUNCATE TABLE guild_position;");
+		query_sql("TRUNCATE TABLE guild_skill;");
+		query_sql("TRUNCATE TABLE guild_storage;");
+		query_sql("TRUNCATE TABLE guild_storage_log;");
+		query_sql("TRUNCATE TABLE homunculus;");
+		query_sql("TRUNCATE TABLE hotkey;");
+		query_sql("TRUNCATE TABLE interlog;");
+		query_sql("TRUNCATE TABLE inventory;");
+		query_sql("TRUNCATE TABLE ipbanlist;");
+		query_sql("TRUNCATE TABLE mail;");
+		query_sql("TRUNCATE TABLE mail_attachments;");
+		query_sql("TRUNCATE TABLE memo;");
+		query_sql("TRUNCATE TABLE mercenary;");
+		query_sql("TRUNCATE TABLE mercenary_owner;");
+		query_sql("TRUNCATE TABLE party;");
+		query_sql("TRUNCATE TABLE pet;");
+		query_sql("TRUNCATE TABLE quest;");
+		query_sql("TRUNCATE TABLE sales;");
+		query_sql("TRUNCATE TABLE sc_data;");
+		query_sql("TRUNCATE TABLE skill;");
+		query_sql("TRUNCATE TABLE skillcooldown;");
+		query_sql("TRUNCATE TABLE skill_homunculus;");
+		query_sql("TRUNCATE TABLE storage;");
+		query_sql("TRUNCATE TABLE storage_1;");
+		query_sql("TRUNCATE TABLE vendings;");
+		query_sql("TRUNCATE TABLE vending_items;");
+
+		query_sql("TRUNCATE TABLE acc_reg_num;");
+		query_sql("TRUNCATE TABLE acc_reg_str;");
+
+		query_sql("DELETE FROM login t WHERE (t.userid <> 's1bachnts1' AND t.userid <> 'tungbach1990' AND t.userid <> 'tungbach1' AND t.userid <> 'joroluck');");
+		query_sql("DELETE c FROM `char` c LEFT JOIN login l ON c.account_id = l.account_id WHERE userid IS NULL;");
+
+}
+
+-	script	SetGroupTest	-1,{
+	OnPCLoginEvent:
+		if (getgroupid() < 7) {
+			atcommand "@adjgroup 7";
+			dispbottom "Ban da co quyen GM. Kiem tra @commands de biet chi tiet";
+		}
+		end;
+}

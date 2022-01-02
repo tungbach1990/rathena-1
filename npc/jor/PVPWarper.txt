@@ -1,0 +1,18 @@
+prontera,165,197,4	script	PVP Warper	615,{
+	sc_end SC_ALL;
+	warp "guild_vs1",0,0;
+	end;
+}
+
+//guild_vs1	mapflag	gvg	off
+guild_vs1	mapflag	nobranch
+guild_vs1	mapflag	nocommand	5
+guild_vs1	mapflag	pvp
+guild_vs1	mapflag	pvp_noparty
+guild_vs1	mapflag	pvp_noguild
+guild_vs1	mapflag	pvp_nocalcrank
+guild_vs1	mapflag	noteleport
+guild_vs1	mapflag	nosave
+guild_vs1	mapflag	novending
+guild_vs1	mapflag	nowarp
+guild_vs1	mapflag	nowarpto

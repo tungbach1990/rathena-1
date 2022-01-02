@@ -1,0 +1,27 @@
+/* Kiem tra IP theo key, day */
+function	script	CheckAccountIP	{
+	//getcharip({"<character name>"|<account id>|<char id>})
+	//return getarg(0)+getarg(1);
+}
+
+prontera,162,187,4	script	TestIP	914,{
+	#SarahIP$ = getcharip();
+	.SarahIPLast = getvar(#SarahIP,getcharid(0));
+	#SarahIP = gettimetick(2);
+	mes "Your IP: "+getcharip();
+	mes "Timetick: "+#SarahIP;
+	set .tick,#SarahIP - .SarahIPLast;
+	set .time,.tick;
+	mes "Time elap: "+.time;
+	end;
+}
+
+prontera,164,187,4	script	TestIP2	914,{
+	set .x$,getvar(#SarahIP$,getcharid(0));
+	set .y$,getvar(#SarahIP,getcharid(0));
+	mes "Check: ";
+	mes .x$;
+	mes .y$;
+	mes gettimestr("%Y-%m-%d %H:%M:%S",21,.y$);
+	end;
+}

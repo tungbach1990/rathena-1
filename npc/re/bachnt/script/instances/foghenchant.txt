@@ -136,7 +136,7 @@ prontera,139,181,5	script	OSC1127	2_SLOT_MACHINE,{
                                         }
 					
                                         if (.itemslot[1] == 0){
-						if (rand(1,100) > 30){
+						if (rand(1,100) <= 70){
                                                 .@enchant_id = .enchant_acc_2nd[rand(getarraysize(.enchant_acc_2nd))];
                                            	 getitem2(.@item_id,1,1,.@equip_refine,0,.itemslot[0],.@enchant_id,.itemslot[2],.itemslot[3]);
 						} else specialeffect EF_SUI_EXPLOSION;

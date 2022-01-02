@@ -15,6 +15,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
+###########################################################################
+# Arrow Crafting Database
+###########################################################################
+#
+# Arrow Crafting Settings
+#
+###########################################################################
+# - Source              AegisName of the item that is consumed.
+#   Make:               List of item(s) received by the player.
+#     - Item            AegisName of the item received.
+#       Amount          Amount of Item received. (Use 0 to remove the Item on import)
+###########################################################################
+
 Header:
   Type: CREATE_ARROW_DB
   Version: 1
@@ -730,3 +743,7 @@ Body:
         Amount: 10
       - Item: Rusty_Arrow
         Amount: 50
+
+Footer:
+  Imports:
+  - Path: db/import/create_arrow_db.yml

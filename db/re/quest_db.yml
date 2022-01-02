@@ -42,7 +42,9 @@
 #       Element     Monster element target (default All). Valid elements are Dark, Earth, Fire, Ghost, Holy, Neutral, Poison, Undead, Water, Wind, All.
 #       MinLevel    Minimum monster level target. If not supplied but MaxLevel defined, MinLevel is 1. Set to 0 to ignore MinLevel on import. (Default: 0)
 #       MaxLevel    Maximum monster level target. Set to 0 to ignore MaxLevel on import. (Default: 0)
-#       Location    Name of hunting location from mapindex. (Default any location)
+#       Location    Map name where kills are counted. (Default any location)
+#                   On normal maps only kills of permanently spawned monsters increase the counter.
+#                   On instance maps all monster kills increase the counter.
 #       MapName     Displayed map name in quest UI. (Default: empty string)
 #   Drops:          Quest item drop targets. (Default: null)
 #     - Mob         Monster to kill. 0 will apply to all monsters. (Default: 0)
@@ -4068,6 +4070,15 @@ Body:
         Count: 3
       - Mob: MM_MANA_YELLOW
         Count: 3
+  - Id: 7596
+    Title: Qualifications of the Guests
+    Drops:
+      - Mob: MM_GB_MOROCC_1
+        Item: Heart_of_Soul
+        Rate: 10000
+      - Mob: MM_GB_MOROCC_4
+        Item: Sheenas_Soul
+        Rate: 10000
   - Id: 7597
     Title: Fall of the False God
   - Id: 7598
@@ -4079,6 +4090,23 @@ Body:
   - Id: 7600
     Title: Promising Tomorrow
     TimeLimit: +23h
+  - Id: 7601
+    Title: Temple of the Demon God Phase 1
+    Targets:
+      - Mob: MM_BRINARANEA
+        Count: 1
+  - Id: 7602
+    Title: Temple of the Demon God Phase 1 Completed
+  - Id: 7603
+    Title: Temple of the Demon God Phase 2
+    Targets:
+      - Mob: MM_MUSPELLSKOLL
+        Count: 1
+  - Id: 7604
+    Title: Temple of the Demon God Phase 2 Completed
+  - Id: 7605
+    Title: Guardian's Blessing
+    TimeLimit: +3h
   - Id: 7606
     Title: Phantasmagorika Excavator Recruitment
   - Id: 7607
@@ -7291,7 +7319,7 @@ Body:
     Title: Meeting Hugin
   - Id: 12317
     Title: Trace of Time Travel
-    TimeLimit: +16h
+    TimeLimit: +23h
   - Id: 12318
     Title: Corrupted Soul Hunt
     Targets:
@@ -7310,36 +7338,28 @@ Body:
     Title: Space Distortion
   - Id: 12325
     Title: Faceworm's Nest after-effects
-    TimeLimit: +16h
+    TimeLimit: +23h
   - Id: 12326
     Title: The owner of old ring
-    TimeLimit: +16h
+    TimeLimit: +1d
   - Id: 12327
     Title: The memory of old photo album
-    TimeLimit: +16h
+    TimeLimit: +1d
   - Id: 12328
     Title: Dol-Seoi's Sorrow
-    TimeLimit: +16h
+    TimeLimit: +1d
   - Id: 12329
     Title: Keaton's Bracelet
-    TimeLimit: +16h
+    TimeLimit: +1d
   - Id: 12330
     Title: Skull-faced Girl
   - Id: 12331
     Title: Trail of Toy Factory
-    TimeLimit: +16h
-  - Id: 12332
-    Title: Unknown Quest
-  - Id: 12333
-    Title: Unknown Quest
+    TimeLimit: +23h
   - Id: 12334
     Title: Trace of Time Travel
-    TimeLimit: +16h
+    TimeLimit: +23h
   - Id: 12335
-    Title: Unknown Quest
-  - Id: 12336
-    Title: Unknown Quest
-  - Id: 12337
     Title: Space Distortion
   - Id: 12338
     Title: Time Traveler
@@ -7367,7 +7387,7 @@ Body:
     Title: Strange Ancient Science
   - Id: 12347
     Title: Trace of Laboratory Access
-    TimeLimit: +16h
+    TimeLimit: +23h
   - Id: 12363
     Title: ?????? ?? ??
   - Id: 12368
@@ -9912,5 +9932,3 @@ Body:
   - Id: 62238
     Title: Midgardian Mercenary timer
     TimeLimit: +1h
-
-

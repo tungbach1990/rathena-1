@@ -197,6 +197,7 @@
     <ClCompile Include="int_pet.cpp" />
     <ClCompile Include="int_quest.cpp" />
     <ClCompile Include="int_storage.cpp" />
+	<ClInclude Include="packets.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

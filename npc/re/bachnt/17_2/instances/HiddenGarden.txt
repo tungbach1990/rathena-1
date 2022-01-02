@@ -36,7 +36,7 @@ ba_maison,120,321,5	script	#ep172_garden_rep	20698,3,3,{
 				
 			case 2:
 				instance_create(.@md_name$);
-				set getvariableofinstance('type, instance_id(IM_PARTY)),1;
+				set getinstancevar('type, instance_id(IM_PARTY)),1;
 				end;
 				
 			case 3:
@@ -108,7 +108,7 @@ ba_maison,120,321,5	script	#ep172_garden_rep	20698,3,3,{
 				end;
 			}
 			instance_create(.@md_name$);
-			set getvariableofinstance('type, instance_id(IM_PARTY)),.@type;
+			set getinstancevar('type, instance_id(IM_PARTY)),.@type;
 			end;
 			
 		case 3:

@@ -12,10 +12,10 @@
 #include "../custom/defines_pre.hpp"
 
 /// Max number of items on @autolootid list
-#define AUTOLOOTITEM_SIZE 20
+#define AUTOLOOTITEM_SIZE 20 // FreeRO Modified
 
 /// The maximum number of atcommand and @warp suggestions
-#define MAX_SUGGESTIONS 20
+#define MAX_SUGGESTIONS 20 // FreeRO Modified
 
 /// Comment to disable the official walk path
 /// The official walkpath disables users from taking non-clear walk paths,
@@ -43,7 +43,7 @@
 /// Uncomment to enable real-time server stats (in and out data and ram usage).
 //#define SHOW_SERVER_STATS
 
-/// Uncomment to enable the job base HP/SP table (job_basehpsp_db.txt)
+/// Comment to disable the job base HP/SP/AP table (job_basepoints.yml)
 #define HP_SP_TABLES
 
 /// Uncomment to enable VIP system.

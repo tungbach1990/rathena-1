@@ -234,7 +234,7 @@ yuno,332,108,3	duplicate(idRO_rental)	Rental Shop#yun-2	874
 // Center
 morocc,154,97,3	duplicate(idRO_kafra)	Kafra Shop#moc-1	721
 morocc,153,97,3	duplicate(idRO_kafra2)	Kafra Shop 2#moc-1	80
-morocc,151,97,3	duplicate(idRO_rental)	Rental Shop#moc-1	874
+//morocc,151,97,3	duplicate(idRO_rental)	Rental Shop#moc-1	874
 
 // Top
 morocc,163,258,3	duplicate(idRO_kafra)	Kafra Shop#moc-2	721

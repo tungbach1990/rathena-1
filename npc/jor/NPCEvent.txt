@@ -1,0 +1,54 @@
+-	script	FloatingRates	-1,{
+
+OnInit:
+	end;
+	
+//add any other HOURS
+OnMinute00:
+OnMinute10:
+OnMinute20:
+OnMinute30:
+OnMinute40:
+OnMinute50:
+//-------------------
+	set $@brate,rand(100,150);
+	set $@jrate,rand(100,150);
+	set $@drate,rand(100,150);
+	//Base exp
+	setbattleflag("base_exp_rate",$@brate);
+	//Job exp
+	setbattleflag("job_exp_rate",$@jrate);
+	//Drops
+	setbattleflag("item_rate_common",$@drate);
+	setbattleflag("item_rate_heal",$@drate);
+	setbattleflag("item_rate_use",$@drate);
+	setbattleflag("item_rate_equip",$@drate,true); // Apply new rates to configs set above
+	//we don't change card drops rate, because these values won't change them anyway
+	
+	announce "Current rates are: BExp: 1."+($@brate-100)+"x - JExp: 1."+($@jrate-100)+"x - DropRate: 1."+($@drate-100)+"x",bc_all,0xFF6060;
+	end;
+	
+OnMinute05:
+OnMinute15:
+OnMinute25:
+OnMinute35:
+OnMinute45:
+OnMinute55:
+//-------------------
+	set $@brate,100;
+	set $@jrate,100;
+	set $@drate,100;
+	//Base exp
+	setbattleflag("base_exp_rate",$@brate);
+	//Job exp
+	setbattleflag("job_exp_rate",$@jrate);
+	//Drops
+	setbattleflag("item_rate_common",$@drate);
+	setbattleflag("item_rate_heal",$@drate);
+	setbattleflag("item_rate_use",$@drate);
+	setbattleflag("item_rate_equip",$@drate,true); // Apply new rates to configs set above
+	//we don't change card drops rate, because these values won't change them anyway
+	
+	announce "Current rates are: BExp: 1."+($@brate-100)+"x - JExp: 1."+($@jrate-100)+"x - DropRate: 1."+($@drate-100)+"x",bc_all,0xFF6060;
+	end;
+}

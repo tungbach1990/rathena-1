@@ -41,8 +41,8 @@ struct party_booking_ad_info;
 struct sale_item_data;
 struct mail_message;
 struct achievement;
-struct s_item_synthesis_list;
-struct s_item_upgrade_list;
+struct s_item_synthesis_list;		// FreeRO Modified - bachnt
+struct s_item_upgrade_list;			// FreeRO Modified - bachnt
 struct guild_log_entry;
 enum e_guild_storage_log : uint16;
 enum e_bg_queue_apply_ack : uint16;
@@ -71,10 +71,10 @@ enum e_packet_ack : uint8_t{
 	ZC_MERGE_ITEM_OPEN,
 	ZC_ACK_MERGE_ITEM,
 	ZC_BROADCASTING_SPECIAL_ITEM_OBTAIN,
-	ZC_LAPINE_SYNTHESIS_OPEN,
-	ZC_LAPINE_SYNTHESIS_RESULT,
-	ZC_LAPINE_UPGRADE_OPEN,
-	ZC_LAPINE_UPGRADE_RESULT,
+	ZC_LAPINE_SYNTHESIS_OPEN,							// FreeRO Modified - bachnt
+	ZC_LAPINE_SYNTHESIS_RESULT,						// FreeRO Modified - bachnt
+	ZC_LAPINE_UPGRADE_OPEN,								// FreeRO Modified - bachnt
+	ZC_LAPINE_UPGRADE_RESULT,							// FreeRO Modified - bachnt
 	//add other here
 	MAX_ACK_FUNC //auto upd len
 };
@@ -499,7 +499,8 @@ enum useskill_fail_cause : uint8_t
 	USESKILL_FAIL_THERE_ARE_NPC_AROUND = 83,
 	USESKILL_FAIL_NEED_MORE_BULLET = 84,
 	USESKILL_FAIL_COINS = 85,
-
+	// 86-99 unknown
+	USESKILL_FAIL_AP_INSUFFICIENT = 100,
 	USESKILL_FAIL_MAX
 };
 
@@ -740,10 +741,14 @@ void clif_getareachar_skillunit(struct block_list *bl, struct skill_unit *unit, 
 void clif_skill_delunit(struct skill_unit *unit);
 void clif_skillunit_update(struct block_list* bl);
 
+void clif_skill_unit_test(struct block_list *bl, short x, short y, int unit_id, short range, short skill_lv);
+
 void clif_autospell(struct map_session_data *sd,uint16 skill_lv);
 void clif_devotion(struct block_list *src, struct map_session_data *tsd);
 void clif_spiritball( struct block_list *bl, struct block_list* target = nullptr, enum send_target send_target = AREA );
 void clif_soulball( struct map_session_data *sd, struct block_list* target = nullptr, enum send_target send_target = AREA );
+void clif_servantball( struct map_session_data& sd, struct block_list* target = nullptr, enum send_target send_target = AREA );
+void clif_abyssball( struct map_session_data& sd, struct block_list* target = nullptr, enum send_target send_target = AREA );
 void clif_combo_delay(struct block_list *bl,t_tick wait);
 void clif_bladestop(struct block_list *src, int dst_id, int active);
 void clif_changemapcell(int fd, int16 m, int x, int y, int type, enum send_target target);
@@ -781,8 +786,7 @@ void clif_item_damaged(struct map_session_data* sd, unsigned short position);
 void clif_item_refine_list(struct map_session_data *sd);
 void clif_hat_effects( struct map_session_data* sd, struct block_list* bl, enum send_target target );
 void clif_hat_effect_single( struct map_session_data* sd, uint16 effectId, bool enable );
-void clif_specialeffect_remove(struct block_list* bl, int type, enum send_target target);
-void clif_specialeffect_remove_single(struct block_list* bl, int type, struct block_list* target);
+
 void clif_item_skill(struct map_session_data *sd,uint16 skill_id,uint16 skill_lv);
 
 void clif_mvp_effect(struct map_session_data *sd);
@@ -908,6 +912,7 @@ void clif_friendslist_reqack(struct map_session_data *sd, struct map_session_dat
 void clif_weather(int16 m); // [Valaris]
 void clif_specialeffect(struct block_list* bl, int type, enum send_target target); // special effects [Valaris]
 void clif_specialeffect_single(struct block_list* bl, int type, int fd);
+void clif_specialeffect_remove(struct block_list* bl_src, int effect, enum send_target e_target, struct block_list* bl_target);
 void clif_messagecolor_target(struct block_list *bl, unsigned long color, const char *msg, bool rgb2bgr, enum send_target type, struct map_session_data *sd);
 #define clif_messagecolor(bl, color, msg, rgb2bgr, type) clif_messagecolor_target(bl, color, msg, rgb2bgr, type, NULL) // Mob/Npc color talk [SnakeDrak]
 void clif_specialeffect_value(struct block_list* bl, int effect_id, int num, send_target target);

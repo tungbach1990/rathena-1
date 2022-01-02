@@ -3,14 +3,34 @@
 //===== Description: =========================================
 //= [Official Conversion]
 //= Costumes exchange/enchant NPCs in Malangdo.
-//= The database of the following box are left empty 
-//= until high items ID are supported:
-//=   Enchant_Stone_Box19
-//=   Enchant_Stone_Box20
-//=   Enchant_Stone_Box21
+//=
+//= Note:
+//=   Although new enchant boxes are already exchanged,
+//=   their enchants are currently not supported.
 //===== Changelogs: ==========================================
 //= 1.0 First version. [Capuche]
+//= 1.1 Corrected exchange costumes for enchant box 4-21 [Everade]
+//= 1.2 Added support for more than 120 missing enchants [Everade]
 //============================================================
+
+// Missing 4th slot enchanter
+//mal_in01,24,121,x	script	Gregio Grumani#eventhat	x,{
+
+// These 4th slot Enchants are included in Enchant Stone Box 4-21
+//ID		Loc
+//25058, , 	Upper
+//25059, , 	Middle
+//25136, , 	Middle
+//25137, , 	Lower
+//25138, , 	Middle
+//25176, , 	Middle
+//25177, , 	Middle
+//25178, , 	Middle
+//25224, , 	Middle
+//25225, , 	Middle
+//25226, , 	Lower
+//25205, , 	Lower
+
 
 // Costume exchange
 mal_in01,20,124,5	script	Designer Heidam#eventhat	4_CAT_SAILOR5,{

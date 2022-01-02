@@ -833,3 +833,44 @@ ACMD_FUNC(autoattack)
     }
     return 0;
 }
+
+
+ACMD_FUNC(synthesisui) {
+	nullpo_retr(-1, sd);
+
+#ifdef FEATURE_LAPINE_UI
+	t_itemid itemid;
+
+	if (sscanf(message, "%u", &itemid) < 1) {
+		clif_displaymessage(fd, "Please input itemid of synthesis id.");
+		return -1;
+	}
+	if (!item_synthesis_open(sd, itemid))
+		return -1;
+	sd->state.lapine_ui |= 4;
+	sd->itemid = itemid;
+#else
+	clif_displaymessage(fd, "Client is not supported.");
+#endif
+	return 0;
+}
+
+ACMD_FUNC(upgradeui) {
+	nullpo_retr(-1, sd);
+
+#ifdef FEATURE_LAPINE_UI
+	t_itemid itemid;
+
+	if (sscanf(message, "%u", &itemid) < 1) {
+		clif_displaymessage(fd, "Please input itemid of upgrade id.");
+		return -1;
+	}
+	if (!item_upgrade_open(sd, itemid))
+		return -1;
+	sd->state.lapine_ui |= 4;
+	sd->itemid = itemid;
+#else
+	clif_displaymessage(fd, "Client is not supported.");
+#endif
+	return 0;
+}
