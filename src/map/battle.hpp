@@ -12,6 +12,7 @@
 
 #include "map.hpp" //ELE_MAX
 #include "skill.hpp"
+#include "grader.hpp"
 
 //fwd declaration
 struct map_session_data;

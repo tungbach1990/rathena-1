@@ -1,3 +1,6 @@
+#ifndef GRADER_HPP
+#define GRADER_HPP
+
 enum grade_level {
     ITEM_GRADE_NONE = 0,
     ITEM_GRADE_D    = 1,
