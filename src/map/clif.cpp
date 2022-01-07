@@ -22074,7 +22074,8 @@ static void clif_grade_enchant_add_item_result_success(struct map_session_data *
 	nullpo_retv(gi);
 
 	const int fd = sd->fd;
-	WFIFOHEAD(fd, sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT) + sizeof(struct GRADE_ENCHANT_MATERIAL) * MAX_GRADE_MATERIALS);
+	uint16 len = sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT) + sizeof(struct GRADE_ENCHANT_MATERIAL) * MAX_GRADE_MATERIALS;
+	WFIFOHEAD(fd, len);
 	struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT *p = WFIFOP(fd, 0);
 	p->PacketType = HEADER_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT;
 	p->PacketLength = sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT);
