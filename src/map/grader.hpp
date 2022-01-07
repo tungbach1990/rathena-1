@@ -15,7 +15,7 @@ enum grade_level {
 #endif
 };
 #ifndef ITEM_GRADE_MAX
-MAX_ITEM_GRADE = ITEM_GRADE_MAX - 1;
+int MAX_ITEM_GRADE = ITEM_GRADE_MAX - 1;
 #endif
 enum grade_ui_failure_behavior {
     GRADE_FAILURE_BEHAVIOR_KEEP      = 0,
