@@ -1159,7 +1159,10 @@ enum in_ui_type : int8 {
 };
 
 enum out_ui_type : int8 {
-	OUT_UI_ATTENDANCE = 7
+	OUT_UI_ATTENDANCE = 7,
+#if PACKETVER >= 20200916
+	ZC_GRADE_ENCHANT_UI = 8
+#endif
 };
 
 void clif_ui_open( struct map_session_data *sd, enum out_ui_type ui_type, int32 data );

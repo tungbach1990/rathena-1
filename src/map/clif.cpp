@@ -22060,7 +22060,7 @@ void clif_gradeui_open( struct map_session_data* sd ){
 #if PACKETVER >= 20200916
 	nullpo_retv( sd );
 
-	clif_ui_open(sd,8,0);
+	clif_ui_open(sd,ZC_GRADE_ENCHANT_UI,0);
 
 	//sd->state.gradeui_open = true;
 #endif
