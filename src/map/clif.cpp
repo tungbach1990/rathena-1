@@ -22068,6 +22068,7 @@ void clif_gradeui_open( struct map_session_data* sd ){
 
 	sd->state.gradeui_open = true;
 #end
+}
 
 /**
  * Opens the refine UI on the designated client.
