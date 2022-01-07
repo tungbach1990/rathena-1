@@ -2308,9 +2308,9 @@
 #endif
 
 // 2016-10-12aRagexeRE
-#if PACKETVER >= 20200916
-	packet( HEADER_ZC_GRADE_OPEN_WINDOW, sizeof( struct PACKET_ZC_GRADE_OPEN_WINDOW ) );
-#endif
+//#if PACKETVER >= 20200916
+//	packet( HEADER_ZC_GRADE_OPEN_WINDOW, sizeof( struct PACKET_ZC_GRADE_OPEN_WINDOW ) );
+//#endif
 
 // 2016-10-12aRagexeRE
 #if PACKETVER >= 20161012

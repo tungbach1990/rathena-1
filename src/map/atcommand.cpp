@@ -11039,6 +11039,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEF2("completequest", quest),
 		ACMD_DEF2("checkquest", quest),
 		ACMD_DEF(refineui),
+		ACMD_DEF(gradeui),
 	};
 	AtCommandInfo* atcommand;
 	int i;
