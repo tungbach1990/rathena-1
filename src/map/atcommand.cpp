@@ -40,7 +40,7 @@
 #include "itemdb.hpp" // MAX_ITEMGROUP
 #include "item_synthesis.hpp" // FreeRO Modified - Synthesis
 #include "item_upgrade.hpp" // FreeRO Modified - LapineUI
-#include "grader.hpp" // Enchant Grade BachNT
+//#include "grader.hpp" // Enchant Grade BachNT
 #include "log.hpp"
 #include "mail.hpp"
 #include "map.hpp"
