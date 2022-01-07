@@ -387,6 +387,7 @@ struct map_session_data {
 		unsigned int lapine_ui : 3; // Lapine Synthesis/Upgrade UI is opened
 		unsigned int block_action : 10;
 		bool refineui_open;
+		bool gradeui_open;
 	} state;
 	struct {
 		unsigned char no_weapon_damage, no_magic_damage, no_misc_damage;
@@ -1055,7 +1056,7 @@ extern JobDatabase job_db;
 #define pc_istrading(sd)      ( (sd)->npc_id || (sd)->state.vending || (sd)->state.buyingstore || (sd)->state.trading )
 // equals pc_cant_act2 and additionally checks for chat rooms and npcs
 #define pc_cant_act(sd)       ( (sd)->npc_id || (sd)->chatID || pc_cant_act2( (sd) ) )
-#define pc_cant_act2(sd)      ( (sd)->state.vending || (sd)->state.buyingstore || ((sd)->sc.opt1 && (sd)->sc.opt1 != OPT1_BURNING) || (sd)->state.trading || (sd)->state.storage_flag || (sd)->state.prevend || (sd)->state.refineui_open || (sd)->state.lapine_ui )
+#define pc_cant_act2(sd)      ( (sd)->state.vending || (sd)->state.buyingstore || ((sd)->sc.opt1 && (sd)->sc.opt1 != OPT1_BURNING) || (sd)->state.trading || (sd)->state.storage_flag || (sd)->state.prevend || (sd)->state.refineui_open || (sd)->state.lapine_ui || (sd)->state.gradeui_open)
 
 #define pc_setdir(sd,b,h)     ( (sd)->ud.dir = (b) ,(sd)->head_dir = (h) )
 #define pc_setchatid(sd,n)    ( (sd)->chatID = n )

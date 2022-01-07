@@ -42,6 +42,7 @@
 #include "itemdb.hpp"
 #include "item_synthesis.hpp"			// FreeRO Modified - bachnt
 #include "item_upgrade.hpp"				// FreeRO Modified - bachnt
+#include "grader.hpp"
 #include "log.hpp"
 #include "mail.hpp"
 #include "map.hpp"
@@ -22062,7 +22063,21 @@ void clif_gradeui_open( struct map_session_data* sd ){
 
 	clif_ui_open(sd,ZC_GRADE_ENCHANT_UI,0);
 
-	//sd->state.gradeui_open = true;
+	sd->state.gradeui_open = true;
+#endif
+}
+
+void clif_parse_grade_enchant_add_item(int fd, struct map_session_data *sd)
+{
+#if PACKETVER_MAIN_NUM >= 20191016 || PACKETVER_RE_NUM >= 20191016 || PACKETVER_ZERO_NUM >= 20191008
+	if (sd->state.gradeui_open == false)
+		return;
+
+	if (pc_cant_act2(sd))
+		return;
+
+	struct PACKET_CZ_GRADE_ENCHANT_ADD_ITEM* p = (struct PACKET_CZ_GRADE_ENCHANT_ADD_ITEM*)RFIFOP( fd, 0 );
+	grader_enchant_add_item(sd, p->index - 2);
 #endif
 }
 
