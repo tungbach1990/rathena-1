@@ -704,6 +704,7 @@ struct Battle_Config
 	int loose_ap_on_map;
 	int keep_ap_on_logout;
 	int attack_machine_level_difference;
+	int grader_max_used;
 
 #include "../custom/battle_config_struct.inc"
 };

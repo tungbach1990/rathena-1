@@ -10102,6 +10102,8 @@ static const struct _battle_data {
 	{ "loose_ap_on_map",                    &battle_config.loose_ap_on_map,                 1,      0,      1,              },
 	{ "keep_ap_on_logout",                  &battle_config.keep_ap_on_logout,               1,      0,      1,              },
 	{ "attack_machine_level_difference",    &battle_config.attack_machine_level_difference, 15,     0,      INT_MAX,        },
+	{ "grader_max_used",    				&battle_config.grader_max_used, 				0,    	0,      ITEM_GRADE_MAX - 1, },
+	
 
 #include "../custom/battle_config_init.inc"
 };

@@ -2308,9 +2308,10 @@
 #endif
 
 // 2016-10-12aRagexeRE
-//#if PACKETVER >= 20200916
+#if PACKETVER >= 20200916
 //	packet( HEADER_ZC_GRADE_OPEN_WINDOW, sizeof( struct PACKET_ZC_GRADE_OPEN_WINDOW ) );
-//#endif
+parseable_packet( HEADER_CZ_REFINE_ADD_ITEM, sizeof( struct PACKET_CZ_REFINE_ADD_ITEM ), clif_parse_grade_enchant_add_item, 0 );
+#endif
 
 // 2016-10-12aRagexeRE
 #if PACKETVER >= 20161012

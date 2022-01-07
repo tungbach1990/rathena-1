@@ -22067,6 +22067,55 @@ void clif_gradeui_open( struct map_session_data* sd ){
 #endif
 }
 
+static void clif_grade_enchant_add_item_result_success(struct map_session_data *sd, int idx, const struct s_grade_info *gi)
+{
+#if PACKETVER_MAIN_NUM >= 20200916 || PACKETVER_RE_NUM >= 20200723
+	nullpo_retv(sd);
+	nullpo_retv(gi);
+
+	const int fd = sd->fd;
+	WFIFOHEAD(fd, sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT) + sizeof(struct GRADE_ENCHANT_MATERIAL) * MAX_GRADE_MATERIALS);
+	struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT *p = WFIFOP(fd, 0);
+	p->PacketType = HEADER_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT;
+	p->PacketLength = sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT);
+	p->index = idx + 2;
+	p->success_chance = gi->success_chance;
+	p->blessing_info.id = gi->blessing.nameid;
+	p->blessing_info.amount = gi->blessing.amount;
+	p->blessing_info.max_blessing = gi->blessing.max_blessing;
+	p->blessing_info.bonus = gi->blessing.bonus;
+	p->protect_itemid = p->protect_amount = 0; // TODO: support these fields PACKETVER_RE_NUM >= 20200723 && PACKETVER_RE_NUM <= 20200819
+	for (int i = 0, count = 0; i < MAX_GRADE_MATERIALS; ++i) {
+		if (gi->materials[i].nameid != 0) {
+			p->material_info[count].nameid = gi->materials[i].nameid;
+			p->material_info[count].amount = gi->materials[i].amount;
+			p->material_info[count].price = gi->materials[i].zeny_cost;
+			p->material_info[count].downgrade = (gi->materials[i].failure_behavior == GRADE_FAILURE_BEHAVIOR_DOWNGRADE);
+			p->material_info[count].breakable = (gi->materials[i].failure_behavior == GRADE_FAILURE_BEHAVIOR_DESTROY);
+
+			++count;
+			p->PacketLength += sizeof(p->material_info[i]);
+		}
+	}
+	WFIFOSET(fd, p->PacketLength);
+#endif
+}
+
+static void clif_grade_enchant_add_item_result_fail(struct map_session_data *sd)
+{
+#if PACKETVER_MAIN_NUM >= 20200916 || PACKETVER_RE_NUM >= 20200723
+	nullpo_retv(sd);
+
+	const int fd = sd->fd;
+	WFIFOHEAD(fd, sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT));
+	struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT *p = WFIFOP(fd, 0);
+	p->PacketType = HEADER_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT;
+	p->PacketLength = sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT);
+	p->index = -1;
+	WFIFOSET(fd, sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT));
+#endif
+}
+
 void clif_parse_grade_enchant_add_item(int fd, struct map_session_data *sd)
 {
 #if PACKETVER_MAIN_NUM >= 20191016 || PACKETVER_RE_NUM >= 20191016 || PACKETVER_ZERO_NUM >= 20191008
