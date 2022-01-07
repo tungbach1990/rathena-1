@@ -1,6 +1,8 @@
 #ifndef GRADER_HPP
 #define GRADER_HPP
 
+#include "battle.hpp"
+
 enum grade_level {
     ITEM_GRADE_NONE = 0,
     ITEM_GRADE_D    = 1,
@@ -44,7 +46,7 @@ struct grade_blessing {
 };
 
 struct grade_interface_dbs {
-    struct s_grade_info grade_info[ITEM_GRADE_MAX - 1];
+    struct s_grade_info grade_info[battle_config.grader_max_used];
 };
 
 struct s_grade_info {
