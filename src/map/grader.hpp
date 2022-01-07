@@ -15,6 +15,38 @@ enum grade_level {
 #endif
 };
 
+enum grade_ui_failure_behavior {
+    GRADE_FAILURE_BEHAVIOR_KEEP      = 0,
+    GRADE_FAILURE_BEHAVIOR_DESTROY   = 1,
+    GRADE_FAILURE_BEHAVIOR_DOWNGRADE = 2,
+};
+
+enum grade_announce_condition {
+    GRADE_ANNOUNCE_NONE    = 0,
+    GRADE_ANNOUNCE_SUCCESS = 1,
+    GRADE_ANNOUNCE_FAILURE = 2,
+    GRADE_ANNOUNCE_ALWAYS  = GRADE_ANNOUNCE_SUCCESS | GRADE_ANNOUNCE_FAILURE,
+};
+
+/* Structures */
+struct grade_material {
+    int nameid;
+    int amount;
+    int zeny_cost;
+    enum grade_ui_failure_behavior failure_behavior;
+};
+
+struct grade_blessing {
+    int nameid;
+    int amount;
+    int bonus;
+    int max_blessing;
+};
+
+struct grade_interface_dbs {
+    struct s_grade_info grade_info[MAX_ITEM_GRADE];
+};
+
 struct s_grade_info {
     int success_chance;
     enum grade_announce_condition announce;
@@ -22,10 +54,5 @@ struct s_grade_info {
     struct grade_blessing blessing;
 };
 
-enum grade_ui_failure_behavior {
-    GRADE_FAILURE_BEHAVIOR_KEEP      = 0,
-    GRADE_FAILURE_BEHAVIOR_DESTROY   = 1,
-    GRADE_FAILURE_BEHAVIOR_DOWNGRADE = 2,
-};
 void grader_enchant_add_item (struct map_session_data *sd, int idx);
 #endif /* BATTLE_HPP */
