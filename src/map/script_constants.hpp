@@ -5629,7 +5629,17 @@
 	export_constant(ACHIEVEINFO_LEVEL);
 	export_constant(ACHIEVEINFO_SCORE);
 	export_constant(ACHIEVEINFO_MAX);
-
+	
+	/* enchant gradee */
+	export_constant(ITEM_GRADE_NONE);
+	export_constant(ITEM_GRADE_D);
+    export_constant(ITEM_GRADE_C);
+    export_constant(ITEM_GRADE_B);
+    export_constant(ITEM_GRADE_A);
+    export_constant(ITEM_GRADE_R);
+    export_constant(ITEM_GRADE_S);
+    export_constant(ITEM_GRADE_SS);
+	export_constant(ITEM_GRADE_MAX);
 	/* refine cost types */
 	export_constant(REFINE_COST_NORMAL);
 	export_deprecated_constant3("REFINE_COST_OVER10", REFINE_COST_NORMAL, "REFINE_COST_NORMAL");
@@ -5640,7 +5650,7 @@
 	export_deprecated_constant3("REFINE_COST_HOLINK", REFINE_COST_NORMAL, "REFINE_COST_NORMAL");
 	export_deprecated_constant3("REFINE_COST_WAGJAK", REFINE_COST_NORMAL, "REFINE_COST_NORMAL");
 	export_constant(REFINE_COST_MAX);
-
+	
 	/* refine information types */
 	export_constant(REFINE_MATERIAL_ID);
 	export_constant(REFINE_ZENY_COST);
