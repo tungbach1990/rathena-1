@@ -1,20 +1,3 @@
-# This file is a part of rAthena.
-#   Copyright(C) 2021 rAthena Development Team
-#   https://rathena.org - https://github.com/rathena
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
 ###########################################################################
 # Skill Database
 ###########################################################################
@@ -141,12 +124,103 @@ Header:
   Type: SKILL_DB
   Version: 3
 
-Footer:
-  Imports:
-  - Path: db/pre-re/skill_db.yml
-    Mode: Prerenewal
-  - Path: db/re/skill_db.yml
-    Mode: Renewal
-  - Path: db/re/import/skill_db.yml #FreeRO
-    Mode: Renewal
-  - Path: db/import/skill_db.yml
+Body:
+  - Id: 5476
+    Name: SS_TOKEDASU
+    Description: Melt Away
+    MaxLevel: 5
+    CastCancel: true
+  - Id: 5477
+    Name: SS_SHIMIRU
+    Description: Infiltrate
+    MaxLevel: 5
+    CastCancel: true
+  - Id: 5478
+    Name: SS_AKUMUKESU
+    Description: Nightmare Erasion
+    MaxLevel: 1
+    CastCancel: true
+  - Id: 5479
+    Name: SS_SHINKIROU
+    Description: Mirage
+    MaxLevel: 1
+    CastCancel: true
+  - Id: 5480
+    Name: SS_KAGEGARI
+    Description: Shadow Hunting
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5481
+    Name: SS_KAGENOMAI
+    Description: Shadow Dance
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5482
+    Name: SS_KAGEGISSEN
+    Description: Shadow Flash
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5483
+    Name: SS_FUUMASHOUAKU
+    Description: Huuma Shuriken - Grasp
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5484
+    Name: SS_FUUMAKOUCHIKU
+    Description: Huuma Shuriken - Construct
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5485
+    Name: SS_KUNAIWAIKYOKU
+    Description: Kunai - Distortion
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5486
+    Name: SS_KUNAIKAITEN
+    Description: Kunai - Rotation
+    MaxLevel: 5
+    CastCancel: true
+  - Id: 5487
+    Name: SS_KUNAIKUSSETSU
+    Description: Kunai - Refraction
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5488
+    Name: SS_SEKIENHOU
+    Description: Red Flame Cannon
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5489
+    Name: SS_REIKETSUHOU
+    Description: Cold Blooded Cannon
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5490
+    Name: SS_RAIDENPOU
+    Description: Thundering Cannon
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5491
+    Name: SS_KINRYUUHOU
+    Description: Golden Dragon Canno
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5492
+    Name: SS_ANTENPOU
+    Description: Darkening Cannon
+    MaxLevel: 10
+    CastCancel: true
+  - Id: 5493
+    Name: SS_KAGEAKUMU
+    Description: Shadow - Nightmare
+    MaxLevel: 1
+    CastCancel: true
+  - Id: 5494
+    Name: SS_HITOUAKUMU
+    Description: Kunai - Nightmare
+    MaxLevel: 1
+    CastCancel: true
+  - Id: 5495
+    Name: SS_ANKOKURYUUAKUMU
+    Description: Dark Dragon - Nightmare
+    MaxLevel: 1

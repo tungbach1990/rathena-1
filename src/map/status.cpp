@@ -4873,7 +4873,18 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 	pc_delautobonus(*sd, sd->autobonus, true);
 	pc_delautobonus(*sd, sd->autobonus2, true);
 	pc_delautobonus(*sd, sd->autobonus3, true);
-
+	// Parse Charm
+	for (i = 0; i < MAX_INVENTORY; i++)
+	{ //dh
+		if (!sd->inventory_data[i] || sd->inventory_data[i]->type != IT_CHARM)
+			continue;
+		if (sd->inventory_data[i]->script && sd->inventory_data[i]->elv <= sd->status.base_level && sd->inventory_data[i]->class_upper)
+		{
+			run_script(sd->inventory_data[i]->script, 0, sd->bl.id, 0);
+			if (!calculating) //Abort, run_script retriggered this. [Skotlex]
+				return 1;
+		}
+	}
 	// Parse equipment
 	for (i = 0; i < EQI_MAX; i++) {
 		current_equip_item_index = index = sd->equip_index[i]; // We pass INDEX to current_equip_item_index - for EQUIP_SCRIPT (new cards solution) [Lupus]

@@ -5399,6 +5399,7 @@ enum e_additem_result pc_additem(struct map_session_data *sd,struct item *item,i
 	if(id->flag.autoequip)
 		pc_equipitem(sd, i, id->equip);
 
+	if (id->type == IT_CHARM) status_calc_pc(sd, SCO_NONE); //dh
 	/* rental item check */
 	if( item->expire_time ) {
 		if( time(NULL) > item->expire_time ) {
@@ -5429,6 +5430,7 @@ enum e_additem_result pc_additem(struct map_session_data *sd,struct item *item,i
  *------------------------------------------*/
 char pc_delitem(struct map_session_data *sd,int n,int amount,int type, short reason, e_log_pick_type log_type)
 {
+	int mem = 0;
 	nullpo_retr(1, sd);
 
 	if(n < 0 || sd->inventory.u.items_inventory[n].nameid == 0 || amount <= 0 || sd->inventory.u.items_inventory[n].amount<amount || sd->inventory_data[n] == NULL)
@@ -5441,6 +5443,7 @@ char pc_delitem(struct map_session_data *sd,int n,int amount,int type, short rea
 	if( sd->inventory.u.items_inventory[n].amount <= 0 ){
 		if(sd->inventory.u.items_inventory[n].equip)
 			pc_unequipitem(sd,n,2|(!(type&4) ? 1 : 0));
+		mem = sd->inventory_data[n]->type;
 		memset(&sd->inventory.u.items_inventory[n],0,sizeof(sd->inventory.u.items_inventory[0]));
 		sd->inventory_data[n] = NULL;
 	}
@@ -5450,7 +5453,7 @@ char pc_delitem(struct map_session_data *sd,int n,int amount,int type, short rea
 		clif_updatestatus(sd,SP_WEIGHT);
 
 	pc_show_questinfo(sd);
-
+	if (mem == IT_CHARM) status_calc_pc(sd, SCO_NONE);
 	return 0;
 }
 
@@ -6925,6 +6928,8 @@ uint64 pc_jobid2mapid(unsigned short b_class)
 		case JOB_TROUVERE:              return MAPID_TROUBADOURTROUVERE;
 		case JOB_BIOLO:                 return MAPID_BIOLO;
 		case JOB_ABYSS_CHASER:          return MAPID_ABYSS_CHASER;
+	//4th Expand ==== Jor Modified
+		case JOB_SOUL_ASCETIC:			return MAPID_SOUL_ASCETIC;
 	//Unknown
 		default:
 			return -1;
@@ -7092,6 +7097,12 @@ int pc_mapid2jobid(uint64 class_, int sex)
 		case MAPID_TROUBADOURTROUVERE:    return sex?JOB_TROUBADOUR:JOB_TROUVERE;
 		case MAPID_BIOLO:                 return JOB_BIOLO;
 		case MAPID_ABYSS_CHASER:          return JOB_ABYSS_CHASER;
+	//4th Expand ==== Jor Modified
+		case MAPID_SKY_EMPEROR:				return JOB_SKY_EMPEROR;
+		case MAPID_HYPER_NOVICE:			return JOB_HYPER_NOVICE;
+		case MAPID_SOUL_ASCETIC:			return JOB_SOUL_ASCETIC;
+		case MAPID_SHINKIRO_SHIRANUI:		return sex?JOB_SHINKIRO:JOB_SHIRANUI;
+		case MAPID_NIGHT_WATCH:				return JOB_NIGHT_WATCH;
 	//Unknown
 		default:
 			return -1;
@@ -10059,8 +10070,9 @@ bool pc_jobchange(struct map_session_data *sd,int job, char upper)
 
 	//Normalize job.
 	uint64 b_class = pc_jobid2mapid(job);
-	if (b_class == -1)
+	if (b_class == -1) {
 		return false;
+	}
 	switch (upper) {
 		case 1:
 			b_class|= JOBL_UPPER;
@@ -10072,11 +10084,14 @@ bool pc_jobchange(struct map_session_data *sd,int job, char upper)
 	//This will automatically adjust bard/dancer classes to the correct gender
 	//That is, if you try to jobchange into dancer, it will turn you to bard.
 	job = pc_mapid2jobid(b_class, sd->status.sex);
-	if (job == -1)
+	if (job == -1) {
+		ShowDebug("JOR DEBUG: job change fail pc_mapid2jobid");
 		return false;
+	}
 
-	if ((unsigned short)b_class == sd->class_)
+	if ((unsigned short)b_class == sd->class_) {
 		return false; //Nothing to change.
+	}
 
 	// changing from 1st to 2nd job
 	if ((b_class&JOBL_2) && !(sd->class_&JOBL_2) && (sd->class_&MAPID_UPPERMASK) != MAPID_SUPER_NOVICE) {

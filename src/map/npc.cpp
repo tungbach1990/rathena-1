@@ -2133,6 +2133,7 @@ static int npc_selllist_sub(struct map_session_data* sd, int n, unsigned short* 
 	char option_id[NAME_LENGTH], option_val[NAME_LENGTH], option_param[NAME_LENGTH];
 	int i, j;
 	int key_nameid = 0;
+	int key_idx = 0;
 	int key_amount = 0;
 	int key_refine = 0;
 	int key_attribute = 0;
@@ -2143,6 +2144,7 @@ static int npc_selllist_sub(struct map_session_data* sd, int n, unsigned short* 
 
 	// discard old contents
 	script_cleararray_pc( sd, "@sold_nameid" );
+	script_cleararray_pc( sd, "@sold_idx" );
 	script_cleararray_pc( sd, "@sold_quantity" );
 	script_cleararray_pc( sd, "@sold_refine" );
 	script_cleararray_pc( sd, "@sold_attribute" );
@@ -2173,6 +2175,7 @@ static int npc_selllist_sub(struct map_session_data* sd, int n, unsigned short* 
 		int idx = item_list[i * 2] - 2;
 
 		script_setarray_pc( sd, "@sold_nameid", i, sd->inventory.u.items_inventory[idx].nameid, &key_nameid );
+		script_setarray_pc( sd, "@sold_idx", i, idx, &key_idx );
 		script_setarray_pc( sd, "@sold_quantity", i, item_list[i*2+1], &key_amount );
 
 		if( itemdb_isequip(sd->inventory.u.items_inventory[idx].nameid) )

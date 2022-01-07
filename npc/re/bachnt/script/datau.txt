@@ -357,19 +357,19 @@ OnSellItem:
 			if (.@questtype$[0] == "i") {
 				//dispbottom strtolower(getitemname(@sold_nameid[.@i]));
 				.@count = .@count + @sold_quantity[.@i];
-				set .@dt_id[getarraysize(.@dt_id)], @sold_nameid[.@i];
+				set .@dt_id[getarraysize(.@dt_id)], @sold_idx[.@i];
 				set .@dt_amt[getarraysize(.@dt_amt)], @sold_quantity[.@i];
 			} else if (.@questtype$[0] == "r") {
 				if (@sold_refine[.@i] >= .@requirea[0]) {
 					.@count = @sold_refine[.@i];
-					set .@dt_id[getarraysize(.@dt_id)], @sold_nameid[.@i];
+					set .@dt_id[getarraysize(.@dt_id)], @sold_idx[.@i];
 					set .@dt_amt[getarraysize(.@dt_amt)], @sold_quantity[.@i];
 				}
 			}  else if (.@questtype$[0] == "o") {
 				//dispbottom "@sold_option_id1[.@i] " + callsub(OnChangeIdToOpt,@sold_option_id1[.@i]);
 				if (@sold_option_id1[.@i] == .@requirea[0]) {
 					.@count = @sold_option_id1[.@i];
-					set .@dt_id[getarraysize(.@dt_id)], @sold_nameid[.@i];
+					set .@dt_id[getarraysize(.@dt_id)], @sold_idx[.@i];
 					set .@dt_amt[getarraysize(.@dt_amt)], @sold_quantity[.@i];
 				}
 			}
@@ -377,6 +377,7 @@ OnSellItem:
 	}
 	
 	deletearray @sold_nameid[0], getarraysize(@sold_nameid);
+	deletearray @sold_nameid[0], getarraysize(@sold_idx);
 	deletearray @sold_quantity[0], getarraysize(@sold_quantity);
 	//if (!.@dt_id) {
 	//	mes "  ^777777(none)^000000";
@@ -386,7 +387,8 @@ OnSellItem:
 	if (.@count >= .@requirea[0] && .@dt_id)
 	{
 		for(set .@i,0; .@i<getarraysize(.@dt_id); set .@i,.@i+1)
-			delitem .@dt_id[.@i],.@dt_amt[.@i];
+			//delitem .@dt_id[.@i],.@dt_amt[.@i];
+			delitemidx .@dt_id[.@i],.@dt_amt[.@i];
 		callsub(OnCompleteDT);
 	} else {
 		mes "[^995050 DaŞ TâÒu ^000000]";
