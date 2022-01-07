@@ -40,6 +40,7 @@
 #include "itemdb.hpp" // MAX_ITEMGROUP
 #include "item_synthesis.hpp" // FreeRO Modified - Synthesis
 #include "item_upgrade.hpp" // FreeRO Modified - LapineUI
+#include "grader.hpp" // Enchant Grade BachNT
 #include "log.hpp"
 #include "mail.hpp"
 #include "map.hpp"
@@ -10666,6 +10667,29 @@ ACMD_FUNC(quest) {
 		break;
 	}
 	return 0;
+}
+
+/**
+ * Opens the Enchant GradeUi
+ * Usage: @gradeui
+ */
+ACMD_FUNC(gradeui)
+{
+	nullpo_retr(-1, sd);
+
+#if PACKETVER < 20200916
+	clif_displaymessage(fd, "Grade Enchant UI is not supported.");
+	return -1;
+#else
+/*
+	if( sd->state.gradeui_open ){
+		clif_displaymessage(fd, "You have already opened the Grade UI."); 
+		return -1;
+	}
+*/
+	clif_gradeui_open(sd);
+	return 0;
+#endif
 }
 
 /**

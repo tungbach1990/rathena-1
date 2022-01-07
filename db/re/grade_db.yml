@@ -1,0 +1,37 @@
+Header:
+  Type: GRADE_DB
+  Version: 1
+  
+Body:
+    Levels: ITEM_GRADE_NONE 
+        SuccessChance: 70
+        MaterialInfo:
+        - ItemId: Etel_Skyblue_Jewel
+          ItemAmount: 1
+          ZenyCost: 100000
+          FailureBehavior: Destroy
+        - ItemId: Etel_Skyblue_Jewel
+          ItemAmount: 5
+          ZenyCost: 500000
+          FailureBehavior: Downgrade
+        BlessingInfo:
+          ItemId: Blessed_Etel_Dust
+          ItemAmount: 1
+          BonusPerItem: 1
+          MaxUsable: 10
+    Levels: ITEM_GRADE_D 
+        SuccessChance: 60
+        MaterialInfo:
+        - ItemId: Etel_Topaz
+          ItemAmount: 1
+          ZenyCost: 175000
+          FailureBehavior: Destroy
+        - ItemId: Etel_Skyblue_Jewel
+          ItemAmount: 5
+          ZenyCost: 500000
+          FailureBehavior: Downgrade
+        BlessingInfo:
+          ItemId: Blessed_Etel_Dust
+          ItemAmount: 1
+          BonusPerItem: 1
+          MaxUsable: 10

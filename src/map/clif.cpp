@@ -22053,6 +22053,23 @@ TIMER_FUNC( clif_ping_timer ){
 }
 
 /**
+ * Opens the Grade UI on the designated client.
+ * 0aa0
+ */
+void clif_gradeui_open( struct map_session_data* sd ){
+#if PACKETVER >= 20200916
+	nullpo_retv( sd );
+
+	struct PACKET_ZC_GRADE_OPEN_WINDOW p;
+
+	p.packetType = HEADER_ZC_GRADE_OPEN_WINDOW;
+
+	clif_send( &p, sizeof( p ), &sd->bl, SELF );
+
+	sd->state.gradeui_open = true;
+#end
+
+/**
  * Opens the refine UI on the designated client.
  * 0aa0
  */

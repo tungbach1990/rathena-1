@@ -1146,4 +1146,9 @@ struct clan{
 	#define MAX_CARTS 5
 #endif
 
+// Enchant Grade BachNT
+#ifndef MAX_GRADE_MATERIALS
+#define MAX_GRADE_MATERIALS 3
+#endif
+
 #endif /* MMO_HPP */
