@@ -21,4 +21,3 @@ void grader_enchant_add_item(struct map_session_data *sd, int idx)
 	const struct s_grade_info *gi = grader->get_grade_info(sd->status.inventory[idx].grade);
 	clif_grade_enchant_add_item_result_success(sd, idx, gi);
 }
-#endif /* BATTLE_HPP */

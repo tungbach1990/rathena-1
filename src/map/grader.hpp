@@ -16,3 +16,4 @@ enum grade_level {
 };
 
 void grader_enchant_add_item (struct map_session_data *sd, int idx);
+#endif /* BATTLE_HPP */
