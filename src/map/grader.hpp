@@ -50,14 +50,14 @@ struct grade_blessing {
 };
 
 struct grade_interface_dbs {
-    struct s_grade_info grade_info[battle_config.grader_max_used];
+    struct s_grade_info *grade_info[MAX_ITEM_GRADE];
 };
 
 struct s_grade_info {
     int success_chance;
     enum grade_announce_condition announce;
-    struct grade_material materials[MAX_GRADE_MATERIALS];
-    struct grade_blessing blessing;
+    struct grade_material *materials[MAX_GRADE_MATERIALS];
+    struct grade_blessing *blessing;
 };
 
 void grader_enchant_add_item (struct map_session_data *sd, int idx);
