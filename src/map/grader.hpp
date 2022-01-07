@@ -14,9 +14,7 @@ enum grade_level {
     ITEM_GRADE_MAX
 #endif
 };
-#ifndef ITEM_GRADE_MAX
-int MAX_ITEM_GRADE = ITEM_GRADE_MAX - 1;
-#endif
+
 enum grade_ui_failure_behavior {
     GRADE_FAILURE_BEHAVIOR_KEEP      = 0,
     GRADE_FAILURE_BEHAVIOR_DESTROY   = 1,
@@ -46,7 +44,7 @@ struct grade_blessing {
 };
 
 struct grade_interface_dbs {
-    struct s_grade_info grade_info[MAX_ITEM_GRADE];
+    struct s_grade_info grade_info[ITEM_GRADE_MAX - 1];
 };
 
 struct s_grade_info {
