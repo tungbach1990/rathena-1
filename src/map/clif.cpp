@@ -22060,14 +22060,10 @@ void clif_gradeui_open( struct map_session_data* sd ){
 #if PACKETVER >= 20200916
 	nullpo_retv( sd );
 
-	struct PACKET_ZC_GRADE_OPEN_WINDOW p;
+	clif_ui_open(sd,8,0);
 
-	p.packetType = HEADER_ZC_GRADE_OPEN_WINDOW;
-
-	clif_send( &p, sizeof( p ), &sd->bl, SELF );
-
-	sd->state.gradeui_open = true;
-#end
+	//sd->state.gradeui_open = true;
+#endif
 }
 
 /**
