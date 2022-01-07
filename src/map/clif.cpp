@@ -22076,7 +22076,7 @@ static void clif_grade_enchant_add_item_result_success(struct map_session_data *
 	const int fd = sd->fd;
 	uint16 len = sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT) + sizeof(struct GRADE_ENCHANT_MATERIAL) * MAX_GRADE_MATERIALS;
 	WFIFOHEAD(fd, len);
-	struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT *p = WFIFOP(fd, 0);
+	struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT *p = (struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT)WFIFOP(fd, 0);
 	p->PacketType = HEADER_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT;
 	p->PacketLength = sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT);
 	p->index = idx + 2;
@@ -22109,7 +22109,7 @@ static void clif_grade_enchant_add_item_result_fail(struct map_session_data *sd)
 
 	const int fd = sd->fd;
 	WFIFOHEAD(fd, sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT));
-	struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT *p = WFIFOP(fd, 0);
+	struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT *p = (struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT)WFIFOP(fd, 0);
 	p->PacketType = HEADER_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT;
 	p->PacketLength = sizeof(struct PACKET_ZC_GRADE_ENCHANT_ADD_ITEM_RESULT);
 	p->index = -1;

@@ -15,5 +15,17 @@ enum grade_level {
 #endif
 };
 
+struct s_grade_info {
+    int success_chance;
+    enum grade_announce_condition announce;
+    struct grade_material materials[MAX_GRADE_MATERIALS];
+    struct grade_blessing blessing;
+};
+
+enum grade_ui_failure_behavior {
+    GRADE_FAILURE_BEHAVIOR_KEEP      = 0,
+    GRADE_FAILURE_BEHAVIOR_DESTROY   = 1,
+    GRADE_FAILURE_BEHAVIOR_DOWNGRADE = 2,
+};
 void grader_enchant_add_item (struct map_session_data *sd, int idx);
 #endif /* BATTLE_HPP */
