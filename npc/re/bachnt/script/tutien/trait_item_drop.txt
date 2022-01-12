@@ -1,0 +1,29 @@
+-	script	Trait Drop Item	-1,{
+OnInit:
+
+
+addmonsterdrop	1002,40004,1000,True,1; // Poring drop Dagger
+addmonsterdrop  1028,40004,1000,True,1; // Soldier Skeleton drop Dagger
+
+
+addmonsterdrop 1016,40001,1000,True,1; // Archer Skeleton drop bow
+addmonsterdrop 1016,40002,5000; // Archer Skeleton drop Arrow
+addmonsterdrop 1189,40002,5000; // Orc Archer drop Arrow
+addmonsterdrop 1189,40001,1000,True,1; // Orc Archer drop bow
+
+
+addmonsterdrop  1007,40007,1000,True,1; // Fabre drop Mace
+addmonsterdrop 1076,40007,1000,True,1; // Skeleton drop Mace
+
+addmonsterdrop 1145,40009,1000,True,1; //Martin drop Katar
+
+addmonsterdrop 1053,40005,1000,True,1; //Thief buf female 1hsword
+addmonsterdrop 1054,40010,1000,True,1; // Thief bug male 2hsword
+
+addmonsterdrop 1213,40006,1000,True,1; // high orc 1haxe
+addmonsterdrop 1023,40006,1000,True,1; // Orc warrior 1haxe
+//addmonsterdrop 
+
+addmonsterdrop 1113,40008,1000,True,1; // Drops 1hstaff
+
+}
