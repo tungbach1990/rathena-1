@@ -4885,6 +4885,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 				return 1;
 		}
 	}
+	int count_phapkhi[MAX_ARMOR_TYPE] = 0;
 	// Parse equipment
 	for (i = 0; i < EQI_MAX; i++) {
 		current_equip_item_index = index = sd->equip_index[i]; // We pass INDEX to current_equip_item_index - for EQUIP_SCRIPT (new cards solution) [Lupus]
@@ -4897,9 +4898,11 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 			continue;
 		if (!sd->inventory_data[index])
 			continue;
-
+		
 		base_status->def += sd->inventory_data[index]->def;
-
+		if (sd->inventory_data[index]->type == IT_ARMOR)
+			if (sd->inventory_data[index]->subtype > A_NONE)
+				count_phapkhi[sd->inventory_data[index]->subtype] ++;
 		// Items may be equipped, their effects however are nullified.
 		if (opt&SCO_FIRST && sd->inventory_data[index]->equip_script && (pc_has_permission(sd,PC_PERM_USE_ALL_EQUIPMENT)
 			|| !itemdb_isNoEquip(sd->inventory_data[index],sd->bl.m))) { // Execute equip-script on login
@@ -5010,6 +5013,11 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 					return 1;
 			}
 		}
+	}
+	
+	for (i=0;i<MAX_ARMOR_TYPE;i++) {
+		if (count_phapkhi[i] >= 2)
+			pc_bonus(sd,SP_ALL_STATS,count_phapkhi[i]*i)
 	}
 
 	if(sd->equip_index[EQI_AMMO] >= 0) {

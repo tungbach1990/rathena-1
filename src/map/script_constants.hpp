@@ -4427,6 +4427,13 @@
 	export_constant(AMMO_CANNONBALL);
 	export_constant(AMMO_THROWWEAPON);
 	export_constant(MAX_AMMO_TYPE);
+	
+	export_constant(A_NONE);
+	export_constant(A_PHAMKHI);
+	export_constant(A_LINHKHI);
+	export_constant(A_PHAPBAO);
+	export_constant(A_LINHBAO);
+	export_constant(MAX_ARMOR_TYPE);	
 
 	/* card subtypes */
 	export_constant(CARD_NORMAL);

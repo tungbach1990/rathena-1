@@ -182,6 +182,16 @@ uint64 ItemDatabase::parseBodyNode(const YAML::Node &node) {
 			}
 
 			item->subtype = static_cast<e_card_type>(constant);
+		} else if (item->type == IT_ARMOR) {
+			std::string type_constant = "A_" + type;
+			int64 constant;
+
+			if (!script_get_constant(type_constant.c_str(), &constant) || constant < A_NONE || constant >= MAX_ARMOR_TYPE) {
+				this->invalidWarning(node["SubType"], "Invalid armor type %s, defaulting to A_NONE.\n", type.c_str());
+				item->subtype = A_NONE;
+			}
+
+			item->subtype = static_cast<e_card_type>(constant);
 		} else
 			this->invalidWarning(node["SubType"], "Item sub type is not supported for this item type.\n");
 	} else {
@@ -1463,6 +1473,17 @@ const char *itemdb_typename_ammo (e_ammo_type ammo) {
 		case AMMO_THROWWEAPON:	return "Throwable Item/Sling Item";
 	}
 	return "Ammunition";
+}
+
+const char *itemdb_typename_armor (armor_type armor) {
+	switch (armor) {
+		case A_NONE:		return "None";
+		case A_PHAMKHI:		return "Pham Khi";
+		case A_LINHKHI:		return "Linh Khi";
+		case A_PHAPBAO:		return "Phap Bao";
+		case A_LINHBAO:		return "Linh Bao";
+	}
+	return "Phap Khi";
 }
 
 /// Returns human readable name for given item type.

@@ -16,6 +16,7 @@
 #include "status.hpp"
 
 enum e_ammo_type : uint8;
+enum armor_type : uint8;
 
 ///Use apple for unknown items.
 const t_itemid UNKNOWN_ITEM_ID = 512;
@@ -1177,6 +1178,7 @@ struct item_data* itemdb_exists(t_itemid nameid);
 #define itemdb_dropeffect(n) (itemdb_search(n)->flag.dropEffect)
 const char* itemdb_typename(enum item_types type);
 const char *itemdb_typename_ammo (e_ammo_type ammo);
+const char *itemdb_typename_armor (armor_type armor);
 
 #define itemdb_value_buy(n) itemdb_search(n)->value_buy
 #define itemdb_value_sell(n) itemdb_search(n)->value_sell
