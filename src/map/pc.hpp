@@ -911,6 +911,16 @@ enum weapon_type : uint8 {
 	W_SHIELD = MAX_WEAPON_TYPE,
 };
 
+enum armor_type : uint8 {
+	A_NONE,
+	A_PHAMKHI,
+	A_LINHKHI,
+	A_PHAPBAO,
+	A_LINHBAO,
+	MAX_ARMOR_TYPE
+}
+
+
 #define WEAPON_TYPE_ALL ((1<<MAX_WEAPON_TYPE)-1)
 
 enum e_ammo_type : uint8 {
