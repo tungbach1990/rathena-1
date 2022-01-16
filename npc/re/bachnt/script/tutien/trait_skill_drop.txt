@@ -6,7 +6,7 @@ OnNPCKillEvent:
 	.@m$ = mapid2name(.@data[UMOB_MAPID]);
 	.@x = .@data[UMOB_X];
 	.@y = .@data[UMOB_Y];
-	
+    if (Class != 0) end;
     if (getmonsterinfo(killedrid, MOB_MVPEXP)) {
 		.mvprand = rand( 10000 );
 		.count_trait = getarraysize(.trait_skill_job3);

@@ -25688,33 +25688,6 @@ BUILDIN_FUNC(mob_setidleevent){
 	return SCRIPT_CMD_SUCCESS;
 }
 
-/*==========================================
- * mob_setidleevent( <monster game ID>, "<event label>" )
- *------------------------------------------*/
-BUILDIN_FUNC(mob_setidleevent){
-	struct block_list* bl;
-
-	if( !script_rid2bl( 2, bl ) ){
-		return SCRIPT_CMD_FAILURE;
-	}
-
-	if( bl->type != BL_MOB ){
-		ShowError( "buildin_mob_setidleevent: the target GID was not a monster.\n" );
-		return SCRIPT_CMD_FAILURE;
-	}
-
-	struct mob_data* md = (struct mob_data*)bl;
-	if (md == nullptr)
-		return SCRIPT_CMD_FAILURE;
-
-	const char* idle_event = script_getstr( st, 3 );
-
-	check_event( st, idle_event );
-	safestrncpy( md->idle_event, idle_event, EVENT_NAME_LENGTH );
-
-	return SCRIPT_CMD_SUCCESS;
-}
-
 BUILDIN_FUNC( openstylist ){
 #if PACKETVER >= 20151104
 	struct map_session_data* sd;

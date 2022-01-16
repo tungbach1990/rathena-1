@@ -10714,7 +10714,7 @@ ACMD_FUNC( stylist ){
 #endif
 }
 
-#include "../custom/atcommand.inc"
+//#include "../custom/atcommand.inc"
 
 /**
  * Fills the reference of available commands in atcommand DBMap

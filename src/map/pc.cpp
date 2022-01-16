@@ -10086,7 +10086,6 @@ bool pc_jobchange(struct map_session_data *sd,int job, char upper)
 	uint64 b_class = pc_jobid2mapid(job);
 	if (b_class == -1)
 		return false;
-	}
 	switch (upper) {
 		case 1:
 			b_class|= JOBL_UPPER;
@@ -10098,14 +10097,11 @@ bool pc_jobchange(struct map_session_data *sd,int job, char upper)
 	//This will automatically adjust bard/dancer classes to the correct gender
 	//That is, if you try to jobchange into dancer, it will turn you to bard.
 	job = pc_mapid2jobid(b_class, sd->status.sex);
-	if (job == -1) {
-		ShowDebug("JOR DEBUG: job change fail pc_mapid2jobid");
+	if (job == -1)
 		return false;
-	}
 
-	if ((unsigned short)b_class == sd->class_) {
+	if ((unsigned short)b_class == sd->class_)
 		return false; //Nothing to change.
-	}
 
 	// If the job does not exist in the job db, dont allow changing to it
 	if( !job_db.exists( job ) ){
@@ -13035,7 +13031,8 @@ static unsigned int pc_calc_basesp(uint16 level, uint16 job_id) {
 			break;
 	}
 
-			bool active;
+	return (unsigned int)base_sp;
+}			
 
 const std::string JobDatabase::getDefaultLocation() {
 	return std::string(db_path) + "/job_stats.yml";
@@ -13379,10 +13376,6 @@ uint64 JobDatabase::parseBodyNode(const YAML::Node &node) {
 					}
 				}
 
-				job->max_base_level = level;
-			} else {
-				if (!exists)
-					job->max_base_level = MAX_LEVEL;
 			}
 #endif
 
