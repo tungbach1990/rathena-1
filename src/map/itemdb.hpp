@@ -122,6 +122,9 @@ enum item_itemid : t_itemid
 	ITEMID_WOB_RACHEL					= 14584,
 	ITEMID_WOB_LOCAL					= 14585,
 	ITEMID_SIEGE_TELEPORT_SCROLL		= 14591,
+	ITEMID_INVENTORY_EX_EVT				= 25791,
+	ITEMID_INVENTORY_EX_DIS				= 25792,
+	ITEMID_INVENTORY_EX					= 25793,
 	ITEMID_WL_MB_SG						= 100065,
 	ITEMID_HOMUNCULUS_SUPPLEMENT		= 100371,
 };
@@ -871,7 +874,7 @@ enum e_delay_consume : uint8 {
 struct s_item_combo {
 	std::vector<t_itemid> nameid;
 	script_code *script;
-	uint32 id;
+	uint16 id;
 
 	~s_item_combo() {
 		if (this->script) {
@@ -882,6 +885,27 @@ struct s_item_combo {
 		this->nameid.clear();
 	}
 };
+
+class ComboDatabase : public TypesafeYamlDatabase<uint16, s_item_combo> {
+private:
+	uint16 combo_num;
+	uint16 find_combo_id( const std::vector<t_itemid>& items );
+
+public:
+	ComboDatabase() : TypesafeYamlDatabase("COMBO_DB", 1) {
+
+	}
+
+	void clear() {
+		TypesafeYamlDatabase::clear();
+		this->combo_num = 0;
+	}
+	const std::string getDefaultLocation();
+	uint64 parseBodyNode(const YAML::Node& node);
+	void loadingFinished();
+};
+
+extern ComboDatabase itemdb_combo;
 
 /// Struct of item group entry
 struct s_item_group_entry
@@ -1185,8 +1209,6 @@ char itemdb_isidentified(t_itemid nameid);
 bool itemdb_isstackable2(struct item_data *id);
 #define itemdb_isstackable(nameid) itemdb_isstackable2(itemdb_search(nameid))
 bool itemdb_isNoEquip(struct item_data *id, uint16 m);
-
-s_item_combo *itemdb_combo_exists(uint32 combo_id);
 
 bool itemdb_parse_roulette_db(void);
 

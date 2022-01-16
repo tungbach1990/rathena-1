@@ -1156,6 +1156,7 @@ enum in_ui_type : int8 {
 };
 
 enum out_ui_type : int8 {
+	OUT_UI_STYLIST = 1,
 	OUT_UI_ATTENDANCE = 7
 };
 
@@ -1181,5 +1182,6 @@ void clif_parse_skill_toid( struct map_session_data* sd, uint16 skill_id, uint16
 
 bool clif_synthesisui_open(struct map_session_data *sd, t_itemid itemid);
 bool clif_lapine_upgrade_open(struct map_session_data *sd, t_itemid itemid);
+void clif_inventory_expansion_info( struct map_session_data* sd );
 
 #endif /* CLIF_HPP */

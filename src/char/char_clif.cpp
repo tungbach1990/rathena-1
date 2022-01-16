@@ -383,7 +383,7 @@ void chclif_mmo_send099d(int fd, struct char_session_data *sd) {
 	// The client triggers some finalization code only if count is != 3.
 	if( count == 3 ){
 		WFIFOHEAD(fd,4);
-		WFIFOW(fd,0) = 0x99d;
+		WFIFOW(fd,0) = HEADER_HC_ACK_CHARINFO_PER_PAGE;
 		WFIFOW(fd,2) = 4;
 		WFIFOSET(fd,4);
 	}
